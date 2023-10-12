@@ -1,5 +1,3 @@
-# MARKDOWN RELACIONADO A DESENVOLVIMENTO
-
 # Frontend 🖥️
 - Projeto Quasar ( framework baseado em Vue3 )
 ## Dependências
