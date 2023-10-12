@@ -8,5 +8,5 @@
 # Como Rodar
 - 'npm install'
 - 'quasar dev' ou 'npm run dev'
-
+-  acessar 'http://localhost:9000/' ( padrão ) 
 # Backend
