@@ -1,13 +1,13 @@
 <template>
   <q-layout view="hHh lpR lfr">
 
-    <q-header bordered class="bg-primary text-white">
+    <q-header bordered class="bg-blue text-white">
       <q-toolbar>
         <q-toolbar-title>
-          <q-avatar>
-            <img src="https://cdn.quasar.dev/logo-v2/svg/logo-mono-white.svg">
+          <q-avatar class="q-mr-sm">
+            <img src="https://pbs.twimg.com/profile_images/1696145651006930945/r5LfokUU_400x400.jpg">
           </q-avatar>
-          Title
+          UnB na Mão
         </q-toolbar-title>
 
         <q-btn dense flat round icon="menu" @click="toggleRightDrawer" />

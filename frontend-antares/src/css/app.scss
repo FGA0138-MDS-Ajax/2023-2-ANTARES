@@ -1,9 +1,27 @@
-// app global css in SCSS form
+// fontes
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@200;300;400;500&family=Open+Sans:wght@300;400&display=swap');
+
 * {
     margin: 0px 0px 0px 0px;
     padding: 0px 0px 0px 0px;
+    font-family: 'Montserrat', sans-serif;
+}
+
+.q-input {
+    font-family: 'Open Sans', sans-serif;
 }
 
 .low-opacity {
     opacity: 0.6;
+}
+
+.bg-green{
+    background-color: #008636b7!important;
+}
+
+.bg-blue {
+    background: #0575E6;  /* fallback for old browsers */
+    background: -webkit-linear-gradient(to left, #021B79, #0575E6);  /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to left, #021B79, #1968b7)!important; /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
 }

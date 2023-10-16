@@ -1,7 +1,8 @@
 <template>
     <div id="login" class="column items-center justify-center">
+        <div class="background-image"></div>
         <q-card class="my-card">
-            <q-card-section class="bg-blue-10  text-white">
+            <q-card-section class="bg-blue  text-white">
                 <div class="text-h4 text-center">UnB na Mão</div>
                 <div class="text-h6 text-center low-opacity">Fazer login</div>
                 <div>
@@ -17,10 +18,10 @@
                     </q-input>
                 </div>
             </q-card-section>
-            <q-card-actions class="bg-green-8 row justify-around">
+            <q-card-actions class="bg-green row justify-around">
                 <q-btn flat class="text-white" @click="logar">Entrar</q-btn>
             </q-card-actions>
-            <q-card-actions class="bg-blue-10 row justify-around">
+            <q-card-actions class="bg-blue row justify-around">
                 <q-btn id="registrar" flat class="text-white">Registrar-se</q-btn>
             </q-card-actions>
         </q-card>
@@ -46,10 +47,33 @@ function logar () {
 #login {
     width: 100vw;
     height: 100vh;
-    /* imagem por: Heloísa Oss Boll - @hossboll ( unsplash ) */
+    /* Remova o background-image do #login */
+    position: relative; /* Adicione position: relative; */
+}
+
+.background-image {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
     background-image: url("assets/imgs/login-bg.jpg");
     background-size: cover;
+    animation: zoom 60s linear infinite;
 }
+
+@keyframes zoom {
+    0% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.2);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+
 .q-btn {
     width: 100%;
     height: 100%;
@@ -82,10 +106,15 @@ q-btn:hover, #button:hover {
     width: 25rem;
 }
 
-
 @media (max-width: 425px) {
     .q-card {
         width: 90vw;
+    }
+}
+
+@media (max-width:800px) {
+    .background-image{
+        animation: none!important;
     }
 }
 
