@@ -44,6 +44,10 @@ function logar () {
 
 </script>
 <style scoped>
+* {
+    overflow: hidden!important;
+}
+
 #login {
     width: 100vw;
     height: 100vh;
