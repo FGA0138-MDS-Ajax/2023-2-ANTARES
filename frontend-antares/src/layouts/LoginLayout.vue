@@ -16,13 +16,24 @@
                             />
                         </template>
                     </q-input>
+                    <div v-if="registrando">
+                      <q-input v-model="confirmarSenha" dense class="bg-white q-mt-md" label="Confirmar Senha" :type="isConfirmePwd ? 'password' : 'text'">
+                        <template v-slot:append>
+                              <q-icon
+                                  :name="isPwd ? 'visibility_off' : 'visibility'"
+                                  class="cursor-pointer q-pr-sm"
+                                  @click="isConfirmePwd = !isConfirmePwd"
+                              />
+                          </template>
+                        </q-input>
+                    </div>
                 </div>
             </q-card-section>
             <q-card-actions class="bg-green row justify-around">
                 <q-btn flat class="text-white" @click="logar">Entrar</q-btn>
             </q-card-actions>
             <q-card-actions class="bg-blue row justify-around">
-                <q-btn id="registrar" flat class="text-white">Registrar-se</q-btn>
+                <q-btn id="registrar" @click="telaRegistrar" flat class="text-white">Registrar-se</q-btn>
             </q-card-actions>
         </q-card>
         <button id="button" flat class="q-mt-sm bg-yellow-10 text-white q-pa-sm">Esqueci minha Senha</button>
@@ -33,13 +44,19 @@ import { ref } from 'vue';
 import { useRouter } from 'vue-router';
 
 const router = useRouter()
-
+const confirmarSenha = ref(null)
+const registrando = ref(false)
 const isPwd = ref(true)
+const isConfirmePwd = ref(true)
 const usuario = ref(null)
 const senha = ref(null)
 
 function logar () {
     router.push('/home')
+}
+
+function telaRegistrar () {
+    registrando.value=true
 }
 
 </script>
