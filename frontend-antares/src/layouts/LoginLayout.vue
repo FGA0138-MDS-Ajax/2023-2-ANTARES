@@ -6,25 +6,9 @@
         <div class="text-h4 text-center">UnB na Mão</div>
         <div class="text-h6 text-center low-opacity">Fazer login</div>
         <div>
-          <q-input v-if="registrando"
-              v-model="email"
-              dense
-              class="bg-white q-mt-md"
-              label="E-mail"
-            />
-          <q-input
-            v-model="usuario"
-            dense
-            class="bg-white q-my-md"
-            label="Usuário"
-          />
-          <q-input
-            v-model="senha"
-            dense
-            class="bg-white"
-            label="Senha"
-            :type="isPwd ? 'password' : 'text'"
-          >
+          <q-input v-if="registrando" v-model="email" dense class="bg-white q-mt-md" label="E-mail"/>
+          <q-input v-model="usuario" dense class="bg-white q-my-md" label="Usuário"/>
+          <q-input v-model="senha" dense class="bg-white" label="Senha" :type="isPwd ? 'password' : 'text'">
             <template v-slot:append>
               <q-icon
                 :name="isPwd ? 'visibility_off' : 'visibility'"
@@ -34,13 +18,7 @@
             </template>
           </q-input>
           <div v-if="registrando">
-            <q-input
-              v-model="confirmarSenha"
-              dense
-              class="bg-white q-mt-md"
-              label="Confirmar Senha"
-              :type="isConfirmePwd ? 'password' : 'text'"
-            >
+            <q-input v-model="confirmarSenha" dense class="bg-white q-mt-md" label="Confirmar Senha" :type="isConfirmePwd ? 'password' : 'text'">
               <template v-slot:append>
                 <q-icon
                   :name="isPwd ? 'visibility_off' : 'visibility'"
