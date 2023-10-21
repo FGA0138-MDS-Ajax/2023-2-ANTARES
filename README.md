@@ -8,3 +8,6 @@
 - 'quasar dev' ou 'npm run dev'
 -  acessar 'http://localhost:9000/' ( padrão ) 
 # Backend 🛠️
+- 'npm install'
+- 'npm run dev'
+- Porta:9999 (secundaria: 3000)
