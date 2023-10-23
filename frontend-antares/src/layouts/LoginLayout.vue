@@ -58,6 +58,7 @@
 import { ref } from 'vue';
 import { useRouter } from 'vue-router';
 import LoginService from '../services/LoginService'
+import { useQuasar } from 'quasar';
 const router = useRouter();
 const confirmarSenha = ref(null);
 const registrando = ref(false);
@@ -66,6 +67,8 @@ const isConfirmePwd = ref(true);
 const usuario  = ref(null);
 const senha = ref(null);
 const email = ref(null)
+
+const $q = useQuasar()
 
 const role = ref(null) as any;
 const roleOptions = ref([
@@ -80,11 +83,21 @@ function logar() {
 }
 
 function telaRegistrar() {
+  cleanForm()
   registrando.value = true;
 }
 
 function cancelarRegistro() {
+  cleanForm()
   registrando.value = false;
+}
+
+const cleanForm = () => {
+  usuario.value = null
+  email.value = null
+  senha.value = null
+  confirmarSenha.value = null
+  role.value = null
 }
 
 const createRegistrarObject = () => {
@@ -104,7 +117,7 @@ const createRegistrarObject = () => {
 }
 
 function validarRegistro(registroObject: any) {
-  // Colocar Validações do Obejto Registrar Aqui
+  // Colocar Validações do Objeto Registrar Aqui
   console.log('validando : ' + JSON.stringify(registroObject))
   if (registroObject.email == null || registroObject.login == null || registroObject.senha == null || registroObject.role == null) {
     alert('Preencha todos os campos')
@@ -123,10 +136,25 @@ async function registrar () {
     const { registrar } = LoginService(requestRegistro)
     const response = await registrar()
     console.log('Response\n' + JSON.stringify(response))
-  } catch (e) {
-    console.log(e)
+    if(response.status == 201) {
+      $q.notify({
+        color: 'green-8',
+        textColor: 'white',
+        icon: 'remove',
+        message: response.data.message,
+        position: 'top',
+      }); 
+      registrando.value = false
+    }
+  } catch (error: any) {
+      $q.notify({
+        color: 'red-8',
+        textColor: 'white',
+        icon: 'remove',
+        message: error.response.data.message,
+        position: 'top',
+      }); 
   }
-  registrando.value = false
 }
 
 </script>
