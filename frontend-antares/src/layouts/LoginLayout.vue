@@ -57,7 +57,7 @@
 <script lang="ts" setup>
 import { ref } from 'vue';
 import { useRouter } from 'vue-router';
-
+import LoginService from '../services/LoginService'
 const router = useRouter();
 const confirmarSenha = ref(null);
 const registrando = ref(false);
@@ -67,8 +67,13 @@ const usuario  = ref(null);
 const senha = ref(null);
 const email = ref(null)
 
-const role = ref(null);
-const roleOptions = ref(['Estudante', 'Atlética', 'Empresa Júnior']);
+const role = ref(null) as any;
+const roleOptions = ref([
+  { id: 2, label: 'Estudante' },
+  { id: 3, label: 'Atlética' },
+  { id: 4, label: 'Empresa Júnior' },
+  { id: 5, label: 'Empresa Contratante' }
+]);
 
 function logar() {
   router.push('/home');
@@ -83,16 +88,15 @@ function cancelarRegistro() {
 }
 
 const createRegistrarObject = () => {
-  let registroValido = false
   const registroObject = {
-    email: email.value,
-    usuario: usuario.value,
+    login: usuario.value,
     senha: senha.value,
-    role: role.value
+    email: email.value,
+    user_image: '',
+    role: role.value.id
   }
 
-  registroValido = validarRegistro(registroObject)
-  if(registroValido) {
+  if(validarRegistro(registroObject)) {
     return registroObject
   } else {
     return false
@@ -101,7 +105,8 @@ const createRegistrarObject = () => {
 
 function validarRegistro(registroObject: any) {
   // Colocar Validações do Obejto Registrar Aqui
-  if (registroObject.email == null || registroObject.usuario == null || registroObject.senha == null || registroObject.role == null) {
+  console.log('validando : ' + JSON.stringify(registroObject))
+  if (registroObject.email == null || registroObject.login == null || registroObject.senha == null || registroObject.role == null) {
     alert('Preencha todos os campos')
     return false
   }
@@ -109,12 +114,18 @@ function validarRegistro(registroObject: any) {
   return true
 }
 
-function registrar () {
+async function registrar () {
   const requestRegistro = createRegistrarObject()
   if(requestRegistro == false) {
     return
   }
-  alert('Cadastrou com Sucesso\n' + JSON.stringify(requestRegistro))
+  try {
+    const { registrar } = LoginService(requestRegistro)
+    const response = await registrar()
+    console.log('Response\n' + JSON.stringify(response))
+  } catch (e) {
+    console.log(e)
+  }
   registrando.value = false
 }
 
