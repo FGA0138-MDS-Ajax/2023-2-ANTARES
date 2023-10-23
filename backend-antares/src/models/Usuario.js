@@ -29,7 +29,7 @@ const usuarioSchema = new Schema({
     { timestamps: true }
 
 )
-
+usuarioSchema.index({ login: 1, email: 1 }, { unique: true });
 const Usuario = mongoose.model('Usuario', usuarioSchema)
 
 

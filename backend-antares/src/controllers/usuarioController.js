@@ -17,7 +17,8 @@ const usuarioController = {
             res.status(201).json({ response, message: 'Usuário Registrado com Sucesso' })
             
         } catch(error) {
-            console.log('Erro controller usuario' + error)
+            res.status(500).json({ message: 'Login ou Email Já Cadastrado no Sistema' })
+            console.log('Erro controller usuario\n' + error)
         }
     }
 }
