@@ -124,8 +124,7 @@ const createRegistrarObject = () => {
     });
     return false
   }
-  if(telefone.value.length != 11) {
-    alert(typeof telefone.value)
+  if( telefone.value == null || telefone.value.length != 11 || telefone.value.trim() == '') {
     $q.notify({
       color: 'yellow-9',
       textColor: 'white',
