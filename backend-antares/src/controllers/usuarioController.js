@@ -6,6 +6,7 @@ const usuarioController = {
             const usuario = {
                 login: req.body.login,
                 senha: req.body.senha,
+                telefone: req.body.telefone,
                 email: req.body.email,
                 user_image: req.body.user_image,
                 role: req.body.role
@@ -17,7 +18,7 @@ const usuarioController = {
             res.status(201).json({ response, message: 'Usuário Registrado com Sucesso' })
             
         } catch(error) {
-            res.status(500).json({ message: 'Login ou Email Já Cadastrado no Sistema' })
+            res.status(500).json({ message: 'Login, Email ou Telefone Já Cadastrado no Sistema' })
             console.log('Erro controller usuario\n' + error)
         }
     }

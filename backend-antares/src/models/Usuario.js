@@ -12,6 +12,11 @@ const usuarioSchema = new Schema({
         type: String,
         required: true
     },
+    telefone:{
+        type: String,
+        required: true,
+        unique: true
+    },
     email:{
         type: String,
         required: true,
@@ -29,7 +34,7 @@ const usuarioSchema = new Schema({
     { timestamps: true }
 
 )
-usuarioSchema.index({ login: 1, email: 1 }, { unique: true });
+usuarioSchema.index({ login: 1, email: 1, telefone: 1 }, { unique: true });
 const Usuario = mongoose.model('Usuario', usuarioSchema)
 
 
