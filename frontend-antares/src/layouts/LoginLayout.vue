@@ -14,7 +14,7 @@
             dense
             v-if="registrando"
             v-model="telefone"
-            label="Telefone"
+            label="Telefone *"
             maxlength="17"
             mask="(##) ##### - ####"
             unmasked-value
