@@ -28,7 +28,7 @@ const usuarioController = {
   getUsuario: async (req, res) => {
     try {
       console.log(req.body);
-      const response = await UsuarioModel.find({login:req.body.login})
+      const response = await UsuarioModel.find({ login: req.body.login });
       res.status(201).json({
         message: "Login Efetuado com Sucesso!",
         response,
@@ -38,6 +38,35 @@ const usuarioController = {
         .status(500)
         .json({ message: "Credenciais Não Encontradas no Sistema!" });
       console.log(error);
+    }
+  },
+  resetPassword: async (req, res) => {
+    try {
+      const { email, senha } = req.body;
+
+      // Procura o usuário pelo email no banco de dados
+      const usuario = await UsuarioModel.findOne({ email });
+      console.log()
+      console.log(usuario);
+      console.log("senha antiga: " + usuario.senha);
+      console.log("senha nova: " + senha);
+      // Se o usuário for encontrado
+      if (usuario) {
+        // Atualiza a senha do usuário
+        usuario.senha = senha;
+        await usuario.save();
+
+        res.status(200).json({ message: "Senha redefinida com sucesso!" });
+      }
+       else {
+        // Se o usuário não for encontrado
+        res
+          .status(404)
+          .json({ message: "Usuário não encontrado com o email fornecido." });
+      }
+    } catch (error) {
+      res.status(500).json({ message: "Erro ao redefinir a senha." });
+      console.error("Erro ao redefinir a senha:", error);
     }
   },
 };
