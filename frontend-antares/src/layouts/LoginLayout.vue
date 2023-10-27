@@ -171,6 +171,25 @@ function validarRegistro(registroObject: any) {
       position: 'top',
     });
     return false
+  } else if (/\s/.test(registroObject.senha)) {
+    $q.notify({
+      color: 'yellow-9',
+      textColor: 'white',
+      icon: 'warning',
+      message: 'A Senha não deve conter espaços em branco',
+      position: 'top',
+    });
+    return false;
+  }
+   else if (registroObject.senha.trim() == '') {
+    $q.notify({
+      color: 'yellow-9',
+      textColor: 'white',
+      icon: 'warning',
+      message: 'Senha no Formato Inválido',
+      position: 'top',
+    });
+    return false;
   } else if (!isValidEmail(registroObject.email)) {
     $q.notify({
       color: 'yellow-9',
