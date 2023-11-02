@@ -6,6 +6,7 @@
         <div class="text-h4 text-center">UnB na Mão</div>
         <div class="text-h6 text-center low-opacity">{{ registrando ? 'Registre-se' : 'Fazer login' }}</div>
         <div>
+          <q-input maxlength="50" filled v-if="registrando" v-model="nome" dense class="bg-white q-mt-md" label="Nome Completo *"/>
           <q-input maxlength="40" filled v-if="registrando" v-model="email" dense class="bg-white q-mt-md" label="E-mail *"/>
           <q-input maxlength="20" filled v-model="usuario" dense class="bg-white q-my-md" label="Usuário *"/>
           <q-input
@@ -70,7 +71,6 @@ import { ref } from 'vue';
 import { useRouter } from 'vue-router';
 import LoginService from '../services/LoginService'
 import { useQuasar } from 'quasar';
-const router = useRouter();
 const confirmarSenha = ref(null);
 const registrando = ref(false);
 const isPwd = ref(true);
@@ -78,6 +78,7 @@ const isConfirmePwd = ref(true);
 const usuario  = ref(null);
 const telefone = ref(null) as any
 const senha = ref(null);
+const nome = ref(null)
 const email = ref(null)
 
 const $q = useQuasar()
@@ -90,8 +91,35 @@ const roleOptions = ref([
   { id: 5, label: 'Empresa Contratante' }
 ]);
 
-function logar() {
-  router.push('/home');
+async function logar() {
+  try {
+    const params = {
+      login: usuario.value,
+      senha: senha.value
+    }
+    const response = await LoginService(params).login()
+    if(response.status == 201) {
+      window.location.reload()
+    } else {
+      $q.notify({
+      color: 'red-10',
+      textColor: 'white',
+      icon: 'warning',
+      message: response.data.message,
+      position: 'top',
+    });
+    senha.value = null
+    }
+  } catch (e) {
+    $q.notify({
+      color: 'red-9',
+      textColor: 'white',
+      icon: 'warning',
+      message: 'Erro de Conexão',
+      position: 'top',
+    });
+    console.log(e)
+  }
 }
 
 function telaRegistrar() {
@@ -135,6 +163,7 @@ const createRegistrarObject = () => {
     return false
   }
   const registroObject = {
+    nome: nome.value,
     login: usuario.value,
     senha: senha.value,
     email: email.value,
@@ -153,7 +182,7 @@ const createRegistrarObject = () => {
 function validarRegistro(registroObject: any) {
   // Colocar Validações do Objeto Registrar Aqui
   console.log('validando : ' + JSON.stringify(registroObject))
-  if (registroObject.email == null || registroObject.login == null || registroObject.telefone == null || registroObject.senha == null) {
+  if (registroObject.email == null || registroObject.login == null || registroObject.telefone == null || registroObject.senha == null || registroObject.nome == null || registroObject.nome.trim() == '') {
     $q.notify({
       color: 'yellow-9',
       textColor: 'white',
