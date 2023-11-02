@@ -4,6 +4,7 @@ const usuarioController = {
   create: async (req, res) => {
     try {
       const usuario = {
+        nome: req.body.nome,
         login: req.body.login,
         senha: req.body.senha,
         telefone: req.body.telefone,
@@ -25,18 +26,24 @@ const usuarioController = {
       console.log("Erro controller usuario\n" + error);
     }
   },
-  getUsuario: async (req, res) => {
+  validaUsuario: async (req, res) => {
     try {
       console.log(req.body);
-      const response = await UsuarioModel.find({ login: req.body.login });
-      res.status(201).json({
-        message: "Login Efetuado com Sucesso!",
-        response,
-      });
+      const response = await UsuarioModel.find({ login: req.body.login, senha: req.body.senha });
+      if(response[0] != null) {
+        res.status(201).json({
+          message: "Login Efetuado com Sucesso!",
+          response: response[0]
+        })
+      } else {
+        res.status(200).json({
+          message: "Credenciais Não Encontradas no Sistema",
+        })
+      }
     } catch (error) {
       res
         .status(500)
-        .json({ message: "Credenciais Não Encontradas no Sistema!" });
+        .json({ message: "Erro na requisição com o banco." });
       console.log(error);
     }
   },

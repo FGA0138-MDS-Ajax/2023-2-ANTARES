@@ -3,6 +3,10 @@ const mongoose = require('mongoose')
 const { Schema } = mongoose
 
 const usuarioSchema = new Schema({
+    nome: {
+        type: String,
+        required: true,
+    },
     login: {
         type: String,
         required: true,
