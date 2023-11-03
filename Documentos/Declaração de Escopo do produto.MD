@@ -289,7 +289,7 @@ Já os critérios de **Done (Concluído)** devem incluir:
 
 # 5 - Diagrama de Casos de Uso
 
-![Figura 1: Diagrama de caso de uso](Documentos/figuras/Declaracao%20de%20Escopo%20-%20Figura01%20-%20Diagrama%20Casos%20de%20Uso.png)
+![Figura 1: Diagrama de caso de uso](https://github.com/FGA0138-MDS-Ajax/2023-2-ANTARES/blob/e5b55a71d10e45eca890e1b7733a778499094414/Documentos/figuras/Declaracao%20de%20Escopo%20-%20Figura01%20-%20Diagrama%20Casos%20de%20Uso.png)
 
 <sub><em>Figura 1:  Diagrama de caso de uso</em></sub>
 
@@ -297,7 +297,7 @@ No diagrama de casos de uso é possível visualizar que existem três tipos de p
 
 O administrador tem acesso a todos as funções do sistema, mas só ele pode gerenciar perfis de acesso, criar novos usuários e gerenciar registros dos publicadores. O aluno pode avaliar turmas anteriores, ter o controle de suas faltas, atualizar o cardápio semanal e também visualizar as publicações. Os publicadores são responsáveis por divulgar informações acadêmicas.
 
-# 6 - MVP
+# 6 - Minimum Viable Product (MVP)
 | USUÁRIOS | PROPOSTA DO MVP | RESULTADO ESPERADO |
 |----------|------------------|---------------------|
 |  Discentes da FGA, Atléticas, EJs | Acesso a informações acadêmicas; Cardápio do RU;  Gerenciamento acadêmico por meio de controle de faltas para cada matéria e avaliações de disciplinas; | Informações acadêmicas centralizadas; Que discentes consigam se organizar; Facilitar comunicação entre EJs/Atléticas entre alunos por meio de publicações informativas; |
