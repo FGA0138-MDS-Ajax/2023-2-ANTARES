@@ -31,9 +31,11 @@
 
 1. [História de Usuário](#tabela4)
 2. [Backlog Funcional - Temas](#tabela2.3.1)
-3. [Backlog Funcional - Épicos](#tabela2.3.1)
-4. [Backlog Funcional - User Storys](#tabela2.3.1)
+3. [Backlog Funcional - Épicos](#tabela2.3.2)
+4. [Backlog Funcional - User Storys](#tabela2.3.3)
 5. [Sprints previstas](#tabela3)
+6. [User Histories](#tabela4)
+7. [Minimum Viable Product (MVP)] (tabela5)
 
 #### Figuras:
 1. [Diagrama de Casos de Uso](#figura1)
@@ -115,7 +117,7 @@ O Backlog do Produto é uma lista priorizada de funcionalidades, melhorias e cor
 |   2   | Alunos         | Estudantes da UnB que desejam usar o sistema para gerenciar suas atividades acadêmicas. | - Acesso ao Sistema. - Acesso às informações acadêmicas. - Acesso ao gerenciamento acadêmico. |
 |   3   | Publicador     | Administradores de atléticas e EJs (Empresas Juniores) que desejam publicar no sistema. | - Acesso ao sistema. - Acesso às informações acadêmicas. - Poder fazer Publicações. |
 
-<sub><em>Tabela 1: Perfis de acesso</em></sub>
+<sub><em>Tabela 1: Perfis de acesso</em></sub>{#tabela1}
 
 
 ## 2.2 - Cenários
@@ -152,7 +154,7 @@ O Backlog do Produto é uma lista priorizada de funcionalidades, melhorias e cor
 | 21                    | Verificação do Último Dia para Trancar uma Matéria      | Sprint 6     |
 | 22                    | Adição de Eventos Pessoais ao Calendário por Aluno      | Sprint 6     |
 
-<sub><em>Tabela 2: Cenários funcionais</em></sub>
+<sub><em>Tabela 2: Cenários funcionais</em></sub>{#tabela2}
 
 ## 2.3 - Backlog do Produto
 ### Backlog Funcional
@@ -163,7 +165,7 @@ O Backlog do Produto é uma lista priorizada de funcionalidades, melhorias e cor
 | T02     | Acesso a Informações Acadêmicas |
 | T03     | Gerenciamento Acadêmico      |
 
-<sub><em>Tabela 2.3.1:  Backlog Funcional - Temas</em></sub>
+<sub><em>Tabela 2.3.1:  Backlog Funcional - Temas</em></sub>{#tabela2.3.1}
 
 ### *Épicos*
 | Tema ID | Épico ID | Descrição                            |
@@ -177,7 +179,7 @@ O Backlog do Produto é uma lista priorizada de funcionalidades, melhorias e cor
 | T03     | E07      | Tela de Controle de Faltas           |
 | T03     | E08      | Tela de Calendário Acadêmico Pessoal |
 
-<sub><em>Tabela 2.3.1:  Backlog Funcional - Épicos</em></sub>
+<sub><em>Tabela 2.3.2:  Backlog Funcional - Épicos</em></sub>{#tabela2.3.2}
 
 ### *User Storys*
 | Tema ID | Épico ID | US-ID | Descrição                                              |
@@ -207,7 +209,7 @@ O Backlog do Produto é uma lista priorizada de funcionalidades, melhorias e cor
 | T03     | E08      | US-23 | Eu como usuário quero ser capaz de visualizar no calendário a data limite para trancamento de matéria. |
 | T03     | E08      | US-24 | Eu como usuário quero ser capaz de adicionar eventos pessoais ao calendário. |
 
-<sub><em>Tabela 2.3.1:  Backlog Funcional - User Storys</em></sub>
+<sub><em>Tabela 2.3.3:  Backlog Funcional - User Storys</em></sub>{#tabela2.3.3}
 
 ## 2.4 - Sprints previstas
 <div align="center">
@@ -227,7 +229,7 @@ O Backlog do Produto é uma lista priorizada de funcionalidades, melhorias e cor
 | Sprint 5 | Tema 3 – Gerenciamento acadêmico                      | Início do Tema 3: Desenvolver a tela de avaliação de disciplinas e suas funcionalidades | US-16 US-17 US-18 US-19                              |
 | Sprint 6 | Tema 3 – Gerenciamento acadêmico                      | Desenvolver a tela de calendário acadêmico e suas funcionalidades Finalizar o Tema 3. | US-20 US-21 US-22 US-23 US-24 |
 | Sprint 7 | Inspeção e finalização do projeto                      | Auditar funcionalidades e preparar apresentação final.                                |                                                               |
-<sub><em>Tabela 3:  Sprints previstas</em></sub>
+<sub><em>Tabela 3:  Sprints previstas</em></sub>{#tabela3}
 
 <div align="center">
   Fonte: (Grupo Antares, 2023)
@@ -291,13 +293,13 @@ Já os critérios de **Done (Concluído)** devem incluir:
 | US-23 | Como usuário quero ser capaz de ver o último dia para trancar uma matéria. | Sprint 6 | Usuários | Pesquisa de mercado, levantamento de requisitos. | Ter o calendário acadêmico e apresentar o último dia para trancar uma matéria. |
 | US-24 | Como usuário quero ser capaz de adicionar eventos pessoais ao calendário. | Sprint 6 | Usuários | Pesquisa de mercado, levantamento de requisitos. | Ter o calendário acadêmico. Poder adicionar eventos pessoais nele. |
 
-<sub><em>Tabela 4:  User Histories</em></sub>
+<sub><em>Tabela 4:  User Histories</em></sub>{#tabela4}
 
 # 5 - Diagrama de Casos de Uso
 
 ![Figura 1: Diagrama de caso de uso](https://github.com/FGA0138-MDS-Ajax/2023-2-ANTARES/blob/e5b55a71d10e45eca890e1b7733a778499094414/Documentos/figuras/Declaracao%20de%20Escopo%20-%20Figura01%20-%20Diagrama%20Casos%20de%20Uso.png)
 
-<sub><em>Figura 1:  Diagrama de caso de uso</em></sub>
+<sub><em>Figura 1:  Diagrama de caso de uso</em></sub>{#figura1}
 
 No diagrama de casos de uso é possível visualizar que existem três tipos de perfil de acesso, que são, administradores, alunos e publicadores (EJs/atléticas). Suas funções dentro do sistema possuem variações.  
 
@@ -310,6 +312,6 @@ O administrador tem acesso a todos as funções do sistema, mas só ele pode ger
 | FUNCIONALIDADES | JORNADAS | MÉTRICAS PARA VALIDAÇÃO |
 | Feedback de turmas anteriores Divulgação de informações acadêmicas; Acesso ao cardápio da semana; Controle acadêmico; | Acessar o site; Buscar a funcionalidade desejada no menu; | Feedback dos discentes; Nível de adesão do software; |
 
-<sub><em>Tabela 5:  Minimum Viable Product (MVP)</em></sub>
+<sub><em>Tabela 5:  Minimum Viable Product (MVP)</em></sub> {#tabela5}
 
 # 7 - Referências
