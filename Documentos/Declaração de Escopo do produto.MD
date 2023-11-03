@@ -35,7 +35,7 @@
 4. [Backlog Funcional - User Storys](#tabela2.3.3)
 5. [Sprints previstas](#tabela3)
 6. [User Histories](#tabela4)
-7. [Minimum Viable Product (MVP)] (#tabela5)
+7. [Minimum Viable Product (MVP)](#tabela5)
 
 #### Figuras:
 1. [Diagrama de Casos de Uso](#figura1)
