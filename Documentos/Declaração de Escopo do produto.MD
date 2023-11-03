@@ -285,6 +285,7 @@ Já os critérios de **Done (Concluído)** devem incluir:
 | US-22 | Como usuário quero ser capaz de ver o último dia de retirar uma matéria. | Sprint 6 | Usuários | Pesquisa de mercado, levantamento de requisitos. | Ter o calendário acadêmico e apresentar o último dia de retirada de matéria. |
 | US-23 | Como usuário quero ser capaz de ver o último dia para trancar uma matéria. | Sprint 6 | Usuários | Pesquisa de mercado, levantamento de requisitos. | Ter o calendário acadêmico e apresentar o último dia para trancar uma matéria. |
 | US-24 | Como usuário quero ser capaz de adicionar eventos pessoais ao calendário. | Sprint 6 | Usuários | Pesquisa de mercado, levantamento de requisitos. | Ter o calendário acadêmico. Poder adicionar eventos pessoais nele. |
+
 <sub><em>Tabela 4:  User Histories</em></sub>
 
 # 5 - Diagrama de Casos de Uso
