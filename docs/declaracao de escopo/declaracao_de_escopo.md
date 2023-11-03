@@ -24,7 +24,7 @@
 3. [Definição de Ready/Done](#3---definição-de-readydone)
 4. [User Histories](#4---user-histories)
 5. [Diagrama de Casos de Uso](#5---diagrama-de-casos-de-uso)
-6. [MVP](#6---Minimum-Viable-Product)
+6. [MVP](#6---minimum-viable-product-mvp)
 7. [Referências](#7---referências)
 
 #### Tabelas: 
@@ -36,7 +36,7 @@
 5. [Tabela 2.3.3 Backlog Funcional - User Storys](#user-storys)
 6. [Tabela 3:  Sprints previstas](#24---sprints-previstas)
 7. [Tabela 4:  User Histories](#4---user-histories)
-8. [Tabela 5:  Minimum Viable Product (MVP)](#6---Minimum-Viable-Product)
+8. [Tabela 5:  Minimum Viable Product (MVP)](#6---minimum-viable-product-mvp)
 
 #### Figuras:
 1. [Diagrama de Casos de Uso](#5---diagrama-de-casos-de-uso)
