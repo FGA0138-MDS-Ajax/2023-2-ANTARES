@@ -24,21 +24,22 @@
 3. [Definição de Ready/Done](#3---definição-de-readydone)
 4. [User Histories](#4---user-histories)
 5. [Diagrama de Casos de Uso](#5---diagrama-de-casos-de-uso)
-6. [MVP](#6---mvp)
+6. [MVP](#6---Minimum-Viable-Product)
 7. [Referências](#7---referências)
 
 #### Tabelas: 
 
-1. [História de Usuário](#tabela4)
-2. [Backlog Funcional - Temas](#tabela2.3.1)
-3. [Backlog Funcional - Épicos](#tabela2.3.2)
-4. [Backlog Funcional - User Storys](#tabela2.3.3)
-5. [Sprints previstas](#tabela3)
-6. [User Histories](#tabela4)
-7. [Minimum Viable Product (MVP)](#tabela5)
+1. [Tabela 1: Perfis de acesso](#21---perfis)
+2. [Tabela 2: Cenários](#22---cenários)
+3. [Tabela 2.3.1:  Backlog Funcional - Temas](#23---backlog-funcional)
+4. [Tabela 2.3.2:  Backlog Funcional - Épicos](#24---sprints-previstas)
+5. [Tabela 2.3.3 Backlog Funcional - User Storys](#user-storys)
+6. [Tabela 3:  Sprints previstas](#24---sprints-previstas)
+7. [Tabela 4:  User Histories](#4---user-histories)
+8. [Tabela 5:  Minimum Viable Product (MVP)](#6---Minimum-Viable-Product)
 
 #### Figuras:
-1. [Diagrama de Casos de Uso](#figura1)
+1. [Diagrama de Casos de Uso](#5---diagrama-de-casos-de-uso)
 
 
 
