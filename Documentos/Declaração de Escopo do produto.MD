@@ -114,6 +114,7 @@ O Backlog do Produto é uma lista priorizada de funcionalidades, melhorias e cor
 |   1   | Administrador  | Um perfil com acesso a todas as funcionalidades do sistema, consegue gerenciar perfis de usuários e publicadores. | - Acesso ao sistema. - Gerenciar perfis de usuários e publicadores. - Gerenciar publicações. - Acesso às funcionalidades de gerenciamento acadêmico. |
 |   2   | Alunos         | Estudantes da UnB que desejam usar o sistema para gerenciar suas atividades acadêmicas. | - Acesso ao Sistema. - Acesso às informações acadêmicas. - Acesso ao gerenciamento acadêmico. |
 |   3   | Publicador     | Administradores de atléticas e EJs (Empresas Juniores) que desejam publicar no sistema. | - Acesso ao sistema. - Acesso às informações acadêmicas. - Poder fazer Publicações. |
+
 <sub><em>Tabela 1: Perfis de acesso</em></sub>
 
 
@@ -150,6 +151,7 @@ O Backlog do Produto é uma lista priorizada de funcionalidades, melhorias e cor
 | 20                    | Verificação do Último Dia de Retirar uma Matéria        | Sprint 6     |
 | 21                    | Verificação do Último Dia para Trancar uma Matéria      | Sprint 6     |
 | 22                    | Adição de Eventos Pessoais ao Calendário por Aluno      | Sprint 6     |
+
 <sub><em>Tabela 2: Cenários funcionais</em></sub>
 
 ## 2.3 - Backlog do Produto
@@ -160,6 +162,7 @@ O Backlog do Produto é uma lista priorizada de funcionalidades, melhorias e cor
 | T01     | Acesso ao Sistema            |
 | T02     | Acesso a Informações Acadêmicas |
 | T03     | Gerenciamento Acadêmico      |
+
 <sub><em>Tabela 2.3.1:  Backlog Funcional - Temas</em></sub>
 
 ### *Épicos*
@@ -173,6 +176,7 @@ O Backlog do Produto é uma lista priorizada de funcionalidades, melhorias e cor
 | T02     | E06      | Tela do Cardápio do Restaurante Universitário |
 | T03     | E07      | Tela de Controle de Faltas           |
 | T03     | E08      | Tela de Calendário Acadêmico Pessoal |
+
 <sub><em>Tabela 2.3.1:  Backlog Funcional - Épicos</em></sub>
 
 ### *User Storys*
@@ -202,6 +206,7 @@ O Backlog do Produto é uma lista priorizada de funcionalidades, melhorias e cor
 | T03     | E08      | US-22 | Eu como usuário quero ser capaz de visualizar no calendário a data limite para retirada de matrícula. |
 | T03     | E08      | US-23 | Eu como usuário quero ser capaz de visualizar no calendário a data limite para trancamento de matéria. |
 | T03     | E08      | US-24 | Eu como usuário quero ser capaz de adicionar eventos pessoais ao calendário. |
+
 <sub><em>Tabela 2.3.1:  Backlog Funcional - User Storys</em></sub>
 
 ## 2.4 - Sprints previstas
@@ -304,5 +309,7 @@ O administrador tem acesso a todos as funções do sistema, mas só ele pode ger
 |  Discentes da FGA, Atléticas, EJs | Acesso a informações acadêmicas; Cardápio do RU;  Gerenciamento acadêmico por meio de controle de faltas para cada matéria e avaliações de disciplinas; | Informações acadêmicas centralizadas; Que discentes consigam se organizar; Facilitar comunicação entre EJs/Atléticas entre alunos por meio de publicações informativas; |
 | FUNCIONALIDADES | JORNADAS | MÉTRICAS PARA VALIDAÇÃO |
 | Feedback de turmas anteriores Divulgação de informações acadêmicas; Acesso ao cardápio da semana; Controle acadêmico; | Acessar o site; Buscar a funcionalidade desejada no menu; | Feedback dos discentes; Nível de adesão do software; |
+
+<sub><em>Tabela 5:  Minimum Viable Product (MVP)</em></sub>
 
 # 7 - Referências
