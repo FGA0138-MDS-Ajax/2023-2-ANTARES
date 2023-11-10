@@ -1,0 +1,12 @@
+site_name: My Docs
+theme: 
+  name: material
+
+
+nav: [
+  "home": "index.html",
+  "Gerência": [
+    "documento_de_visao_do_produto_e_projeto.md",
+    "documento_de_escopo.md"
+  ],  
+]
