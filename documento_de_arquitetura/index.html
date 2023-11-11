@@ -1,0 +1,644 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        
+        
+        
+        <link rel="shortcut icon" href="../img/favicon.ico">
+        <title>Documento de Arquitetura - Unb na Mão - Antares</title>
+        <link href="../css/bootstrap.min.css" rel="stylesheet">
+        <link href="../css/font-awesome.min.css" rel="stylesheet">
+        <link href="../css/base.css" rel="stylesheet">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css">
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+        <script>hljs.highlightAll();</script> 
+    </head>
+
+    <body>
+        <div class="navbar fixed-top navbar-expand-lg navbar-dark bg-primary">
+            <div class="container">
+                <a class="navbar-brand" href="..">Unb na Mão - Antares</a>
+                <!-- Expander button -->
+                <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbar-collapse">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <!-- Expanded navigation -->
+                <div id="navbar-collapse" class="navbar-collapse collapse">
+                        <!-- Main navigation -->
+                        <ul class="nav navbar-nav">
+                            <li class="navitem">
+                                <a href="../index.html" class="nav-link">Home</a>
+                            </li>
+                            <li class="dropdown active">
+                                <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Entregas <b class="caret"></b></a>
+                                <ul class="dropdown-menu">
+                                    
+<li>
+    <a href="../documento_de_visao_do_produto_e_projeto/" class="dropdown-item">VISÃO DO PRODUTO E DO PROJETO</a>
+</li>
+                                    
+<li>
+    <a href="../documento_de_escopo/" class="dropdown-item">UnB na Mão - Declaração de Escopo do Produto</a>
+</li>
+                                    
+<li>
+    <a href="./" class="dropdown-item active">Documento de Arquitetura</a>
+</li>
+                                </ul>
+                            </li>
+                        </ul>
+
+                    <ul class="nav navbar-nav ml-auto">
+                        <li class="nav-item">
+                            <a href="#" class="nav-link" data-toggle="modal" data-target="#mkdocs_search_modal">
+                                <i class="fa fa-search"></i> Search
+                            </a>
+                        </li>
+                            <li class="nav-item">
+                                <a rel="prev" href="../documento_de_escopo/" class="nav-link">
+                                    <i class="fa fa-arrow-left"></i> Previous
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a rel="next" class="nav-link disabled">
+                                    Next <i class="fa fa-arrow-right"></i>
+                                </a>
+                            </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="container">
+            <div class="row">
+                    <div class="col-md-3"><div class="navbar-light navbar-expand-md bs-sidebar hidden-print affix" role="complementary">
+    <div class="navbar-header">
+        <button type="button" class="navbar-toggler collapsed" data-toggle="collapse" data-target="#toc-collapse" title="Table of Contents">
+            <span class="fa fa-angle-down"></span>
+        </button>
+    </div>
+
+    
+    <div id="toc-collapse" class="navbar-collapse collapse card bg-secondary">
+        <ul class="nav flex-column">
+            
+            <li class="nav-item" data-level="1"><a href="#documento-de-arquitetura" class="nav-link">Documento de Arquitetura</a>
+              <ul class="nav flex-column">
+            <li class="nav-item" data-level="2"><a href="#historico-de-revisao" class="nav-link">Histórico de Revisão</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-level="2"><a href="#autores" class="nav-link">Autores:</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+              </ul>
+            </li>
+            
+            <li class="nav-item" data-level="1"><a href="#sumario" class="nav-link">Sumário</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            
+            <li class="nav-item" data-level="1"><a href="#1-introducao" class="nav-link">1. Introdução</a>
+              <ul class="nav flex-column">
+            <li class="nav-item" data-level="2"><a href="#2-representacao-arquitetural" class="nav-link">2. Representação Arquitetural</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-level="2"><a href="#3-bibliografia" class="nav-link">3. Bibliografia</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-level="2"><a href="#4figuras" class="nav-link">4.Figuras</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-level="2"><a href="#5-tabelas" class="nav-link">5. Tabelas</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+              </ul>
+            </li>
+        </ul>
+    </div>
+</div></div>
+                    <div class="col-md-9" role="main">
+
+<h1 id="documento-de-arquitetura"><strong>Documento de Arquitetura</strong></h1>
+<p>Versão 1.1</p>
+<h2 id="historico-de-revisao"><strong>Histórico de Revisão</strong></h2>
+<table>
+<thead>
+<tr>
+<th><strong>Data</strong></th>
+<th><strong>Versão</strong></th>
+<th><strong>Descrição</strong></th>
+<th><strong>Autor(es)</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>01/11/2023</td>
+<td>0.1</td>
+<td>Desenvolvimento de tópicos</td>
+<td>Breno Fernandes, Breno Lucena, Kauan Eiras, Leonardo Ferreira, Matheus Diogo, Samuel Victor</td>
+</tr>
+<tr>
+<td>03/11/2023</td>
+<td>1.0</td>
+<td>Revisão para entrega</td>
+<td>Lucas Antunes, Mateus Vieira</td>
+</tr>
+</tbody>
+</table>
+<p>Tabela 5.1: Versões</p>
+<h2 id="autores"><strong>Autores:</strong></h2>
+<table>
+<thead>
+<tr>
+<th><strong>Matrícula</strong></th>
+<th><strong>Nome</strong></th>
+<th><strong>Descrição do papel assumido na equipe</strong></th>
+<th><strong>% de contribuição ao trabalho (*)[^1]</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>202017540</td>
+<td>Breno Fernandes</td>
+<td>Participou no desenvolvimento do documento de visão do produto;<br>Participou no desenvolvimento do documento de declaração de escopo;<br>Participou no desenvolvimento do documento de arquitetura.</td>
+<td>9%</td>
+</tr>
+<tr>
+<td>202017343</td>
+<td>Breno Lucena</td>
+<td>Participou no desenvolvimento do documento de visão do produto;<br>Participou no desenvolvimento do documento de declaração de escopo;<br>Participou no desenvolvimento do documento de arquitetura.</td>
+<td>12.5%</td>
+</tr>
+<tr>
+<td>232014727</td>
+<td>Kauan Eiras</td>
+<td>Participou no desenvolvimento do documento de visão do produto;<br>Participou no desenvolvimento do documento de declaração de escopo;<br>Participou no desenvolvimento do documento de arquitetura.</td>
+<td>12.5%</td>
+</tr>
+<tr>
+<td>200032166</td>
+<td>Leonardo Ferreira</td>
+<td>Participou no desenvolvimento do documento de visão do produto;<br>Participou no desenvolvimento do documento de declaração de escopo;<br>Participou no desenvolvimento do documento de arquitetura.</td>
+<td>12.5%</td>
+</tr>
+<tr>
+<td>190091681</td>
+<td>Lucas Antunes</td>
+<td>Participou no desenvolvimento do documento de visão do produto;<br>Participou no desenvolvimento do documento de declaração de escopo;<br>Participou no desenvolvimento do documento de arquitetura.<br>Participou na revisão do documento de visão do produto;<br>Participou na revisão do documento de declaração de escopo;<br>Participou na revisão do documento de arquitetura.</td>
+<td>13.5%</td>
+</tr>
+<tr>
+<td>202016963</td>
+<td>Mateus Vieira</td>
+<td>Participou no desenvolvimento do documento de visão do produto;<br>Participou no desenvolvimento do documento de declaração de escopo;<br>Participou no desenvolvimento do documento de arquitetura.<br>Participou na revisão documento de visão do produto;<br>Participou na revisão do documento de declaração de escopo;<br>Participou na revisão do documento de arquitetura.</td>
+<td>13.5%</td>
+</tr>
+<tr>
+<td>200024949</td>
+<td>Matheus Diogo</td>
+<td>Participou no desenvolvimento do documento de visão do produto;<br>Participou no desenvolvimento do documento de declaração de escopo;<br>Participou no desenvolvimento do documento de arquitetura.</td>
+<td>12.5%</td>
+</tr>
+<tr>
+<td>190059001</td>
+<td>Samuel Victor</td>
+<td>Participou no desenvolvimento do documento de visão do produto;<br>Participou no desenvolvimento do documento de declaração de escopo;<br>Participou no desenvolvimento do documento de arquitetura.</td>
+<td>13.5%</td>
+</tr>
+</tbody>
+</table>
+<p>Tabela 5.2: Autores</p>
+<h1 id="sumario"><strong>Sumário</strong></h1>
+<ul>
+<li><a href="#1-introdução">1 Introdução</a></li>
+<li><a href="#11-propósito">1.1 Propósito</a></li>
+<li>
+<p><a href="#12-escopo">1.2 Escopo</a></p>
+</li>
+<li>
+<p><a href="#2-representação-arquitetural">2 Representação Arquitetural</a></p>
+</li>
+<li><a href="#21-definições">2.1 Definições</a></li>
+<li><a href="#22-justifique-sua-escolha">2.2 Justifique sua escolha</a></li>
+<li><a href="#23-detalhamento">2.3 Detalhamento</a></li>
+<li><a href="#24-metas-e-restrições-arquiteturais">2.4 Metas e restrições arquiteturais</a></li>
+<li><a href="#25-visão-de-casos-de-uso-escopo-do-produto">2.5 Visão de Casos de uso (escopo do produto)</a></li>
+<li><a href="#26-visão-lógica">2.6 Visão lógica</a></li>
+<li><a href="#27-visão-de-implementação">2.7 Visão de Implementação</a></li>
+<li><a href="#28-visão-de-implantação">2.8 Visão de Implantação</a></li>
+<li><a href="#29-restrições-adicionais-e-características-de-qualidade-relevantes-para-o-software">2.9 Restrições adicionais e características de qualidade relevantes para o software</a></li>
+<li>
+<p><a href="#210-diagrama-de-classes">2.10 Diagrama de Classes</a></p>
+</li>
+<li>
+<p><a href="#3-bibliografia">3 Bibliografia</a></p>
+</li>
+<li>
+<p><a href="#4-figuras">4 Figuras</a></p>
+</li>
+<li><a href="#41-desenho-esquemático-da-arquitetura-de-microserviço">4.1 Desenho esquemático da arquitetura de microserviço</a></li>
+<li><a href="#42-desenho-esquemático-de-casos-de-usos">4.2 Desenho esquemático de casos de usos</a></li>
+<li><a href="#43-desenho-esquemático-de-estados">4.3 Desenho esquemático de estados</a></li>
+<li><a href="#44-desenho-esquemático-de-atividades">4.4 Desenho esquemático de atividades</a></li>
+<li><a href="#45-desenho-esquemático-implementação">4.5 Desenho esquemático implementação</a></li>
+<li><a href="#46-desenho-esquemático-de-implantação">4.6 Desenho esquemático de implantação</a></li>
+<li>
+<p><a href="#47-desenho-esquemático-de-classes">4.7 Desenho esquemático de classes</a></p>
+</li>
+<li>
+<p><a href="#5-tabelas">5 Tabelas</a></p>
+</li>
+<li><a href="#51-tabela-51-versões">5.1 Tabela 5.1: Versões</a></li>
+<li><a href="#52-tabela-52-autores">5.2 Tabela 5.2: Autores</a></li>
+<li><a href="#53-tabela-53-visão-lógica">5.3 Tabela 5.3: Visão lógica</a></li>
+</ul>
+<h1 id="1-introducao">1. <a name="1-introdução"></a><strong>Introdução</strong></h1>
+<h3 id="12-proposito">1.2 <a name="11-propósito"></a><strong>Propósito</strong></h3>
+<p>Este documento descreve a arquitetura do sistema UnB na Mão, sendo desenvolvido pelo grupo Antares da disciplina de MDS – Metodos de Desenvolvimento de Software - do semestre 2/2023. O objetivo deste documento é fornecer uma visão abrangente do sistema para desenvolvedores, testadores, alunos de Engenharia de Software, professores e demais interessados.</p>
+<p>O documento de arquitetura é essencial para o desenvolvimento desse projeto, pois ele fornece uma visão geral do sistema, incluindo sua estrutura, organização e componentes.</p>
+<h3 id="13-escopo">1.3 <a name="12-escopo"></a><strong>Escopo</strong></h3>
+<p>O software <em>UnB na Mão</em> é uma aplicação web que unifica as informações disponibilizadas em diferentes plataformas da Universidade de Brasília em um único aplicativo. O objetivo do sistema é facilitar o acesso à informações de uso cotidiano, avaliar disciplinas e ajudar alunos se organizarem.</p>
+<p>O sistema terá como público-alvo os estudantes e grupos acadêmicos da Universidade de Brasília. O sistema terá as seguintes funcionalidades:</p>
+<ul>
+<li>Acesso a informações básicas da universidade, como calendário acadêmico e cardápio do restaurante universitário (RU);</li>
+<li>Mural de vagas terá informações sobre vagas de estágio e atividades extracurriculares;</li>
+<li>Ambiente de avaliação de disciplinas por meio dos alunos;</li>
+<li>Ambiente para controle de faltas em disciplinas.</li>
+</ul>
+<p>O UnB na Mão possui diferentes tipos de usuários com diferentes níveis de acesso. O administrador tem acesso a todas as funções do sistema, incluindo o gerenciamento de perfis de acesso, criação de novos usuários e gerenciamento de registros dos publicadores. Os alunos têm acesso a funcionalidades específicas, como avaliação de disciplinas, controle de faltas e visualização de publicações dos publicadores. Os publicadores poderão divulgar oportunidades no mural de vagas.</p>
+<p>A arquitetura do software UnB na Mão será baseada em três camadas:</p>
+<ul>
+<li>Camada de apresentação: onde acontecerá a interação com o usuário. É composta por componentes HTML, CSS, Javascript e Vue.js.</li>
+<li>Camada de negócios: onde acontecerá o processamento dos dados e terá a lógica de negócios do sistema. É composta por componentes em TypeScript e NodeJS.</li>
+<li>Camada de dados: onde será feito o armazenamento dos dados dos usuários e sistema. É composta por um banco de dados não relacional, utilizando o MongoDB.</li>
+</ul>
+<p>Para o desenvolvimento do UnB na Mão, a equipe de seguirá a metodologia Scrum XP, com sprints semanais e reuniões de revisão conforme necessário. Para tarefas complexas, a programação em pares será empregada. A equipe também planeja implementar a Integração Contínua com Testes de Unidade e a técnica de revisão de código antes da mesclagem na Branch principal.</p>
+<p>Métricas de Qualidade:</p>
+<p>A equipe utilizará a Taxa de Resolução de Defeitos (TRD) como métrica de qualidade para avaliar a eficiência na identificação e correção de defeitos. Os critérios de avaliação da TRD serão:</p>
+<ul>
+<li>TRD &gt; 90%: Excelente</li>
+<li>80% ≤ TRD ≤ 90%: Bom</li>
+<li>TRD &lt; 80%: Necessita de melhorias significativas na gestão de defeitos</li>
+</ul>
+<p>Ao final do desenvolvimento, serão realizados vários tipos de testes, incluindo:</p>
+<ul>
+<li>Testes Manuais: Para testar unidades de código individuais.</li>
+<li>Testes de Unidade: Para testar unidades de código individuais.</li>
+<li>Testes de Integração: Para verificar a integração entre módulos e componentes do sistema.</li>
+</ul>
+<h2 id="2-representacao-arquitetural">2. <a name="2-representação-arquitetural"></a><strong>Representação Arquitetural</strong></h2>
+<h3 id="21-definicoes">2.1 <a name="21-definições"></a><strong>Definições</strong></h3>
+<p>O sistema seguirá uma arquitetura de microserviços, que é um estilo arquitetural em que o aplicativo é dividido em pequenos serviços independentes e altamente coesos. Cada microserviços desempenha uma função específica e se comunica com outros microserviços por meio de protocolos padronizados, como HTTP. A arquitetura de micro serviços permite escalabilidade, manutenção independente, rápida implementação de novos recursos e flexibilidade no desenvolvimento e implantação do sistema.</p>
+<h3 id="22-justifique-sua-escolha">2.2 <a name="22-justifique-sua-escolha"></a><strong>Justifique sua escolha.</strong></h3>
+<p><strong>Escopo do Projeto e Objetivos do Produto:</strong> O projeto "UnB na Mão" tem um amplo escopo, com funcionalidades variadas, como acesso a informações acadêmicas, gerenciamento acadêmico, cardápio do Restaurante Universitário, publicações informativas e muito mais. A arquitetura de micro serviços permite a divisão das funcionalidades em componentes independentes, o que facilita o desenvolvimento, a manutenção e a evolução contínua de cada parte do sistema (Antares Escopo, 2023, P 6-9).</p>
+<p><strong>Equipe de Desenvolvimento Diversificada:</strong> A equipe de desenvolvimento inclui diversos membros, cada um com sua especialização e responsabilidades específicas. A arquitetura de microserviços permite que diferentes equipes ou desenvolvedores individuais se concentrem em microserviços específicos, o que simplifica a colaboração e a distribuição de trabalho ( Antares Visão do Produto e Projeto, 2023, P 7).</p>
+<p><strong>Escalabilidade:</strong> A arquitetura de microserviços permite que diferentes partes do sistema sejam desenvolvidas, implantadas e escaladas independentemente. Isso é particularmente importante no contexto do projeto "UnB na Mão", que pode crescer ao longo do tempo. Diversos requisitos apresentados na Declaração de Escopo do Produto indicam a necessidade de escalabilidade para acomodar mais usuários, funcionalidades e integrações no futuro.(Antares Visão do Produto e Projeto, 2023, P 8-9).</p>
+<p><strong>Cultura Organizacional e Colaboração:</strong> A equipe expressa a importância da colaboração entre diferentes partes interessadas. A arquitetura de microserviços incentiva uma cultura de colaboração, pois diferentes equipes podem se concentrar em microserviços específicos sem afetar indevidamente o trabalho das outras equipes.</p>
+<h3 id="23-detalhamento">2.3 <a name="23-detalhamento"></a><strong>Detalhamento</strong></h3>
+<p><strong>Introdução:</strong></p>
+<p>Nossa escolha de arquitetura por microserviços é baseada na análise dos documentos fornecidos, incluindo a "Visão do Produto" e a "Declaração de Escopo do Produto". A arquitetura por microserviços se alinha com os requisitos e objetivos do nosso sistema, fornecendo a flexibilidade e escalabilidade necessárias para atender às demandas dos usuários.</p>
+<p>Ao adotar essa abordagem, visamos criar um sistema ágil, escalável e resiliente que se adapte com facilidade às mudanças nas necessidades dos usuários. Isso se alinha diretamente com a visão estabelecida no documento "Visão do Produto", que destaca a importância da capacidade de resposta às necessidades do mercado em constante evolução e à rápida implantação de novos recursos.</p>
+<p><strong>Descrição da Arquitetura por Microserviços:</strong></p>
+<p>A arquitetura por microserviços é caracterizada pela sua capacidade de dividir o sistema em pequenos componentes independentes chamados microserviços. Cada microserviço possui uma responsabilidade específica no sistema e opera de forma autônoma, estabelecendo comunicação com outros microserviços por meio de interfaces bem definidas.</p>
+<p>Esta escolha arquitetônica se alinha diretamente com a visão estabelecida no documento "Visão do Produto", que enfatiza a necessidade de um sistema que possa se adaptar rapidamente às mudanças nas demandas do mercado e integrar novos recursos de forma ágil. Os microserviços oferecem a agilidade necessária, permitindo o desenvolvimento, implantação e atualização independentes de cada componente, resultando em ciclos de desenvolvimento mais curtos e entregas mais rápidas.</p>
+<p><img alt="" src="Aspose.Words.333cb86e-1a03-4f6d-b2f3-749db4c220ba.002.png" /></p>
+<p>Figura 4.1: Desenho esquemático da arquitetura de microservirço.</p>
+<h3 id="24-metas-e-restricoes-arquiteturais">2.4 <a name="24-metas-e-restrições-arquiteturais"></a><strong>Metas e restrições arquiteturais</strong></h3>
+<p>Restrição:</p>
+<ul>
+<li>Devido à adoção de uma arquitetura de microsserviços, tem um aumento na complexidade do gerenciamento de vários serviços, na implantação e no monitoramento.</li>
+<li>Requer uma comunicação eficaz entre serviços, o que pode afetar o desempenho da rede devido à interdependência entre muitos pequenos serviços.</li>
+<li>Microsserviços são resultados diretos de sua natureza aberta, com uma ampla superfície sujeita a ataques.</li>
+<li>A sincronização e a consistência dos dados entre os serviços podem ser desafiadoras e requerem atenção cuidadosa.</li>
+<li>Se não for bem arquitetado, o gateway de API pode se tornar um gargalo e ponto único de falha.</li>
+</ul>
+<p>Metas:</p>
+<ul>
+<li>Implementar uma solução de governança eficaz para gerenciamento, implantação e monitoramento de microsserviços, simplificando a complexidade inerente à arquitetura distribuída.</li>
+<li>Isolar serviços para minimizar o impacto de falhas em um serviço sobre outros.</li>
+<li>Meta: Permitir que os serviços individuais sejam melhorados independentemente com base na demanda.</li>
+<li>Gerenciar a lógica do gateway de roteamento durante a implantação para direcionar as solicitações corretamente.</li>
+<li>Garantir que o sistema seja capaz de se conectar e interagir eficazmente com os sistemas já em uso pela universidade.</li>
+<li>O aplicativo deve ser responsivo, adaptando-se a dispositivos móveis e desktops.</li>
+</ul>
+<h3 id="25-visao-de-casos-de-uso-escopo-do-produto">2.5 <a name="25-visão-de-casos-de-uso-escopo-do-produto"></a><strong>Visão de Casos de uso (escopo do produto)</strong></h3>
+<p>O escopo do produto engloba a implementação de um sistema que permite a acesso e interação de alunos e publicadores. Ele oferece funcionalidades que abrangem desde o acesso ao sistema até a gestão acadêmica, incluindo a visualização de informações como o mural de vagas, avaliações de disciplinas, cardápio do restaurante universitário, gerenciamento de disciplinas em curso, registro de faltas e informações acadêmicas importantes no calendário. De forma que tenha um acesso rápido e intuitivo para ser utilizado no dia a dia acadêmico da UnB. Tanto na criação de posts para informar os estudantes quanto a visualização desses posts.</p>
+<p>O grupo possui integrantes tanto com habilidades fullstack, quanto frontend e backend separadamente. Tem-se como parâmetro de pareamento a diferença de experiência da dupla.</p>
+<h3 id="26-visao-logica">2.6 <a name="26-visão-lógica"></a><strong>Visão lógica</strong></h3>
+<table>
+<thead>
+<tr>
+<th><strong>MÓDULO: LOGIN</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>DESCRIÇÃO: Acesso ao sistema fazendo login, direcionar para redefinir a senha e fazer cadastro.</strong></td>
+</tr>
+<tr>
+<td><strong>COMUNICAÇÃO COM INTERFACES:</strong> Registro e redefinição de senha.</td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th><strong>MÓDULO: REGISTRO</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>DESCRIÇÃO:</strong> Fazer o cadastro como aluno ou publicador.</td>
+</tr>
+<tr>
+<td><strong>COMUNICAÇÃO COM INTERFACES:</strong> Voltar para tela de login.</td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th><strong>MÓDULO: REDEFINIÇÃO DE SENHA</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>DESCRIÇÃO:</strong> Redefinir a senha esquecida.</td>
+</tr>
+<tr>
+<td><strong>COMUNICAÇÃO COM INTERFACES:</strong> Voltar para tela de login.</td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th><strong>MÓDULO: MURAL DE VAGAS</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>DESCRIÇÃO:</strong> Usuários poderão visualizar possíveis vagas e publicadores poderão divulgar possíveis vagas.</td>
+</tr>
+<tr>
+<td><strong>COMUNICAÇÃO COM INTERFACES:</strong> Voltar para menu.</td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th><strong>MÓDULO: AVALIAÇÃO DE DISCIPLINAS</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>DESCRIÇÃO:</strong> Usuários poderão avaliar turmas de disciplinas a qual estiveram presentes e visualizar outras avaliações.</td>
+</tr>
+<tr>
+<td><strong>COMUNICAÇÃO COM INTERFACES:</strong> Voltar para menu.</td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th><strong>MÓDULO: CARDÁPIO DO RESTAURANTE UNIVERSITÁRIO</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>DESCRIÇÃO:</strong> Usuários visualizarão o cardápio semanal do restaurante universitário.</td>
+</tr>
+<tr>
+<td><strong>COMUNICAÇÃO COM INTERFACES:</strong> Voltar para menu.</td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th><strong>MÓDULO: CONTROLE DE FALTAS</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>DESCRIÇÃO:</strong> Usuários terão controle de suas presenças para cada disciplina cursada.</td>
+</tr>
+<tr>
+<td><strong>COMUNICAÇÃO COM INTERFACES:</strong> Voltar para menu.</td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th><strong>MÓDULO: CALENDÁRIO ACADÊMICO PESSOAL</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>DESCRIÇÃO:</strong> Usuários terão acesso ao seu calendário pessoal para organização acadêmica.</td>
+</tr>
+<tr>
+<td><strong>COMUNICAÇÃO COM INTERFACES:</strong> Voltar para menu.</td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th><strong>MÓDULO: MEU PERFIL</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>DESCRIÇÃO:</strong> Usuários terão acesso ao seu perfil e visualizar os seus dados, podendo também fazer atualizações.</td>
+</tr>
+<tr>
+<td><strong>COMUNICAÇÃO COM INTERFACES:</strong> Voltar para menu.</td>
+</tr>
+</tbody>
+</table>
+<p>Tabela 5.3: Visão lógica</p>
+<p><img alt="" src="Aspose.Words.333cb86e-1a03-4f6d-b2f3-749db4c220ba.003.png" /></p>
+<p>Figura 4.2: Desenho esquemático de casos de usos.</p>
+<p>No diagrama de casos de uso é possível visualizar que existem três tipos de perfil de acesso, que são, administradores, alunos e publicadores (EJs/atléticas). Suas funções dentro do sistema possuem variações.
+O administrador tem acesso a todos as funções do sistema, mas só ele pode gerenciar perfis de acesso, criar novos usuários e gerenciar registros dos publicadores. O aluno pode avaliar turmas anteriores, ter o controle de suas faltas, atualizar o cardápio semanal e também visualizar as publicações. Os publicadores são responsáveis por divulgar informações acadêmicas.</p>
+<p><img alt="" src="Aspose.Words.333cb86e-1a03-4f6d-b2f3-749db4c220ba.004.png" /></p>
+<p>Figura 4.3: Desenho esquemático de estados.</p>
+<p>O diagrama de estados é aplicado para demonstrar o comportamento geral do sistema, mostrando os estados e transições do funcionamento do UnB na Mão. Sendo assim, é possível entender o funcionamento do sistema conforme ele é utilizado, começando com:</p>
+<ul>
+<li><strong>TELA DE LOGIN:</strong> Ao começar a utilizar o sistema, o usuário terá que fazer o login para poder ter acesso aos micros serviços, porém, caso o usuário não tenha conta no sistema, ele terá que acessar a <strong>tela de cadastro</strong>, e em caso de esquecimento de senha, poderá acessar a <strong>tela de redefinir senha</strong>.</li>
+<li><strong>TELA DE MENU:</strong> Tanto o Aluno quanto o Publicador têm acesso a informações e documentos relacionados à UnB. Caso o usuário consiga efetuar o login com sucesso, ele terá acesso ao menu de opções com os microsserviços, onde conseguirá usufruir de cada funcionalidade desejada, sendo elas:</li>
+<li><strong>Mural de vagas</strong></li>
+<li><strong>Controle de faltas pessoal</strong></li>
+<li><strong>Avaliação de disciplinas</strong></li>
+<li><strong>Cardápio do restaurante universitário</strong></li>
+<li><strong>Calendário acadêmico pessoal</strong></li>
+</ul>
+<p>Após acessar o serviço desejado, o usuário poderá retornar ao menu, e, caso queira, utilizar outros microsserviços.</p>
+<p><img alt="" src="Aspose.Words.333cb86e-1a03-4f6d-b2f3-749db4c220ba.005.png" />Figura 4.4: Desenho esquemático de atividades.</p>
+<p>O diagrama de atividades é aplicado para descrever as etapas realizadas conforme o usuário usa o sistema, deixando o funcionamento do sistema mais claro. Sendo assim, no diagrama acima, é possível ver o que acontece em cada possibilidade conforme o usuário utiliza o sistema desde quando o usuário abre o sistema e se depara com a tela de login até quando o usuário já utilizou o serviço utilizado.</p>
+<h3 id="27-visao-de-implementacao">2.7 <a name="27-visão-de-implementação"></a><strong>Visão de Implementação</strong></h3>
+<p><img alt="" src="Aspose.Words.333cb86e-1a03-4f6d-b2f3-749db4c220ba.006.png" /></p>
+<p>Figura 4.5: Desenho esquemático implementação</p>
+<p>No processo de implementação do sistema, a primeira etapa prioritária será a criação da interface das páginas. Essa interface desempenha um papel central ao proporcionar aos usuários a interação com o sistema, permitindo-lhes acessar e utilizar as funcionalidades disponíveis de forma amigável e eficaz. A partir dela, os usuários poderão inserir comandos e solicitações que, por sua vez, terão acesso à lógica subjacente responsável por alterar os dados no banco de dados. Esta abordagem modular e bem definida, como representada no diagrama de pacotes, estabelece uma base sólida para o desenvolvimento do sistema, garantindo que a interface e a lógica de dados trabalhem em conjunto para fornecer uma experiência de usuário consistente e funcional. Conforme o projeto progride, essa interconexão entre a interface e a lógica de dados possibilitará a gestão eficiente e segura das informações armazenadas no banco de dados.</p>
+<h3 id="28-visao-de-implantacao">2.8 <a name="28-visão-de-implantação"></a> <strong>Visão de Implantação</strong></h3>
+<p><img alt="" src="Aspose.Words.333cb86e-1a03-4f6d-b2f3-749db4c220ba.007.png" /></p>
+<p>Figura 4.6: Desenho esquemático de implantação.</p>
+<p>A implantação do software é um processo crucial que envolve a coordenação de diversos componentes para garantir o funcionamento eficiente do sistema. Conforme representado no diagrama de implantação, a arquitetura é composta por diferentes camadas. O dispositivo do usuário atua como a interface primária, permitindo que os usuários acessem o frontend do projeto por meio de um navegador web. A partir daí, um servidor web entra em ação, servindo como uma ponte para a interface do usuário, fornecendo acesso e garantindo uma experiência de usuário eficaz. No backend, o servidor de aplicação desempenha um papel fundamental, gerenciando a lógica de negócios e processando as solicitações dos usuários. Além disso, o servidor de banco de dados MongoDB armazena e recupera os dados necessários para a funcionalidade do sistema, e cada um passa para a sua respectiva coleção que armazena os dados de sua função A combinação desses componentes cria um ambiente escalável e altamente interconectado que permite aos usuários interagir de maneira eficaz com o sistema, ao mesmo tempo em que mantém a integridade e a disponibilidade dos dados.</p>
+<p>A abordagem modular apresentada no diagrama de implantação reflete uma estratégia de implantação sólida, onde cada componente desempenha um papel específico e interage harmoniosamente para fornecer aos usuários uma experiência confiável e responsiva. Essa arquitetura em camadas permite escalabilidade e flexibilidade, permitindo que o sistema seja facilmente adaptado às necessidades em constante evolução, garantindo a entrega eficaz de funcionalidades aos usuários.</p>
+<h3 id="29-restricoes-adicionais-e-caracteristicas-de-qualidade-relevantes-para-o-software">2.9 <a name="#29-restrições-adicionais-e-características-de-qualidade-relevantes-para-o-software"></a><strong>Restrições adicionais e características de qualidade relevantes para o software</strong></h3>
+<p><strong>Isolamento de Microsserviços:</strong> Cada funcionalidade do sistema (por exemplo, calendário acadêmico, controle de faltas, mural de vagas) deve ser implementada como um microsserviços isolado para garantir a escalabilidade e a manutenibilidade.</p>
+<p><strong>Controle de Acesso:</strong> Assegurar que a autenticação e autorização funcionem corretamente, concedendo aos usuários os níveis de acesso apropriados com base em seus perfis (aluno, publicador).</p>
+<p><strong>Padronização de Dados:</strong> Definir padrões de dados para garantir a consistência e a interoperabilidade entre os microsserviços que podem compartilhar informações, como o calendário acadêmico e o controle de faltas.</p>
+<p><strong>Usabilidade:</strong></p>
+<p>Explicação: Usabilidade se refere à facilidade com que os usuários podem interagir e utilizar o sistema.</p>
+<p>Justificação: Em um sistema baseado em microsserviços, a usabilidade é crucial, uma vez que os usuários podem precisar navegar por diferentes serviços.</p>
+<p><strong>Confiabilidade:</strong></p>
+<p>Explicação: Confiabilidade envolve a capacidade do sistema de operar consistentemente sem falhas ou interrupções.</p>
+<p>Justificação: A arquitetura de microsserviços envolve múltiplos componentes interconectados, uma vez que uma falha em um serviço não deve afetar a funcionalidade global.</p>
+<p><strong>Portabilidade:</strong></p>
+<p>Explicação: Portabilidade refere-se à capacidade do sistema de ser implantado em diferentes ambientes, como servidores em nuvem, ambientes locais, ou várias plataformas.</p>
+<p>Justificação: A arquitetura de microsserviços permite que serviços individuais sejam implantados em diferentes plataformas e ambientes. Garantir a portabilidade facilita a escalabilidade e a implantação flexível.</p>
+<p><strong>Manutenibilidade:</strong></p>
+<p>Explicação: Manutenibilidade diz respeito à facilidade de manter e atualizar o software ao longo do tempo.</p>
+<p>Justificação: Em microsserviços, onde diferentes equipes podem ser responsáveis por serviços separados, é essencial que cada serviço seja facilmente mantido e atualizado.</p>
+<p><strong>Desempenho:</strong></p>
+<p>Explicação: O desempenho se refere à habilidade do sistema para manter tempos de resposta aceitáveis diante de uma carga de trabalho específica.</p>
+<p>Justificação: Em uma arquitetura de microsserviços, a escalabilidade é uma vantagem, mas monitorar o desempenho é essencial para garantir que cada serviço responda eficazmente às demandas, assegurando uma experiência do usuário satisfatória.</p>
+<h3 id="210-diagrama-de-classes">2.10 <a name="210-diagrama-de-classes"></a><strong>Diagrama de Classes</strong></h3>
+<p><img alt="" src="Aspose.Words.333cb86e-1a03-4f6d-b2f3-749db4c220ba.008.png" /></p>
+<p>_Imagem: Diagrama de Classes desenvolvido no <a href="http://www.drawio.com">www.drawio.com_</a>*</p>
+<p>Figura 4.7: Desenho esquemático de classes.</p>
+<p>O diagrama de classes é uma ferramenta fundamental para visualizar a estrutura de um sistema, identificando suas classes, atributos e métodos. Isso simplifica a comunicação e documentação do projeto, auxiliando na análise e no design de software, e permitindo representar hierarquias de herança.</p>
+<p>No diagrama de classes do UnB na Mão, representamos o usuário como o elemento pai de Aluno, avô de Publicador e bisavô de Administrador. Assim, o Administrador herda os atributos e métodos do Publicador, enquanto o mesmo herda os atributos e métodos de Aluno, e por fim, Aluno herda os atributos e métodos do Usuário. Dentro desse contexto, identificamos serviços aos quais o Aluno, o Publicador e o Administrador têm acesso. Estes incluem:</p>
+<ul>
+<li><strong>Ver Cardápio do Restaurante Universitário (RU):</strong> O cardápio do RU inclui diferentes refeições ao longo do dia, como desjejum, almoço e jantar. O Aluno pode visualizar todas essas opções.</li>
+<li><strong>Ver informações e documentos da UnB:</strong> Tanto o Aluno quanto o Publicador têm acesso a informações e documentos relacionados à UnB.</li>
+<li><strong>Registrar Faltas em uma Disciplina:</strong> Alunos podem registrar faltas em suas disciplinas.</li>
+<li><strong>Ver as Faltas em Disciplinas:</strong> Ambos, Aluno e Publicador, podem verificar as faltas em disciplinas.</li>
+<li><strong>Ver Mural de Vagas:</strong> Alunos e Publicadores têm acesso ao Mural de Vagas para visualizar as oportunidades disponíveis.</li>
+</ul>
+<p>Além disso, devido ao Publicador ser um filho de Aluno, ele tem todas as capacidades do Aluno, assim como também tem a capacidade de:</p>
+<ul>
+<li><strong>Fazer publicações no Mural de Vagas:</strong> Publicadores podem criar novas publicações de vagas.</li>
+<li><strong>Editar as vagas publicadas por eles:</strong> Os Publicadores têm o privilégio de editar as vagas que eles mesmo publicaram.</li>
+</ul>
+<p>Já no caso do Administrador, ele será o usuário que poderá editar roles. Isso fará com que o Administrador consiga transformar um aluno em publicador.</p>
+<p>Essa estrutura de classes e serviços permite um gerenciamento eficiente das funcionalidades do sistema UnB na Mão, proporcionando uma experiência completa tanto para Alunos quanto para Publicadores.</p>
+<h2 id="3-bibliografia">3. <a name="3-bibliografia"></a><strong>Bibliografia</strong></h2>
+<p>Microsoft<em>.</em> Estilo de arquitetura de microsserviço. Disponível em: <a href="https://learn.microsoft.com/pt-br/azure/architecture/guide/architecture-styles/microservices">https://learn.microsoft.com/pt-br/azure/architecture/guide/architecture-styles/microservices</a>. Acesso em 30/10/2023.</p>
+<p>Microsserviços: conceito, vantagens e desvantagens dessa arquitetura. Disponível em:</p>
+<p><a href="https://www.supero.com.br/blog/microsservicos-conceito-vantagens-e-desvantagens-desse-tipo-de-arquitetura/">https://www.supero.com.br/blog/microsservicos-conceito-vantagens-e-desvantagens-desse-tipo-de-arquitetura/</a>.</p>
+<p>Acesso em 30/10/2023.</p>
+<p>Aula Arquitetura - Visão Geral. Disponível em: <a href="https://aprender3.unb.br/pluginfile.php/2759538/mod_resource/content/1/Aula%20Arquitetura%20-%20Visa%CC%83o%20Geral%20-%20Profa.%20Milene%20Serrano.pdf">https://aprender3.unb.br/pluginfile.php/2759538/mod_resource/content/1/Aula%20Arquitetura%20-%20Visa%CC%83o%20Geral%20-%20Profa.%20Milene%20Serrano.pdf</a> . Acesso em 03/11/2023.</p>
+<p>Diagrama de implantação. Disponível em: <a href="https://www.ibm.com/docs/pt-br/rsas/7.5.0?topic=topologies-deployment-diagrams">https://www.ibm.com/docs/pt-br/rsas/7.5.0?topic=topologies-deployment-diagrams</a> . Acesso em 03/11/2023.</p>
+<p>Diagrama esquemático da arquitetura de microsserviços : Desenvolvido no site: <a href="https://lucid.app/lucidchart/bd2670a7-74cb-4d76-8c06-e95128e7997b/edit?viewport_loc=-558%2C-432%2C3695%2C1406%2C0_0&amp;invitationId=inv_7595c240-71d0-4454-a854-f00b664f365e">https://lucid.app/lucidchart/bd2670a7-74cb-4d76-8c06-e95128e7997b/edit?viewport_loc=-558%2C-432%2C3695%2C1406%2C0_0&amp;invitationId=inv_7595c240-71d0-4454-a854-f00b664f365e</a></p>
+<p>Diagrama de atividade: Desenvolvido com base no site <a href="https://www.lucidchart.com/pages/pt/o-que-e-diagrama-de-atividades-uml">https://www.lucidchart.com/pages/pt/o-que-e-diagrama-de-atividades-uml</a></p>
+<p>Diagrama de casos de uso: Desenvolvido com base no site <a href="https://www.lucidchart.com/pages/pt/diagrama-de-caso-de-uso-uml">https://www.lucidchart.com/pages/pt/diagrama-de-caso-de-uso-uml</a></p>
+<p>Diagrama de estados: Desenvolvido com base no site <a href="https://www.lucidchart.com/pages/pt/o-que-e-diagrama-de-maquina-de-estados-uml">https://www.lucidchart.com/pages/pt/o-que-e-diagrama-de-maquina-de-estados-uml</a></p>
+<p>Diagrama de Classes: Desenvolvido com base no <a href="http://www.drawio.com">www.drawio.com</a></p>
+<h2 id="4figuras">4.<a name="4-figuras"></a><strong>Figuras</strong></h2>
+<p>### 4.1 - <a name="41-desenho-esquemático-da-arquitetura-de-microserviço"></a><strong>Desenho esquemático da arquitetura de microservirço.</strong>
+   ### 4.2 - <a name="42-desenho-esquemático-de-casos-de-usos"></a><strong>Desenho esquemático de casos de usos.</strong>
+   ### 4.3 - <a name="43-desenho-esquemático-de-estados"></a><strong>Desenho esquemático de estados.</strong>
+   ### 4.4 - <a name="44-desenho-esquemático-de-atividades"></a><strong>Desenho esquemático de atividades.</strong>
+   ### 4.5 - <a name="45-desenho-esquemático-implementação"></a><strong>Desenho esquemático implementação</strong>
+   ### 4.6 - <a name="46-desenho-esquemático-de-implantação"></a><strong>Desenho esquemático de implantação.</strong>
+   ### 4.7 - <a name="47-desenho-esquemático-de-classes"></a><strong>Desenho esquemático de classes.</strong></p>
+<h2 id="5-tabelas">5. <a name="5-tabelas"></a><strong>Tabelas</strong></h2>
+<p>### 5.1 <a name="#51-tabela-51-versões"></a>Tabela 5.1: Versões
+   ### 5.2 <a name="#52-tabela-52-autores"></a>Tabela 5.2: Autores
+   ### 5.3 <a name="53-tabela-53-visão-lógica"></a>Tabela 5.3: Visão lógica</p></div>
+            </div>
+        </div>
+
+        <footer class="col-md-12">
+            <hr>
+            <p>Documentation built with <a href="https://www.mkdocs.org/">MkDocs</a>.</p>
+        </footer>
+        <script src="../js/jquery-3.6.0.min.js"></script>
+        <script src="../js/bootstrap.min.js"></script>
+        <script>
+            var base_url = "..",
+                shortcuts = {"help": 191, "next": 78, "previous": 80, "search": 83};
+        </script>
+        <script src="../js/base.js"></script>
+        <script src="../search/main.js"></script>
+
+        <div class="modal" id="mkdocs_search_modal" tabindex="-1" role="dialog" aria-labelledby="searchModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="searchModalLabel">Search</h4>
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+            </div>
+            <div class="modal-body">
+                <p>From here you can search these documents. Enter your search terms below.</p>
+                <form>
+                    <div class="form-group">
+                        <input type="search" class="form-control" placeholder="Search..." id="mkdocs-search-query" title="Type search term here">
+                    </div>
+                </form>
+                <div id="mkdocs-search-results" data-no-results-text="No results found"></div>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div><div class="modal" id="mkdocs_keyboard_modal" tabindex="-1" role="dialog" aria-labelledby="keyboardModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="keyboardModalLabel">Keyboard Shortcuts</h4>
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+            </div>
+            <div class="modal-body">
+              <table class="table">
+                <thead>
+                  <tr>
+                    <th style="width: 20%;">Keys</th>
+                    <th>Action</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td class="help shortcut"><kbd>?</kbd></td>
+                    <td>Open this help</td>
+                  </tr>
+                  <tr>
+                    <td class="next shortcut"><kbd>n</kbd></td>
+                    <td>Next page</td>
+                  </tr>
+                  <tr>
+                    <td class="prev shortcut"><kbd>p</kbd></td>
+                    <td>Previous page</td>
+                  </tr>
+                  <tr>
+                    <td class="search shortcut"><kbd>s</kbd></td>
+                    <td>Search</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div>
+
+    </body>
+</html>
