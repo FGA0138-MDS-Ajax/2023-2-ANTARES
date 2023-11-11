@@ -1,6 +1,7 @@
 site_name: Unb na Mão - Antares
 
-
+theme:
+    name: material
 nav: [
   "Home": "index.html",
   "Entregas": [

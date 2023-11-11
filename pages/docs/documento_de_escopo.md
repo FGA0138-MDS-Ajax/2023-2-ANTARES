@@ -9,9 +9,10 @@
 |------------|--------|-------------------------------------------------|-----------------------------------------|
 | 02/10/2023 | 0.1    | Confecção de documento de Visão do Produto e do Projeto | Mateus Vieira, Matheus Ferreira, Lucas Antunes, Leonardo Borges, Kauan Eiras |
 | 04/10/2023 | 0.2    | Atualização dos documentos de Visão do Produto e do Projeto | Lucas Antunes, Mateus Vieira |
-|            | 0.3    | Confecção de documento de Declaração de Escopo do Produto | Kauan Eiras, Breno Lucena, Breno Soares, Leonardo Borges |
+| 09/10/2023           | 0.3    | Confecção de documento de Declaração de Escopo do Produto | Kauan Eiras, Breno Lucena, Breno Soares, Leonardo Borges |
 | 22/10/2023 | 0.4    | Confecção de Declaração de Escopo do Produto | Breno Lucena, Breno Soares, Leonardo Borges, Kauan Eiras |
 | 23/10/2023 | 0.5    | Revisão e finalização do documento de Declaração de Escopo do Produto | Breno Lucena, Breno Soares, Leonardo Borges, Kauan Eiras, Lucas Antunes, Mateus Vieira |
+
 
 ### **Sumário**
 
