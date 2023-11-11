@@ -1,283 +1,500 @@
-<!DOCTYPE html>
-<html lang="en">
-    <head>
-        <meta charset="utf-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        
-        
-        
-        <link rel="shortcut icon" href="../img/favicon.ico">
-        <title>VISÃO DO PRODUTO E DO PROJETO - Unb na Mão - Antares</title>
-        <link href="../css/bootstrap.min.css" rel="stylesheet">
-        <link href="../css/font-awesome.min.css" rel="stylesheet">
-        <link href="../css/base.css" rel="stylesheet">
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css">
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
-        <script>hljs.highlightAll();</script> 
-    </head>
 
-    <body>
-        <div class="navbar fixed-top navbar-expand-lg navbar-dark bg-primary">
-            <div class="container">
-                <a class="navbar-brand" href="..">Unb na Mão - Antares</a>
-                <!-- Expander button -->
-                <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbar-collapse">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+      
+        <link rel="next" href="../documento_de_escopo/">
+      
+      
+      <link rel="icon" href="../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.5.3, mkdocs-material-9.4.6">
+    
+    
+      
+        <title>Documento de visao do produto e projeto - Unb na Mão - Antares</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.35e1ed30.min.css">
+      
+      
 
-                <!-- Expanded navigation -->
-                <div id="navbar-collapse" class="navbar-collapse collapse">
-                        <!-- Main navigation -->
-                        <ul class="nav navbar-nav">
-                            <li class="navitem">
-                                <a href="../index.html" class="nav-link">Home</a>
-                            </li>
-                            <li class="dropdown active">
-                                <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Entregas <b class="caret"></b></a>
-                                <ul class="dropdown-menu">
-                                    
-<li>
-    <a href="./" class="dropdown-item active">VISÃO DO PRODUTO E DO PROJETO</a>
-</li>
-                                    
-<li>
-    <a href="../documento_de_escopo/" class="dropdown-item">UnB na Mão - Declaração de Escopo do Produto</a>
-</li>
-                                    
-<li>
-    <a href="../documento_de_arquitetura/" class="dropdown-item">Documento de Arquitetura</a>
-</li>
-                                </ul>
-                            </li>
-                        </ul>
-
-                    <ul class="nav navbar-nav ml-auto">
-                        <li class="nav-item">
-                            <a href="#" class="nav-link" data-toggle="modal" data-target="#mkdocs_search_modal">
-                                <i class="fa fa-search"></i> Search
-                            </a>
-                        </li>
-                            <li class="nav-item">
-                                <a rel="prev" class="nav-link disabled">
-                                    <i class="fa fa-arrow-left"></i> Previous
-                                </a>
-                            </li>
-                            <li class="nav-item">
-                                <a rel="next" href="../documento_de_escopo/" class="nav-link">
-                                    Next <i class="fa fa-arrow-right"></i>
-                                </a>
-                            </li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-
-        <div class="container">
-            <div class="row">
-                    <div class="col-md-3"><div class="navbar-light navbar-expand-md bs-sidebar hidden-print affix" role="complementary">
-    <div class="navbar-header">
-        <button type="button" class="navbar-toggler collapsed" data-toggle="collapse" data-target="#toc-collapse" title="Table of Contents">
-            <span class="fa fa-angle-down"></span>
-        </button>
-    </div>
 
     
-    <div id="toc-collapse" class="navbar-collapse collapse card bg-secondary">
-        <ul class="nav flex-column">
-            
-            <li class="nav-item" data-level="1"><a href="#visao-do-produto-e-do-projeto" class="nav-link">VISÃO DO PRODUTO E DO PROJETO</a>
-              <ul class="nav flex-column">
-            <li class="nav-item" data-level="2"><a href="#visao-de-produto-e-projeto" class="nav-link">Visão de Produto e Projeto</a>
-              <ul class="nav flex-column">
-              </ul>
-            </li>
-            <li class="nav-item" data-level="2"><a href="#1-visao-geral-do-produto_1" class="nav-link">1 VISÃO GERAL DO PRODUTO</a>
-              <ul class="nav flex-column">
-              </ul>
-            </li>
-            <li class="nav-item" data-level="2"><a href="#2-visao-geral-do-projeto_1" class="nav-link">2 VISÃO GERAL DO PROJETO</a>
-              <ul class="nav flex-column">
-              </ul>
-            </li>
-            <li class="nav-item" data-level="2"><a href="#3-processo-de-desenvolvimento-de-software_1" class="nav-link">3 PROCESSO DE DESENVOLVIMENTO DE SOFTWARE...........................................................</a>
-              <ul class="nav flex-column">
-              </ul>
-            </li>
-            <li class="nav-item" data-level="2"><a href="#4-detalhamento-de-atividades-do-projeto_1" class="nav-link">4 Detalhamento de atividades do projeto</a>
-              <ul class="nav flex-column">
-              </ul>
-            </li>
-            <li class="nav-item" data-level="2"><a href="#5-licoes-aprendidas_1" class="nav-link">5 LIÇÕES APRENDIDAS</a>
-              <ul class="nav flex-column">
-              </ul>
-            </li>
-            <li class="nav-item" data-level="2"><a href="#6-proximos-passos_1" class="nav-link">6 PRÓXIMOS PASSOS</a>
-              <ul class="nav flex-column">
-              </ul>
-            </li>
-            <li class="nav-item" data-level="2"><a href="#7-referencias-bibliograficas_1" class="nav-link">7 REFERÊNCIAS BIBLIOGRÁFICAS</a>
-              <ul class="nav flex-column">
-              </ul>
-            </li>
-              </ul>
-            </li>
-        </ul>
-    </div>
-</div></div>
-                    <div class="col-md-9" role="main">
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
 
-<h1 id="visao-do-produto-e-do-projeto">VISÃO DO PRODUTO E DO PROJETO</h1>
-<h3 id="historico-de-revisao">Histórico de Revisão</h3>
+    
+    
+    
+  </head>
+  
+  
+    <body dir="ltr">
+  
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&"object"==typeof palette.color)for(var key of Object.keys(palette.color))document.body.setAttribute("data-md-color-"+key,palette.color[key])</script>
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#unb-na-mao" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href=".." title="Unb na Mão - Antares" class="md-header__button md-logo" aria-label="Unb na Mão - Antares" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Unb na Mão - Antares
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Documento de visao do produto e projeto
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="Unb na Mão - Antares" class="md-nav__button md-logo" aria-label="Unb na Mão - Antares" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    Unb na Mão - Antares
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../index.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Home
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Entregas
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            Entregas
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  <span class="md-ellipsis">
+    Documento de visao do produto e projeto
+  </span>
+  
+
+      </a>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../documento_de_escopo/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    UnB na Mão - Declaração de Escopo do Produto
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../documento_de_arquitetura/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Documento de Arquitetura
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+<p><img alt="Shape1" src="RackMultipart20231111-1-ckla0p_html_163d18ab51ba461b.gif" /></p>
+<h1 id="unb-na-mao"><strong>UnB na Mão</strong></h1>
+<h1 id="visao-do-produto-e-do-projeto"><strong>VISÃO DO PRODUTO E DO PROJETO</strong></h1>
+<p>Versão 0.2</p>
+<p>MEMBROS:</p>
+<p>Breno Lucena Cordeiro- 202017343</p>
+<p>Breno Soares Fernandes- 202017540</p>
+<p>Kauan de Torres Eiras- 232014727</p>
+<p>Leonardo Ferreira Borges- 200062166</p>
+<p>Lucas Gabriel da Silva Antunes- 190091681</p>
+<p>Mateus Vinicius Vieira- 202016963</p>
+<p>Matheus Ferreira Diogo- 200024949</p>
+<p>Samuel Victor Oliveira Lima- 190059001</p>
+<p><strong>Histórico de Revisão</strong></p>
 <table>
 <thead>
 <tr>
-<th>Data</th>
-<th>Versão</th>
-<th>Descrição</th>
-<th>Autor</th>
+<th><strong>Data</strong></th>
+<th><strong>Versão</strong></th>
+<th><strong>Descrição</strong></th>
+<th><strong>Autor</strong></th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td>02/10/2023</td>
+<td><strong>02/10/2023</strong></td>
 <td>0.1</td>
-<td>Confecção do documento</td>
+<td>Confecção de documento de Visão do Produto e do Projeto</td>
 <td>Mateus Vieira, Matheus Ferreira, Lucas Antunes, Leonardo Borges, Kauan Eiras</td>
+</tr>
+<tr>
+<td><strong>04/10/2023</strong></td>
+<td>0.2</td>
+<td>Atualização dos documentos de Visão do Produto e do Projeto</td>
+<td>Lucas Antunes, Mateus Vieira</td>
+</tr>
+<tr>
+<td><strong>10/11/2023</strong></td>
+<td>0.2</td>
+<td>Revisão parcial do feedback dos documentos de Visão do Produto e do Projeto</td>
+<td>Leonardo Ferreira, Mateus Vieira</td>
 </tr>
 </tbody>
 </table>
-<h2 id="visao-de-produto-e-projeto">Visão de Produto e Projeto</h2>
-<h3 id="sumario">Sumário</h3>
-<h4 id="1-visao-geral-do-produto">1- VISÃO GERAL DO PRODUTO</h4>
-<ul>
-<li>
-<p>1.1 Problema</p>
-</li>
-<li>
-<p>1.2 Declaração de Posição do Produto</p>
-</li>
-<li>
-<p>1.3 Objetivos do Produto</p>
-</li>
-<li>
-<p>1.4 Tecnologias a Serem Utilizadas</p>
-</li>
-</ul>
-<h4 id="2-visao-geral-do-projeto">2 - VISÃO GERAL DO PROJETO</h4>
-<ul>
-<li>
-<p>2.1 Ciclo de vida do projeto de desenvolvimento de software</p>
-</li>
-<li>
-<p>2.2 Organização do Projeto</p>
-</li>
-<li>
-<p>2.3 Planejamento das Fases e/ou Iterações do Projeto</p>
-</li>
-<li>
-<p>2.4 Matriz de Comunicação./</p>
-</li>
-<li>
-<p>2.5 Gerenciamento de Riscos</p>
-</li>
-<li>
-<p>2.6 Critérios de Replanejamento</p>
-</li>
-</ul>
-<h4 id="3-processo-de-desenvolvimento-de-software">3 - PROCESSO DE DESENVOLVIMENTO DE SOFTWARE</h4>
-<h4 id="4-detalhamento-de-atividades-do-projeto">4 - Detalhamento de atividades do projeto</h4>
-<ul>
-<li>
-<p>4.1 Atividade</p>
-</li>
-<li>
-<p>4.2 Atividade</p>
-</li>
-<li>
-<p>4.3 Atividade</p>
-</li>
-<li>
-<p>4.4 Atividade ‘N’</p>
-</li>
-</ul>
-<h4 id="5-licoes-aprendidas">5 - LIÇÕES APRENDIDAS</h4>
-<ul>
-<li>
-<p>5.1 Unidade</p>
-</li>
-<li>
-<p>5.2 Unidade</p>
-</li>
-<li>
-<p>5.3 Unidade</p>
-</li>
-<li>
-<p>5.4 Unidade</p>
-</li>
-</ul>
-<h4 id="6-proximos-passos">6 PRÓXIMOS PASSOS</h4>
-<h4 id="7-referencias-bibliograficas">7 REFERÊNCIAS BIBLIOGRÁFICAS</h4>
-<h2 id="1-visao-geral-do-produto_1">1 VISÃO GERAL DO PRODUTO</h2>
-<h3 id="11-problema">1.1 Problema</h3>
-<p>A faculdade pode ser um desafio para muitos estudantes, pois eles precisam lidar com múltiplas matérias, horários de aula variados, tarefas, e informações institucionais dispersas, evidenciando que fazer uma boa gestão acadêmica pode ser uma tarefa difícil. Além disso, a universidade carece de sistemas eficazes para fornecer informações relevantes e instruir os alunos em sua jornada acadêmica. Desse modo, fica evidente a necessidade de um software que facilite a gestão pessoal acadêmica e o acesso as informações da Universidade. </p>
-<p>Sendo assim, um software que pudesse ajudar na organização pessoal de cada estudante iria contribuir diretamente para produtividade dos alunos, visando o planejamento individual de cada um.  </p>
-<p>Funcionalidades como avaliações sobre turmas nos semestres passados, controle de faltas, como o estudante se encontra diante do fluxograma, informações sobre RU, alerta de vaga e entre outros, seria de suma importância para a melhoria individual dos discentes.</p>
+<p><strong>Sumário</strong></p>
+<h2 id="1-visao-geral-do-produto">1. VISÃO GERAL DO PRODUTO</h2>
+<h3 id="11-problema-4">1.1 Problema 4</h3>
 <h3 id="12-declaracao-de-posicao-do-produto">1.2 Declaração de Posição do Produto</h3>
-<p>O UnB na mão é uma aplicação que visa unificar as informações da universidade em um único aplicativo,</p>
-<p>com o objetivo de facilitar a visualização das informações pelo usuário, além de fornecer outras tecnologias</p>
-<p>inexistentes. Nesse sentido, esse produto é algo novo para o mercado visto que muitas vezes as informações se encontram em vários sites diferentes, como o SIGAA, Aprender e outros, com isso se tornando difícil e trabalhoso a obtenção das notícias e outras notificações, além de que as aplicações existentes carecem de ferramentas que auxiliariam o estudante. Com isso, a aplicação tem como público-alvo os estudantes da Universidade de Brasília, porém o site poderia ser utilizado por professores e outros frequentadores da
-instituição. Logo, esse projeto é bastante interessante para um discente poder se informar melhor sobre a instituição e as atividades que estão acontecendo, além de poder se organizar melhor com certas funcionalidades presentes na aplicação.</p>
-<p><strong>Para</strong>: Discentes da Universidade de Brasília.
-<strong>Necessidade</strong>: A unificação da fonte de informações e outras ferramentas sobre a universidade e suas atividades.
-<strong>O UnB na Mão</strong>: É uma aplicação WEB.
-<strong>Que</strong>: Facilitaria a gestão acadêmica dos usuários.
-<strong>Ao contrário</strong>: Os estudantes continuariam a ter que acessar vários sites para acessar as informações e notícias, de maneira lenta e ineficaz, e também não teriam acesso as tecnologias inovadoras presentes na aplicação.
-<strong>Nosso produto</strong>: Permite que o usuário encontre em apenas um site inúmeras informações e ferramentas</p>
 <h3 id="13-objetivos-do-produto">1.3 Objetivos do Produto</h3>
-<p>Facilitar o acesso a informações básicas de uso cotidiano dos discentes da Universidade de Brasília, como por exemplo o cardápio diário do Restaurante Universitário e o Calendário Universitário de Graduação.</p>
-<p>Quanto à objetivos secundários a serem alcançados teríamos:</p>
-<ul>
-<li>
-<p>Ambiente de avaliação de disciplinas por meio dos alunos, para tornar
-   mais fácil o acesso a essa informação que atualmente é feita em
-   grupos de redes sociais.</p>
-</li>
-<li>
-<p>Painel de informações sobre vagas de estágio, atividades
-   extracurriculares (EJs, Equipes de Competição) abertura de editais
-   acadêmicos (PIBIC, monitoria, etc).</p>
-</li>
-<li>
-<p>Controle de faltas.</p>
-</li>
-</ul>
 <h3 id="14-tecnologias-a-serem-utilizadas">1.4 Tecnologias a Serem Utilizadas</h3>
-<p><strong>Linguagens de programação e Frameworks</strong>: Utilizaremos o JavaScript como linguagem de programação, em conjunto com os frameworks Vue.js para o Front-end e Node.js para Back-end.</p>
-<p><strong>Ambientes</strong>: Cada membro da equipe poderá escolher seu próprio editor para a edição de códigos, contudo, estabeleceremos regras para Commits, nomes e estrutura do código. O controle de versão será realizado através do GitHub, onde faremos uso de Branches para facilitar o desenvolvimento.</p>
-<p><strong>Design</strong>: Adotaremos uma abordagem de design incremental, a qual envolve o desenvolvimento gradual do software, com feedback de potenciais usuários para garantir que atenda às suas necessidades e seja desenvolvido de forma eficaz.</p>
-<p><strong>Banco de dados</strong>: Utilizaremos o MongoDB, um sistema de banco de dados não relacional.</p>
-<p><strong>Metodologia e Técnicas</strong>: A metodologia empregada será o Scrum XP, com sprints semanais e reuniões de revisão conforme necessário. Para tarefas mais complexas, adotaremos a programação em pares. Também planejamos implementar a Integração Contínua com Testes de Unidade e utilizaremos a técnica de revisão de código, na qual cada código será avaliado por um membro da equipe antes da mesclagem na Branch principal.</p>
-<p><strong>Ferramentas</strong>: Para organizar atas de reuniões, documentos e gerenciar os quadros Kanban, utilizaremos o Notion. Para reuniões utilizaremos o Microsoft Teams e para demais reuniões como a programação em pares, utilizaremos o Discord.</p>
-<h2 id="2-visao-geral-do-projeto_1">2 VISÃO GERAL DO PROJETO</h2>
+<h2 id="2-visao-geral-do-projeto">2. VISÃO GERAL DO PROJETO</h2>
 <h3 id="21-ciclo-de-vida-do-projeto-de-desenvolvimento-de-software">2.1 Ciclo de vida do projeto de desenvolvimento de software</h3>
-<p><strong>Metodologia e Técnicas:</strong> A metodologia empregada será o Scrum XP, com sprints semanais e reuniões de revisão conforme necessário. Para tarefas mais complexas, adotaremos a programação em pares. Também planejamos implementar a Integração Contínua com Testes de Unidade e utilizaremos a técnica de revisão de código, na qual cada código será avaliado por um membro da equipe antes da mesclagem na Branch "Development".  </p>
-<p><strong>Contexto</strong>: A faculdade pode ser um desafio para muitos estudantes, pois eles precisam lidar com múltiplas matérias, horários de aula variados, tarefas, e informações institucionais dispersas, evidenciando que fazer uma boa gestão acadêmica pode ser uma tarefa difícil.</p>
-<p><strong>Objetivos</strong>: Facilitar a visualização das informações pelo usuário, além de fornecer outras tecnologias inexistentes.</p>
-<p><strong>Solução proposta</strong>: O UnB na mão é uma aplicação que visa unificar as informações da universidade em um único aplicativo.</p>
-<p><strong>Tecnologias</strong>: Linguagens de programação e Frameworks: Utilizaremos o TypeScript como linguagem de programação, em conjunto com os frameworks Vue.js para o Front-end e Node.js para Back-end.</p>
-<p><strong>Ambientes</strong>: Cada membro da equipe poderá escolher seu próprio editor para a edição de códigos, contudo, estabeleceremos regras para Commits, nomes e estrutura do código. O controle de versão será realizado através do GitHub, onde faremos uso de Branches para facilitar o desenvolvimento.</p>
-<p><strong>Design</strong>: Adotaremos uma abordagem de design incremental, a qual envolve o desenvolvimento gradual do software, com feedback de potenciais usuários para garantir que atenda às suas necessidades e seja desenvolvido de forma eficaz.</p>
-<p><strong>Banco de dados</strong>: Optamos por utilizar o MongoDB por ser um banco de dados não relacional, fator de extrema importância devido a inexperiência do grupo em banco de dados.</p>
-<p><strong>Ferramentas</strong>: Para organizar atas de reuniões, documentos e gerenciar os quadros Kanban, utilizaremos o Notion. Para reuniões formais utilizaremos o Microsoft Teams e para as informais, usaremos o Discord.</p>
 <h3 id="22-organizacao-do-projeto">2.2 Organização do Projeto</h3>
+<h3 id="23-planejamento-das-fases-eou-iteracoes-do-projeto">2.3 Planejamento das Fases e/ou Iterações do Projeto</h3>
+<h3 id="24-matriz-de-comunicacao">2.4 Matriz de Comunicação</h3>
+<h3 id="25-gerenciamento-de-riscos">2.5 Gerenciamento de Riscos</h3>
+<h3 id="26-criterios-de-replanejamento">2.6 Critérios de Replanejamento</h3>
+<h2 id="3-processo-de-desenvolvimento-de-software">3. PROCESSO DE DESENVOLVIMENTO DE SOFTWARE</h2>
+<h2 id="4-detalhamento-de-atividades-do-projeto">4 Detalhamento de atividades do projeto</h2>
+<h3 id="4n-atividade-n-8">4.N Atividade 'N' 8</h3>
+<h2 id="5-licoes-aprendidas">5. LIÇÕES APRENDIDAS</h2>
+<h3 id="51-unidade-1">5.1 Unidade 1</h3>
+<h3 id="52-unidade-2">5.2 Unidade 2</h3>
+<h3 id="53-unidade-3">5.3 Unidade 3</h3>
+<h3 id="54-unidade-4">5.4 Unidade 4</h3>
+<h2 id="6-proximos-passos">6. PRÓXIMOS PASSOS</h2>
+<h2 id="7-referencias-bibliograficas">7. REFERÊNCIAS BIBLIOGRÁFICAS</h2>
+<p><strong>VISÃO DO PRODUTO E PROJETO</strong></p>
+<h1 id="1-visao-geral-do-produto_1">1. VISÃO GERAL DO PRODUTO</h1>
+<h2 id="11-problema">1.1 Problema <img alt="" src="RackMultipart20231111-1-ckla0p_html_f34dfe09172540c6.jpg" /></h2>
+<p>A faculdade pode ser um desafio para muitos estudantes, pois eles precisam lidar com múltiplas matérias, horários de aula variados, tarefas e informações institucionais dispersas. Isso evidencia que fazer uma boa gestão acadêmica pessoal pode ser uma tarefa difícil, principalmente porque a universidade carece de sistemas eficazes para fornecer informações relevantes e instruir os alunos em sua jornada acadêmica. Desse modo, fica evidente a necessidade de um software que facilite a gestão pessoal acadêmica e o acesso às informações da universidade.</p>
+<p>Sendo assim, o software "UnB na Mão" traz funcionalidades essenciais para resolver problemas, como controle de chamada, no qual o aluno será responsável por gerenciar suas disciplinas e presença. Além disso, oferece acesso ao cardápio semanal, calendário acadêmico pessoal e ao mural de vagas dos publicadores (empresas juniores e atléticas), proporcionando também acesso a avaliações de disciplinas de semestres anteriores. Logo, fica claro que o software será um facilitador ao auxiliar os estudantes em sua gestão acadêmica pessoal.</p>
+<h2 id="12-declaracao-de-posicao-do-produto_1">1.2 Declaração de Posição do Produto</h2>
+<p>O UnB na mão é uma aplicação que visa unificar as informações da universidade em um único aplicativo, com o objetivo de facilitar a visualização das informações pelo usuário, além de fornecer outras tecnologias inexistentes. Nesse sentido, esse produto é algo novo para o mercado visto que muitas vezes as informações se encontram em vários sites diferentes, como o SIGAA, Aprender e outros, com isso se tornando difícil e trabalhoso a obtenção das notícias e outras notificações, além de que as aplicações existentes carecem de ferramentas que auxiliariam o estudante. Com isso, a aplicação tem como público-alvo os estudantes da Universidade de Brasília, porém o site poderia ser utilizado por professores e outros frequentadores da instituição. Logo, esse projeto é bastante interessante para um discente poder se informar melhor sobre a instituição e as atividades que estão acontecendo, além de poder se organizar melhor com certas funcionalidades presentes na aplicação.</p>
 <table>
 <thead>
 <tr>
-<th>Papel</th>
-<th>Atribuições</th>
-<th>Responsável</th>
-<th>Participantes</th>
+<th>Para:</th>
+<th>Discentes da Universidade de Brasília.</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Necessidade:</td>
+<td>Centralizar informações acadêmicas e auxiliar os usuários no gerenciamento pessoal acadêmico.</td>
+</tr>
+<tr>
+<td>O UnB na mão:</td>
+<td>É uma aplicação WEB.</td>
+</tr>
+<tr>
+<td>Que:</td>
+<td>Facilitaria a gestão acadêmica pessoal dos usuários.</td>
+</tr>
+<tr>
+<td>Ao contrário:</td>
+<td>Os estudantes continuariam a ter que acessar vários sites para acessar as informações e notícias, de maneira lenta e ineficaz, e também não teriam acesso as tecnologias inovadoras presentes na aplicação.</td>
+</tr>
+<tr>
+<td>Nosso produto:</td>
+<td>Permite que o usuário encontre em apenas um site inúmeras informações e ferramentas</td>
+</tr>
+</tbody>
+</table>
+<h2 id="13-objetivos-do-produto_1">1.3 Objetivos do Produto</h2>
+<p>Facilitar o acesso a informações básicas de uso cotidiano dos discentes da Universidade de Brasília, como por exemplo o cardápio diário do Restaurante Universitário e o Calendário Universitário de Graduação.
+Quanto à objetivos secundários a serem alcançados teríamos:</p>
+<ul>
+<li>Ambiente de avaliação de disciplinas por meio dos alunos, para tornar mais fácil o acesso a essa informação que atualmente é feita em grupos de redes sociais.</li>
+<li>Painel de informações sobre vagas de estágio, atividades extracurriculares (EJs, Equipes de Competição) abertura de editais acadêmicos (PIBIC, monitoria, etc).</li>
+<li>Controle de faltas pessoal, a qual o usuário será responsável por administrar suas presenças nas disciplinas.</li>
+</ul>
+<h2 id="14-tecnologias-a-serem-utilizadas_1">1.4 Tecnologias a Serem Utilizadas</h2>
+<ul>
+<li><strong>Linguagens de programação e Frameworks:</strong> Utilizaremos o Javascript como linguagem de programação, em conjunto com os frameworks Vue.js para o Front-end e Node.js para Back-end.</li>
+<li><strong>Ambientes:</strong> Cada membro da equipe poderá escolher seu próprio editor para a edição de códigos, contudo, estabeleceremos regras para <em>Commits</em>, nomes e estrutura do código. O controle de versão será realizado através do GitHub, onde faremos uso de <em>Branches</em> para facilitar o desenvolvimento.</li>
+<li><strong>Design:</strong> Adotaremos uma abordagem de design incremental, a qual envolve o desenvolvimento gradual do software, com feedback de potenciais usuários para garantir que atenda às suas necessidades e seja desenvolvido de forma eficaz.</li>
+<li><strong>Banco de dados:</strong> Optamos pelo MongoDB como banco de dados, devido à sua interface amigável e facilidade de uso e também pelo fato de ser não estrutural.</li>
+<li>
+<p><strong>Metodologia e Técnicas:</strong> A metodologia empregada será o Scrum XP, com sprints semanais e reuniões de revisão conforme necessário. Para tarefas mais complexas, adotaremos a programação em pares, posteriormente utilizaremos a técnica de revisão de código, na qual cada código será avaliado por outro membro da equipe antes da mesclagem na Branch "Development". Também planejamos implementar a Integração Contínua com Testes de Unidade.</p>
+</li>
+<li>
+<p><strong>Ferramentas:</strong> Para organizar atas de reuniões, documentos e gerenciar os quadros Kanban, utilizaremos o Notion. Para reuniões utilizaremos o Microsoft Teams e para demais reuniões como a programação em pares, utilizaremos o Discord, além de utilizar o github para armazenar e administrar o código. Além dessas, existem as ferramentas de apoio para fazer apresentações e documentos da disciplina, como canva, word e lucidchart.</p>
+</li>
+</ul>
+<h1 id="2-visao-geral-do-projeto_1">2. VISÃO GERAL DO PROJETO</h1>
+<h2 id="21-ciclo-de-vida-do-projeto-de-desenvolvimento-de-software_1">2.1 Ciclo de vida do projeto de desenvolvimento de software</h2>
+<p><strong>Metodologia e Técnicas:</strong> A metodologia empregada será o Scrum XP, com sprints semanais e reuniões de revisão conforme necessário. Para tarefas mais complexas, adotaremos a programação em pares, posteriormente utilizaremos a técnica de revisão de código, na qual cada código será avaliado por outro membro da equipe antes da mesclagem na Branch "Development". Também planejamos implementar a Integração Contínua com Testes de Unidade.</p>
+<p><strong>Contexto:</strong> A faculdade pode ser um desafio para muitos estudantes, pois eles precisam lidar com múltiplas matérias, horários de aula variados, tarefas, e informações institucionais dispersas, evidenciando que fazer uma boa gestão acadêmica pode ser uma tarefa difícil.</p>
+<p><strong>Objetivos:</strong> Facilitar a visualização das informações pelo usuário, além de fornecer outras tecnologias inexistentes.</p>
+<p><strong>Solução proposta:</strong> O UnB na mão é uma aplicação que visa unificar as informações da universidade em um único aplicativo.</p>
+<p><strong>Tecnologias detalhadas conforme a seção 1.4</strong></p>
+<p><strong>Linguagens de programação e Frameworks:</strong></p>
+<p><strong>Linguagem:</strong> JavaScript.</p>
+<p><strong>Frameworks</strong> : Vue.js para o Front-end e Node.js para Back-end.</p>
+<p><strong>Ambientes:</strong> Cada membro da equipe poderá escolher seu próprio editor para a edição de códigos, contudo, estabeleceremos regras para <em>Commits</em>, nomes e estrutura do código.</p>
+<p><strong>Design:</strong> Design incremental.</p>
+<p><strong>Banco de dados:</strong> MongoDB.</p>
+<p><strong>Ferramentas:</strong> Notion, Microsoft Teams, Discord, github, canva, word e lucidchart.</p>
+<table>
+<thead>
+<tr>
+<th><em><strong>Papel</strong></em></th>
+<th><em><strong>Atribuições</strong></em></th>
+<th><em><strong>Responsável</strong></em></th>
+<th><em><strong>Participantes</strong></em></th>
 </tr>
 </thead>
 <tbody>
@@ -285,12 +502,12 @@ instituição. Logo, esse projeto é bastante interessante para um discente pode
 <td>SCRUM Master</td>
 <td>Organização de atas, atualização de atividades, controlar e gerenciar o projeto</td>
 <td>Lucas Antunes</td>
-<td>Lucas Antunes, Mateus Vieira</td>
+<td></td>
 </tr>
 <tr>
 <td>Responsável Front-End</td>
 <td>Gerenciar a equipe de desenvolvimento Front-End</td>
-<td>Samuel Oliviera</td>
+<td>Samuel Lima</td>
 <td>3 integrantes rotativos</td>
 </tr>
 <tr>
@@ -303,17 +520,17 @@ instituição. Logo, esse projeto é bastante interessante para um discente pode
 <td>Cliente</td>
 <td>Fornecimento de requisitos</td>
 <td>...</td>
-<td>Estudantes da UnB</td>
+<td>Estudantes internos e ex-alunos para validação do produto.</td>
 </tr>
 <tr>
 <td>Desenvolvedores</td>
 <td>Realização das tarefas estabelecidas</td>
-<td>Mateus Vieira, Samuel Oliveira</td>
-<td>Breno Cordeiro, Breno Fernandes, Kauan Eiras, Leonardo, Matheus Diogo, Lucas Antunes</td>
+<td>Samuel Lima, Mateus Vieira</td>
+<td>Breno Cordeiro, Breno Fernandes, Kauan Eiras, Leonardo, Matheus Digo, Lucas Antunes</td>
 </tr>
 </tbody>
 </table>
-<h3 id="23-planejamento-das-fases-eou-iteracoes-do-projeto">2.3 Planejamento das Fases e/ou Iterações do Projeto</h3>
+<h2 id="22planejamento-das-fases-eou-iteracoes-do-projeto">2.2Planejamento das Fases e/ou Iterações do Projeto</h2>
 <table>
 <thead>
 <tr>
@@ -356,10 +573,10 @@ instituição. Logo, esse projeto é bastante interessante para um discente pode
 </tr>
 <tr>
 <td>Sprint 4</td>
-<td>Confecção do dos documentos de visão do produto e projeto</td>
+<td>Confecção do documento de visão do produto e projeto</td>
 <td>25/09/2023</td>
 <td>02/10/2023</td>
-<td></td>
+<td>Documento de Visão do Produto e Projeto</td>
 <td>Grupo</td>
 <td>100 %</td>
 </tr>
@@ -374,7 +591,7 @@ instituição. Logo, esse projeto é bastante interessante para um discente pode
 </tr>
 <tr>
 <td>Sprint 6</td>
-<td></td>
+<td>Desenvolvimento de tela de login</td>
 <td>09/10/2023</td>
 <td>16/10/2023</td>
 <td></td>
@@ -383,7 +600,7 @@ instituição. Logo, esse projeto é bastante interessante para um discente pode
 </tr>
 <tr>
 <td>Sprint 7</td>
-<td></td>
+<td>Confecção do documento de arquitetura</td>
 <td>23/10/2023</td>
 <td>30/10/2023</td>
 <td></td>
@@ -392,7 +609,7 @@ instituição. Logo, esse projeto é bastante interessante para um discente pode
 </tr>
 <tr>
 <td>Sprint 8</td>
-<td></td>
+<td>GitPages atualizado</td>
 <td>30/10/2023</td>
 <td>06/11/2023</td>
 <td></td>
@@ -406,7 +623,7 @@ instituição. Logo, esse projeto é bastante interessante para um discente pode
 <td>20/11/2023</td>
 <td></td>
 <td>Grupo</td>
-<td>100 %</td>
+<td>0 %</td>
 </tr>
 <tr>
 <td>Sprint 10</td>
@@ -415,7 +632,7 @@ instituição. Logo, esse projeto é bastante interessante para um discente pode
 <td>27/11/2023</td>
 <td></td>
 <td>Grupo</td>
-<td>100 %</td>
+<td>0 %</td>
 </tr>
 <tr>
 <td>Sprint 11</td>
@@ -424,7 +641,7 @@ instituição. Logo, esse projeto é bastante interessante para um discente pode
 <td>04/12/2023</td>
 <td></td>
 <td>Grupo</td>
-<td>100 %</td>
+<td>0 %</td>
 </tr>
 <tr>
 <td>Sprint 12</td>
@@ -433,7 +650,7 @@ instituição. Logo, esse projeto é bastante interessante para um discente pode
 <td>11/12/2023</td>
 <td></td>
 <td>Grupo</td>
-<td>100 %</td>
+<td>0 %</td>
 </tr>
 <tr>
 <td>Sprint 13</td>
@@ -442,75 +659,45 @@ instituição. Logo, esse projeto é bastante interessante para um discente pode
 <td>23/12/2023</td>
 <td></td>
 <td>Grupo</td>
-<td>100 %</td>
+<td>0 %</td>
 </tr>
 </tbody>
 </table>
-<h3 id="24-matriz-de-comunicacao">2.4 Matriz de Comunicação</h3>
-<table>
-<thead>
-<tr>
-<th>Descrição</th>
-<th>Área/Envolvidos</th>
-<th>Periodicidade</th>
-<th>Produtos Gerados</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>Acompanhamento das Atividades em Andamento</td>
-<td>Equipe do Projeto</td>
-<td>Semanal</td>
-<td>Ata de Reunião, Atividades a Serem Realizadas</td>
-</tr>
-<tr>
-<td>Acompanhamento dos Riscos, Compromissos e Ações Pendentes</td>
-<td>Equipe do Projeto</td>
-<td>Quinzenal</td>
-<td></td>
-</tr>
-<tr>
-<td>Comunicar Situação do Projeto</td>
-<td>Mateus Vieira e Monitor da Disciplina</td>
-<td>Semanal</td>
-<td></td>
-</tr>
-</tbody>
-</table>
-<h3 id="25-gerenciamento-de-riscos">2.5 Gerenciamento de Riscos</h3>
+<h2 id="23-matriz-de-comunicacao">2.3 Matriz de Comunicação</h2>
+<h2 id="24-gerenciamento-de-riscos">2.4 Gerenciamento de Riscos</h2>
 <table>
 <thead>
 <tr>
 <th>Risco</th>
-<th>Grau de Exposição</th>
+<th>Grau de exposição</th>
 <th>Mitigação</th>
-<th>Plano de Contingência</th>
+<th>Plano de contingência</th>
 </tr>
 </thead>
 <tbody>
 <tr>
 <td>Desistência da matéria por algum integrante do grupo</td>
-<td>Média</td>
+<td>Médio</td>
 <td>Manter a equipe unida e informada</td>
 <td>Reajustar a função dos membros do grupo, de modo que nenhum membro fique sobrecarregado.</td>
 </tr>
 <tr>
-<td>Problemas de integração com outros sites</td>
-<td>Média</td>
+<td>Problemas de integração com outros sites/APIs</td>
+<td>Médio</td>
 <td>Buscar se há meios de fazer as integrações antes de realizar essas tarefas nas sprints.</td>
 <td>Ajustar a tarefa de modo que seja possível fazer ela.</td>
 </tr>
 <tr>
 <td>Atraso nas releases</td>
-<td>Baixa</td>
+<td>Baixo</td>
 <td>Manter o planejamento organizado de modo com que a equipe consiga sempre progredir.</td>
 <td>Reorganizar as tarefas de modo com que o cronograma do projeto consiga voltar ao planejamento inicial sem atrasos.</td>
 </tr>
 <tr>
 <td>Falta de conhecimento técnico de membros da equipe</td>
-<td>Alta</td>
-<td>Manter os membros sempre informados de quais tecnologias estão sendo utilizadas e os estudantes se ajudarem de modo com que todos tenham conhecimento para a realização do projeto.</td>
-<td></td>
+<td>Alto</td>
+<td>Manter os membros sempre informados de quais tecnologias estão sendo utilizadas e os estudantes se ajudarem de modo com que todos tenham conhecimento para a realização do projeto.Realização de Dojos de software</td>
+<td>Buscar membros mais experientes e monitores para melhor entendimento, vale destacar que os pareamentos são balanceados para gerar a melhor fluidez do projeto.</td>
 </tr>
 <tr>
 <td></td>
@@ -519,9 +706,74 @@ instituição. Logo, esse projeto é bastante interessante para um discente pode
 <td></td>
 </tr>
 <tr>
+<td>Problemas de comunicação da equipe</td>
+<td>Médio</td>
+<td>Manter o grupo unido e organizado;Manter o Notion atualizado.</td>
+<td>Aumentar a frequência de reuniões para avaliar as possíveis causas.</td>
+</tr>
+<tr>
 <td></td>
 <td></td>
 <td></td>
+<td></td>
+</tr>
+<tr>
+<td>Limitação de recursos</td>
+<td>Alto</td>
+<td>Procurar fontes alternativas de recursos.</td>
+<td>Reorganizar de modo com que aqueles que possuam mais recursos possam ajudar aqueles que não os possuam.</td>
+</tr>
+<tr>
+<td>Testes</td>
+<td>Médio</td>
+<td>Capacitar o grupo na execução dos testes;Aplicar critérios de aceitação na entrega das tasks</td>
+<td>Contatar professor e monitores com antecedência;</td>
+</tr>
+</tbody>
+</table>
+<h2 id="25-criterios-de-replanejamento">2.5 Critérios de Replanejamento</h2>
+<p>O plano de contingência será acionado em situações que envolvam mudanças substanciais no projeto. Estes eventos incluem:</p>
+<p><strong>Mudanças significativas no escopo:</strong> Se houver alterações que impactem objetivos, entregas ou recursos, tais como adições substanciais de funcionalidades ou mudanças nas metas e objetivos.</p>
+<p><strong>Atraso crítico no cronograma:</strong> Em caso de atrasos críticos que afetem substancialmente o cronograma do projeto e sua capacidade de cumprir prazos.</p>
+<p><strong>Alterações nos recursos disponíveis:</strong> Se ocorrerem mudanças significativas nos recursos, como alterações na equipe, orçamento ou tecnologia, que afetem a capacidade de execução do projeto.</p>
+<p><strong>Problemas técnicos graves:</strong> Em situações em que problemas técnicos graves surjam e não possam ser resolvidos dentro dos parâmetros definidos pelo plano original, afetando a qualidade ou viabilidade do produto.</p>
+<p><strong>Desistência ou indisponibilidade de indivíduos:</strong> Se parceiros ou partes interessadas desistirem do projeto ou não estiverem disponíveis quando necessário.</p>
+<p><strong>Testes não implementados no período correto:</strong> Se os testes não puderem ser implementados de acordo com o período correto.</p>
+<h1 id="3-processo-de-desenvolvimento-de-software_1">3 PROCESSO DE DESENVOLVIMENTO DE SOFTWARE</h1>
+<h2 id="31-metodologia-de-desenvolvimento">3.1 Metodologia de Desenvolvimento</h2>
+<p>O processo de desenvolvimento de software para o projeto "UnB na Mão" será orientado pelas práticas ágeis, com base nas metodologias SCRUM e XP. Estas metodologias foram escolhidas devido à sua flexibilidade, adaptabilidade e ênfase na entrega contínua de valor ao cliente. A abordagem ágil proporcionará à equipe a capacidade de responder de forma eficaz às mudanças nos requisitos e no ambiente de desenvolvimento.</p>
+<h2 id="32-consideracoes-sobre-o-ciclo-de-vida-do-projeto">3.2 Considerações sobre o Ciclo de Vida do Projeto</h2>
+<p>O ciclo de vida do projeto será estruturado em sprints semanais, com reuniões de revisão conforme necessário. Para tarefas complexas, será adotada a prática de programação em pares. A implementação da Integração Contínua, com Testes de Unidade, garantirá a qualidade contínua do código. A revisão de código por membros da equipe será realizada antes da mesclagem na Branch principal.</p>
+<h2 id="33-tecnologias-utilizadas">3.3 Tecnologias Utilizadas</h2>
+<p>O projeto utilizará as seguintes tecnologias:</p>
+<ul>
+<li><strong>Linguagens e Frameworks:</strong> JavaScript para programação, Vue.js para o Front-end e Node.js para o Back-end.</li>
+<li><strong>Ambientes e Controle de Versão:</strong> Escolha individual de editores para codificação, com regras estabelecidas para commits, nomes e estrutura do código.</li>
+<li><strong>Banco de Dados:</strong> MongoDB devido à sua interface amigável e facilidade de uso.</li>
+<li><strong>Metodologias e Ferramentas Colaborativas:</strong></li>
+<li>Metodologia SCRUM XP com sprints semanais.</li>
+<li>Programação em pares para tarefas complexas.</li>
+<li>Integração Contínua com Testes de Unidade.</li>
+<li>Revisão de código antes da mesclagem na Branch principal.</li>
+</ul>
+<h1 id="4-detalhamento-de-atividades-do-projeto_1">4 Detalhamento de atividades do projeto</h1>
+<p><em>Conforme tabelas a seguir e lembrando que uma sprint podem conter mais de uma atividade, assim como uma determinada atividade pode acontecer em várias sprints (Ex.: codificar ; testar, mas que devem estar definidas no contexto de cada sprint do desenvolvimento.</em></p>
+<h2 id="4n-atividade-n">4.N Atividade 'N'</h2>
+<p><em>[Diante da abordagem estabelecida, deve-se definir como cada uma das atividades será realizada, por meio de métodos e ferramentas. Pode-se, por exemplo, utilizar um quadro para expressar essas informações:</em></p>
+<table>
+<thead>
+<tr>
+<th>_ <strong>Atividade</strong> _</th>
+<th>_ <strong>Método</strong> _</th>
+<th>_ <strong>Ferramenta</strong> _</th>
+<th>_ <strong>Entrega</strong> _</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><em>...</em></td>
+<td><em>...</em></td>
+<td><em>...</em></td>
 <td></td>
 </tr>
 <tr>
@@ -532,179 +784,78 @@ instituição. Logo, esse projeto é bastante interessante para um discente pode
 </tr>
 </tbody>
 </table>
-<p>Os membros do grupo buscaremestudar sobre as tecnologias e uma</p>
-<p>mudança nas funções para que</p>
-<p>aqueles que são melhores em certa</p>
-<p>área possam ajudar aqueles que não</p>
-<p>tem tanto conhecimento.</p>
-<p>Problemas de comunicação</p>
-<p>da equipe</p>
-<p>Média Manter o grupo unido e</p>
-<p>organizado.</p>
-<p>Mudar as estratégias de reuniões,</p>
-<p>pareamentos, etc.</p>
-<p>Limitação de recursos Alta Reorganizar de modo com que</p>
-<p>aqueles que possuam mais recursos</p>
-<p>possam ajudar aqueles que não os</p>
-<p>possuam.</p>
-<h3 id="26-criterios-de-replanejamento">2.6 Critérios de Replanejamento</h3>
-<p>Mudanças significativas no escopo: Se houver mudanças significativas no escopo do projeto que afetem</p>
-<p>objetivos, entregas ou recursos, o plano de contingência será acionado, isso inclui adições substâncias de</p>
-<p>funcionalidades ou mudanças nas metas e objetivos do projeto.</p>
-<p>Atraso crítico no cronograma: Se ocorrer um atraso crítico que afete substancialmente o cronograma</p>
-<h3 id="do-projeto-e-sua-capacidade-de-cumprir-prazos-o-plano-de-contingencia-sera-acionado">do projeto e sua capacidade de cumprir prazos, o plano de contingência será acionado.</h3>
-<p>Alterações nos recursos disponíveis: Se houver mudanças significativas nos recursos disponíveis, como</p>
-<p>mudanças na equipe, orçamento ou tecnologia, que afetem a capacidade de execução do projeto, será acionado o</p>
-<h3 id="plano-de-contingencia">plano de contingência.</h3>
-<p>Problemas técnicos graves: Se ocorrerem problemas técnicos graves que não podem ser resolvidos</p>
-<p>dentro dos parâmetros definidos pelo plano original e que afetem a qualidade ou viabilidade do produto, o plano</p>
-<p>de contingência será acionado.</p>
-<p>Desistência ou indisponibilidade de indivíduos: Se parceiros ou partes interessadas desistirem do</p>
-<p>projeto ou não estiverem disponíveis quando necessário, o plano de contingência será aplicado.</p>
-<h2 id="3-processo-de-desenvolvimento-de-software_1">3 PROCESSO DE DESENVOLVIMENTO DE SOFTWARE...........................................................</h2>
-<p>[Nesta seção devem estar registradas as decisões da equipe quanto à metodologia de desenvolvimento de</p>
-<p>software a ser utilizada, com base no SCRUM e XP.</p>
-<p>Observações:</p>
-<p> Cabe destacar aqui que, não é intenção desta seção ser definitiva ou prescritiva, mas, sim, orientadora.</p>
-<p> Também, não é objetivo desta seção ser detalhista e, sim, objetiva e resumida, de forma que a equipe possa</p>
-<p>utilizá-la como um guia.</p>
-<p> Deve-se também, apresentar um diagrama ilustrando o fluxo de trabalho a ser realizado.]</p>
-<p> Mas principalmente, esta seção deve estar alinhada ao que foi descrito e justificado na seção 2.</p>
-<p>Lembrando que processo é um conjunto de atividades logicamente encadeadas, contendo início/fim, consomem</p>
-<p>artefatos, geram resultados e possuem designações de responsabilidades (pelo menos papeis envolvidos).</p>
-<h2 id="4-detalhamento-de-atividades-do-projeto_1">4 Detalhamento de atividades do projeto</h2>
-<p>Conforme tabelas a seguir e lembrando que uma sprint podem conter mais de uma atividade, assim como uma</p>
-<p>determinada atividade pode acontecer em várias sprints (Ex.: codificar ; testar, mas que devem estar definidas</p>
-<p>no contexto de cada sprint do desenvolvimento.</p>
-<h3 id="41-atividade">4.1 Atividade</h3>
-<p>[Diante da abordagem estabelecida, deve-se definir como cada uma das atividades será realizada, por meio de métodos e ferramentas. Pode-se, por exemplo, utilizar</p>
-<p>um quadro para expressar essas informações:</p>
-<p>Atividade Método Ferramenta Entrega</p>
-<h3 id="42-atividade">4.2 Atividade</h3>
-<p>[Diante da abordagem estabelecida, deve-se definir como cada uma das atividades será realizada, por meio de métodos e ferramentas. Pode-se, por exemplo, utilizar</p>
-<p>um quadro para expressar essas informações:</p>
-<p>Atividade Método Ferramenta Entrega</p>
-<h3 id="43-atividade">4.3 Atividade</h3>
-<p>[Diante da abordagem estabelecida, deve-se definir como cada uma das atividades será realizada, por meio de métodos e ferramentas. Pode-se, por exemplo, utilizar</p>
-<p>um quadro para expressar essas informações:</p>
-<p>Atividade Método Ferramenta Entrega</p>
-<h3 id="44-atividade-n">4.4 Atividade ‘N’</h3>
-<p>[Diante da abordagem estabelecida, deve-se definir como cada uma das atividades será realizada, por meio de métodos e ferramentas. Pode-se, por exemplo, utilizar</p>
-<p>um quadro para expressar essas informações:</p>
-<p>Atividade Método Ferramenta Entrega</p>
-<p>... ... ...</p>
-<h2 id="5-licoes-aprendidas_1">5 LIÇÕES APRENDIDAS</h2>
-<h3 id="51-unidade">5.1 Unidade</h3>
-<p>[Liste as lições aprendidas na retrospectiva, com ênfase especial nas ações a serem tomadas para</p>
-<p>melhorar, por exemplo: o ambiente de desenvolvimento, o processo ou a colaboração da equipe.]</p>
-<p>[Aqui, também devem estar registradas as dificuldades que a equipe teve durante a unidade, e como</p>
-<p>conseguiu (ou não) superá-las).]</p>
-<h3 id="52-unidade">5.2 Unidade</h3>
-<p>[Liste as lições aprendidas na retrospectiva, com ênfase especial nas ações a serem tomadas para</p>
-<p>melhorar, por exemplo: o ambiente de desenvolvimento, o processo ou a colaboração da equipe.]</p>
-<p>[Aqui, também devem estar registradas as dificuldades que a equipe teve durante a unidade, e como</p>
-<p>conseguiu (ou não) superá-las).]</p>
-<h3 id="53-unidade">5.3 Unidade</h3>
-<p>[Liste as lições aprendidas na retrospectiva, com ênfase especial nas ações a serem tomadas para</p>
-<p>melhorar, por exemplo: o ambiente de desenvolvimento, o processo ou a colaboração da equipe.]</p>
-<p>[Aqui, também devem estar registradas as dificuldades que a equipe teve durante a unidade, e como</p>
-<p>conseguiu (ou não) superá-las).]</p>
-<h3 id="54-unidade">5.4 Unidade</h3>
-<p>[Liste as lições aprendidas na retrospectiva, com ênfase especial nas ações a serem tomadas para</p>
-<p>melhorar, por exemplo: o ambiente de desenvolvimento, o processo ou a colaboração da equipe.]</p>
-<p>[Aqui, também devem estar registradas as dificuldades que a equipe teve durante a unidade, e como</p>
-<p>conseguiu (ou não) superá-las).]</p>
-<h2 id="6-proximos-passos_1">6 PRÓXIMOS PASSOS</h2>
-<p> Iniciem a preparação do backlog do produto, redigindo requisitos funcionais e não funcionais</p>
-<p>(se existirem);</p>
-<p> Revejam definições de Sprints e releases para acomodar os requisitos dentro das capacidades de</p>
-<p>cada equipe;</p>
-<p> Priorize requisitos de acordo com as entregas de valores determinadas nas releases e as sprints</p>
-<p>planejadas;</p>
-<p> Estudem o que é um MVP – Minimum Viable Product. Pensem assim: O cliente quer ver</p>
-<p>funcionando uma demonstração do produto. Além disso, as tecnologias adotadas são suficientes</p>
-<p>para o desenvolvimento do produto?</p>
-<h2 id="7-referencias-bibliograficas_1">7 REFERÊNCIAS BIBLIOGRÁFICAS</h2>
-<p>[Listar as referências utilizadas neste documento  no padrão ABNT]</p>
+<h1 id="5-licoes-aprendidas_1">5 LIÇÕES APRENDIDAS</h1>
+<h2 id="51-unidade-1_1">5.1 Unidade 1</h2>
+<p>Durante a primeira fase, as decisões tomadas foram orientadas pela opinião predominante no grupo, visando a seleção dos frameworks mais adequados para atender à nossa Visão de Produto e Projeto. Isso abrangeu tanto a parte do back-end quanto a do front-end, levando em consideração o nível de conhecimento da maioria dos membros e suas disponibilidades para aprender novos elementos.</p>
+<p>Consequentemente, optamos por desenvolver o back-end em JavaScript, fazendo uso do Node.JS. Quanto ao front-end, a escolha do grupo foi o Vue.Js, juntamente com CSS, JavaScript e HTML.</p>
+<p>No início do projeto, nossa prioridade era construir todas as funcionalidades propostas, e a home que dá acesso as outras funcionalidades, logo a escolha das ferramentas foi feita visando esse objetivo.</p>
+<p>No que diz respeito aos ciclos de vida de um produto, foram apresentadas duas metodologias: Scrum e XP (Extreme Programming). Ambas são abordagens ágeis que acreditamos serem benéficas para o nosso projeto. Portanto, decidimos adotar uma abordagem combinada, utilizando Scrum e XP.</p>
+<h2 id="51-unidade-2">5.1 Unidade 2</h2>
+<h2 id="52-unidade-3">5.2 Unidade 3</h2>
+<h2 id="53-unidade-4">5.3 Unidade 4</h2>
+<h1 id="6-proximos-passos_1">6 PRÓXIMOS PASSOS</h1>
+<ul>
+<li><em>Iniciem a preparação do backlog do produto, redigindo requisitos funcionais e não funcionais (se existirem);</em></li>
+<li><em>Revejam definições de Sprints e releases para acomodar os requisitos dentro das capacidades de cada equipe;</em></li>
+<li><em>Priorize requisitos de acordo com as entregas de valores determinadas nas releases e as sprints planejadas;</em></li>
+<li><em>Estudem o que é um MVP – Minimum Viable Product. Pensem assim: O cliente quer ver funcionando uma demonstração do produto. Além disso, as tecnologias adotadas são suficientes para o desenvolvimento do produto?</em></li>
+</ul>
+<h1 id="7-referencias-bibliograficas_1">7 REFERÊNCIAS BIBLIOGRÁFICAS</h1>
 <ol>
-<li>[Descrição da referência]</li>
-</ol></div>
-            </div>
-        </div>
+<li>
+<p>Aula sobre metodologia Scrum. Disponível em: <a href="https://aws.amazon.com/pt/what-is/scrum/#:~:text=O%20Scrum%20%C3%A9%20um%20framework,uma%20entrega%20eficiente%20de%20projetos">https://aws.amazon.com/pt/what-is/scrum/#:~:text=O%20Scrum%20%C3%A9%20um%20framework,uma%20entrega%20eficiente%20de%20projetos</a>. Acesso em: 10 de novembro de 2023.</p>
+</li>
+<li>
+<p>Aula sobre XP. Disponível em: https://www.alura.com.br/conteudo/xp-extreme-programming. Acesso em: 10 de novembro de 2023.</p>
+</li>
+<li>
+<p>Aula sobre fundamentos de ciclo de vida. Disponível em: <a href="https://aprender3.unb.br/pluginfile.php/2737355/mod_resource/content/2/MDS-Unidade%201%20-%20Aula%20-%20Aborgadens%2C%20Ciclos%20de%20Vida%20e%20Processo%20-%20MDS-Unidade%201%20-%20Aula%20-%20Aborgadens%2C%20Ciclos%20de%20Vida%20e%20Processo.pdf">https://aprender3.unb.br/pluginfile.php/2737355/mod_resource/content/2/MDS-Unidade%201%20-%20Aula%20-%20Aborgadens%2C%20Ciclos%20de%20Vida%20e%20Processo%20-%20MDS-Unidade%201%20-%20Aula%20-%20Aborgadens%2C%20Ciclos%20de%20Vida%20e%20Processo.pdf</a>. Acesso em: 10 de novembro de 2023.</p>
+</li>
+</ol>
+<h1 id="_1"></h1>
 
-        <footer class="col-md-12">
-            <hr>
-            <p>Documentation built with <a href="https://www.mkdocs.org/">MkDocs</a>.</p>
-        </footer>
-        <script src="../js/jquery-3.6.0.min.js"></script>
-        <script src="../js/bootstrap.min.js"></script>
-        <script>
-            var base_url = "..",
-                shortcuts = {"help": 191, "next": 78, "previous": 80, "search": 83};
-        </script>
-        <script src="../js/base.js"></script>
-        <script src="../search/main.js"></script>
 
-        <div class="modal" id="mkdocs_search_modal" tabindex="-1" role="dialog" aria-labelledby="searchModalLabel" aria-hidden="true">
-    <div class="modal-dialog modal-lg">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h4 class="modal-title" id="searchModalLabel">Search</h4>
-                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+
+
+
+                
+              </article>
             </div>
-            <div class="modal-body">
-                <p>From here you can search these documents. Enter your search terms below.</p>
-                <form>
-                    <div class="form-group">
-                        <input type="search" class="form-control" placeholder="Search..." id="mkdocs-search-query" title="Type search term here">
-                    </div>
-                </form>
-                <div id="mkdocs-search-results" data-no-results-text="No results found"></div>
-            </div>
-            <div class="modal-footer">
-            </div>
+          
+          
         </div>
-    </div>
-</div><div class="modal" id="mkdocs_keyboard_modal" tabindex="-1" role="dialog" aria-labelledby="keyboardModalLabel" aria-hidden="true">
-    <div class="modal-dialog">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h4 class="modal-title" id="keyboardModalLabel">Keyboard Shortcuts</h4>
-                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
-            </div>
-            <div class="modal-body">
-              <table class="table">
-                <thead>
-                  <tr>
-                    <th style="width: 20%;">Keys</th>
-                    <th>Action</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr>
-                    <td class="help shortcut"><kbd>?</kbd></td>
-                    <td>Open this help</td>
-                  </tr>
-                  <tr>
-                    <td class="next shortcut"><kbd>n</kbd></td>
-                    <td>Next page</td>
-                  </tr>
-                  <tr>
-                    <td class="prev shortcut"><kbd>p</kbd></td>
-                    <td>Previous page</td>
-                  </tr>
-                  <tr>
-                    <td class="search shortcut"><kbd>s</kbd></td>
-                    <td>Search</td>
-                  </tr>
-                </tbody>
-              </table>
-            </div>
-            <div class="modal-footer">
-            </div>
-        </div>
-    </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
 </div>
-
-    </body>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    <script id="__config" type="application/json">{"base": "..", "features": [], "search": "../assets/javascripts/workers/search.f886a092.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.aecac24b.min.js"></script>
+      
+    
+  </body>
 </html>
