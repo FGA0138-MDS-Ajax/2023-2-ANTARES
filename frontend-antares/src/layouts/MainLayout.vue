@@ -104,7 +104,8 @@ function logout () {
   const res = confirm('Deseja Fazer Logout ?')
   if(res) {
     sessionStore.clearSessionData()
-    window.location.reload()
+    window.location.href = 'https://unbnamao.netlify.app'
+    
   }
 }
 </script>
