@@ -6,21 +6,36 @@
         <div class="text-h4 text-center">UnB na Mão</div>
         <div class="text-h6 text-center low-opacity">{{ registrando ? 'Registre-se' : 'Fazer login' }}</div>
         <div>
+          <q-input maxlength="50" filled v-if="registrando" v-model="nome" dense class="bg-white q-mt-md" label="Nome Completo *"/>
           <q-input maxlength="40" filled v-if="registrando" v-model="email" dense class="bg-white q-mt-md" label="E-mail *"/>
-          <q-input maxlength="20" filled v-model="usuario" dense class="bg-white q-my-md" label="Usuário *"/>
+          <q-input
+            maxlength="20"
+            filled  
+            @keyup.enter="logar"
+            v-model="usuario"
+            dense
+            class="bg-white q-my-md"
+            label="Usuário *"
+          />
+        
           <q-input
             filled
             class="bg-white q-my-md"
             dense
             v-if="registrando"
             v-model="telefone"
-            label="Telefone"
+            label="Telefone *"
             maxlength="17"
             mask="(##) ##### - ####"
             unmasked-value
           />
           <q-select filled v-if="registrando" v-model="role" dense class="bg-white" :options="roleOptions" label="Tipo de Conta *"></q-select>
-          <q-input maxlength="20" filled v-model="senha" dense class="bg-white q-mt-md" label="Senha *" :type="isPwd ? 'password' : 'text'">
+          <q-input maxlength="20" filled v-model="senha"
+            @keyup.enter="logar"
+            dense
+            class="bg-white q-mt-md"
+            label="Senha *"
+            :type="isPwd ? 'password' : 'text'">
             <template v-slot:append>
               <q-icon
                 :name="isPwd ? 'visibility_off' : 'visibility'"
@@ -70,7 +85,6 @@ import { ref } from 'vue';
 import { useRouter } from 'vue-router';
 import LoginService from '../services/LoginService'
 import { useQuasar } from 'quasar';
-const router = useRouter();
 const confirmarSenha = ref(null);
 const registrando = ref(false);
 const isPwd = ref(true);
@@ -78,6 +92,7 @@ const isConfirmePwd = ref(true);
 const usuario  = ref(null);
 const telefone = ref(null) as any
 const senha = ref(null);
+const nome = ref(null)
 const email = ref(null)
 
 const $q = useQuasar()
@@ -90,8 +105,35 @@ const roleOptions = ref([
   { id: 5, label: 'Empresa Contratante' }
 ]);
 
-function logar() {
-  router.push('/home');
+async function logar() {
+  try {
+    const params = {
+      login: usuario.value,
+      senha: senha.value
+    }
+    const response = await LoginService(params).login()
+    if(response.status == 201) {
+      window.location.reload()
+    } else {
+      $q.notify({
+      color: 'red-10',
+      textColor: 'white',
+      icon: 'warning',
+      message: response.data.message,
+      position: 'top',
+    });
+    senha.value = null
+    }
+  } catch (e) {
+    $q.notify({
+      color: 'red-9',
+      textColor: 'white',
+      icon: 'warning',
+      message: 'Erro de Conexão',
+      position: 'top',
+    });
+    console.log(e)
+  }
 }
 
 function telaRegistrar() {
@@ -124,8 +166,7 @@ const createRegistrarObject = () => {
     });
     return false
   }
-  if(telefone.value.length != 11) {
-    alert(typeof telefone.value)
+  if( telefone.value == null || telefone.value.length != 11 || telefone.value.trim() == '') {
     $q.notify({
       color: 'yellow-9',
       textColor: 'white',
@@ -136,6 +177,7 @@ const createRegistrarObject = () => {
     return false
   }
   const registroObject = {
+    nome: nome.value,
     login: usuario.value,
     senha: senha.value,
     email: email.value,
@@ -154,7 +196,7 @@ const createRegistrarObject = () => {
 function validarRegistro(registroObject: any) {
   // Colocar Validações do Objeto Registrar Aqui
   console.log('validando : ' + JSON.stringify(registroObject))
-  if (registroObject.email == null || registroObject.login == null || registroObject.telefone == null || registroObject.senha == null) {
+  if (registroObject.email == null || registroObject.login == null || registroObject.telefone == null || registroObject.senha == null || registroObject.nome == null || registroObject.nome.trim() == '') {
     $q.notify({
       color: 'yellow-9',
       textColor: 'white',
@@ -172,6 +214,25 @@ function validarRegistro(registroObject: any) {
       position: 'top',
     });
     return false
+  } else if (/\s/.test(registroObject.senha)) {
+    $q.notify({
+      color: 'yellow-9',
+      textColor: 'white',
+      icon: 'warning',
+      message: 'A Senha não deve conter espaços em branco',
+      position: 'top',
+    });
+    return false;
+  }
+   else if (registroObject.senha.trim() == '') {
+    $q.notify({
+      color: 'yellow-9',
+      textColor: 'white',
+      icon: 'warning',
+      message: 'Senha no Formato Inválido',
+      position: 'top',
+    });
+    return false;
   } else if (!isValidEmail(registroObject.email)) {
     $q.notify({
       color: 'yellow-9',

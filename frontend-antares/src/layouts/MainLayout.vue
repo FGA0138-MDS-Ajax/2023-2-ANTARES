@@ -15,13 +15,13 @@
     </q-header>
 
     <q-drawer show-if-above v-model="rightDrawerOpen" side="right" bordered>
-      <q-img class="absolute-top" src="https://cdn.quasar.dev/img/material.png" style="height: 200px">
+      <q-img class="absolute-top" style="background: rgb(36, 36, 36); height: 200px">
         <div class="absolute-center column items-center bg-transparent">
           <q-avatar size="80px" class="q-mb-sm">
-            <img src="https://cdn.quasar.dev/img/boy-avatar.png">
+            <img :src="sessionData.user_image">
           </q-avatar>
-          <div class="text-weight-bold">Grupo Antares</div>
-          <div>@grupoantares</div>
+          <div class="text-weight-bold">{{ sessionData.nome }}</div>
+          <div>@{{ sessionData.login }}</div>
         </div>
       </q-img>
     <!-- items do menu -->
@@ -66,6 +66,15 @@
             Configurações
           </q-item-section>
         </q-item>
+        <q-item clickable v-ripple @click="logout()">
+          <q-item-section avatar>
+            <q-icon name="logout" />
+          </q-item-section>
+
+          <q-item-section>
+            Fazer Logout
+          </q-item-section>
+        </q-item>
       </q-list>
     </q-scroll-area>
     </q-drawer>
@@ -77,19 +86,25 @@
   </q-layout>
 </template>
 
-<script>
-import { ref } from 'vue'
+<script lang="ts" setup>
+import { computed, ref } from 'vue'
+import { useSessionStore } from 'src/stores/session';
+import { useRouter } from 'vue-router';
 
-export default {
-  setup () {
-    const rightDrawerOpen = ref(false)
+const router = useRouter()
 
-    return {
-      rightDrawerOpen,
-      toggleRightDrawer () {
-        rightDrawerOpen.value = !rightDrawerOpen.value
-      }
-    }
+const rightDrawerOpen = ref(true)
+function toggleRightDrawer () {
+  rightDrawerOpen.value = !rightDrawerOpen.value
+}
+const sessionStore = useSessionStore();
+const sessionData = computed(() => sessionStore.getSessionData) as any
+
+function logout () {
+  const res = confirm('Deseja Fazer Logout ?')
+  if(res) {
+    sessionStore.clearSessionData()
+    window.location.reload()
   }
 }
 </script>
