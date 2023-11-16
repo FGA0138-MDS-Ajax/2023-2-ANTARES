@@ -8,7 +8,16 @@
         <div>
           <q-input maxlength="50" filled v-if="registrando" v-model="nome" dense class="bg-white q-mt-md" label="Nome Completo *"/>
           <q-input maxlength="40" filled v-if="registrando" v-model="email" dense class="bg-white q-mt-md" label="E-mail *"/>
-          <q-input maxlength="20" filled v-model="usuario" dense class="bg-white q-my-md" label="Usuário *"/>
+          <q-input
+            maxlength="20"
+            filled  
+            @keyup.enter="logar"
+            v-model="usuario"
+            dense
+            class="bg-white q-my-md"
+            label="Usuário *"
+          />
+        
           <q-input
             filled
             class="bg-white q-my-md"
@@ -21,7 +30,12 @@
             unmasked-value
           />
           <q-select filled v-if="registrando" v-model="role" dense class="bg-white" :options="roleOptions" label="Tipo de Conta *"></q-select>
-          <q-input maxlength="20" filled v-model="senha" dense class="bg-white q-mt-md" label="Senha *" :type="isPwd ? 'password' : 'text'">
+          <q-input maxlength="20" filled v-model="senha"
+            @keyup.enter="logar"
+            dense
+            class="bg-white q-mt-md"
+            label="Senha *"
+            :type="isPwd ? 'password' : 'text'">
             <template v-slot:append>
               <q-icon
                 :name="isPwd ? 'visibility_off' : 'visibility'"
