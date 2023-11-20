@@ -75,12 +75,17 @@
         </q-card-actions>
       </div>
     </q-card>
-    <button filled v-if="!registrando" id="button" flat class="q-mt-sm bg-yellow-10 text-white q-pa-sm">
+    <button filled v-if="!registrando" id="button" flat class="q-mt-sm bg-yellow-10 text-white q-pa-sm" @click="esqueciSenha">
       Esqueci minha Senha
+    
     </button>
+    <ModalEsquecISenha v-if="modalEsqueci"/>
+
+    
   </div>
 </template>
 <script lang="ts" setup>
+import ModalEsquecISenha from 'src/components/ModalEsquecISenha.vue';
 import { ref } from 'vue';
 import { useRouter } from 'vue-router';
 import LoginService from '../services/LoginService'
@@ -290,6 +295,10 @@ async function registrar () {
         position: 'top',
       }); 
   }
+}
+const modalEsqueci = ref(false)
+const esqueciSenha = ()=>{
+  modalEsqueci.value = !modalEsqueci.value
 }
 
 </script>
