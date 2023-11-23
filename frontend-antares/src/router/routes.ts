@@ -5,7 +5,7 @@ import { computed } from 'vue'
 const verificaLogin = () => {
   const sessionStore = useSessionStore();
   const sessionData = computed(() => sessionStore.getSessionData) as any
-  if(sessionData.login === undefined) {
+  if(sessionData.value.login === undefined) {
     return false
   } else {
     return true
