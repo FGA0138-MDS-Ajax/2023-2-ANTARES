@@ -1,7 +1,6 @@
 <template>
-  <q-layout view="hHh lpR lfr">
-
-    <q-header bordered class="bg-blue text-white">
+    <q-layout view="hHh lpR lfr">
+   <q-header bordered class="bg-blue text-white">
       <q-toolbar>
         <q-toolbar-title>
           <q-avatar class="q-mr-sm">
@@ -78,18 +77,24 @@
       </q-list>
     </q-scroll-area>
     </q-drawer>
- 
-    <q-page-container>
-      <router-view />
-    </q-page-container>
-
-  </q-layout>
+    <h1 class="title-page">Feed de notícias</h1>
+    <q-card class="card-feed" v-for="(news, index) in vectorNews" :key="index"> 
+    <q-card-section>
+        <h2 class="title-card">{{ news.title }}</h2>
+        <div>{{ news.body }}</div>
+    </q-card-section>
+    </q-card>
+    </q-layout>
 </template>
 
 <script lang="ts" setup>
 import { computed, ref } from 'vue'
 import { useSessionStore } from 'src/stores/session';
 import { useRouter } from 'vue-router';
+import { data } from 'autoprefixer';
+
+const vectorNews=[{ title: 'Título da Notícia 1', body: 'Corpo da Notícia 1' },
+        { title: 'Título da Notícia 2', body: 'Corpo da Notícia 2'  }]
 
 const router = useRouter()
 
@@ -109,3 +114,18 @@ function logout () {
   }
 }
 </script>
+<style>
+
+.title-page{
+    font-size: 30px;
+    margin-top: 30px;
+    margin-left: 20px;
+}
+.card-feed{
+    margin-left: 100px;
+    margin-right: 100px;
+}
+.title-card{
+    font-size: 20px;
+}
+</style>
