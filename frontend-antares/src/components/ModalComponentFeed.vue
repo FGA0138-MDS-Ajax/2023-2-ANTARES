@@ -49,7 +49,6 @@ export default {
     transform: translate(-50%, -50%);
     top: 50%;
     left: 50%;
-    background: rgba(0, 0, 0, 0.4);
     width: flex;
     height: flex;
     flex-direction: column;
@@ -64,7 +63,7 @@ export default {
     flex-grow: 1;
     flex-direction: column;
     display: flex;
-    width: auto;
+    width: 80%;
     margin: auto;
     min-width: none;
     background: #fff;
