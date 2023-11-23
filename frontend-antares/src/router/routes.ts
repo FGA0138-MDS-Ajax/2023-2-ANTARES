@@ -21,14 +21,14 @@ const routes: RouteRecordRaw[] = [
       if (!isAuthenticated) {
         next();
       } else {
-        next('/home'); 
+        next('/app'); 
       }
     },
     component: () => import('layouts/LoginLayout.vue'),
   },
   {
-    name: 'home',
-    path: '/home',
+    name: 'app',
+    path: '/app',
     beforeEnter: (to, from, next) => {
       const isAuthenticated = verificaLogin();
       if (isAuthenticated) {
@@ -38,24 +38,15 @@ const routes: RouteRecordRaw[] = [
       }
     },
     component: () => import('layouts/MainLayout.vue'),
-    children: [{ name:'index', path: '', component: () => import('pages/IndexPage.vue') }],
+    children: [
+      { name:'app', path: '', component: () => import('pages/IndexPage.vue') },
+      { name:'publicar-vagas', path: '/publicar-vagas', component: () => import('pages/PublicarVagasPage.vue') },
+      
+    ],
   },
   {
     path: '/:catchAll(.*)*',
     component: () => import('pages/ErrorNotFound.vue'),
-  },
-  {
-    name: 'publicar-vagas',
-    path: '/p_6l1c4r-v494s',
-    beforeEnter: (to, from, next) => {
-      const isAuthenticated = verificaLogin();
-      if (isAuthenticated) {
-        next();
-      } else {
-        next('/');
-      }
-    },
-    component: () => import('layouts/PublicarVagasLayout.vue'),
   },
 ];
 

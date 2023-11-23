@@ -27,23 +27,23 @@
     <!-- items do menu -->
     <q-scroll-area style="height: calc(100% - 200px); margin-top: 200px; border-right: 1px solid #ddd">
       <q-list padding>
-        <q-item active clickable v-ripple>
+        <q-item clickable v-ripple to="/">
           <q-item-section avatar>
-            <q-icon name="star" />
+            <q-icon name="home" />
           </q-item-section>
 
-          <q-item-section>
-            Star
+          <q-item-section >
+            Página Inicial
           </q-item-section>
         </q-item>
-
-        <q-item clickable v-ripple>
+        
+        <q-item clickable v-ripple to="/publicar-vagas">
           <q-item-section avatar>
             <q-icon name="send" />
           </q-item-section>
 
           <q-item-section>
-            Send
+            Publicar Vagas
           </q-item-section>
         </q-item>
 
@@ -88,7 +88,7 @@
 
 <script lang="ts" setup>
 import { computed, ref } from 'vue'
-import { useSessionStore } from 'src/stores/session';
+import { useSessionStore } from '../stores/session';
 import { useRouter } from 'vue-router';
 
 const router = useRouter()
