@@ -47,13 +47,13 @@
           </q-item-section>
         </q-item>
 
-        <q-item clickable v-ripple>
+        <q-item clickable v-ripple to="/feed">
           <q-item-section avatar>
-            <q-icon name="drafts" />
+            <q-icon name="home" />
           </q-item-section>
 
           <q-item-section>
-            Drafts
+            Feed
           </q-item-section>
         </q-item>
         

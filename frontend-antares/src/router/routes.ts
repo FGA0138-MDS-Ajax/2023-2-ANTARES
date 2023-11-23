@@ -41,7 +41,7 @@ const routes: RouteRecordRaw[] = [
     children: [
       { name:'app', path: '', component: () => import('pages/IndexPage.vue') },
       { name:'publicar-vagas', path: '/publicar-vagas', component: () => import('pages/PublicarVagasPage.vue') },
-      
+      { name:'feed-vagas', path: '/feed', component: () => import('pages/FeedPage.vue') },
     ],
   },
   {

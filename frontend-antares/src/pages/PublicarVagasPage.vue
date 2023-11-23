@@ -159,7 +159,7 @@ export default defineComponent({
   }
   
 
-  @media (max-width: 768px) {
+  @media (max-width: 1600px) {
     .q-card {
       margin-top: 24px;
       margin-bottom: 24px;
