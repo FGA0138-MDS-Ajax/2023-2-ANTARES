@@ -2,10 +2,10 @@
     <div class="modal">
         <div class="modal-content">
             <div class="modal-header">
-                <slot class="modal-title"></slot>
+                <slot name="modal-title"></slot>
             </div>
             <div class="modal-body">
-                <slot name="bodyModal"></slot>
+                <slot name="modal-text"></slot>
             </div>
             <div class="modal-input">
                 <slot name="inputModal1"></slot>
@@ -69,25 +69,29 @@ export default {
     min-width: none;
     background: #fff;
     margin: auto;
-    padding-top: 120px;
+    padding-top: 50px;
 }
 
 .modal-header {
-    height: 50px;
+    height: 10px;
     display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: column;
+    margin-top: 0;
+    text-align: center;
 }
 
 .modal-input {
     padding: 5px;
 }
 
-.modal-title {
-    font-weight: bold;
-    font-size: 12px;
-    text-align: center;
+
+.modal-body {
+    flex-grow: 1;
+    height: 100%;
+    padding: 50px;
+    text-align: left;
 }
 
 .modal-close {
@@ -95,9 +99,4 @@ export default {
     cursor: pointer;
 }
 
-.modal-body {
-    flex-grow: 1;
-    height: 100%;
-    padding: 10px;
-    text-align: justify;
-}</style>
+</style>

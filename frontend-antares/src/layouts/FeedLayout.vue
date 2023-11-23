@@ -85,14 +85,14 @@
             </q-card-section>
         </q-card>
         <ModalComponent v-if = "modalNewsOpen" @fecharModal="fecharModalNews" class="modal-component">
-            <slot name="modal-title" class="modal-title">
+            <template v-slot:modal-title>
                 <h2>{{ selectedNews.title }}</h2>
-            </slot>
-            <slot name="modal-body">
-                <h2>{{ selectedNews.body }}</h2>
-            </slot>
+            </template>
+            <template v-slot:modal-text>
+                <p>{{ selectedNews.body }}</p>
+            </template>
             <template v-slot:botaoFechar>
-                <q-btn label="Fechar" color="primary" @click="fecharModalNews" />
+                <q-btn label="Fechar" color="primary"  class="modal-close" @click="fecharModalNews" />
             </template>
         </ModalComponent>
     </q-layout>
@@ -106,7 +106,8 @@ import { data } from 'autoprefixer';
 import ModalComponent from '../components/ModalComponent.vue'
 
 const vectorNews = [{ title: 'Título da Notícia 1', body: 'Corpo da Notícia 1' },
-{ title: 'Título da Notícia 2', body: 'Corpo da Notícia 2' }]
+                    { title: 'Título da Notícia 2', body: 'Corpo da Notícia 2' },
+                    { title: 'Título da Notícia 3', body: 'Corpo da Notícia 3' }]
 const modalNewsOpen = ref(false)
 const selectedNews = ref({ title: '', body: '' })
 
@@ -152,14 +153,19 @@ function fecharModalNews() {
 .title-card {
     font-size: 20px;
 }
+
 .modal-component {
     width: 50%;
     height: 50%;
     margin: auto;
 }
-.modal-title {
-    font-size: 20px;
-    font-weight: bold;
-    text-align: center;
+
+.modal-close {
+    width: auto;
+    position: absolute;
+    bottom: 10px;
+    left: 50%;
+    transform: translateX(-50%);
 }
+
 </style>
