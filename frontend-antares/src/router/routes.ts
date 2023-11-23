@@ -44,6 +44,19 @@ const routes: RouteRecordRaw[] = [
     path: '/:catchAll(.*)*',
     component: () => import('pages/ErrorNotFound.vue'),
   },
+  {
+    name: 'publicar-vagas',
+    path: '/p_6l1c4r-v494s',
+    beforeEnter: (to, from, next) => {
+      const isAuthenticated = verificaLogin();
+      if (isAuthenticated) {
+        next();
+      } else {
+        next('/');
+      }
+    },
+    component: () => import('layouts/PublicarVagasLayout.vue'),
+  },
 ];
 
 export default routes;
