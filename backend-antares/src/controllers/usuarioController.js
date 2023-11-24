@@ -1,12 +1,15 @@
+const bcrypt = require('bcrypt');
 const { Usuario: UsuarioModel } = require("../models/Usuario");
 
 const usuarioController = {
   create: async (req, res) => {
     try {
+      const salt = await bcrypt.genSalt(10);
+      const hashedPassword = await bcrypt.hash(req.body.senha, salt);
       const usuario = {
         nome: req.body.nome,
         login: req.body.login,
-        senha: req.body.senha,
+        senha: hashedPassword,
         telefone: req.body.telefone,
         email: req.body.email,
         user_image: req.body.user_image,
@@ -29,12 +32,12 @@ const usuarioController = {
   validaUsuario: async (req, res) => {
     try {
       console.log(req.body);
-      const response = await UsuarioModel.find({ login: req.body.login, senha: req.body.senha });
-      if(response[0] != null) {
+      const usuario = await UsuarioModel.findOne({ login: req.body.login });
+      if (usuario && await bcrypt.compare(req.body.senha, usuario.senha)) {
         res.status(201).json({
           message: "Login Efetuado com Sucesso!",
-          response: response[0]
-        })
+          response: usuario
+      });
       } else {
         res.status(200).json({
           message: "Credenciais Não Encontradas no Sistema",
@@ -60,7 +63,9 @@ const usuarioController = {
       // Se o usuário for encontrado
       if (usuario) {
         // Atualiza a senha do usuário
-        usuario.senha = senha;
+        const salt = await bcrypt.genSalt(10);
+        const hashedPassword = await bcrypt.hash(senha, salt);
+        usuario.senha = hashedPassword;
         await usuario.save();
 
         res.status(200).json({ message: "Senha redefinida com sucesso!" });
