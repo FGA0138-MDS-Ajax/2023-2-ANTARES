@@ -81,7 +81,7 @@ export default defineComponent({
           const sessionStore = useSessionStore();
           const usuarioLogado = sessionStore.getSessionData;
           const criadorEmail = usuarioLogado.email;
-        //  CRIAR CONDIÇÃO PARA PERMITIR APENAS AS ROLES CERTAS PUBLICAR VAGAS
+        //  CRIAR CONDIÇÃO PARA PERMITIR APENAS AS ROLES CERTAS PUBLICAR VAGAS 
           const params = {
             criadorEmail,
             titulo: titulo.value,
