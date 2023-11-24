@@ -44,6 +44,9 @@
 
 <script lang="ts">
 import { ref, reactive, defineComponent } from 'vue';
+import PublicarVagasService from 'src/services/PublicarVagasService';
+import { useSessionStore } from 'src/stores/session';
+import { useQuasar } from 'quasar';
 
 export default defineComponent({
   setup() {
@@ -56,6 +59,7 @@ export default defineComponent({
     const dataEncerramento = ref('');
     const selectedDate = ref('');
     const dialogModel = reactive({ isOpen: false, type: '' });
+    const $q = useQuasar()
 
     const openDateTimePicker = (type: 'dataPublicacao' | 'dataEncerramento') => {
       dialogModel.isOpen = true;
@@ -72,16 +76,55 @@ export default defineComponent({
       dialogModel.isOpen = false;
     };
 
-    const publicarVaga = () => {
-      console.log('Publicando vaga:', {
-        titulo: titulo.value,
-        descricao: descricao.value,
-        contato: contato.value,
-        link: link.value,
-        dataPublicacao: dataPublicacao.value,
-        dataEncerramento: dataEncerramento.value
-      });
-      // Implementação da função de publicação
+    const publicarVaga = async () => {
+        try {
+          const sessionStore = useSessionStore();
+          const usuarioLogado = sessionStore.getSessionData;
+          const criadorEmail = usuarioLogado.email;
+        //  CRIAR CONDIÇÃO PARA PERMITIR APENAS AS ROLES CERTAS PUBLICAR VAGAS
+          const params = {
+            criadorEmail,
+            titulo: titulo.value,
+            descricao: descricao.value,
+            contato: contato.value,
+            link: link.value,
+            dataPublicacao: dataPublicacao.value,
+            dataEncerramento: dataEncerramento.value
+          };
+          const response = await PublicarVagasService(params).publicar();
+          if (response.status == 201) {
+            console.log('Vaga publicada com sucesso');
+            window.location.href = '/feed';
+            $q.notify({
+              color: 'green-10',
+              textColor: 'white',
+              icon: 'cloud_done',
+              message: 'Vaga publicada com sucesso',
+              position: 'top',
+              timeout: 2000
+            });
+          } else {
+            console.log('Erro ao publicar vaga:', response.data.message);
+            $q.notify({
+              color: 'red-10',
+              textColor: 'white',
+              icon: 'warning',
+              message: response.data.message,
+              position: 'top',
+              timeout: 3000
+            });
+          }
+        } catch (e) {
+          console.error('Erro na publicação da vaga:', e);
+          $q.notify({
+            color: 'red-9',
+            textColor: 'white',
+            icon: 'warning',
+            message: 'Erro de Conexão',
+            position: 'top',
+            timeout: 3000
+          });
+        }
     };
 
     return {
