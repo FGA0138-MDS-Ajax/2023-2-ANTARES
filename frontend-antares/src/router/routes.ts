@@ -21,7 +21,7 @@ const routes: RouteRecordRaw[] = [
       if (!isAuthenticated) {
         next();
       } else {
-        next('/app'); 
+        next('/app');
       }
     },
     component: () => import('layouts/LoginLayout.vue'),
@@ -34,7 +34,7 @@ const routes: RouteRecordRaw[] = [
       if (isAuthenticated) {
         next();
       } else {
-        next('/'); 
+        next('/');
       }
     },
     component: () => import('layouts/MainLayout.vue'),
@@ -42,7 +42,11 @@ const routes: RouteRecordRaw[] = [
       { name:'app', path: '', component: () => import('pages/IndexPage.vue') },
       { name:'publicar-vagas', path: '/publicar-vagas', component: () => import('pages/PublicarVagasPage.vue') },
       { name:'feed-vagas', path: '/feed', component: () => import('pages/FeedPage.vue') },
-    ],
+      { name:'avaliar-disciplina',path: '/avaliar-disciplina', component: () => import('pages/AvaliarDisciplinaPage.vue') },
+      { name:'controle-faltas',path: '/controle-faltas', component: () => import('pages/ControleFaltasPage.vue') },
+      { name:'calendario-academico',path: '/calendario-academico', component: () => import('pages/CalendarioAcademicoPage.vue') },
+      { name:'cardapio-ru',path: '/cardapio-ru', component: () => import('pages/CardapioRuPage.vue') },
+    ]
   },
   {
     path: '/:catchAll(.*)*',

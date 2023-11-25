@@ -24,61 +24,97 @@
           <div>@{{ sessionData.login }}</div>
         </div>
       </q-img>
-    <!-- items do menu -->
-    <q-scroll-area style="height: calc(100% - 200px); margin-top: 200px; border-right: 1px solid #ddd">
-      <q-list padding>
-        <q-item clickable v-ripple to="/">
-          <q-item-section avatar>
-            <q-icon name="home" />
-          </q-item-section>
+      <!-- items do menu -->
+      <q-scroll-area style="height: calc(100% - 200px); margin-top: 200px; border-right: 1px solid #ddd">
+        <q-list padding>
+          <q-item clickable v-ripple to="/">
+            <q-item-section avatar>
+              <q-icon name="home" />
+            </q-item-section>
 
-          <q-item-section >
-            Página Inicial
-          </q-item-section>
-        </q-item>
-        
-        <q-item clickable v-ripple to="/publicar-vagas">
-          <q-item-section avatar>
-            <q-icon name="send" />
-          </q-item-section>
+            <q-item-section>
+              Página Inicial
+            </q-item-section>
+          </q-item>
 
-          <q-item-section>
-            Publicar Vagas
-          </q-item-section>
-        </q-item>
+          <q-item clickable v-ripple to="/publicar-vagas">
+            <q-item-section avatar>
+              <q-icon name="send" />
+            </q-item-section>
 
-        <q-item clickable v-ripple to="/feed">
-          <q-item-section avatar>
-            <q-icon name="home" />
-          </q-item-section>
+            <q-item-section>
+              Publicar Vagas
+            </q-item-section>
+          </q-item>
 
-          <q-item-section>
-            Feed
-          </q-item-section>
-        </q-item>
-        
-        <q-item clickable v-ripple>
-          <q-item-section avatar>
-            <q-icon name="settings" />
-          </q-item-section>
+          <q-item clickable v-ripple to="/feed">
+            <q-item-section avatar>
+              <q-icon name="feed" />
+            </q-item-section>
 
-          <q-item-section>
-            Configurações
-          </q-item-section>
-        </q-item>
-        <q-item clickable v-ripple @click="logout()">
-          <q-item-section avatar>
-            <q-icon name="logout" />
-          </q-item-section>
+            <q-item-section>
+              Feed
+            </q-item-section>
+          </q-item>
 
-          <q-item-section>
-            Fazer Logout
-          </q-item-section>
-        </q-item>
-      </q-list>
-    </q-scroll-area>
+          <q-item clickable v-ripple to="/avaliar-disciplina">
+            <q-item-section avatar>
+              <q-icon name="star" />
+            </q-item-section>
+
+            <q-item-section> Avaliar disciplina </q-item-section>
+          </q-item>
+
+          <q-item clickable v-ripple to="/controle-faltas">
+            <q-item-section avatar>
+              <q-icon name="event_busy" />
+            </q-item-section>
+
+            <q-item-section> Controle de faltas </q-item-section>
+          </q-item>
+
+          <q-item clickable v-ripple to="/calendario-academico">
+            <q-item-section avatar>
+              <q-icon name="today" />
+            </q-item-section>
+
+            <q-item-section> Calendário Acadêmico </q-item-section>
+          </q-item>
+
+
+
+          <q-item clickable v-ripple to="/cardapio-ru">
+            <q-item-section avatar>
+              <q-icon name="restaurant" />
+            </q-item-section>
+
+            <q-item-section>
+              Cardápio RU
+            </q-item-section>
+          </q-item>
+
+          <q-item clickable v-ripple>
+            <q-item-section avatar>
+              <q-icon name="settings" />
+            </q-item-section>
+
+            <q-item-section>
+              Configurações
+            </q-item-section>
+          </q-item>
+          <q-item clickable v-ripple @click="logout()">
+            <q-item-section avatar>
+              <q-icon name="logout" />
+            </q-item-section>
+
+            <q-item-section>
+              Fazer Logout
+            </q-item-section>
+          </q-item>
+        </q-list>
+      </q-scroll-area>
     </q-drawer>
- 
+
     <q-page-container>
       <router-view />
     </q-page-container>
@@ -94,18 +130,18 @@ import { useRouter } from 'vue-router';
 const router = useRouter()
 
 const rightDrawerOpen = ref(true)
-function toggleRightDrawer () {
+function toggleRightDrawer() {
   rightDrawerOpen.value = !rightDrawerOpen.value
 }
 const sessionStore = useSessionStore();
 const sessionData = computed(() => sessionStore.getSessionData) as any
 
-function logout () {
+function logout() {
   const res = confirm('Deseja Fazer Logout ?')
-  if(res) {
+  if (res) {
     sessionStore.clearSessionData()
     window.location.href = 'https://unbnamao.netlify.app'
-    
+
   }
 }
 </script>
