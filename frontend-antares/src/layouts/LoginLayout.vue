@@ -7,7 +7,7 @@
         <div class="text-h6 text-center low-opacity">{{ registrando ? 'Registre-se' : 'Fazer login' }}</div>
         <div>
           <q-input maxlength="50" filled v-if="registrando" v-model="nome" dense class="bg-white q-mt-md" label="Nome Completo *"/>
-          <q-input maxlength="40" filled v-if="registrando" v-model="email" dense class="bg-white q-mt-md" label="E-mail *"/>
+          <q-input maxlength="60" filled v-if="registrando" v-model="email" dense class="bg-white q-mt-md" label="E-mail *"/>
           <q-input
             maxlength="20"
             filled  
@@ -62,8 +62,7 @@
           <q-btn flat class="text-white" @click="logar">Entrar</q-btn>
         </q-card-actions>
         <q-card-actions class="bg-blue row justify-around">
-          <q-btn id="registrar" @click="telaRegistrar" flat class="text-white">Registrar-se</q-btn
-          >
+          <q-btn id="registrar" @click="telaRegistrar" flat class="text-white">Registrar-se</q-btn>
         </q-card-actions>
       </div>
       <div v-if="registrando">
@@ -75,14 +74,35 @@
         </q-card-actions>
       </div>
     </q-card>
-    <button filled v-if="!registrando" id="button" flat class="q-mt-sm bg-yellow-10 text-white q-pa-sm">
+    <button @click="esqueciSenha" filled v-if="!registrando" id="button" flat class="q-mt-sm bg-yellow-10 text-white q-pa-sm">
       Esqueci minha Senha
     </button>
+    <div v-if="modalEsqueciSenha" class="modal">
+      <div class="modal-esqueci-senha rounded-borders">
+        <div class="w100 row no-wrap justify-between items-center q-py-md">
+          <div class="text-h5 q-pl-md">Redefinir Senha</div>
+          <q-icon  name="close" size="lg" class="cursor-pointer q-pr-sm close" color="red" @click="esqueciSenha" />
+        </div>
+        <form v-if="!codigoEnviado" class="relative row no-wrap q-mb-md q-gutter-x-sm q-px-md  items-center">
+          <q-input maxlength="60" name="user_email" autocomplete="on" required filled v-model="email" :readonly="codigoEnviado" dense class="bg-white w100" label="E-mail *"/>
+          <q-btn @click="sendEmail()" id="codigo" dense class="bg-yellow-10 text-white">Enviar Código</q-btn>
+        </form>
+        <div  v-if="codigoEnviado && !novaSenha" class="q-px-md row no-wrap items-center justify-between q-mb-md">
+          <p class="no-margin w100">Digite o código que foi enviado em seu email:</p>
+          <q-input label="Código" maxlength="4" mask="####" outlined v-model="campoCodigo" dense class="bg-white "/>
+        </div>
+        <q-btn v-if="codigoEnviado && !novaSenha" :disable="!campoCodigo ||campoCodigo && campoCodigo.length < 4" @click="resetarSenha" class="bg-orange-8 text-white">Verificar Código</q-btn>
+        <div v-if="novaSenha" class="q-px-md column no-wrap q-mb-md">
+          <q-input label="Nova Senha" maxlength="20" v-model="senha" dense class="bg-white "/>
+          <q-btn class="bg-green-5 text-white q-mt-md" @click="trocarSenha">Resetar a senha</q-btn>
+        </div>
+      </div>
+    </div>
   </div>
 </template>
 <script lang="ts" setup>
 import { ref } from 'vue';
-import { useRouter } from 'vue-router';
+import emailjs from '@emailjs/browser';
 import LoginService from '../services/LoginService'
 import { useQuasar } from 'quasar';
 const confirmarSenha = ref(null);
@@ -95,6 +115,8 @@ const senha = ref(null);
 const nome = ref(null)
 const email = ref(null)
 
+const modalEsqueciSenha = ref(false)
+
 const $q = useQuasar()
 
 const role = ref(null) as any;
@@ -104,6 +126,103 @@ const roleOptions = ref([
   { id: 4, label: 'Empresa Júnior' },
   { id: 5, label: 'Empresa Contratante' }
 ]);
+
+const codigoEnviado = ref(false)
+const campoCodigo = ref(null) as any
+const codigoGerado = ref(null) as any
+
+const esqueciSenha = () => {
+  modalEsqueciSenha.value = !modalEsqueciSenha.value
+  email.value = null
+  codigoEnviado.value = false
+  campoCodigo.value = null
+  novaSenha.value = false
+}
+
+const trocarSenha = async () => {
+  try{
+  const params = {
+    email: email.value,
+    senha: senha.value
+  }
+  const { editar } = LoginService(params)
+  const response = await editar()
+  if(response.status == 200) {
+    $q.notify({
+      color: 'green-8',
+      textColor: 'white',
+      icon: 'check',
+      message: response.data.message,
+      position: 'top',
+    });
+      setTimeout(()=> window.location.reload(), 1200)
+    }
+  } catch (e) {
+    $q.notify({
+      color: 'red-9',
+      textColor: 'white',
+      icon: 'warning',
+      message: 'Erro de Conexão',
+      position: 'top',
+    });
+    console.log(e)
+  }
+}
+
+const enviarCodigo = () => {
+  codigoEnviado.value = true
+}
+
+function generateFourDigitCode() {
+  // Gera um número aleatório entre 0 e 9999
+  const randomNumber = Math.floor(Math.random() * 10000);
+
+  // Formata o número para ter sempre 4 dígitos, adicionando zeros à esquerda se necessário
+  const codigoGerado = randomNumber.toString().padStart(4, '1');
+
+  return Number(codigoGerado);
+}
+
+function sendEmail() {
+  codigoGerado.value = generateFourDigitCode()
+  const emailData = {
+    user_email: email.value,
+    message: codigoGerado.value,
+  };
+  enviarCodigo();
+  emailjs.send('service_nbmlzbe', 'template_sl5yvnd', emailData, 'KD15sQJ-xFghabjnw')
+    .then((result) => {
+      console.log('SUCCESS!');
+    })
+    .catch((error) => {
+      console.log('FAILED...');
+    });
+}
+
+const novaSenha = ref(false)
+const resetarSenha = () => {
+  if(campoCodigo.value == codigoGerado.value) {
+    $q.notify({
+      color: 'green-8',
+      textColor: 'white',
+      icon: 'check',
+      message: 'Código Correto',
+      position: 'top',
+    }); 
+    novaSenha.value = true
+  } else {
+    $q.notify({
+      color: 'red-8',
+      textColor: 'white',
+      icon: 'warning',
+      message: 'O código digitado está incorreto.',
+      position: 'top',
+    });
+    setTimeout(() => {
+      window.location.reload()
+    }, 1000);
+  }
+}
 
 async function logar() {
   try {
@@ -224,7 +343,7 @@ function validarRegistro(registroObject: any) {
     });
     return false;
   }
-   else if (registroObject.senha.trim() == '') {
+  else if (registroObject.senha.trim() == '') {
     $q.notify({
       color: 'yellow-9',
       textColor: 'white',
@@ -372,4 +491,38 @@ q-btn:hover,
     animation: none !important;
   }
 }
+
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  backdrop-filter: blur(5px);
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 100;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.modal-esqueci-senha{
+  background-color: #fafafa;
+  width: 35rem;
+}
+
+.close:hover {
+  opacity: 0.8;
+  transition: all 0.2s;
+}
+
+#codigo {
+  width: 40%;
+}
+
+.message-codigo{
+  width: 3px;
+  color: #0000000c;
+}
+
 </style>

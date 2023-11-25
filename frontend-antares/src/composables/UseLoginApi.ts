@@ -27,8 +27,18 @@ export default function useLoginApi(params: any) {
     }
   }
 
+  const editarUsuario = async () => {
+    try {
+      const response = await api.put('/usuarios', params);
+      return response
+    } catch (error) {
+      throw error;
+    }
+  }
+
   return {
     registrarUsuario,
-    logarUsuario
+    logarUsuario,
+    editarUsuario
   }
 }
