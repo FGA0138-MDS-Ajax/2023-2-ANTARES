@@ -16,7 +16,7 @@ const usuarioController = {
         role: req.body.role,
       };
 
-      console.log(req.body);
+      // console.log(req.body);
       const response = await UsuarioModel.create(usuario);
 
       res
@@ -31,7 +31,7 @@ const usuarioController = {
   },
   validaUsuario: async (req, res) => {
     try {
-      console.log(req.body);
+      // console.log(req.body);
       const usuario = await UsuarioModel.findOne({ login: req.body.login });
       if (usuario && await bcrypt.compare(req.body.senha, usuario.senha)) {
         res.status(201).json({
@@ -56,10 +56,6 @@ const usuarioController = {
 
       // Procura o usuário pelo email no banco de dados
       const usuario = await UsuarioModel.findOne({ email });
-      console.log()
-      console.log(usuario);
-      console.log("senha antiga: " + usuario.senha);
-      console.log("senha nova: " + senha);
       // Se o usuário for encontrado
       if (usuario) {
         // Atualiza a senha do usuário

@@ -14,7 +14,7 @@ const vagaController = {
             };
 
             const usuario = await UsuarioModel.findOne({ email: vaga.criadorEmail });
-            if (!usuario || ![3, 4, 5].includes(usuario.role)) {
+            if (!usuario || ![1, 3, 4, 5].includes(usuario.role)) {
                 return res.status(403).json({ message: 'Acesso negado ou usuário não encontrado' });
             }
 
