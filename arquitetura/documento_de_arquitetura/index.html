@@ -347,6 +347,13 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#sumario" class="md-nav__link">
+    Sumário
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -398,6 +405,13 @@
         <li class="md-nav__item">
   <a href="#autores" class="md-nav__link">
     Autores:
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#sumario" class="md-nav__link">
+    Sumário
   </a>
   
 </li>
@@ -517,7 +531,7 @@
 <blockquote>
 <p>Tabela 5.2: Autores</p>
 </blockquote>
-<h1 id="sumario"><strong>Sumário</strong></h1>
+<h2 id="sumario"><strong>Sumário</strong></h2>
 <ul>
 <li>
 <p><a href="#1-introdução">1 Introdução</a></p>
@@ -618,7 +632,7 @@
 <p><strong>Descrição da Arquitetura por Microserviços:</strong></p>
 <p>A arquitetura por microserviços é caracterizada pela sua capacidade de dividir o sistema em pequenos componentes independentes chamados microserviços. Cada microserviço possui uma responsabilidade específica no sistema e opera de forma autônoma, estabelecendo comunicação com outros microserviços por meio de interfaces bem definidas.</p>
 <p>Esta escolha arquitetônica se alinha diretamente com a visão estabelecida no documento "Visão do Produto", que enfatiza a necessidade de um sistema que possa se adaptar rapidamente às mudanças nas demandas do mercado e integrar novos recursos de forma ágil. Os microserviços oferecem a agilidade necessária, permitindo o desenvolvimento, implantação e atualização independentes de cada componente, resultando em ciclos de desenvolvimento mais curtos e entregas mais rápidas.</p>
-<p><img alt="" src="/pages/assets/images/arquitetura/figura%204.1.png" /></p>
+<p><img alt="" src="figura%204.1.png" /></p>
 <blockquote>
 <p>Figura 4.1: Desenho esquemático da arquitetura de microserviço.</p>
 </blockquote>
@@ -703,13 +717,13 @@
 <blockquote>
 <p>Tabela 5.3: Visão lógica</p>
 </blockquote>
-<p><img alt="" src="/pages/assets/images/arquitetura/figura%204.2.png" /></p>
+<p><img alt="" src="../figura%204.2.png" /></p>
 <blockquote>
 <p>Figura 4.2: Desenho esquemático de casos de usos.</p>
 </blockquote>
 <p>No diagrama de casos de uso é possível visualizar que existem três tipos de perfil de acesso, que são, administradores, alunos e publicadores (EJs/atléticas). Suas funções dentro do sistema possuem variações.
 O administrador tem acesso a todos as funções do sistema, mas só ele pode gerenciar perfis de acesso, criar novos usuários e gerenciar registros dos publicadores. O aluno pode avaliar turmas anteriores, ter o controle de suas faltas, atualizar o cardápio semanal e também visualizar as publicações. Os publicadores são responsáveis por divulgar informações acadêmicas.</p>
-<p><img alt="" src="/pages/assets/images/arquitetura/figura%204.3.png" /></p>
+<p><img alt="" src="../figura%204.3.png" /></p>
 <blockquote>
 <p>Figura 4.3: Desenho esquemático de estados.</p>
 </blockquote>
@@ -724,19 +738,19 @@ O administrador tem acesso a todos as funções do sistema, mas só ele pode ger
 <li><strong>Calendário acadêmico pessoal</strong></li>
 </ul>
 <p>Após acessar o serviço desejado, o usuário poderá retornar ao menu, e, caso queira, utilizar outros microsserviços.</p>
-<p><img alt="" src="/pages/assets/images/arquitetura/figura%204.4.png" /></p>
+<p><img alt="" src="../figura%204.4.png" /></p>
 <blockquote>
 <p>Figura 4.4: Desenho esquemático de atividades.</p>
 </blockquote>
 <p>O diagrama de atividades é aplicado para descrever as etapas realizadas conforme o usuário usa o sistema, deixando o funcionamento do sistema mais claro. Sendo assim, no diagrama acima, é possível ver o que acontece em cada possibilidade conforme o usuário utiliza o sistema desde quando o usuário abre o sistema e se depara com a tela de login até quando o usuário já utilizou o serviço utilizado.</p>
 <h3 id="27-visao-de-implementacao">2.7 - <a name="27-visão-de-implementação"></a><strong>Visão de Implementação</strong></h3>
-<p><img alt="" src="/pages/assets/images/arquitetura/figura%204.5.png" /></p>
+<p><img alt="" src="../figura%204.5.png" /></p>
 <blockquote>
 <p>Figura 4.5: Desenho esquemático implementação</p>
 </blockquote>
 <p>No processo de implementação do sistema, a primeira etapa prioritária será a criação da interface das páginas. Essa interface desempenha um papel central ao proporcionar aos usuários a interação com o sistema, permitindo-lhes acessar e utilizar as funcionalidades disponíveis de forma amigável e eficaz. A partir dela, os usuários poderão inserir comandos e solicitações que, por sua vez, terão acesso à lógica subjacente responsável por alterar os dados no banco de dados. Esta abordagem modular e bem definida, como representada no diagrama de pacotes, estabelece uma base sólida para o desenvolvimento do sistema, garantindo que a interface e a lógica de dados trabalhem em conjunto para fornecer uma experiência de usuário consistente e funcional. Conforme o projeto progride, essa interconexão entre a interface e a lógica de dados possibilitará a gestão eficiente e segura das informações armazenadas no banco de dados.</p>
 <h3 id="28-visao-de-implantacao">2.8 - <a name="28-visão-de-implantação"></a> <strong>Visão de Implantação</strong></h3>
-<p><img alt="" src="/pages/assets/images/arquitetura/figura%204.6.png" /></p>
+<p><img alt="" src="../figura%204.6.png" /></p>
 <blockquote>
 <p>Figura 4.6: Desenho esquemático de implantação.</p>
 </blockquote>
@@ -762,7 +776,7 @@ O administrador tem acesso a todos as funções do sistema, mas só ele pode ger
 <p>Explicação: O desempenho se refere à habilidade do sistema para manter tempos de resposta aceitáveis diante de uma carga de trabalho específica.</p>
 <p>Justificação: Em uma arquitetura de microsserviços, a escalabilidade é uma vantagem, mas monitorar o desempenho é essencial para garantir que cada serviço responda eficazmente às demandas, assegurando uma experiência do usuário satisfatória.</p>
 <h3 id="210-diagrama-de-classes">2.10 - <a name="210-diagrama-de-classes"></a><strong>Diagrama de Classes</strong></h3>
-<p><img alt="" src="/pages/assets/images/arquitetura/figura%204.7.png" /></p>
+<p><img alt="" src="../figura%204.7.png" /></p>
 <p>_Imagem: Diagrama de Classes desenvolvido no <a href="http://www.drawio.com">www.drawio.com_</a>*</p>
 <blockquote>
 <p>Figura 4.7: Desenho esquemático de classes.</p>
@@ -799,17 +813,17 @@ O administrador tem acesso a todos as funções do sistema, mas só ele pode ger
 <h3 id="41-desenho-esquematico-da-arquitetura-de-microservirco">4.1 - <a name="41-desenho-esquemático-da-arquitetura-de-microserviço"></a><strong>Desenho esquemático da arquitetura de microservirço.</strong></h3>
 <p><img alt="" src="../EsquematicoArquitetura.png" /></p>
 <h3 id="42-desenho-esquematico-de-casos-de-usos">4.2 - <a name="42-desenho-esquemático-de-casos-de-usos"></a><strong>Desenho esquemático de casos de usos.</strong></h3>
-<p><img alt="" src="/pages/assets/images/arquitetura/figura%204.2.png" /></p>
+<p><img alt="" src="../figura%204.2.png" /></p>
 <h3 id="43-desenho-esquematico-de-estados">4.3 - <a name="43-desenho-esquemático-de-estados"></a><strong>Desenho esquemático de estados.</strong></h3>
-<p><img alt="" src="/pages/assets/images/arquitetura/figura%204.3.png" /></p>
+<p><img alt="" src="../figura%204.3.png" /></p>
 <h3 id="44-desenho-esquematico-de-atividades">4.4 - <a name="44-desenho-esquemático-de-atividades"></a><strong>Desenho esquemático de atividades.</strong></h3>
-<p><img alt="" src="/pages/assets/images/arquitetura/figura%204.4.png" /></p>
+<p><img alt="" src="../figura%204.4.png" /></p>
 <h3 id="45-desenho-esquematico-implementacao">4.5 - <a name="45-desenho-esquemático-implementação"></a><strong>Desenho esquemático implementação</strong></h3>
-<p><img alt="" src="/pages/assets/images/arquitetura/figura%204.5.png" /></p>
+<p><img alt="" src="../figura%204.5.png" /></p>
 <h3 id="46-desenho-esquematico-de-implantacao">4.6 - <a name="46-desenho-esquemático-de-implantação"></a><strong>Desenho esquemático de implantação.</strong></h3>
-<p><img alt="" src="/pages/assets/images/arquitetura/figura%204.6.png" /></p>
+<p><img alt="" src="../figura%204.6.png" /></p>
 <h3 id="47-desenho-esquematico-de-classes">4.7 - <a name="47-desenho-esquemático-de-classes"></a><strong>Desenho esquemático de classes.</strong></h3>
-<p><img alt="" src="/pages/assets/images/arquitetura/figura%204.7.png" /></p>
+<p><img alt="" src="../figura%204.7.png" /></p>
 <h2 id="5-tabelas">5 - <a name="5-tabelas"></a><strong>Tabelas</strong></h2>
 <h3 id="51-versoes">5.1 - <a name="#51-tabela-51-versões"></a>Versões</h3>
 <table>
