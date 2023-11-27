@@ -1,5 +1,3 @@
-![Shape1](RackMultipart20231111-1-ckla0p_html_163d18ab51ba461b.gif)
-
 # **UnB na Mão**
 
 # **VISÃO DO PRODUTO E DO PROJETO**
@@ -30,33 +28,30 @@
 
 # **Sumário**
 
-- 1. [Visão Geral do Produto](#visao-geral-do-produto)
-  - 1.1 [Problema](#problema)
-  - 1.2 [Declaração de Posição do Produto](#declaracao)
-  - 1.3 [Objetivos do Produto](#objetivos)
-  - 1.4 [Tecnologias a Serem Utilizadas](#tecnologias)
-- 2. [Visão Geral do Projeto](#visao-geral-do-projeto)
-  - 2.1 [Ciclo de Vida do Projeto de Desenvolvimento de Software](#ciclo-de-vida)
-  - 2.2 [Organização do Projeto](#organizacao)
-  - 2.3 [Planejamento das Fases e/ou Iterações do Projeto](#planejamento)
-  - 2.4 [Matriz de Comunicação](#comunicacao)
-  - 2.5 [Gerenciamento de Riscos](#riscos)
-  - 2.6 [Critérios de Replanejamento](#replanejamento)
-- 3. [Processo de Desenvolvimento de Software](#processo-de-desenvolvimento-de-software)
-  - 3.1[Metodologia de Desenvolvimento](#metodologia-desenvolvimento)
-  - 3.2[Considerações sobre o Ciclo de Vida do Projeto](#consideracoes)
-  - 3.3[Tecnologias Utilizadas](#tecnologias-33)
+- [1 - Visão Geral do Produto](#visao-geral-do-produto)
+  - [1.1 - Problema](#problema)
+  - [1.2 - Declaração de Posição do Produto](#declaracao)
+  - [1.3 - Objetivos do Produto](#objetivos)
+  - [1.4 - Tecnologias a Serem Utilizadas](#tecnologias)
+- [2 - Visão Geral do Projeto](#visao-geral-do-projeto)
+  - [2.1 - Ciclo de Vida do Projeto de Desenvolvimento de Software](#ciclo-de-vida)
+  - [2.2 - Organização do Projeto](#organizacao)
+  - [2.3 - Planejamento das Fases e/ou Iterações do Projeto](#planejamento)
+  - [2.4 - Matriz de Comunicação](#comunicacao)
+  - [2.5 - Gerenciamento de Riscos](#riscos)
+  - [2.6 - Critérios de Replanejamento](#replanejamento)
+- [3 - Processo de Desenvolvimento de Software](#processo-de-desenvolvimento-de-software)
+  - [3.1 - Metodologia de Desenvolvimento](#metodologia-desenvolvimento)
+  - [3.2 - Considerações sobre o Ciclo de Vida do Projeto](#consideracoes)
+  - [3.3 - Tecnologias Utilizadas](#tecnologias-33)
 - 4. [Detalhamento de Atividades do Projeto](#detalhamento-de-atividades-do-projeto)
-  - 4.N [Atividade 'N' 8](#atividade-n-8)
-- 5. [Lições Aprendidas](#licoes-aprendidas)
-  - 5.1 [Unidade 1](#unidade-1)
-  - 5.2 [Unidade 2](#unidade-2)
-  - 5.3 [Unidade 3](#unidade-3)
-  - 5.4 [Unidade 4](#unidade-4)
-- 6. [Próximos Passos](#proximos-passos)
-- 7. [Referências Bibliográficas](#referencias)
-
-**VISÃO DO PRODUTO E PROJETO**
+  - 4.1 [](#atividade-1)
+- [5 - Lições Aprendidas](#licoes-aprendidas)
+  - [5.1 - Unidade 1](#unidade-1)
+  - [5.2 - Unidade 2](#unidade-2)
+  - [5.3 - Unidade 3](#unidade-3)
+- [6 - Próximos Passos](#proximos-passos)
+- [7 - Referências Bibliográficas](#referencias)
 
 # 1. <a name=visao-geral-do-produto>**Visão Geral Do Produto**</a>
 
@@ -208,8 +203,6 @@ O ciclo de vida do projeto será estruturado em sprints semanais, com reuniões 
 
 # 4 Detalhamento de atividades do projeto
 
-_Conforme tabelas a seguir e lembrando que uma sprint podem conter mais de uma atividade, assim como uma determinada atividade pode acontecer em várias sprints (Ex.: codificar ; testar, mas que devem estar definidas no contexto de cada sprint do desenvolvimento._
-
 ## 4.N Atividade 'N'
 
 _[Diante da abordagem estabelecida, deve-se definir como cada uma das atividades será realizada, por meio de métodos e ferramentas. Pode-se, por exemplo, utilizar um quadro para expressar essas informações:_
@@ -221,7 +214,7 @@ _[Diante da abordagem estabelecida, deve-se definir como cada uma das atividades
 
 # 5 LIÇÕES APRENDIDAS
 
-## 5.1 Unidade 1
+## 5.1 <a name=unidade-1>**Unidade 1**</a>
 
 Durante a primeira fase, as decisões tomadas foram orientadas pela opinião predominante no grupo, visando a seleção dos frameworks mais adequados para atender à nossa Visão de Produto e Projeto. Isso abrangeu tanto a parte do back-end quanto a do front-end, levando em consideração o nível de conhecimento da maioria dos membros e suas disponibilidades para aprender novos elementos.
 
@@ -231,20 +224,18 @@ No início do projeto, nossa prioridade era construir todas as funcionalidades p
 
 No que diz respeito aos ciclos de vida de um produto, foram apresentadas duas metodologias: Scrum e XP (Extreme Programming). Ambas são abordagens ágeis que acreditamos serem benéficas para o nosso projeto. Portanto, decidimos adotar uma abordagem combinada, utilizando Scrum e XP.
 
-## 5.1 Unidade 2
+## 5.2 <a name=unidade-2>**Unidade 2**</a>
 
-## 5.2 Unidade 3
+Nessa segunda fase do desenvolvimento, amadurecemos mais como equipe, aprendendo a rotina de como cada um funciona e conseguimos melhorar bastante a qualidade de nossas entregas devido a isso.
 
-## 5.3 Unidade 4
+Devido à essa maturação, foi mais fácil a escolha do padrão arquitetural do projeto.
 
-# 6 PRÓXIMOS PASSOS
+Descobrimos algumas incapacitações dentro da equipe e lidamos com elas a fim de não atrasar o projeto, tiramos uma semana para capacitação.
 
-- _Iniciem a preparação do backlog do produto, redigindo requisitos funcionais e não funcionais (se existirem);_
-- _Revejam definições de Sprints e releases para acomodar os requisitos dentro das capacidades de cada equipe;_
-- _Priorize requisitos de acordo com as entregas de valores determinadas nas releases e as sprints planejadas;_
-- _Estudem o que é um MVP – Minimum Viable Product. Pensem assim: O cliente quer ver funcionando uma demonstração do produto. Além disso, as tecnologias adotadas são suficientes para o desenvolvimento do produto?_
+## 5.3 <a name=unidade-3>**Unidade 3**</a>
 
-# 7 REFERÊNCIAS BIBLIOGRÁFICAS
+# 6 - <a name=proximos-passos>**Próximos Passos**</a>
+# 7 - <a name=referencias>**Referências Bibliográficas**</a>
 
 1. Aula sobre metodologia Scrum. Disponível em: [https://aws.amazon.com/pt/what-is/scrum/#:~:text=O%20Scrum%20%C3%A9%20um%20framework,uma%20entrega%20eficiente%20de%20projetos](https://aws.amazon.com/pt/what-is/scrum/#:~:text=O%20Scrum%20%C3%A9%20um%20framework,uma%20entrega%20eficiente%20de%20projetos). Acesso em: 10 de novembro de 2023.
 

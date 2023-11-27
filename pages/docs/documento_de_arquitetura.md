@@ -1,38 +1,41 @@
 ﻿# **Documento de Arquitetura**
 
-Versão 1.1
+## Versão 1.2
 
 ## **Histórico de Revisão**
 
 | **Data**   | **Versão** | **Descrição**              | **Autor(es)**                                                                               |
-| ---------- | ---------- | -------------------------- | ------------------------------------------------------------------------------------------- |
+|------------|------------|----------------------------|---------------------------------------------------------------------------------------------|
 | 01/11/2023 | 0.1        | Desenvolvimento de tópicos | Breno Fernandes, Breno Lucena, Kauan Eiras, Leonardo Ferreira, Matheus Diogo, Samuel Victor |
 | 03/11/2023 | 1.0        | Revisão para entrega       | Lucas Antunes, Mateus Vieira                                                                |
+| 26/11/2023 | 1.1        | Atualização do documento   | Mateus Vieira                                                                               |
 
-Tabela 5.1: Versões
+> Tabela 5.1: Versões
 
 ## **Autores:**
 
-| **Matrícula** | **Nome**          | **Descrição do papel assumido na equipe**                                                                                                                                                                                                                                                                                                                                            | **% de contribuição ao trabalho (\*)[^1]** |
-| ------------- | ----------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------ |
-| 202017540     | Breno Fernandes   | Participou no desenvolvimento do documento de visão do produto;<br>Participou no desenvolvimento do documento de declaração de escopo;<br>Participou no desenvolvimento do documento de arquitetura.                                                                                                                                                                                 | 9%                                         |
-| 202017343     | Breno Lucena      | Participou no desenvolvimento do documento de visão do produto;<br>Participou no desenvolvimento do documento de declaração de escopo;<br>Participou no desenvolvimento do documento de arquitetura.                                                                                                                                                                                 | 12.5%                                      |
-| 232014727     | Kauan Eiras       | Participou no desenvolvimento do documento de visão do produto;<br>Participou no desenvolvimento do documento de declaração de escopo;<br>Participou no desenvolvimento do documento de arquitetura.                                                                                                                                                                                 | 12.5%                                      |
-| 200032166     | Leonardo Ferreira | Participou no desenvolvimento do documento de visão do produto;<br>Participou no desenvolvimento do documento de declaração de escopo;<br>Participou no desenvolvimento do documento de arquitetura.                                                                                                                                                                                 | 12.5%                                      |
-| 190091681     | Lucas Antunes     | Participou no desenvolvimento do documento de visão do produto;<br>Participou no desenvolvimento do documento de declaração de escopo;<br>Participou no desenvolvimento do documento de arquitetura.<br>Participou na revisão do documento de visão do produto;<br>Participou na revisão do documento de declaração de escopo;<br>Participou na revisão do documento de arquitetura. | 13.5%                                      |
-| 202016963     | Mateus Vieira     | Participou no desenvolvimento do documento de visão do produto;<br>Participou no desenvolvimento do documento de declaração de escopo;<br>Participou no desenvolvimento do documento de arquitetura.<br>Participou na revisão documento de visão do produto;<br>Participou na revisão do documento de declaração de escopo;<br>Participou na revisão do documento de arquitetura.    | 13.5%                                      |
-| 200024949     | Matheus Diogo     | Participou no desenvolvimento do documento de visão do produto;<br>Participou no desenvolvimento do documento de declaração de escopo;<br>Participou no desenvolvimento do documento de arquitetura.                                                                                                                                                                                 | 12.5%                                      |
-| 190059001     | Samuel Victor     | Participou no desenvolvimento do documento de visão do produto;<br>Participou no desenvolvimento do documento de declaração de escopo;<br>Participou no desenvolvimento do documento de arquitetura.                                                                                                                                                                                 | 13.5%                                      |
+| **Matrícula** | **Nome**          | **Descrição do papel assumido na equipe**                                                                                                                                                                                                                                                                                                                                            | **% de contribuição ao trabalho** |
+|---------------|-------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|-----------------------------------|
+| 202017540     | Breno Fernandes   | Participou no desenvolvimento do documento de visão do produto;<br>Participou no desenvolvimento do documento de declaração de escopo;<br>Participou no desenvolvimento do documento de arquitetura.                                                                                                                                                                                 | 9%                                |
+| 202017343     | Breno Lucena      | Participou no desenvolvimento do documento de visão do produto;<br>Participou no desenvolvimento do documento de declaração de escopo;<br>Participou no desenvolvimento do documento de arquitetura.                                                                                                                                                                                 | 12.5%                             |
+| 232014727     | Kauan Eiras       | Participou no desenvolvimento do documento de visão do produto;<br>Participou no desenvolvimento do documento de declaração de escopo;<br>Participou no desenvolvimento do documento de arquitetura.                                                                                                                                                                                 | 12.5%                             |
+| 200032166     | Leonardo Ferreira | Participou no desenvolvimento do documento de visão do produto;<br>Participou no desenvolvimento do documento de declaração de escopo;<br>Participou no desenvolvimento do documento de arquitetura.                                                                                                                                                                                 | 12.5%                             |
+| 190091681     | Lucas Antunes     | Participou no desenvolvimento do documento de visão do produto;<br>Participou no desenvolvimento do documento de declaração de escopo;<br>Participou no desenvolvimento do documento de arquitetura.<br>Participou na revisão do documento de visão do produto;<br>Participou na revisão do documento de declaração de escopo;<br>Participou na revisão do documento de arquitetura. | 13.5%                             |
+| 202016963     | Mateus Vieira     | Participou no desenvolvimento do documento de visão do produto;<br>Participou no desenvolvimento do documento de declaração de escopo;<br>Participou no desenvolvimento do documento de arquitetura.<br>Participou na revisão documento de visão do produto;<br>Participou na revisão do documento de declaração de escopo;<br>Participou na revisão do documento de arquitetura.    | 13.5%                             |
+| 200024949     | Matheus Diogo     | Participou no desenvolvimento do documento de visão do produto;<br>Participou no desenvolvimento do documento de declaração de escopo;<br>Participou no desenvolvimento do documento de arquitetura.                                                                                                                                                                                 | 12.5%                             |
+| 190059001     | Samuel Victor     | Participou no desenvolvimento do documento de visão do produto;<br>Participou no desenvolvimento do documento de declaração de escopo;<br>Participou no desenvolvimento do documento de arquitetura.                                                                                                                                                                                 | 13.5%                             |
 
-Tabela 5.2: Autores
+> Tabela 5.2: Autores
 
 # **Sumário**
 
 - [1 Introdução](#1-introdução)
+
   - [1.1 Propósito](#11-propósito)
   - [1.2 Escopo](#12-escopo)
 
 - [2 Representação Arquitetural](#2-representação-arquitetural)
+
   - [2.1 Definições](#21-definições)
   - [2.2 Justifique sua escolha](#22-justifique-sua-escolha)
   - [2.3 Detalhamento](#23-detalhamento)
@@ -47,6 +50,7 @@ Tabela 5.2: Autores
 - [3 Bibliografia](#3-bibliografia)
 
 - [4 Figuras](#4-figuras)
+
   - [4.1 Desenho esquemático da arquitetura de microserviço](#41-desenho-esquemático-da-arquitetura-de-microserviço)
   - [4.2 Desenho esquemático de casos de usos](#42-desenho-esquemático-de-casos-de-usos)
   - [4.3 Desenho esquemático de estados](#43-desenho-esquemático-de-estados)
@@ -62,13 +66,13 @@ Tabela 5.2: Autores
 
 # 1. <a name="1-introdução"></a>**Introdução**
 
-### 1.2 <a name="11-propósito"></a>**Propósito**
+### 1.1 <a name="11-propósito"></a>**Propósito**
 
 Este documento descreve a arquitetura do sistema UnB na Mão, sendo desenvolvido pelo grupo Antares da disciplina de MDS – Metodos de Desenvolvimento de Software - do semestre 2/2023. O objetivo deste documento é fornecer uma visão abrangente do sistema para desenvolvedores, testadores, alunos de Engenharia de Software, professores e demais interessados.
 
 O documento de arquitetura é essencial para o desenvolvimento desse projeto, pois ele fornece uma visão geral do sistema, incluindo sua estrutura, organização e componentes.
 
-### 1.3 <a name="12-escopo"></a>**Escopo**
+### 1.2 <a name="12-escopo"></a>**Escopo**
 
 O software _UnB na Mão_ é uma aplicação web que unifica as informações disponibilizadas em diferentes plataformas da Universidade de Brasília em um único aplicativo. O objetivo do sistema é facilitar o acesso à informações de uso cotidiano, avaliar disciplinas e ajudar alunos se organizarem.
 
@@ -103,13 +107,13 @@ Ao final do desenvolvimento, serão realizados vários tipos de testes, incluind
 - Testes de Unidade: Para testar unidades de código individuais.
 - Testes de Integração: Para verificar a integração entre módulos e componentes do sistema.
 
-## 2. <a name="2-representação-arquitetural"></a>**Representação Arquitetural**
+## 2 - <a name="2-representação-arquitetural"></a>**Representação Arquitetural**
 
-### 2.1 <a name="21-definições"></a>**Definições**
+### 2.1 - <a name="21-definições"></a>**Definições**
 
 O sistema seguirá uma arquitetura de microserviços, que é um estilo arquitetural em que o aplicativo é dividido em pequenos serviços independentes e altamente coesos. Cada microserviços desempenha uma função específica e se comunica com outros microserviços por meio de protocolos padronizados, como HTTP. A arquitetura de micro serviços permite escalabilidade, manutenção independente, rápida implementação de novos recursos e flexibilidade no desenvolvimento e implantação do sistema.
 
-### 2.2 <a name="22-justifique-sua-escolha"></a>**Justifique sua escolha.**
+### 2.2 - <a name="22-justifique-sua-escolha"></a>**Justifique sua escolha.**
 
 **Escopo do Projeto e Objetivos do Produto:** O projeto "UnB na Mão" tem um amplo escopo, com funcionalidades variadas, como acesso a informações acadêmicas, gerenciamento acadêmico, cardápio do Restaurante Universitário, publicações informativas e muito mais. A arquitetura de micro serviços permite a divisão das funcionalidades em componentes independentes, o que facilita o desenvolvimento, a manutenção e a evolução contínua de cada parte do sistema (Antares Escopo, 2023, P 6-9).
 
@@ -119,7 +123,7 @@ O sistema seguirá uma arquitetura de microserviços, que é um estilo arquitetu
 
 **Cultura Organizacional e Colaboração:** A equipe expressa a importância da colaboração entre diferentes partes interessadas. A arquitetura de microserviços incentiva uma cultura de colaboração, pois diferentes equipes podem se concentrar em microserviços específicos sem afetar indevidamente o trabalho das outras equipes.
 
-### 2.3 <a name="23-detalhamento"></a>**Detalhamento**
+### 2.3 - <a name="23-detalhamento"></a>**Detalhamento**
 
 **Introdução:**
 
@@ -133,11 +137,11 @@ A arquitetura por microserviços é caracterizada pela sua capacidade de dividir
 
 Esta escolha arquitetônica se alinha diretamente com a visão estabelecida no documento "Visão do Produto", que enfatiza a necessidade de um sistema que possa se adaptar rapidamente às mudanças nas demandas do mercado e integrar novos recursos de forma ágil. Os microserviços oferecem a agilidade necessária, permitindo o desenvolvimento, implantação e atualização independentes de cada componente, resultando em ciclos de desenvolvimento mais curtos e entregas mais rápidas.
 
-![](Aspose.Words.333cb86e-1a03-4f6d-b2f3-749db4c220ba.002.png)
+![](../images/arquitetura/figura%204.1.png)
 
-Figura 4.1: Desenho esquemático da arquitetura de microservirço.
+> Figura 4.1: Desenho esquemático da arquitetura de microserviço.
 
-### 2.4 <a name="24-metas-e-restrições-arquiteturais"></a>**Metas e restrições arquiteturais**
+### 2.4 - <a name="24-metas-e-restrições-arquiteturais"></a>**Metas e restrições arquiteturais**
 
 Restrição:
 
@@ -156,72 +160,38 @@ Metas:
 - Garantir que o sistema seja capaz de se conectar e interagir eficazmente com os sistemas já em uso pela universidade.
 - O aplicativo deve ser responsivo, adaptando-se a dispositivos móveis e desktops.
 
-### 2.5 <a name="25-visão-de-casos-de-uso-escopo-do-produto"></a>**Visão de Casos de uso (escopo do produto)**
+### 2.5 - <a name="25-visão-de-casos-de-uso-escopo-do-produto"></a>**Visão de Casos de uso (escopo do produto)**
 
 O escopo do produto engloba a implementação de um sistema que permite a acesso e interação de alunos e publicadores. Ele oferece funcionalidades que abrangem desde o acesso ao sistema até a gestão acadêmica, incluindo a visualização de informações como o mural de vagas, avaliações de disciplinas, cardápio do restaurante universitário, gerenciamento de disciplinas em curso, registro de faltas e informações acadêmicas importantes no calendário. De forma que tenha um acesso rápido e intuitivo para ser utilizado no dia a dia acadêmico da UnB. Tanto na criação de posts para informar os estudantes quanto a visualização desses posts.
 
 O grupo possui integrantes tanto com habilidades fullstack, quanto frontend e backend separadamente. Tem-se como parâmetro de pareamento a diferença de experiência da dupla.
 
-### 2.6 <a name="26-visão-lógica"></a>**Visão lógica**
+### 2.6 - <a name="26-visão-lógica"></a>**Visão lógica**
 
-| **MÓDULO: LOGIN**                                                                                   |
-| --------------------------------------------------------------------------------------------------- |
-| **DESCRIÇÃO: Acesso ao sistema fazendo login, direcionar para redefinir a senha e fazer cadastro.** |
-| **COMUNICAÇÃO COM INTERFACES:** Registro e redefinição de senha.                                    |
+|              **Módulo**               |                                               **Descrição**                                               |  **Comunicação com Interfaces**  |
+|:-------------------------------------:|:---------------------------------------------------------------------------------------------------------:|:--------------------------------:|
+|                 Login                 |            cesso ao sistema fazendo login, direcionar para redefinir a senha e fazer cadastro.            | Registro e redefinição de senha. |
+|               Registro                |                                 Fazer o cadastro como aluno ou publicador                                 |    Voltar para tela de login     |
+|         Redefinição de Senha          |                                       Redefinir a senha esquecida.                                        |    Voltar para tela de login.    |
+|            Mural de Vagas             |       Usuários poderão visualizar possíveis vagas e publicadores poderão divulgar possíveis vagas.        |        Voltar para menu.         |
+|       Avaliação de Disciplinas        | Usuários poderão avaliar turmas de disciplinas a qual estiveram presentes e visualizar outras avaliações. |        Voltar para menu.         |
+| Cardápio do Restaurante Universitário |                   Usuários visualizarão o cardápio semanal do restaurante universitário                   |        Voltar para menu.         |
+|          Controle de Faltas           |                  Usuários terão controle de suas presenças para cada disciplina cursada.                  |        Voltar para menu.         |
+|          Calendário Pessoal           |                Usuários terão acesso ao seu calendário pessoal para organização acadêmica                 |        Voltar para menu.         |
+|              Meu Perfil               |    Usuários terão acesso ao seu perfil e visualizar os seus dados, podendo também fazer atualizações.     |        Voltar para menu.         |
 
-| **MÓDULO: REGISTRO**                                       |
-| ---------------------------------------------------------- |
-| **DESCRIÇÃO:** Fazer o cadastro como aluno ou publicador.  |
-| **COMUNICAÇÃO COM INTERFACES:** Voltar para tela de login. |
+> Tabela 5.3: Visão lógica
 
-| **MÓDULO: REDEFINIÇÃO DE SENHA**                           |
-| ---------------------------------------------------------- |
-| **DESCRIÇÃO:** Redefinir a senha esquecida.                |
-| **COMUNICAÇÃO COM INTERFACES:** Voltar para tela de login. |
+![](../images/arquitetura/figura%204.2.png)
 
-| **MÓDULO: MURAL DE VAGAS**                                                                                  |
-| ----------------------------------------------------------------------------------------------------------- |
-| **DESCRIÇÃO:** Usuários poderão visualizar possíveis vagas e publicadores poderão divulgar possíveis vagas. |
-| **COMUNICAÇÃO COM INTERFACES:** Voltar para menu.                                                           |
-
-| **MÓDULO: AVALIAÇÃO DE DISCIPLINAS**                                                                                     |
-| ------------------------------------------------------------------------------------------------------------------------ |
-| **DESCRIÇÃO:** Usuários poderão avaliar turmas de disciplinas a qual estiveram presentes e visualizar outras avaliações. |
-| **COMUNICAÇÃO COM INTERFACES:** Voltar para menu.                                                                        |
-
-| **MÓDULO: CARDÁPIO DO RESTAURANTE UNIVERSITÁRIO**                                     |
-| ------------------------------------------------------------------------------------- |
-| **DESCRIÇÃO:** Usuários visualizarão o cardápio semanal do restaurante universitário. |
-| **COMUNICAÇÃO COM INTERFACES:** Voltar para menu.                                     |
-
-| **MÓDULO: CONTROLE DE FALTAS**                                                         |
-| -------------------------------------------------------------------------------------- |
-| **DESCRIÇÃO:** Usuários terão controle de suas presenças para cada disciplina cursada. |
-| **COMUNICAÇÃO COM INTERFACES:** Voltar para menu.                                      |
-
-| **MÓDULO: CALENDÁRIO ACADÊMICO PESSOAL**                                                   |
-| ------------------------------------------------------------------------------------------ |
-| **DESCRIÇÃO:** Usuários terão acesso ao seu calendário pessoal para organização acadêmica. |
-| **COMUNICAÇÃO COM INTERFACES:** Voltar para menu.                                          |
-
-| **MÓDULO: MEU PERFIL**                                                                                            |
-| ----------------------------------------------------------------------------------------------------------------- |
-| **DESCRIÇÃO:** Usuários terão acesso ao seu perfil e visualizar os seus dados, podendo também fazer atualizações. |
-| **COMUNICAÇÃO COM INTERFACES:** Voltar para menu.                                                                 |
-
-Tabela 5.3: Visão lógica
-
-
-![](Aspose.Words.333cb86e-1a03-4f6d-b2f3-749db4c220ba.003.png)
-
-Figura 4.2: Desenho esquemático de casos de usos.
+> Figura 4.2: Desenho esquemático de casos de usos.
 
 No diagrama de casos de uso é possível visualizar que existem três tipos de perfil de acesso, que são, administradores, alunos e publicadores (EJs/atléticas). Suas funções dentro do sistema possuem variações.
 O administrador tem acesso a todos as funções do sistema, mas só ele pode gerenciar perfis de acesso, criar novos usuários e gerenciar registros dos publicadores. O aluno pode avaliar turmas anteriores, ter o controle de suas faltas, atualizar o cardápio semanal e também visualizar as publicações. Os publicadores são responsáveis por divulgar informações acadêmicas.
 
-![](Aspose.Words.333cb86e-1a03-4f6d-b2f3-749db4c220ba.004.png)
+![](../images/arquitetura/figura%204.3.png)
 
-Figura 4.3: Desenho esquemático de estados.
+> Figura 4.3: Desenho esquemático de estados.
 
 O diagrama de estados é aplicado para demonstrar o comportamento geral do sistema, mostrando os estados e transições do funcionamento do UnB na Mão. Sendo assim, é possível entender o funcionamento do sistema conforme ele é utilizado, começando com:
 
@@ -235,27 +205,31 @@ O diagrama de estados é aplicado para demonstrar o comportamento geral do siste
 
 Após acessar o serviço desejado, o usuário poderá retornar ao menu, e, caso queira, utilizar outros microsserviços.
 
-![](Aspose.Words.333cb86e-1a03-4f6d-b2f3-749db4c220ba.005.png)Figura 4.4: Desenho esquemático de atividades.
+![](../images/arquitetura/figura%204.4.png)
+
+> Figura 4.4: Desenho esquemático de atividades.
 
 O diagrama de atividades é aplicado para descrever as etapas realizadas conforme o usuário usa o sistema, deixando o funcionamento do sistema mais claro. Sendo assim, no diagrama acima, é possível ver o que acontece em cada possibilidade conforme o usuário utiliza o sistema desde quando o usuário abre o sistema e se depara com a tela de login até quando o usuário já utilizou o serviço utilizado.
 
-### 2.7 <a name="27-visão-de-implementação"></a>**Visão de Implementação**
-   ![](Aspose.Words.333cb86e-1a03-4f6d-b2f3-749db4c220ba.006.png)
+### 2.7 - <a name="27-visão-de-implementação"></a>**Visão de Implementação**
 
-Figura 4.5: Desenho esquemático implementação
+![](../images/arquitetura/figura%204.5.png)
+
+> Figura 4.5: Desenho esquemático implementação
 
 No processo de implementação do sistema, a primeira etapa prioritária será a criação da interface das páginas. Essa interface desempenha um papel central ao proporcionar aos usuários a interação com o sistema, permitindo-lhes acessar e utilizar as funcionalidades disponíveis de forma amigável e eficaz. A partir dela, os usuários poderão inserir comandos e solicitações que, por sua vez, terão acesso à lógica subjacente responsável por alterar os dados no banco de dados. Esta abordagem modular e bem definida, como representada no diagrama de pacotes, estabelece uma base sólida para o desenvolvimento do sistema, garantindo que a interface e a lógica de dados trabalhem em conjunto para fornecer uma experiência de usuário consistente e funcional. Conforme o projeto progride, essa interconexão entre a interface e a lógica de dados possibilitará a gestão eficiente e segura das informações armazenadas no banco de dados.
 
-### 2.8 <a name="28-visão-de-implantação"></a> **Visão de Implantação**
-   ![](Aspose.Words.333cb86e-1a03-4f6d-b2f3-749db4c220ba.007.png)
+### 2.8 - <a name="28-visão-de-implantação"></a> **Visão de Implantação**
 
-Figura 4.6: Desenho esquemático de implantação.
+![](../images/arquitetura/figura%204.6.png)
+
+> Figura 4.6: Desenho esquemático de implantação.
 
 A implantação do software é um processo crucial que envolve a coordenação de diversos componentes para garantir o funcionamento eficiente do sistema. Conforme representado no diagrama de implantação, a arquitetura é composta por diferentes camadas. O dispositivo do usuário atua como a interface primária, permitindo que os usuários acessem o frontend do projeto por meio de um navegador web. A partir daí, um servidor web entra em ação, servindo como uma ponte para a interface do usuário, fornecendo acesso e garantindo uma experiência de usuário eficaz. No backend, o servidor de aplicação desempenha um papel fundamental, gerenciando a lógica de negócios e processando as solicitações dos usuários. Além disso, o servidor de banco de dados MongoDB armazena e recupera os dados necessários para a funcionalidade do sistema, e cada um passa para a sua respectiva coleção que armazena os dados de sua função A combinação desses componentes cria um ambiente escalável e altamente interconectado que permite aos usuários interagir de maneira eficaz com o sistema, ao mesmo tempo em que mantém a integridade e a disponibilidade dos dados.
 
 A abordagem modular apresentada no diagrama de implantação reflete uma estratégia de implantação sólida, onde cada componente desempenha um papel específico e interage harmoniosamente para fornecer aos usuários uma experiência confiável e responsiva. Essa arquitetura em camadas permite escalabilidade e flexibilidade, permitindo que o sistema seja facilmente adaptado às necessidades em constante evolução, garantindo a entrega eficaz de funcionalidades aos usuários.
 
-### 2.9 <a name="#29-restrições-adicionais-e-características-de-qualidade-relevantes-para-o-software"></a>**Restrições adicionais e características de qualidade relevantes para o software**
+### 2.9 - <a name="#29-restrições-adicionais-e-características-de-qualidade-relevantes-para-o-software"></a>**Restrições adicionais e características de qualidade relevantes para o software**
 
 **Isolamento de Microsserviços:** Cada funcionalidade do sistema (por exemplo, calendário acadêmico, controle de faltas, mural de vagas) deve ser implementada como um microsserviços isolado para garantir a escalabilidade e a manutenibilidade.
 
@@ -293,13 +267,13 @@ Explicação: O desempenho se refere à habilidade do sistema para manter tempos
 
 Justificação: Em uma arquitetura de microsserviços, a escalabilidade é uma vantagem, mas monitorar o desempenho é essencial para garantir que cada serviço responda eficazmente às demandas, assegurando uma experiência do usuário satisfatória.
 
-### 2.10 <a name="210-diagrama-de-classes"></a>**Diagrama de Classes**
+### 2.10 - <a name="210-diagrama-de-classes"></a>**Diagrama de Classes**
 
-![](Aspose.Words.333cb86e-1a03-4f6d-b2f3-749db4c220ba.008.png)
+![](../images/arquitetura/figura%204.7.png)
 
 _Imagem: Diagrama de Classes desenvolvido no [www.drawio.com_](http://www.drawio.com)\*
 
-Figura 4.7: Desenho esquemático de classes.
+> Figura 4.7: Desenho esquemático de classes.
 
 O diagrama de classes é uma ferramenta fundamental para visualizar a estrutura de um sistema, identificando suas classes, atributos e métodos. Isso simplifica a comunicação e documentação do projeto, auxiliando na análise e no design de software, e permitindo representar hierarquias de herança.
 
@@ -320,8 +294,9 @@ Já no caso do Administrador, ele será o usuário que poderá editar roles. Iss
 
 Essa estrutura de classes e serviços permite um gerenciamento eficiente das funcionalidades do sistema UnB na Mão, proporcionando uma experiência completa tanto para Alunos quanto para Publicadores.
 
-## 3. <a name="3-bibliografia"></a>**Bibliografia**
-   Microsoft*.* Estilo de arquitetura de microsserviço. Disponível em: <https://learn.microsoft.com/pt-br/azure/architecture/guide/architecture-styles/microservices>. Acesso em 30/10/2023.
+## 3 - <a name="3-bibliografia"></a>**Bibliografia**
+
+Microsoft*.* Estilo de arquitetura de microsserviço. Disponível em: <https://learn.microsoft.com/pt-br/azure/architecture/guide/architecture-styles/microservices>. Acesso em 30/10/2023.
 
 Microsserviços: conceito, vantagens e desvantagens dessa arquitetura. Disponível em:
 
@@ -343,16 +318,69 @@ Diagrama de estados: Desenvolvido com base no site <https://www.lucidchart.com/p
 
 Diagrama de Classes: Desenvolvido com base no [www.drawio.com](http://www.drawio.com)
 
-## 4.<a name="4-figuras"></a>**Figuras**
-   ### 4.1 - <a name="41-desenho-esquemático-da-arquitetura-de-microserviço"></a>**Desenho esquemático da arquitetura de microservirço.**
-   ### 4.2 - <a name="42-desenho-esquemático-de-casos-de-usos"></a>**Desenho esquemático de casos de usos.**
-   ### 4.3 - <a name="43-desenho-esquemático-de-estados"></a>**Desenho esquemático de estados.**
-   ### 4.4 - <a name="44-desenho-esquemático-de-atividades"></a>**Desenho esquemático de atividades.**
-   ### 4.5 - <a name="45-desenho-esquemático-implementação"></a>**Desenho esquemático implementação**
-   ### 4.6 - <a name="46-desenho-esquemático-de-implantação"></a>**Desenho esquemático de implantação.**
-   ### 4.7 - <a name="47-desenho-esquemático-de-classes"></a>**Desenho esquemático de classes.**
-## 5. <a name="5-tabelas"></a>**Tabelas**
-   ### 5.1 <a name="#51-tabela-51-versões"></a>Tabela 5.1: Versões
-   ### 5.2 <a name="#52-tabela-52-autores"></a>Tabela 5.2: Autores
-   ### 5.3 <a name="53-tabela-53-visão-lógica"></a>Tabela 5.3: Visão lógica
+## 4 - <a name="4-figuras"></a>**Figuras**
 
+### 4.1 - <a name="41-desenho-esquemático-da-arquitetura-de-microserviço"></a>**Desenho esquemático da arquitetura de microservirço.**
+
+![](../images/arquitetura/figura%204.1.png)
+
+### 4.2 - <a name="42-desenho-esquemático-de-casos-de-usos"></a>**Desenho esquemático de casos de usos.**
+
+![](../images/arquitetura/figura%204.2.png)
+
+### 4.3 - <a name="43-desenho-esquemático-de-estados"></a>**Desenho esquemático de estados.**
+
+![](../images/arquitetura/figura%204.3.png)
+
+### 4.4 - <a name="44-desenho-esquemático-de-atividades"></a>**Desenho esquemático de atividades.**
+
+![](../images/arquitetura/figura%204.4.png)
+
+### 4.5 - <a name="45-desenho-esquemático-implementação"></a>**Desenho esquemático implementação**
+
+![](../images/arquitetura/figura%204.5.png)
+
+### 4.6 - <a name="46-desenho-esquemático-de-implantação"></a>**Desenho esquemático de implantação.**
+
+![](../images/arquitetura/figura%204.6.png)
+
+### 4.7 - <a name="47-desenho-esquemático-de-classes"></a>**Desenho esquemático de classes.**
+
+![](../images/arquitetura/figura%204.7.png)
+
+## 5 - <a name="5-tabelas"></a>**Tabelas**
+
+### 5.1 - <a name="#51-tabela-51-versões"></a>Versões
+
+| **Data**   | **Versão** | **Descrição**              | **Autor(es)**                                                                               |
+|------------|------------|----------------------------|---------------------------------------------------------------------------------------------|
+| 01/11/2023 | 0.1        | Desenvolvimento de tópicos | Breno Fernandes, Breno Lucena, Kauan Eiras, Leonardo Ferreira, Matheus Diogo, Samuel Victor |
+| 03/11/2023 | 1.0        | Revisão para entrega       | Lucas Antunes, Mateus Vieira                                                                |
+| 26/11/2023 | 1.1        | Atualização do documento   | Mateus Vieira                                                                               |
+
+### 5.2 - <a name="#52-tabela-52-autores"></a>Autores
+
+| **Matrícula** | **Nome**          | **Descrição do papel assumido na equipe**                                                                                                                                                                                                                                                                                                                                            | **% de contribuição ao trabalho** |
+|---------------|-------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|-----------------------------------|
+| 202017540     | Breno Fernandes   | Participou no desenvolvimento do documento de visão do produto;<br>Participou no desenvolvimento do documento de declaração de escopo;<br>Participou no desenvolvimento do documento de arquitetura.                                                                                                                                                                                 | 9%                                |
+| 202017343     | Breno Lucena      | Participou no desenvolvimento do documento de visão do produto;<br>Participou no desenvolvimento do documento de declaração de escopo;<br>Participou no desenvolvimento do documento de arquitetura.                                                                                                                                                                                 | 12.5%                             |
+| 232014727     | Kauan Eiras       | Participou no desenvolvimento do documento de visão do produto;<br>Participou no desenvolvimento do documento de declaração de escopo;<br>Participou no desenvolvimento do documento de arquitetura.                                                                                                                                                                                 | 12.5%                             |
+| 200032166     | Leonardo Ferreira | Participou no desenvolvimento do documento de visão do produto;<br>Participou no desenvolvimento do documento de declaração de escopo;<br>Participou no desenvolvimento do documento de arquitetura.                                                                                                                                                                                 | 12.5%                             |
+| 190091681     | Lucas Antunes     | Participou no desenvolvimento do documento de visão do produto;<br>Participou no desenvolvimento do documento de declaração de escopo;<br>Participou no desenvolvimento do documento de arquitetura.<br>Participou na revisão do documento de visão do produto;<br>Participou na revisão do documento de declaração de escopo;<br>Participou na revisão do documento de arquitetura. | 13.5%                             |
+| 202016963     | Mateus Vieira     | Participou no desenvolvimento do documento de visão do produto;<br>Participou no desenvolvimento do documento de declaração de escopo;<br>Participou no desenvolvimento do documento de arquitetura.<br>Participou na revisão documento de visão do produto;<br>Participou na revisão do documento de declaração de escopo;<br>Participou na revisão do documento de arquitetura.    | 13.5%                             |
+| 200024949     | Matheus Diogo     | Participou no desenvolvimento do documento de visão do produto;<br>Participou no desenvolvimento do documento de declaração de escopo;<br>Participou no desenvolvimento do documento de arquitetura.                                                                                                                                                                                 | 12.5%                             |
+| 190059001     | Samuel Victor     | Participou no desenvolvimento do documento de visão do produto;<br>Participou no desenvolvimento do documento de declaração de escopo;<br>Participou no desenvolvimento do documento de arquitetura.                                                                                                                                                                                 | 13.5%                             |
+
+### 5.3 - <a name="53-tabela-53-visão-lógica"></a>Visão lógica
+
+|              **Módulo**               |                                               **Descrição**                                               |  **Comunicação com Interfaces**  |
+|:-------------------------------------:|:---------------------------------------------------------------------------------------------------------:|:--------------------------------:|
+|                 Login                 |           Acesso ao sistema fazendo login, direcionar para redefinir a senha e fazer cadastro.            | Registro e redefinição de senha. |
+|               Registro                |                                 Fazer o cadastro como aluno ou publicador                                 |    Voltar para tela de login     |
+|         Redefinição de Senha          |                                       Redefinir a senha esquecida.                                        |    Voltar para tela de login.    |
+|            Mural de Vagas             |       Usuários poderão visualizar possíveis vagas e publicadores poderão divulgar possíveis vagas.        |        Voltar para menu.         |
+|       Avaliação de Disciplinas        | Usuários poderão avaliar turmas de disciplinas a qual estiveram presentes e visualizar outras avaliações. |        Voltar para menu.         |
+| Cardápio do Restaurante Universitário |                   Usuários visualizarão o cardápio semanal do restaurante universitário                   |        Voltar para menu.         |
+|          Controle de Faltas           |                  Usuários terão controle de suas presenças para cada disciplina cursada.                  |        Voltar para menu.         |
+|          Calendário Pessoal           |                Usuários terão acesso ao seu calendário pessoal para organização acadêmica                 |        Voltar para menu.         |
+|              Meu Perfil               |    Usuários terão acesso ao seu perfil e visualizar os seus dados, podendo também fazer atualizações.     |        Voltar para menu.         |
