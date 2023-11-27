@@ -137,7 +137,7 @@ A arquitetura por microserviços é caracterizada pela sua capacidade de dividir
 
 Esta escolha arquitetônica se alinha diretamente com a visão estabelecida no documento "Visão do Produto", que enfatiza a necessidade de um sistema que possa se adaptar rapidamente às mudanças nas demandas do mercado e integrar novos recursos de forma ágil. Os microserviços oferecem a agilidade necessária, permitindo o desenvolvimento, implantação e atualização independentes de cada componente, resultando em ciclos de desenvolvimento mais curtos e entregas mais rápidas.
 
-![](../images/arquitetura/figura%204.1.png)
+![](/pages/assets/images/arquitetura/figura%204.1.png)
 
 > Figura 4.1: Desenho esquemático da arquitetura de microserviço.
 
@@ -182,14 +182,14 @@ O grupo possui integrantes tanto com habilidades fullstack, quanto frontend e ba
 
 > Tabela 5.3: Visão lógica
 
-![](../images/arquitetura/figura%204.2.png)
+![](/pages/assets/images/arquitetura/figura%204.2.png)
 
 > Figura 4.2: Desenho esquemático de casos de usos.
 
 No diagrama de casos de uso é possível visualizar que existem três tipos de perfil de acesso, que são, administradores, alunos e publicadores (EJs/atléticas). Suas funções dentro do sistema possuem variações.
 O administrador tem acesso a todos as funções do sistema, mas só ele pode gerenciar perfis de acesso, criar novos usuários e gerenciar registros dos publicadores. O aluno pode avaliar turmas anteriores, ter o controle de suas faltas, atualizar o cardápio semanal e também visualizar as publicações. Os publicadores são responsáveis por divulgar informações acadêmicas.
 
-![](../images/arquitetura/figura%204.3.png)
+![](/pages/assets/images/arquitetura/figura%204.3.png)
 
 > Figura 4.3: Desenho esquemático de estados.
 
@@ -205,7 +205,7 @@ O diagrama de estados é aplicado para demonstrar o comportamento geral do siste
 
 Após acessar o serviço desejado, o usuário poderá retornar ao menu, e, caso queira, utilizar outros microsserviços.
 
-![](../images/arquitetura/figura%204.4.png)
+![](/pages/assets/images/arquitetura/figura%204.4.png)
 
 > Figura 4.4: Desenho esquemático de atividades.
 
@@ -213,7 +213,7 @@ O diagrama de atividades é aplicado para descrever as etapas realizadas conform
 
 ### 2.7 - <a name="27-visão-de-implementação"></a>**Visão de Implementação**
 
-![](../images/arquitetura/figura%204.5.png)
+![](/pages/assets/images/arquitetura/figura%204.5.png)
 
 > Figura 4.5: Desenho esquemático implementação
 
@@ -221,7 +221,7 @@ No processo de implementação do sistema, a primeira etapa prioritária será a
 
 ### 2.8 - <a name="28-visão-de-implantação"></a> **Visão de Implantação**
 
-![](../images/arquitetura/figura%204.6.png)
+![](/pages/assets/images/arquitetura/figura%204.6.png)
 
 > Figura 4.6: Desenho esquemático de implantação.
 
@@ -269,7 +269,7 @@ Justificação: Em uma arquitetura de microsserviços, a escalabilidade é uma v
 
 ### 2.10 - <a name="210-diagrama-de-classes"></a>**Diagrama de Classes**
 
-![](../images/arquitetura/figura%204.7.png)
+![](/pages/assets/images/arquitetura/figura%204.7.png)
 
 _Imagem: Diagrama de Classes desenvolvido no [www.drawio.com_](http://www.drawio.com)\*
 
@@ -322,31 +322,31 @@ Diagrama de Classes: Desenvolvido com base no [www.drawio.com](http://www.drawio
 
 ### 4.1 - <a name="41-desenho-esquemático-da-arquitetura-de-microserviço"></a>**Desenho esquemático da arquitetura de microservirço.**
 
-![](../images/arquitetura/figura%204.1.png)
+![](/pages/assets/images/arquitetura/figura%204.1.png)
 
 ### 4.2 - <a name="42-desenho-esquemático-de-casos-de-usos"></a>**Desenho esquemático de casos de usos.**
 
-![](../images/arquitetura/figura%204.2.png)
+![](/pages/assets/images/arquitetura/figura%204.2.png)
 
 ### 4.3 - <a name="43-desenho-esquemático-de-estados"></a>**Desenho esquemático de estados.**
 
-![](../images/arquitetura/figura%204.3.png)
+![](/pages/assets/images/arquitetura/figura%204.3.png)
 
 ### 4.4 - <a name="44-desenho-esquemático-de-atividades"></a>**Desenho esquemático de atividades.**
 
-![](../images/arquitetura/figura%204.4.png)
+![](/pages/assets/images/arquitetura/figura%204.4.png)
 
 ### 4.5 - <a name="45-desenho-esquemático-implementação"></a>**Desenho esquemático implementação**
 
-![](../images/arquitetura/figura%204.5.png)
+![](/pages/assets/images/arquitetura/figura%204.5.png)
 
 ### 4.6 - <a name="46-desenho-esquemático-de-implantação"></a>**Desenho esquemático de implantação.**
 
-![](../images/arquitetura/figura%204.6.png)
+![](/pages/assets/images/arquitetura/figura%204.6.png)
 
 ### 4.7 - <a name="47-desenho-esquemático-de-classes"></a>**Desenho esquemático de classes.**
 
-![](../images/arquitetura/figura%204.7.png)
+![](/pages/assets/images/arquitetura/figura%204.7.png)
 
 ## 5 - <a name="5-tabelas"></a>**Tabelas**
 
