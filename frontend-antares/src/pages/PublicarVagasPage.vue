@@ -10,7 +10,7 @@
           <q-input filled v-model="titulo" label="Título da Vaga *" />
           <q-input type="textarea" filled v-model="descricao" label="Descrição da Vaga *" />
           <q-input class="q-mt-md" filled v-model="contato" label="Contato *" />
-          <q-input filled v-model="link" label="Link" />
+          <q-input filled v-model="link" label="Link *" />
   
           <q-checkbox v-model="programarPublicacao" label="Programar Publicação" />
   
@@ -28,13 +28,13 @@
         </q-card-section>
   
         <q-card-actions align="right" class="q-px-md">
-          <q-btn color="positive" class="q-mb-sm " label="Publicar Vaga" @click="publicarVaga" />
+          <q-btn :disable="verificarDisableCampos()" color="positive" class="q-mb-sm " label="Publicar Vaga" @click="publicarVaga" />
         </q-card-actions>
       </q-card>
   
     <q-dialog v-model="dialogModel.isOpen">
       <q-date v-model="selectedDate" mask="YYYY-MM-DDTHH:mm">
-        <div class="row items-center justify-end q-pt-md">
+        <div class="row items-center justify-end">
           <q-btn label="Confirmar" color="primary" flat @click="handleDateOk" />
         </div>
       </q-date>
@@ -43,19 +43,25 @@
 </template>
 
 <script lang="ts">
-import { ref, reactive, defineComponent } from 'vue';
+import { ref, reactive, defineComponent, registerRuntimeCompiler } from 'vue';
+import PublicarVagasService from '../services/PublicarVagasService';
+import { useSessionStore } from '../stores/session';
+import { useQuasar } from 'quasar';
+import { useRouter } from 'vue-router';
 
 export default defineComponent({
   setup() {
-    const titulo = ref('');
-    const descricao = ref('');
-    const contato = ref('');
-    const link = ref('');
+    const titulo = ref(null) as any;
+    const descricao = ref(null) as any;
+    const contato = ref(null) as any;
+    const link = ref(null) as any;
     const programarPublicacao = ref(false);
-    const dataPublicacao = ref('');
-    const dataEncerramento = ref('');
-    const selectedDate = ref('');
+    const dataPublicacao = ref(null) as any;
+    const dataEncerramento = ref(null) as any;
+    const selectedDate = ref(null) as any;
     const dialogModel = reactive({ isOpen: false, type: '' });
+    const $q = useQuasar();
+    const router = useRouter()
 
     const openDateTimePicker = (type: 'dataPublicacao' | 'dataEncerramento') => {
       dialogModel.isOpen = true;
@@ -72,17 +78,65 @@ export default defineComponent({
       dialogModel.isOpen = false;
     };
 
-    const publicarVaga = () => {
-      console.log('Publicando vaga:', {
-        titulo: titulo.value,
-        descricao: descricao.value,
-        contato: contato.value,
-        link: link.value,
-        dataPublicacao: dataPublicacao.value,
-        dataEncerramento: dataEncerramento.value
-      });
-      // Implementação da função de publicação
+    const publicarVaga = async () => {
+        try {
+          const sessionStore = useSessionStore();
+          const usuarioLogado = sessionStore.getSessionData;
+          const criadorEmail = usuarioLogado.email;
+        //  CRIAR CONDIÇÃO PARA PERMITIR APENAS AS ROLES CERTAS PUBLICAR VAGAS 
+          const params = {
+            criadorEmail,
+            titulo: titulo.value,
+            descricao: descricao.value,
+            contato: contato.value,
+            link: link.value,
+            dataPublicacao: dataPublicacao.value,
+            dataEncerramento: dataEncerramento.value
+          };
+          const response = await PublicarVagasService(params).publicar();
+          if (response.status == 201) {
+            console.log('Vaga publicada com sucesso');
+            router.replace('/feed');
+            $q.notify({
+              color: 'green-10',
+              textColor: 'white',
+              icon: 'cloud_done',
+              message: 'Vaga publicada com sucesso',
+              position: 'top',
+              timeout: 2000
+            });
+          } else {
+            console.log('Erro ao publicar vaga:', response.data.message);
+            $q.notify({
+              color: 'red-10',
+              textColor: 'white',
+              icon: 'warning',
+              message: response.data.message,
+              position: 'top',
+              timeout: 3000
+            });
+          }
+        } catch (e) {
+          console.error('Erro na publicação da vaga:', e);
+          $q.notify({
+            color: 'red-9',
+            textColor: 'white',
+            icon: 'warning',
+            message: 'Erro de Conexão',
+            position: 'top',
+            timeout: 3000
+          });
+        }
     };
+
+    function verificarDisableCampos () {
+      if (titulo.value && descricao.value && contato.value && link.value && dataEncerramento.value &&
+          titulo.value.trim() != '' && descricao.value.trim() != '' && contato.value.trim() != '' && link.value.trim() != '' && dataEncerramento.value.trim() != '') {
+        return false;
+      } else {
+        return true;
+      }
+    }
 
     return {
       titulo,
@@ -96,7 +150,8 @@ export default defineComponent({
       openDateTimePicker,
       handleDateOk,
       publicarVaga,
-      selectedDate
+      selectedDate,
+      verificarDisableCampos
     };
   }
 });
