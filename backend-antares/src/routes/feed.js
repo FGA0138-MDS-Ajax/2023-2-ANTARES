@@ -3,6 +3,6 @@ const feedController = require('../controllers/feedController');
 
 router
     .route('/feed')
-    .get((req, res) => feedController.getAll(req, res))
+    .post((req, res) => feedController.getAll(req, res))
     
 module.exports = router;
