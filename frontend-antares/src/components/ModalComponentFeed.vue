@@ -38,22 +38,9 @@ export default {
 </script>
 
 <style scoped>
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
 
 .modal {
-    position: fixed;
-    transform: translate(-50%, -50%);
-    top: 50%;
-    left: 50%;
-    width: flex;
-    height: flex;
-    flex-direction: column;
-    flex-grow: 1;
-    overflow-y: auto;
+    z-index: 9999;
     background-color: #fff;
     border: 1px solid #ccc;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
@@ -63,10 +50,9 @@ export default {
     flex-grow: 1;
     flex-direction: column;
     display: flex;
-    width: 80%;
+    width: 100%;
     margin: auto;
-    min-width: none;
-    background: #fff;
+    background: #fafafa;
     margin: auto;
     padding-top: 50px;
 }
@@ -89,7 +75,7 @@ export default {
 .modal-body {
     flex-grow: 1;
     height: 100%;
-    padding: 50px;
+    padding: 20px;
     text-align: left;
 }
 
