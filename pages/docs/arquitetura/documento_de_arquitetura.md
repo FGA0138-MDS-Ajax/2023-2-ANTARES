@@ -322,7 +322,7 @@ Diagrama de Classes: Desenvolvido com base no [www.drawio.com](http://www.drawio
 
 ### 4.1 - <a name="41-desenho-esquemático-da-arquitetura-de-microserviço"></a>**Desenho esquemático da arquitetura de microservirço.**
 
-![](/pages/assets/images/arquitetura/figura%204.1.png)
+![](EsquematicoArquitetura.png)
 
 ### 4.2 - <a name="42-desenho-esquemático-de-casos-de-usos"></a>**Desenho esquemático de casos de usos.**
 

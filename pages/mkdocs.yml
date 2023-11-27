@@ -1,12 +1,34 @@
 site_name: Unb na Mão - Antares
 
 theme:
-    name: material
+  palette:
+
+    # Light mode
+    - scheme: default
+      primary: yellow
+      accent: yellow
+      toggle:
+        icon: material/theme-light-dark
+        name: Mudar para o tema escuro
+
+    # Dark mode
+    - scheme: slate
+      primary: deep orange
+      accent: deep orange
+      toggle:
+        icon: material/theme-light-dark
+        name: Mudar para o tema claro
+
+  language: pt
+  name: material
+
+copyright: Copyright &copy; 2023 - 2023 UnB na Mão
+
+
 nav: [
-  "Home": "index.html",
-  "Entregas": [
-    "documento_de_visao_do_produto_e_projeto.md",
-    "documento_de_escopo.md",
-    "documento_de_arquitetura.md"
-  ],  
+  "Home": "index.md",
+  "Visão do Produto e Projeto": "docs/visao_do_produto_e_projeto/documento_de_visao_do_produto_e_projeto.md",
+  "Declaração de Escopo": "docs/escopo/documento_de_escopo.md",
+  "Arquitetura": "docs/arquitetura/documento_de_arquitetura.md"
+    
 ]
