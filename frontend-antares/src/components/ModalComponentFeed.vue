@@ -47,18 +47,15 @@ export default {
 }
 
 .modal-content {
-    flex-grow: 1;
     flex-direction: column;
     display: flex;
     width: 100%;
     margin: auto;
     background: #fafafa;
     margin: auto;
-    padding-top: 50px;
 }
 
 .modal-header {
-    height: 10px;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -74,7 +71,6 @@ export default {
 
 .modal-body {
     flex-grow: 1;
-    height: 100%;
     padding: 20px;
     text-align: left;
 }

@@ -11,6 +11,9 @@
                     <q-card-section>
                             <h4>{{ news.titulo }}</h4>
                             <div class="q-pt-sm">{{ news.criadorEmail}}</div>
+                            <div class="img row justify-center q-py-md ">
+                                <img class="rounded-borders" id="img-selected" src="https://picsum.photos/500/500" alt="teste">
+                            </div>
                             <h8 class="low-opacity">Postado em: {{ news.dataPublicacao.toLocaleDateString('pt-br') }}</h8>
                         </q-card-section>
                     </q-card>
@@ -24,12 +27,9 @@
         <div class="modal-wrap" v-if="modalNewsOpen">
             <ModalComponent @fecharModal="fecharModalNews" class="modal-component rounded-borders">
                 <template v-slot:modal-title>
-                    <h4 class="q-pb-md">{{ selectedNews.titulo }}</h4>
+                    <h4 class="q-mb-lg q-pt-md">{{ selectedNews.titulo }}</h4>
                 </template>
                 <template v-slot:modal-text>
-                    <div class="img row justify-center q-pb-sm ">
-                        <img class="rounded-borders" id="img-selected" src="https://picsum.photos/500/500" alt="teste">
-                    </div>
                     <q-btn label="Link da vaga" @click="openLink(selectedNews.link)" class="text-white bg-green-7 q-mb-md" icon="help"/>
                     <div class="row w100 q-pb-md">
                         <div class="label-modal row w10"><strong>Descrição:</strong></div><q-scroll-area style="height:120px; width:100%; background-color: #f1f1f1;" class="q-pl-sm q-pt-sm">{{ selectedNews.descricao }}</q-scroll-area>
@@ -127,7 +127,6 @@ onBeforeMount(async () => {
 .modal-component {
     z-index: 999;
     width: 50%;
-    height: auto;
 }
 
 .modal-close {
@@ -154,8 +153,8 @@ onBeforeMount(async () => {
   cursor: pointer;
 }
 #img-selected {
-    width: 30%;
-    height: 400px;
+    width: 90%;
+    height: 200px;
 }
 
 .q-card{
@@ -164,6 +163,7 @@ onBeforeMount(async () => {
     background: linear-gradient(to bottom, #4fb151, #107e44); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
     color: #fafafa;
     width: 25%;
+    height: 42vh;
 }
 
 .q-card:hover {
@@ -188,6 +188,7 @@ onBeforeMount(async () => {
     }
     .q-card {
         width: 95%!important;
+        height: 25rem;
     }
     .cards {
         display: flex;
