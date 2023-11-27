@@ -18,8 +18,13 @@
                 <h4>{{ selectedNews.titulo }}</h4>
             </template>
             <template v-slot:modal-text>
-                   <p>{{ selectedNews.descricao }}</p>
-                   <a :href="selectedNews.link">Link da Vaga</a>
+                    <p><strong>Descrição: </strong>Descrição: {{ selectedNews.descricao }}</p>
+                    <p><strong>Contato: </strong>{{ selectedNews.contato }}</p>
+                    <div class="date-container">
+                        <p><strong>Data de publicação: </strong>{{ selectedNews.dataPublicacao.toLocaleDateString('pt-br') }}</p>
+                        <p class="finishing-date"><strong>Data de encerramento: </strong>{{ selectedNews.dataEncerramento.toLocaleDateString('pt-br') }}</p>
+                    </div>
+                    <q-btn label="Link da vaga" @click="openLink(selectedNews.link)" class="link-button"/>
             </template>
             <template v-slot:botaoFechar>
                  <q-btn label="Fechar" color="primary"  class="modal-close" @click="fecharModalNews" />
@@ -52,6 +57,10 @@ function openModalNews(news: any) {
 function fecharModalNews() {
     modalNewsOpen.value = false
 }
+function openLink(link: string) {
+    window.open(link, '_blank')
+}
+
 onBeforeMount(async () => {
     try {
         const { listarFeed } = FeedService(null);
@@ -76,16 +85,36 @@ onBeforeMount(async () => {
 
 .modal-component {
     width: 80%;
-    height: 80%;
+    height: auto;
     margin: auto;
 }
 
 .modal-close {
+    background-color: blue;
     width: auto;
     position: absolute;
     bottom: 10px;
     left: 50%;
     transform: translateX(-50%);
 }
-
+.date-container {
+    display: flex;
+    justify-content: space-between;
+    width: auto;
+  }
+.finishing-date {
+    color: blue;
+  }
+.link-button { 
+  background-color: blue;
+  color: white;
+  padding: 10px 15px;
+  border: none;
+  border-radius: 5px; 
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  cursor: pointer;
+}
 </style>
