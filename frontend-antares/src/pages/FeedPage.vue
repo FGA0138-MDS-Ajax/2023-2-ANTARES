@@ -8,7 +8,7 @@
             </div>
             <div class="cards row justify-center q-gutter-md q-mt-md">
                 <q-card class="cursor-pointer" v-for="(news, index) in vectorNews" :key="index" @click="openModalNews(news)">
-                    <q-card-section style="height: 8rem">
+                    <q-card-section>
                             <h4>{{ news.titulo }}</h4>
                             <div class="q-pt-sm">{{ news.criadorEmail}}</div>
                             <h8 class="low-opacity">Postado em: {{ news.dataPublicacao.toLocaleDateString('pt-br') }}</h8>
