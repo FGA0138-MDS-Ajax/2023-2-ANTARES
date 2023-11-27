@@ -1,8 +1,4 @@
-# **UnB na Mão**
-
-# **VISÃO DO PRODUTO E DO PROJETO**
-
-## Versão 1.2
+# Visão do Produto e do Projeto
 
 ### Membros da Equipe:
 
@@ -17,7 +13,7 @@
   <li>Samuel Victor Oliveira Lima - 190059001</li> 
 </ul>
 
-## **Histórico de Revisão**
+### Histórico de Revisão
 
 | **Data**       | **Versão** | **Descrição**                                                               | **Autor**                                                                    |
 | -------------- | ---------- | --------------------------------------------------------------------------- | ---------------------------------------------------------------------------- |
@@ -26,7 +22,7 @@
 | **10/11/2023** | 1.1        | Revisão parcial do feedback dos documentos de Visão do Produto e do Projeto | Leonardo Ferreira, Mateus Vieira                                             |
 | **26/11/2023** | 1.2        | Atualização na estrutura do documento                                       | Mateus Vieira                                                                |
 
-# **Sumário**
+### **Sumário**
 
 - [1 - Visão Geral do Produto](#visao-geral-do-produto)
   - [1.1 - Problema](#problema)
@@ -44,8 +40,7 @@
   - [3.1 - Metodologia de Desenvolvimento](#metodologia-desenvolvimento)
   - [3.2 - Considerações sobre o Ciclo de Vida do Projeto](#consideracoes)
   - [3.3 - Tecnologias Utilizadas](#tecnologias-33)
-- 4. [Detalhamento de Atividades do Projeto](#detalhamento-de-atividades-do-projeto)
-  - 4.1 [](#atividade-1)
+- [4 - Detalhamento de Atividades do Projeto](#detalhamento-de-atividades-do-projeto)
 - [5 - Lições Aprendidas](#licoes-aprendidas)
   - [5.1 - Unidade 1](#unidade-1)
   - [5.2 - Unidade 2](#unidade-2)
@@ -53,15 +48,15 @@
 - [6 - Próximos Passos](#proximos-passos)
 - [7 - Referências Bibliográficas](#referencias)
 
-# 1. <a name=visao-geral-do-produto>**Visão Geral Do Produto**</a>
+## 1. <a name=visao-geral-do-produto>**Visão Geral Do Produto**</a>
 
-## 1.1 <a name=problema>**Problema**</a>
+### 1.1 <a name=problema>**Problema**</a>
 
 A faculdade pode ser um desafio para muitos estudantes, pois eles precisam lidar com múltiplas matérias, horários de aula variados, tarefas e informações institucionais dispersas. Isso evidencia que fazer uma boa gestão acadêmica pessoal pode ser uma tarefa difícil, principalmente porque a universidade carece de sistemas eficazes para fornecer informações relevantes e instruir os alunos em sua jornada acadêmica. Desse modo, fica evidente a necessidade de um software que facilite a gestão pessoal acadêmica e o acesso às informações da universidade.
 
 Sendo assim, o software "UnB na Mão" traz funcionalidades essenciais para resolver problemas, como controle de chamada, no qual o aluno será responsável por gerenciar suas disciplinas e presença. Além disso, oferece acesso ao cardápio semanal, calendário acadêmico pessoal e ao mural de vagas dos publicadores (empresas juniores e atléticas), proporcionando também acesso a avaliações de disciplinas de semestres anteriores. Logo, fica claro que o software será um facilitador ao auxiliar os estudantes em sua gestão acadêmica pessoal.
 
-## 1.2 <a name=declaracao>**Declaração de Posição do Produto**</a>
+### 1.2 <a name=declaracao>**Declaração de Posição do Produto**</a>
 
 O UnB na mão é uma aplicação que visa unificar as informações da universidade em um único aplicativo, com o objetivo de facilitar a visualização das informações pelo usuário, além de fornecer outras tecnologias inexistentes. Nesse sentido, esse produto é algo novo para o mercado visto que muitas vezes as informações se encontram em vários sites diferentes, como o SIGAA, Aprender e outros, com isso se tornando difícil e trabalhoso a obtenção das notícias e outras notificações, além de que as aplicações existentes carecem de ferramentas que auxiliariam o estudante. Com isso, a aplicação tem como público-alvo os estudantes da Universidade de Brasília, porém o site poderia ser utilizado por professores e outros frequentadores da instituição. Logo, esse projeto é bastante interessante para um discente poder se informar melhor sobre a instituição e as atividades que estão acontecendo, além de poder se organizar melhor com certas funcionalidades presentes na aplicação.
 
@@ -73,7 +68,7 @@ O UnB na mão é uma aplicação que visa unificar as informações da universid
 | Ao contrário:  | Os estudantes continuariam a ter que acessar vários sites para acessar as informações e notícias, de maneira lenta e ineficaz, e também não teriam acesso as tecnologias inovadoras presentes na aplicação. |
 | Nosso produto: | Permite que o usuário encontre em apenas um site inúmeras informações e ferramentas                                                                                                                         |
 
-## 1.3 <a name=objetivos>**Objetivos do Produto**</a>
+### 1.3 <a name=objetivos>**Objetivos do Produto**</a>
 
 Facilitar o acesso a informações básicas de uso cotidiano dos discentes da Universidade de Brasília, como por exemplo o cardápio diário do Restaurante Universitário e o Calendário Universitário de Graduação.
 Quanto à objetivos secundários a serem alcançados teríamos:
@@ -82,7 +77,7 @@ Quanto à objetivos secundários a serem alcançados teríamos:
 - Painel de informações sobre vagas de estágio, atividades extracurriculares (EJs, Equipes de Competição) abertura de editais acadêmicos (PIBIC, monitoria, etc).
 - Controle de faltas pessoal, a qual o usuário será responsável por administrar suas presenças nas disciplinas.
 
-## 1.4 <a name=tecnlogias>**Tecnologias a Serem Utilizadas**</a>
+### 1.4 <a name=tecnlogias>**Tecnologias a Serem Utilizadas**</a>
 
 - **Linguagens de programação e Frameworks:** Utilizaremos o Javascript como linguagem de programação, em conjunto com os frameworks Vue.js para o Front-end e Node.js para Back-end.
 - **Ambientes:** Cada membro da equipe poderá escolher seu próprio editor para a edição de códigos, contudo, estabeleceremos regras para _Commits_, nomes e estrutura do código. O controle de versão será realizado através do GitHub, onde faremos uso de _Branches_ para facilitar o desenvolvimento.
@@ -92,9 +87,9 @@ Quanto à objetivos secundários a serem alcançados teríamos:
 
 - **Ferramentas:** Para organizar atas de reuniões, documentos e gerenciar os quadros Kanban, utilizaremos o Notion. Para reuniões utilizaremos o Microsoft Teams e para demais reuniões como a programação em pares, utilizaremos o Discord, além de utilizar o github para armazenar e administrar o código. Além dessas, existem as ferramentas de apoio para fazer apresentações e documentos da disciplina, como canva, word e lucidchart.
 
-# 2. <a name=visao-geral-do-projeto>**VISÃO GERAL DO PROJETO**</a>
+## 2. <a name=visao-geral-do-projeto>**Visão do Produto e do Projeto**</a>
 
-## 2.1 <a name=ciclo-de-vida>**Ciclo de vida do projeto de desenvolvimento de software**</a>
+### 2.1 <a name=ciclo-de-vida>**Ciclo de vida do projeto de desenvolvimento de software**</a>
 
 **Metodologia e Técnicas:** A metodologia empregada será o Scrum XP, com sprints semanais e reuniões de revisão conforme necessário. Para tarefas mais complexas, adotaremos a programação em pares, posteriormente utilizaremos a técnica de revisão de código, na qual cada código será avaliado por outro membro da equipe antes da mesclagem na Branch "Development". Também planejamos implementar a Integração Contínua com Testes de Unidade.
 
@@ -120,7 +115,7 @@ Quanto à objetivos secundários a serem alcançados teríamos:
 
 **Ferramentas:** Notion, Microsoft Teams, Discord, github, canva, word e lucidchart.
 
-## 2.2 <a name=organizacao>**Organização do Projeto**</a>
+### 2.2 <a name=organizacao>**Organização do Projeto**</a>
 
 | _**Papel**_           | _**Atribuições**_                                                                                           | _**Responsável**_          | _**Participantes**_                                                                 |
 | --------------------- | ----------------------------------------------------------------------------------------------------------- | -------------------------- | ----------------------------------------------------------------------------------- |
@@ -130,7 +125,7 @@ Quanto à objetivos secundários a serem alcançados teríamos:
 | Cliente               | Fornecimento de requisitos                                                                                  | ...                        | Estudantes internos e ex-alunos para validação do produto.                          |
 | Desenvolvedores       | Realização das tarefas estabelecidas                                                                        | Samuel Lima, Mateus Vieira | Breno Cordeiro, Breno Fernandes, Kauan Eiras, Leonardo, Matheus Digo, Lucas Antunes |
 
-## 2.3 <a name=planejamento>**Planejamento das Fases e/ou Iterações do Projeto**</a>
+### 2.3 <a name=planejamento>**Planejamento das Fases e/ou Iterações do Projeto**</a>
 
 | Sprint    | Produto (Entrega)                                    | Data Início | Data Fim   | Engregável(eis)                           | Responsáveis | % Conclusão |
 |-----------|------------------------------------------------------|-------------|------------|-------------------------------------------|--------------|-------------|
@@ -148,9 +143,9 @@ Quanto à objetivos secundários a serem alcançados teríamos:
 | Sprint 12 |                                                      | 04/12/2023  | 11/12/2023 |                                           | Grupo        | 0 %         |
 | Sprint 13 |                                                      | 18/12/2023  | 23/12/2023 |                                           | Grupo        | 0 %         |
 
-## 2.4 <a name=comunicacao>**Matriz de Comunicação**</a>
+### 2.4 <a name=comunicacao>**Matriz de Comunicação**</a>
 
-## 2.5 <a name=riscos>**Gerenciamento de Riscos**</a>
+### 2.5 <a name=riscos>**Gerenciamento de Riscos**</a>
 
 | Risco                                                | Grau de exposição | Mitigação                                                                                                                                                                                                          | Plano de contingência                                                                                                                                          |
 |------------------------------------------------------|-------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------|
@@ -162,7 +157,7 @@ Quanto à objetivos secundários a serem alcançados teríamos:
 | Limitação de recursos                                | Alto              | Procurar fontes alternativas de recursos.                                                                                                                                                                          | Reorganizar de modo com que aqueles que possuam mais recursos possam ajudar aqueles que não os possuam.                                                        |
 | Testes                                               | Médio             | Capacitar o grupo na execução dos testes;Aplicar critérios de aceitação na entrega das tasks                                                                                                                       | Contatar professor e monitores com antecedência;                                                                                                               |
 
-## 2.6 <a name=replanejamento>**Critérios de Replanejamento**</a>
+### 2.6 <a name=replanejamento>**Critérios de Replanejamento**</a>
 
 <p>O plano de contingência será acionado em situações que envolvam mudanças substanciais no projeto. Estes eventos incluem:</p>
 
@@ -178,17 +173,17 @@ Quanto à objetivos secundários a serem alcançados teríamos:
 
 **Testes não implementados no período correto:** Se os testes não puderem ser implementados de acordo com o período correto.
 
-# 3. <a name=processo-de-desenvolvimento-de-software>**Processo De Desenvolvimento De Software**</a>
+## 3. <a name=processo-de-desenvolvimento-de-software>**Processo De Desenvolvimento De Software**</a>
 
-## 3.1 <a name=metodologia-desenvolvimento>**Metodologia de Desenvolvimento**</a>
+### 3.1 <a name=metodologia-desenvolvimento>**Metodologia de Desenvolvimento**</a>
 
 O processo de desenvolvimento de software para o projeto "UnB na Mão" será orientado pelas práticas ágeis, com base nas metodologias SCRUM e XP. Estas metodologias foram escolhidas devido à sua flexibilidade, adaptabilidade e ênfase na entrega contínua de valor ao cliente. A abordagem ágil proporcionará à equipe a capacidade de responder de forma eficaz às mudanças nos requisitos e no ambiente de desenvolvimento.
 
-## 3.2 <a name=consideracoes>**Considerações sobre o Ciclo de Vida do Projeto**</a>
+### 3.2 <a name=consideracoes>**Considerações sobre o Ciclo de Vida do Projeto**</a>
 
 O ciclo de vida do projeto será estruturado em sprints semanais, com reuniões de revisão conforme necessário. Para tarefas complexas, será adotada a prática de programação em pares. A implementação da Integração Contínua, com Testes de Unidade, garantirá a qualidade contínua do código. A revisão de código por membros da equipe será realizada antes da mesclagem na Branch principal.
 
-## 3.3 <a name=tecnologias-33>**Tecnologias Utilizadas**</a>
+### 3.3 <a name=tecnologias-33>**Tecnologias Utilizadas**</a>
 
 <p>O projeto utilizará as seguintes tecnologias:</p>
 
@@ -201,9 +196,9 @@ O ciclo de vida do projeto será estruturado em sprints semanais, com reuniões 
   - Integração Contínua com Testes de Unidade.
   - Revisão de código antes da mesclagem na Branch principal.
 
-# 4 Detalhamento de atividades do projeto
+## 4 Detalhamento de atividades do projeto
 
-## 4.N Atividade 'N'
+### 4.N Atividade 'N'
 
 _[Diante da abordagem estabelecida, deve-se definir como cada uma das atividades será realizada, por meio de métodos e ferramentas. Pode-se, por exemplo, utilizar um quadro para expressar essas informações:_
 
@@ -212,9 +207,9 @@ _[Diante da abordagem estabelecida, deve-se definir como cada uma das atividades
 | _..._             | _..._          | _..._              |
 |                   |
 
-# 5 LIÇÕES APRENDIDAS
+## 5 LIÇÕES APRENDIDAS
 
-## 5.1 <a name=unidade-1>**Unidade 1**</a>
+### 5.1 <a name=unidade-1>**Unidade 1**</a>
 
 Durante a primeira fase, as decisões tomadas foram orientadas pela opinião predominante no grupo, visando a seleção dos frameworks mais adequados para atender à nossa Visão de Produto e Projeto. Isso abrangeu tanto a parte do back-end quanto a do front-end, levando em consideração o nível de conhecimento da maioria dos membros e suas disponibilidades para aprender novos elementos.
 
@@ -224,7 +219,7 @@ No início do projeto, nossa prioridade era construir todas as funcionalidades p
 
 No que diz respeito aos ciclos de vida de um produto, foram apresentadas duas metodologias: Scrum e XP (Extreme Programming). Ambas são abordagens ágeis que acreditamos serem benéficas para o nosso projeto. Portanto, decidimos adotar uma abordagem combinada, utilizando Scrum e XP.
 
-## 5.2 <a name=unidade-2>**Unidade 2**</a>
+### 5.2 <a name=unidade-2>**Unidade 2**</a>
 
 Nessa segunda fase do desenvolvimento, amadurecemos mais como equipe, aprendendo a rotina de como cada um funciona e conseguimos melhorar bastante a qualidade de nossas entregas devido a isso.
 
@@ -232,10 +227,10 @@ Devido à essa maturação, foi mais fácil a escolha do padrão arquitetural do
 
 Descobrimos algumas incapacitações dentro da equipe e lidamos com elas a fim de não atrasar o projeto, tiramos uma semana para capacitação.
 
-## 5.3 <a name=unidade-3>**Unidade 3**</a>
+### 5.3 <a name=unidade-3>**Unidade 3**</a>
 
-# 6 - <a name=proximos-passos>**Próximos Passos**</a>
-# 7 - <a name=referencias>**Referências Bibliográficas**</a>
+## 6 - <a name=proximos-passos>**Próximos Passos**</a>
+## 7 - <a name=referencias>**Referências Bibliográficas**</a>
 
 1. Aula sobre metodologia Scrum. Disponível em: [https://aws.amazon.com/pt/what-is/scrum/#:~:text=O%20Scrum%20%C3%A9%20um%20framework,uma%20entrega%20eficiente%20de%20projetos](https://aws.amazon.com/pt/what-is/scrum/#:~:text=O%20Scrum%20%C3%A9%20um%20framework,uma%20entrega%20eficiente%20de%20projetos). Acesso em: 10 de novembro de 2023.
 
