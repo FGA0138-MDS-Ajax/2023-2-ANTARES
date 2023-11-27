@@ -66,7 +66,7 @@ const usuarioController = {
 
         res.status(200).json({ message: "Senha redefinida com sucesso!" });
       }
-       else {
+      else {
         // Se o usuário não for encontrado
         res
           .status(404)
