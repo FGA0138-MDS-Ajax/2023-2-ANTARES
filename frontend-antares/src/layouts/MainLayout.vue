@@ -36,7 +36,17 @@
             Página Inicial
           </q-item-section>
         </q-item>
-        
+
+        <q-item clickable v-ripple to="/feed">
+          <q-item-section avatar>
+            <q-icon name="dynamic_feed" />
+          </q-item-section>
+
+          <q-item-section>
+            Feed
+          </q-item-section>
+        </q-item>
+
         <q-item clickable v-ripple to="/publicar-vagas">
           <q-item-section avatar>
             <q-icon name="send" />
@@ -47,15 +57,6 @@
           </q-item-section>
         </q-item>
 
-        <q-item clickable v-ripple to="/feed">
-          <q-item-section avatar>
-            <q-icon name="home" />
-          </q-item-section>
-
-          <q-item-section>
-            Feed
-          </q-item-section>
-        </q-item>
         
         <q-item clickable v-ripple>
           <q-item-section avatar>
