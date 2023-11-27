@@ -15,6 +15,7 @@
             </template>
             <template v-slot:modal-text>
                    <p>{{ selectedNews.descricao }}</p>
+                   <a :href="selectedNews.link">Link da Vaga</a>
             </template>
             <template v-slot:botaoFechar>
                  <q-btn label="Fechar" color="primary"  class="modal-close" @click="fecharModalNews" />
