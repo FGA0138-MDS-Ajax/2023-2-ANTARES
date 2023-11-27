@@ -2,6 +2,10 @@
     <q-page>
         <h2 class="text-center q-py-lg">Feed de publicações</h2>
         <div class="column q-px-lg q-gutter-y-md">
+            <div class="q-pt-xl" v-if="vectorNews.length == 0">
+                <h5 class="text-center">Não há publicações no momento</h5>
+                <p style="font-size:100px" class="text-center q-pt-md">&#128531;</p>
+            </div>
             <q-card class="cursor-pointer" v-for="(news, index) in vectorNews" :key="index" @click="openModalNews(news)">
                 <q-card-section>
                     <h4>{{ news.titulo }}</h4>
@@ -62,6 +66,13 @@ onBeforeMount(async () => {
 </script>
 
 <style scoped>
+
+.q-page {
+    background: #fafafacf;  /* fallback for old browsers */
+    background: -webkit-linear-gradient(to bottom, #fafafacf, #c9d6ff83);  /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to bottom, #fafafacf, #c9d6ff83); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
+}
 
 .modal-component {
     width: 80%;
