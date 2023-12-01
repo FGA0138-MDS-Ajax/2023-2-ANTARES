@@ -42,6 +42,7 @@ const routes: RouteRecordRaw[] = [
       { name:'app', path: '', component: () => import('pages/IndexPage.vue') },
       { name:'publicar-vagas', path: '/publicar-vagas', component: () => import('pages/PublicarVagasPage.vue') },
       { name:'feed-vagas', path: '/feed', component: () => import('pages/FeedPage.vue') },
+      { name:'publicar-avaliacao', path: '/publicar-avaliacao', component: () => import('pages/PublicarAvaliacao.vue') },
     ],
   },
   {
