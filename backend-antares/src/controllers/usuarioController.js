@@ -8,7 +8,7 @@ const usuarioController = {
       const hashedPassword = await bcrypt.hash(req.body.senha, salt);
       const usuario = {
         nome: req.body.nome,
-        login: req.body.login,
+        matricula: req.body.matricula,
         senha: hashedPassword,
         telefone: req.body.telefone,
         email: req.body.email,
@@ -32,7 +32,7 @@ const usuarioController = {
   validaUsuario: async (req, res) => {
     try {
       // console.log(req.body);
-      const usuario = await UsuarioModel.findOne({ login: req.body.login });
+      const usuario = await UsuarioModel.findOne({ matricula: req.body.matricula });
       if (usuario && await bcrypt.compare(req.body.senha, usuario.senha)) {
         res.status(201).json({
           message: "Login Efetuado com Sucesso!",
