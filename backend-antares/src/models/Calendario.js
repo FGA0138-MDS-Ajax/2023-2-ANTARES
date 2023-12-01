@@ -1,6 +1,6 @@
 const mongoose = require('mongoose');
 const { Schema } = mongoose;
-const {Evento: EventoModel} = require('../models/Evento');
+const {Evento: EventoModel, Evento} = require('../models/Evento');
 
 const calendarioSchema = new Schema({
     login: {
@@ -8,16 +8,7 @@ const calendarioSchema = new Schema({
         unique: true,
         required: true
     },
-    titulo: {
-        type: [String],
-        required: true,
-        ref: EventoModel
-    },
-    dataEvento: {
-        type: [Date],
-        required: true,
-        ref: EventoModel
-    }
+    eventos: [Evento.schema]
     
 });
 
