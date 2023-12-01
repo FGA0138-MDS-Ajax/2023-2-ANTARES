@@ -14,9 +14,6 @@ const vagaController = {
             };
 
             const usuario = await UsuarioModel.findOne({ criador: vaga.criador });
-            if (!usuario || ![2, 3, 4, 5].includes(usuario.role)) {
-                return res.status(403).json({ message: 'Acesso negado ou usuário não encontrado' });
-            }
 
             const response = await VagaModel.create(vaga);
 
