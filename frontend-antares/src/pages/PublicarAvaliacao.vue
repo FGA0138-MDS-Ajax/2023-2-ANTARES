@@ -1,30 +1,31 @@
 <template>
   <q-page class="row justify-center items-center">
     <q-card>
-      <q-card-section class="bg-primary text-white">
-        <div class="text-h4">Avalie a Disciplina</div>
+      
+      <q-card-section class="card-header">
+        <q-btn flat round icon="arrow_back" @click="voltarParaHome" class="back-button" />
+        <div class="text-h4">{{ nomeDisciplina }}</div>
       </q-card-section>
 
       <q-card-section>
-        <div v-for="(avaliacao, index) in avaliacoes" :key="index">
+        <div v-for="(avaliacao, index) in avaliacoes" :key="index" class="avaliacao-section">
           <q-select filled v-model="avaliacao.professorSelecionado" :options="professores" label="Selecione o Professor" />
           <q-input filled v-if="avaliacao.outroProfessor" v-model="avaliacao.novoProfessor" label="Nome do Professor" />
           
-          <div v-if="avaliacao.professorSelecionado" class="q-mt-md">
-            <div v-for="(item, idx) in avaliacao.itensAvaliacao" :key="`avaliacao-${index}-item-${idx}`">
-              <br/><br/><br/>
-              <div>{{ item.label }}</div>
-              <q-slider v-model="item.value" :min="1" :max="5" :step="1" color="blue">
+          <div v-if="avaliacao.professorSelecionado">
+            <div v-for="(item, idx) in avaliacao.itensAvaliacao" :key="`avaliacao-${index}-item-${idx}`" class="item-avaliacao">
+              <div class="item-label">{{ item.label }}</div>
+              <q-slider v-model="item.value" :min="1" :max="5" :step="1" color="blue" label-always>
                 <template v-slot:label="scope">
-                  <q-tooltip :style="{ backgroundColor: '#2196f3', color: 'white' }">{{ obterDescricaoAvaliacao(scope.value, item.etiquetas) }}</q-tooltip>
+                  <q-tooltip>{{ item.etiquetas[scope.value - 1] }}</q-tooltip>
                 </template>
               </q-slider>
               <div class="custom-markers">
                 <span v-for="(etiqueta, etIndex) in item.etiquetas" :key="`etiqueta-${index}-${idx}-${etIndex}`">{{ etiqueta }}</span>
               </div>
             </div>
-            <br/><br/><br/>
           </div>
+          <q-btn v-if="avaliacoes.length > 1" flat color="negative" icon="delete" label="Excluir esta avaliação" @click="excluirAvaliacao(index)" class="delete-button" />
         </div>
 
         <q-btn color="positive" class="q-mt-md" label="Adicionar Avaliação de Outro Professor" @click="adicionarAvaliacao" />
@@ -39,23 +40,26 @@
 
 <script>
 import { ref, reactive, defineComponent } from 'vue';
+import { useRouter } from 'vue-router';
 import { useQuasar } from 'quasar';
 
 export default defineComponent({
-  setup() {
+  // props: {
+  //   nomeDisciplina: String
+  // },
+
+  setup(props) {
     const $q = useQuasar();
+    const router = useRouter();
     const professores = ref(['Prof. 1', 'Prof. 2', 'Prof. 3', 'Outro Professor']);
 
-    const avaliacoes = reactive([{
-      professorSelecionado: null,
-      outroProfessor: false,
-      novoProfessor: '',
-      itensAvaliacao: [
-        {
-          label: 'Dificuldade do Conteúdo',
-          value: 3,
-          etiquetas: ['Muito Fácil', 'Fácil', 'Médio', 'Difícil', 'Muito Difícil']
-        },
+    const criteriosPadrao = [
+      {
+        label: 'Dificuldade do Conteúdo',
+        value: 3,
+        descricaoAtual: 'Médio',
+        etiquetas: ['Muito Fácil', 'Fácil', 'Médio', 'Difícil', 'Muito Difícil']
+      },
         {
           label: 'Taxa Média de Aprovação na sua Turma',
           value: 3,
@@ -81,8 +85,13 @@ export default defineComponent({
           value: 3,
           etiquetas: ['Muito Fácil', 'Fácil', 'Médio', 'Difícil', 'Muito Difícil']
         },
-      
       ]
+    
+    const avaliacoes = reactive([{
+      professorSelecionado: null,
+      outroProfessor: false,
+      novoProfessor: '',
+      itensAvaliacao: [...criteriosPadrao]
     }]);
 
     function adicionarAvaliacao() {
@@ -90,28 +99,24 @@ export default defineComponent({
         professorSelecionado: null,
         outroProfessor: false,
         novoProfessor: '',
-        itensAvaliacao: [
-          {
-            label: 'Dificuldade do Conteúdo',
-            value: 3,
-            etiquetas: ['Muito Fácil', 'Fácil', 'Médio', 'Difícil', 'Muito Difícil']
-          },
-          
-        ]
+        itensAvaliacao: [...criteriosPadrao]
       });
+    }
+
+    function excluirAvaliacao(index) {
+      avaliacoes.splice(index, 1);
     }
 
     function publicarAvaliacoes() {
       // Lógica para publicar todas as avaliações
-      console.log('Publicando avaliações:', avaliacoes);
-      $q.notify({
-        color: 'green-4',
-        textColor: 'white',
-        icon: 'cloud_done',
-        message: 'Avaliações publicadas com sucesso',
-        position: 'top',
-        timeout: 2000
-      });
+    }
+
+    function voltar() {
+      router.back();
+    }
+
+    function voltarParaHome() {
+      router.push('/home');
     }
 
     function obterDescricaoAvaliacao(valor, etiquetas) {
@@ -122,8 +127,13 @@ export default defineComponent({
       professores,
       avaliacoes,
       adicionarAvaliacao,
+      excluirAvaliacao,
       publicarAvaliacoes,
-      obterDescricaoAvaliacao
+      voltar,
+      obterDescricaoAvaliacao,
+      voltarParaHome, 
+      // nomeDisciplina: props.nomeDisciplina
+      nomeDisciplina: 'Cálculo 1'
     };
   }
 });
@@ -131,15 +141,36 @@ export default defineComponent({
 
 
 <style scoped>
+.card-header {
+  display: flex;
+  align-items: center;
+  position: relative;
+}
 
 .q-card-section {
   display: flex;
   flex-direction: column;
-  gap: 24px; /* Aumenta o espaçamento entre itens de avaliação */
+  gap: 24px;
+}
+
+.item-label {
+  font-weight: bold;
+  margin-bottom: 8px;
+}
+
+.delete-button {
+  margin-top: 10px;
+}
+
+.item-avaliacao {
+  padding: 16px;
+  border: 1px solid #e0e0e0;
+  border-radius: 8px;
+  margin-bottom: 16px;
 }
 
 .q-slider + .custom-markers {
-  margin-top: 8px; /* Ajusta o espaçamento após o slider */
+  margin-top: 8px;
 }
 
 .q-tooltip {
@@ -147,15 +178,17 @@ export default defineComponent({
   color: white; /* Cor do texto */
   border-radius: 4px; /* Arredonda os cantos do balão */
 }
+
 .q-page {
   background: linear-gradient(to top, #74ff7426, #ffffff, #55bbff58);
 }
 
 .q-card {
-  max-width: 500px;
+  max-width: 600px;
   width: 90%;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
 }
+
 .q-input, .q-select, .q-slider {
   margin-bottom: 15px;
 }
@@ -163,6 +196,7 @@ export default defineComponent({
 .q-btn {
   width: 100%;
 }
+
 
 .custom-markers {
   display: flex;
@@ -175,4 +209,18 @@ export default defineComponent({
   text-align: center;
   width: 20%;
 }
+
+.back-button {
+  left: 0px;
+  width: 40px;
+  height: 40px;
+  margin-right: 20px;
+}
+
+.text-h4{
+  text-align: center;
+  font-size: 1.8rem;
+  font-weight: 500;
+}
+
 </style>
