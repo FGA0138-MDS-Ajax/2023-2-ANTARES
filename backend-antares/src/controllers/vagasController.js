@@ -5,7 +5,7 @@ const vagaController = {
     create: async (req, res) => {
         try {
             const vaga = {
-                criadorEmail: req.body.criadorEmail,
+                criador: req.body.criador,
                 titulo: req.body.titulo,
                 descricao: req.body.descricao,
                 contato: req.body.contato,
@@ -13,8 +13,8 @@ const vagaController = {
                 dataEncerramento: req.body.dataEncerramento
             };
 
-            const usuario = await UsuarioModel.findOne({ email: vaga.criadorEmail });
-            if (!usuario || ![1, 3, 4, 5].includes(usuario.role)) {
+            const usuario = await UsuarioModel.findOne({ criador: vaga.criador });
+            if (!usuario || ![2, 3, 4, 5].includes(usuario.role)) {
                 return res.status(403).json({ message: 'Acesso negado ou usuário não encontrado' });
             }
 
