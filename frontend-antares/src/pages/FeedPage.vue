@@ -1,27 +1,31 @@
 <template>
     <q-page>
-        <h2 class="w100 text-center q-py-lg">Feed de publicações</h2>
+        <h2 class="w100 text-center q-py-lg">Feed de Publicações</h2>
         <div class="column q-px-lg q-gutter-y-md">
             <div class="q-pt-xl" v-if="vectorNews.length == 0">
                 <h5 class="text-center">Não há publicações no momento</h5>
                 <p style="font-size:100px" class="text-center q-pt-md">&#128531;</p>
             </div>
             <div class="cards row justify-center q-gutter-md q-mt-md">
-                <q-card class="cursor-pointer" v-for="(news, index) in vectorNews" :key="index" @click="openModalNews(news)">
+                <q-card class="cursor-pointer row items-center justify-between q-px-md no-wrap" v-for="(news, index) in vectorNews" :key="index" @click="openModalNews(news)">
                     <q-card-section>
                             <h4>{{ news.titulo }}</h4>
-                            <div class="q-pt-sm">{{ news.criadorEmail}}</div>
-                            <div class="img row justify-center q-py-md ">
-                                <img class="rounded-borders" id="img-selected" src="https://picsum.photos/500/500" alt="teste">
-                            </div>
                             <h8 class="low-opacity">Postado em: {{ news.dataPublicacao.toLocaleDateString('pt-br') }}</h8>
+                            <div class="q-pt-sm">{{ news.criador}}</div>
                         </q-card-section>
+                        <q-avatar size="70px" style="border-radius: 100%;">
+                            <img src="https://pbs.twimg.com/profile_images/1696145651006930945/r5LfokUU_400x400.jpg">
+                          </q-avatar>
                     </q-card>
             </div>
-            <div v-if="vectorNews.length != 0" class="row w100 justify-center items-center q-py-md">
-                <q-icon @click="atualizarPaginacao(-1)" class="cursor-pointer text-bold q-pr-md" size="md" :color="paginaAtual == 0 ? 'grey-5' : 'blue-7'" name="skip_previous"/>
-                <div class="">ver mais vagas</div>
-                <q-icon @click="atualizarPaginacao(1)" class="cursor-pointer text-bold q-pl-md" size="md" :color="paginaAtual + 1 == totalPaginas ? 'grey-5' : 'blue-7'" name="skip_next"/>
+            <div v-if="vectorNews.length != 0" class="row w100 justify-center items-center q-py-xl">
+                <q-btn style="border: none!important;" class="q-mr-md bg-grey-3" :disable="paginaAtual + 1 == totalPaginas"  @click="atualizarPaginacao(1)">
+                    <q-icon @click="atualizarPaginacao(-1)" class="cursor-pointer text-bold" size="md" :disable="paginaAtual" :color="paginaAtual == 0 ? 'grey-8' : 'blue-7'" name="skip_previous"/>
+                </q-btn>
+            <div class="">ver mais vagas</div>
+                <q-btn style="border: none!important;" class="q-ml-md bg-grey-3" :disable="paginaAtual + 1 == totalPaginas"  @click="atualizarPaginacao(1)">
+                    <q-icon class="cursor-pointer text-bold" size="md" :color="paginaAtual + 1 == totalPaginas ? 'grey-8' : 'blue-7'" name="skip_next"/>
+                </q-btn>
             </div>
         </div>
         <div class="modal-wrap" v-if="modalNewsOpen">
@@ -49,6 +53,7 @@
                 </template>
             </ModalComponent>
         </div>
+        <LoadingComponent v-if="loading" />
     </q-page>
 </template>
 
@@ -58,6 +63,7 @@ import { useSessionStore } from 'src/stores/session';
 import { useRouter } from 'vue-router';
 import ModalComponent from '../components/ModalComponentFeed.vue'
 import FeedService from '../services/FeedService'
+import LoadingComponent from '../components/LoadingComponent.vue';
 
 const vectorNews = ref([]) as any
 const paginaAtual = ref(0)
@@ -79,8 +85,9 @@ function fecharModalNews() {
 function openLink(link: string) {
     window.open(link, '_blank')
 }
-
+const loading = ref(false)
 async function atualizarPaginacao (num: number) {
+    loading.value = true
     paginaAtual.value += num
     try {
         const { listarFeed } = FeedService({numPagina: paginaAtual.value});
@@ -95,6 +102,8 @@ async function atualizarPaginacao (num: number) {
     } 
     catch (error) {
         console.log(error)
+    } finally {
+        loading.value = false
     }
 }
 
@@ -161,12 +170,12 @@ onBeforeMount(async () => {
 }
 
 .q-card{
-    background: #4fb151;  /* fallback for old browsers */
-    background: -webkit-linear-gradient(to bottom, #4fb151, #107e44);  /* Chrome 10-25, Safari 5.1-6 */
-    background: linear-gradient(to bottom, #4fb151, #107e44); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    background: #00B4DB;  /* fallback for old browsers */
+    background: -webkit-linear-gradient(to top, #0083B0, #00B4DB);  /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to top, #0083B0, #00B4DB); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
     color: #fafafa;
-    width: 25%;
-    height: 42vh;
+    width: 70%;
+    height: 12rem;
 }
 
 .q-card:hover {
@@ -191,7 +200,7 @@ onBeforeMount(async () => {
     }
     .q-card {
         width: 95%!important;
-        height: 25rem;
+        height: 22rem;
     }
     .cards {
         display: flex;

@@ -5,7 +5,7 @@ import { computed } from 'vue'
 const verificaLogin = () => {
   const sessionStore = useSessionStore();
   const sessionData = computed(() => sessionStore.getSessionData) as any
-  if(sessionData.value.login === undefined) {
+  if( sessionData == undefined || sessionData.value.matricula === undefined) {
     return false
   } else {
     return true
@@ -39,9 +39,10 @@ const routes: RouteRecordRaw[] = [
     },
     component: () => import('layouts/MainLayout.vue'),
     children: [
-      { name:'app', path: '', component: () => import('pages/IndexPage.vue') },
+      { name:'feed', path: '', component: () => import('pages/FeedPage.vue') },
       { name:'publicar-vagas', path: '/publicar-vagas', component: () => import('pages/PublicarVagasPage.vue') },
-      { name:'feed-vagas', path: '/feed', component: () => import('pages/FeedPage.vue') },
+      { name:'feed-2', path: '/feed', component: () => import('pages/FeedPage.vue') },
+      { name:'admin', path: '/admin', component: () => import('pages/IndexPage.vue') },
     ],
   },
   {

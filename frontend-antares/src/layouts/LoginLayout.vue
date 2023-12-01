@@ -14,8 +14,10 @@
             @keyup.enter="logar"
             v-model="usuario"
             dense
+            placeholder="Ex: 123456789"
+            mask="#########"
             class="bg-white q-my-md"
-            label="Usuário *"
+            label="Matrícula *"
           />
         
           <q-input
@@ -98,6 +100,7 @@
         </div>
       </div>
     </div>
+    <LoadingComponent v-if="loading"></LoadingComponent>
   </div>
 </template>
 <script lang="ts" setup>
@@ -105,15 +108,16 @@ import { ref } from 'vue';
 import emailjs from '@emailjs/browser';
 import LoginService from '../services/LoginService'
 import { useQuasar } from 'quasar';
+import LoadingComponent from '../components/LoadingComponent.vue';
 const confirmarSenha = ref(null);
 const registrando = ref(false);
 const isPwd = ref(true);
 const isConfirmePwd = ref(true);
-const usuario  = ref(null);
+const usuario  = ref(null) as any
 const telefone = ref(null) as any
 const senha = ref(null);
 const nome = ref(null)
-const email = ref(null)
+const email = ref(null) 
 
 const modalEsqueciSenha = ref(false)
 
@@ -162,7 +166,7 @@ const trocarSenha = async () => {
       color: 'red-9',
       textColor: 'white',
       icon: 'warning',
-      message: 'Erro de Conexão',
+      message: 'Erro de conexão',
       position: 'top',
     });
     console.log(e)
@@ -223,11 +227,12 @@ const resetarSenha = () => {
     }, 1000);
   }
 }
-
+const loading = ref(false)
 async function logar() {
+  loading.value = true
   try {
     const params = {
-      login: usuario.value,
+      matricula: usuario.value,
       senha: senha.value
     }
     const response = await LoginService(params).login()
@@ -248,10 +253,11 @@ async function logar() {
       color: 'red-9',
       textColor: 'white',
       icon: 'warning',
-      message: 'Erro de Conexão',
+      message: 'Erro de conexão',
       position: 'top',
     });
     console.log(e)
+    loading.value = false
   }
 }
 
@@ -295,9 +301,19 @@ const createRegistrarObject = () => {
     });
     return false
   }
+  if(!usuario.value || usuario.value && usuario.value.length != usuario.value && usuario.value.trim() == '') {
+    $q.notify({
+      color: 'yellow-9',
+      textColor: 'white',
+      icon: 'warning',
+      message: 'Preencha a Matrícula com 9 dígitos\nEx: 230012345',
+      position: 'top',
+    });
+    return false
+  }
   const registroObject = {
     nome: nome.value,
-    login: usuario.value,
+    matricula: usuario.value,
     senha: senha.value,
     email: email.value,
     telefone: telefone.value,
@@ -315,7 +331,7 @@ const createRegistrarObject = () => {
 function validarRegistro(registroObject: any) {
   // Colocar Validações do Objeto Registrar Aqui
   console.log('validando : ' + JSON.stringify(registroObject))
-  if (registroObject.email == null || registroObject.login == null || registroObject.telefone == null || registroObject.senha == null || registroObject.nome == null || registroObject.nome.trim() == '') {
+  if (registroObject.email == null || registroObject.matricula == null || registroObject.telefone == null || registroObject.senha == null || registroObject.nome == null || registroObject.nome.trim() == '') {
     $q.notify({
       color: 'yellow-9',
       textColor: 'white',
@@ -326,7 +342,7 @@ function validarRegistro(registroObject: any) {
     return false;
   } else if (registroObject.senha != confirmarSenha.value && registrando.value) {
     $q.notify({
-      color: 'yellow-9',
+      color: 'orange-9',
       textColor: 'white',
       icon: 'warning',
       message: 'As Senhas Não Coincidem',
@@ -335,7 +351,7 @@ function validarRegistro(registroObject: any) {
     return false
   } else if (/\s/.test(registroObject.senha)) {
     $q.notify({
-      color: 'yellow-9',
+      color: 'orange-9',
       textColor: 'white',
       icon: 'warning',
       message: 'A Senha não deve conter espaços em branco',
@@ -345,7 +361,7 @@ function validarRegistro(registroObject: any) {
   }
   else if (registroObject.senha.trim() == '') {
     $q.notify({
-      color: 'yellow-9',
+      color: 'orange-9',
       textColor: 'white',
       icon: 'warning',
       message: 'Senha no Formato Inválido',

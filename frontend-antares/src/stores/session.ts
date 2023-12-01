@@ -2,7 +2,7 @@ import { defineStore } from 'pinia';
 
 export const useSessionStore = defineStore('session', {
   getters: {
-    getSessionData: (state) => {
+    getSessionData: (_state) => {
       const loginSession = localStorage.getItem('loginSession');
       return loginSession ? JSON.parse(loginSession) : [];
     },
