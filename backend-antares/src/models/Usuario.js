@@ -31,7 +31,7 @@ const usuarioSchema = new Schema({
         required: false
     },
     role: {
-        type: Number,
+        type: String,
         required: true
     },
     },

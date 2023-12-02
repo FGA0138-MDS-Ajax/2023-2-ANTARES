@@ -8,6 +8,8 @@ const vagaController = {
                 criador: req.body.criador,
                 titulo: req.body.titulo,
                 descricao: req.body.descricao,
+                role: req.body.role,
+                user_image: req.body.user_image,
                 contato: req.body.contato,
                 link: req.body.link,
                 dataEncerramento: req.body.dataEncerramento
