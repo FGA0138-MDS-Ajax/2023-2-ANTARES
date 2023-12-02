@@ -95,7 +95,55 @@ const avaliacaoController = {
             console.error('Erro ao excluir avaliação\n' + error);
             res.status(500).json({ message: 'Erro ao excluir avaliação.', error: error.message });
         }
+    },
+
+    getAvaliacoesMedia: async (req, res) => {
+        try {
+            const avaliacoesMedia = await AvaliacaoModel.aggregate([
+                {
+                    $group: {
+                        _id: {
+                            disciplina_codigo: "$disciplina_codigo",
+                            professor_nome: "$professor_nome"
+                        },
+                        mediaDificuldadeDisciplina: { $avg: "$dificuldade_disciplina" },
+                        mediaTaxaAprovacao: { $avg: "$taxa_aprovacao" },
+                        mediaDificuldadeAvaliacoes: { $avg: "$dificuldade_avaliacoes" },
+                        mediaDisponibilidadeProfessor: { $avg: "$disponibilidade_professor" },
+                        mediaQuantidadeListasExercicio: { $avg: "$quantidade_listas_exercicio" },
+                        mediaQuantidadeProvas: { $avg: "$quantidade_provas" },
+                        mediaQuantidadeTrabalhos: { $avg: "$quantidade_trabalhos" }
+                    }
+                }
+            ]);
+            res.status(200).json(avaliacoesMedia);
+        } catch (error) {
+            console.error('Erro ao calcular médias das avaliações\n' + error);
+            res.status(500).json({ message: 'Erro ao calcular médias das avaliações.', error: error.message });
+        }
+    },
+
+    getAvaliacoesPorUsuarioEDisciplina: async (req, res) => {
+        try {
+            const { login_usuario, disciplina_codigo } = req.params;
+            const avaliacoes = await AvaliacaoModel.find({ login_avaliador: login_usuario, disciplina_codigo: disciplina_codigo });
+            res.status(200).json(avaliacoes);
+        } catch (error) {
+            console.error('Erro ao buscar avaliações\n' + error);
+            res.status(500).json({ message: 'Erro ao buscar avaliações.', error: error.message });
+        }
+    },
+
+    getAllDisciplinas: async (req, res) => {
+        try {
+            const disciplinas = await DisciplinaModel.find({});
+            res.status(200).json(disciplinas);
+        } catch (error) {
+            console.error('Erro ao buscar disciplinas\n' + error);
+            res.status(500).json({ message: 'Erro ao buscar disciplinas.', error: error.message });
+        }
     }
 };
+
 
 module.exports = avaliacaoController;
