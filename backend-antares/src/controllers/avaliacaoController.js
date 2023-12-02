@@ -99,7 +99,12 @@ const avaliacaoController = {
 
     getAvaliacoesMedia: async (req, res) => {
         try {
+            const codigoDisciplina = req.params.codigo;
+    
             const avaliacoesMedia = await AvaliacaoModel.aggregate([
+                {
+                    $match: { disciplina_codigo: codigoDisciplina }
+                },
                 {
                     $group: {
                         _id: {
@@ -133,6 +138,17 @@ const avaliacaoController = {
             res.status(500).json({ message: 'Erro ao buscar avaliações.', error: error.message });
         }
     },
+
+    getDisciplinaByCodigo: async (req, res) => {
+        try {
+            const codigo = req.params.codigo;
+            const disciplina = await DisciplinaModel.findOne({ codigo: codigo });
+            res.status(200).json(disciplina);
+        } catch (error) {
+            console.error('Erro ao buscar disciplina\n' + error);
+            res.status(500).json({ message: 'Erro ao buscar disciplina.', error: error.message });
+        }
+    }, 
 
     getAllDisciplinas: async (req, res) => {
         try {

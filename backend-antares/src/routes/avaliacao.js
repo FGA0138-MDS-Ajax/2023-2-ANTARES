@@ -8,10 +8,11 @@ router
     .delete((req, res) => avaliacaoController.delete(req, res));
 
 router
-    .get('/disciplinas', (req, res) => avaliacaoController.getAllDisciplinas(req, res));
+    .get('/disciplinas', (req, res) => avaliacaoController.getAllDisciplinas(req, res))
+    .get('/disciplina/:codigo', (req, res) => avaliacaoController.getDisciplinaByCodigo(req, res));
 
 router
-    .get('/avaliacoes/media', (req, res) => avaliacaoController.getAvaliacoesMedia(req, res));
+    .get('/disciplina/:codigo/avaliacoes-media', (req, res) => avaliacaoController.getAvaliacoesMedia(req, res));
 
 router
     .get('/avaliacoes/usuario/:login_usuario/disciplina/:disciplina_codigo', (req, res) => avaliacaoController.getAvaliacoesPorUsuarioEDisciplina(req, res));
