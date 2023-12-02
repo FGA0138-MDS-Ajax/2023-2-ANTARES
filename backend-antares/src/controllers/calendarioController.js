@@ -11,7 +11,7 @@ const calendarioController = {
                 const eventos = await CalendarioModel.findOne({ login: req.body.login }).select('eventos');
                 const newEvento = {
                     titulo: req.body.titulo,
-                    dataEvento: Date.now()
+                    dataEvento: req.body.dataEvento
                 }
                 eventos.eventos.push(newEvento);
 
@@ -36,7 +36,7 @@ const calendarioController = {
 
     getAll: async (req, res) => {
         try {
-            const eventos = await CalendarioModel.find();
+            const eventos = await CalendarioModel.find(req.body.login);
             res.status(200).json({ eventos });
         } catch (error) {
             console.error('Eventos não encontrados \n' + error);
