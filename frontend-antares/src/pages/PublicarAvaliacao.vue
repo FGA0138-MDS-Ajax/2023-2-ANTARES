@@ -10,9 +10,7 @@
       </q-card-section>
       <q-card-section>
         <div v-for="(avaliacao, index) in avaliacoes" :key="index" class="avaliacao-section">
-          <q-select filled v-model="avaliacao.professorSelecionado" :options="professores" label="Selecione o Professor" />
-          <q-input filled v-if="avaliacao.outroProfessor" v-model="avaliacao.novoProfessor" label="Nome do Professor" />
-          
+          <q-select filled v-model="avaliacao.professorSelecionado" :options="professores" label="Selecione o Professor" />          
           <div v-if="avaliacao.professorSelecionado">
             <div v-for="(item, idx) in avaliacao.itensAvaliacao" :key="`avaliacao-${index}-item-${idx}`" class="item-avaliacao">
               <div class="item-label">{{ item.label }}</div>
@@ -53,7 +51,7 @@ export default defineComponent({
     const mostrarTooltip = ref(false);
     const $q = useQuasar();
     const router = useRouter();
-    const professores = ref(['Prof. 1', 'Prof. 2', 'Prof. 3', 'Outro Professor']);
+    const professores = ref(['Matheus Bernardini', 'Tatiane Evangelista', 'Ricardo Frageli']);
 
     const criteriosPadrao = [
       {
@@ -96,8 +94,6 @@ export default defineComponent({
     
     const avaliacoes = reactive([{
       professorSelecionado: null,
-      outroProfessor: false,
-      novoProfessor: '',
       itensAvaliacao: [...criteriosPadrao]
     }]);
 
@@ -142,6 +138,10 @@ export default defineComponent({
       });
     }
 
+    function handleProfessorChange(avaliacao, valorSelecionado) {
+      avaliacao.outroProfessor = valorSelecionado === 'Outro Professor';
+    }
+
     return {
       professores,
       avaliacoes,
@@ -154,6 +154,7 @@ export default defineComponent({
       mostrarTooltip,
       iniciarTooltip,
       finalizarTooltip,
+      handleProfessorChange,
       // nomeDisciplina: props.nomeDisciplina
       nomeDisciplina: 'Cálculo 1'
     };
