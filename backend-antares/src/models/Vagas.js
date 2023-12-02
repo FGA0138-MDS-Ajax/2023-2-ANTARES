@@ -2,7 +2,7 @@ const mongoose = require('mongoose');
 const { Schema } = mongoose;
 
 const vagaSchema = new Schema({
-    criadorEmail: {
+    criador: {
         type: String,
         required: true,
         ref: 'Usuario'

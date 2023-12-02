@@ -7,7 +7,7 @@ const usuarioSchema = new Schema({
         type: String,
         required: true,
     },
-    login: {
+    matricula: {
         type: String,
         required: true,
         unique: true
