@@ -3,12 +3,12 @@
       <div class="background-image"></div>
       <q-card>
         <q-card-section class="bg-primary text-white">
-          <div class="text-h4">Publique sua Vaga</div>
+          <div class="text-h4">Postar Publicação</div>
         </q-card-section>
   
         <q-card-section>
-          <q-input filled v-model="titulo" label="Título da Vaga *" />
-          <q-input type="textarea" filled v-model="descricao" label="Descrição da Vaga *" />
+          <q-input filled v-model="titulo" label="Título *" />
+          <q-input type="textarea" filled v-model="descricao" label="Descrição *" />
           <q-input class="q-mt-md" filled v-model="contato" label="Contato *" />
           <q-input filled v-model="link" label="Link *" />
   
@@ -28,7 +28,7 @@
         </q-card-section>
   
         <q-card-actions align="right" class="q-px-md">
-          <q-btn :disable="verificarDisableCampos()" color="positive" class="q-mb-sm " label="Publicar Vaga" @click="publicarVaga" />
+          <q-btn :disable="verificarDisableCampos()" color="positive" class="q-mb-sm " label="Publicar" @click="publicarVaga" />
         </q-card-actions>
       </q-card>
   
@@ -82,10 +82,10 @@ export default defineComponent({
         try {
           const sessionStore = useSessionStore();
           const usuarioLogado = sessionStore.getSessionData;
-          const criadorEmail = usuarioLogado.email;
-        //  CRIAR CONDIÇÃO PARA PERMITIR APENAS AS ROLES CERTAS PUBLICAR VAGAS 
+
+          const criador = usuarioLogado.nome;
           const params = {
-            criadorEmail,
+            criador,
             titulo: titulo.value,
             descricao: descricao.value,
             contato: contato.value,

@@ -18,22 +18,22 @@
       <q-img class="absolute-top" style="background: rgb(36, 36, 36); height: 200px">
         <div class="absolute-center column items-center bg-transparent">
           <q-avatar size="80px" class="q-mb-sm">
-            <img :src="sessionData.user_image">
+            <img :src="sessionData.user_image ? sessionData.user_image : 'https://picsum.photos/400'">
           </q-avatar>
           <div class="text-weight-bold">{{ sessionData.nome }}</div>
-          <div>@{{ sessionData.login }}</div>
+          <div>@{{ sessionData.matricula }}</div>
         </div>
       </q-img>
     <!-- items do menu -->
     <q-scroll-area style="height: calc(100% - 200px); margin-top: 200px; border-right: 1px solid #ddd">
       <q-list padding>
-        <q-item clickable v-ripple to="/">
+        <q-item clickable v-ripple to="/admin">
           <q-item-section avatar>
-            <q-icon name="home" />
+            <q-icon name="admin_panel_settings" color="orange-10" />
           </q-item-section>
 
-          <q-item-section >
-            Página Inicial
+          <q-item-section style="color: rgb(255, 154, 39); font-weight: bold;">
+            Admin Logs
           </q-item-section>
         </q-item>
 
@@ -53,7 +53,7 @@
           </q-item-section>
 
           <q-item-section>
-            Publicar Vagas
+            Publicar
           </q-item-section>
         </q-item>
 

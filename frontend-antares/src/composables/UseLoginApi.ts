@@ -16,11 +16,13 @@ export default function useLoginApi(params: any) {
     try {
       const sessionStore = useSessionStore();
       const response = await api.post('/login', params );
-      // console.log(JSON.stringify(response));
+      console.log(JSON.stringify(response));
       const updateSessionData = () => {
         sessionStore.setSessionData(response.data.response);
       }
-      updateSessionData()
+      if(response != undefined) {
+        updateSessionData()
+      }
       return response;
     } catch (error) {
       throw error;
