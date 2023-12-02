@@ -1,18 +1,18 @@
 import { api } from 'src/boot/axios';
 
-export default function useDisciplinaApi() {
+export default function useFeedApi() {
+
   const listarDisciplinas = async () => {
-    console.log('listarDisciplinas');
     try {
       const response = await api.get('/disciplinas');
+      console.log('listarDisciplinas', response);
       return response;
     } catch (error) {
       throw error;
     }
   };
 
-  console.log('useDisciplinaApi: ', listarDisciplinas);
   return {
     listarDisciplinas
-  };
+  }
 }

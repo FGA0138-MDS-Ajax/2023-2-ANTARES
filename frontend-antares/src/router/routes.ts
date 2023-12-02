@@ -45,6 +45,8 @@ const routes: RouteRecordRaw[] = [
       { name:'admin', path: '/admin', component: () => import('pages/IndexPage.vue') },
       { name:'publicar-avaliacao', path: '/publicar-avaliacao', component: () => import('pages/PublicarAvaliacaoPage.vue') },
       { name:'disciplinas', path: '/disciplinas', component: () => import('pages/DisciplinasPage.vue') },
+      { name:'disciplina-codigo', path: '/disciplina/:codigo', component: () => import('pages/DisciplinaPage.vue') },
+
     ],
   },
   {
