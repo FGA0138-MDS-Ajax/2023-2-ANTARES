@@ -38,7 +38,6 @@ const usuarioSchema = new Schema({
     { timestamps: true }
 
 )
-usuarioSchema.index({ matricula: 1, email: 1, telefone: 1 }, { unique: true });
 const Usuario = mongoose.model('Usuario', usuarioSchema)
 
 
