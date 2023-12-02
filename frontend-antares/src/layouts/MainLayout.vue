@@ -17,11 +17,12 @@
     <q-drawer show-if-above v-model="rightDrawerOpen" side="right" bordered>
       <q-img class="absolute-top" style="background: rgb(36, 36, 36); height: 200px">
         <div class="absolute-center column items-center bg-transparent">
-          <q-avatar size="80px" class="q-mb-sm">
-            <img :src="sessionData.user_image ? sessionData.user_image : 'https://picsum.photos/400'">
+          <q-avatar size="90px" class="q-mb-sm">
+            <img style="border-bottom: 2px solid rgb(202, 202, 202)" :src="sessionData.user_image ? sessionData.user_image : 'https://picsum.photos/400'">
           </q-avatar>
-          <div class="text-weight-bold">{{ sessionData.nome }}</div>
-          <div>@{{ sessionData.matricula }}</div>
+          <div class="session-nome text-weight-bold w100 row no-wrap text-center">{{ obterDuasPrimeirasPalavras(sessionData.nome) }}</div>
+          <div class="low-opacity">{{ sessionData.role }}</div>
+          <div class="low-opacity">@{{ sessionData.matricula }}</div>
         </div>
       </q-img>
     <!-- items do menu -->
@@ -94,6 +95,11 @@ import { useRouter } from 'vue-router';
 
 const router = useRouter()
 
+function obterDuasPrimeirasPalavras(nome: string) {
+  const palavras = nome.split(' ');
+  return palavras.slice(0, 2).join(' ');
+}
+
 const rightDrawerOpen = ref(true)
 function toggleRightDrawer () {
   rightDrawerOpen.value = !rightDrawerOpen.value
@@ -110,3 +116,8 @@ function logout () {
   }
 }
 </script>
+<style scoped>
+.session-nome {
+  font-size: 12px;
+}
+</style>

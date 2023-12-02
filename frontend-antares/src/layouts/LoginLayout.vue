@@ -246,6 +246,7 @@ async function logar() {
       message: response.data.message,
       position: 'top',
     });
+    loading.value = false
     senha.value = null
     }
   } catch (e) {
@@ -318,7 +319,7 @@ const createRegistrarObject = () => {
     email: email.value,
     telefone: telefone.value,
     user_image: '',
-    role: role.value.id
+    role: role.value.label
   }
 
   if(validarRegistro(registroObject)) {

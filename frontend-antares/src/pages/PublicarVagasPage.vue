@@ -7,9 +7,9 @@
         </q-card-section>
   
         <q-card-section>
-          <q-input filled v-model="titulo" label="Título *" />
-          <q-input type="textarea" filled v-model="descricao" label="Descrição *" />
-          <q-input class="q-mt-md" filled v-model="contato" label="Contato *" />
+          <q-input filled v-model="titulo" label="Título *" maxlength="30"/>
+          <q-input type="textarea" filled v-model="descricao" label="Descrição *" maxlength="200"/>
+          <q-input class="q-mt-md" filled v-model="contato" label="Contato *" maxlength="30"/>
           <q-input filled v-model="link" label="Link *" />
   
           <q-checkbox v-model="programarPublicacao" label="Programar Publicação" />
@@ -84,8 +84,12 @@ export default defineComponent({
           const usuarioLogado = sessionStore.getSessionData;
 
           const criador = usuarioLogado.nome;
+          const role = usuarioLogado.role;
+          const user_image = usuarioLogado.user_image;
           const params = {
             criador,
+            role,
+            user_image,
             titulo: titulo.value,
             descricao: descricao.value,
             contato: contato.value,

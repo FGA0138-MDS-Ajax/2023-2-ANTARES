@@ -14,8 +14,8 @@
                             <div class="q-pt-sm">{{ news.criador}}</div>
                         </q-card-section>
                         <q-avatar size="70px" style="border-radius: 100%;">
-                            <img src="https://pbs.twimg.com/profile_images/1696145651006930945/r5LfokUU_400x400.jpg">
-                          </q-avatar>
+                            <img :src="usuarioLogado.user_image.trim() == '' ? 'https://pbs.twimg.com/profile_images/1696145651006930945/r5LfokUU_400x400.jpg' : usuarioLogado.user_image">
+                        </q-avatar>
                     </q-card>
             </div>
             <div v-if="vectorNews.length != 0" class="row w100 justify-center items-center q-py-xl">
@@ -59,11 +59,15 @@
 
 <script lang="ts" setup>
 import { computed, ref, onBeforeMount} from 'vue'
-import { useSessionStore } from 'src/stores/session';
+import { useSessionStore } from '../stores/session';
+
 import { useRouter } from 'vue-router';
 import ModalComponent from '../components/ModalComponentFeed.vue'
 import FeedService from '../services/FeedService'
 import LoadingComponent from '../components/LoadingComponent.vue';
+
+const sessionStore = useSessionStore();
+const usuarioLogado = ref(sessionStore.getSessionData) as any
 
 const vectorNews = ref([]) as any
 const paginaAtual = ref(0)
@@ -87,9 +91,9 @@ function openLink(link: string) {
 }
 const loading = ref(false)
 async function atualizarPaginacao (num: number) {
-    loading.value = true
     paginaAtual.value += num
-    try {
+    try { 
+        loading.value = true
         const { listarFeed } = FeedService({numPagina: paginaAtual.value});
         const response = await listarFeed();
         console.log(JSON.stringify(response.data.totalPages))
