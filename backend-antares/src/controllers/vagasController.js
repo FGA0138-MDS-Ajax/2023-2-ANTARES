@@ -1,5 +1,6 @@
 const VagaModel = require('../models/Vagas');
 const { Usuario: UsuarioModel } = require('../models/Usuario');
+const adminController = require('./adminController');
 
 const vagaController = {
     create: async (req, res) => {
@@ -29,6 +30,16 @@ const vagaController = {
             }
 
             console.error('Erro controller vaga\n' + error);
+        } finally {
+            let textoTitulo = "Publicação de " + req.body.role
+            let textoDescricao = "O usuário " + req.body.criador + " publicou uma vaga no sistema."
+            let icon = "post_add"
+            try {
+                const logResponse = await adminController.registrarLog(textoTitulo, textoDescricao, icon);
+                console.log(logResponse.message);
+            } catch (logError) {
+                console.log("Erro ao registrar log:\n" + logError);
+            }
         }
     },
 
