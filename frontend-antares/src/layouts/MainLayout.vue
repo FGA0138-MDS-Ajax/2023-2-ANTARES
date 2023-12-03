@@ -15,11 +15,8 @@
     </q-header>
 
     <q-drawer show-if-above v-model="rightDrawerOpen" side="right" bordered>
-      <q-img class="absolute-top"
-        style="background: #232526;
-        background: -webkit-linear-gradient(to top, #1f1f1f, #434343);
-        background: linear-gradient(to top, #1f1f1f, #434343);
-        height: 140px"
+      <q-img class="absolute-top bg-blue"
+        style="height: 140px"
       >
         <div class="row items-center justify-center bg-transparent">
           <q-avatar size="80px" class="q-mb-sm">
@@ -29,7 +26,7 @@
             <div class="session-nome text-weight-bold w100">{{ obterPrimeiraUltimaPalavra(sessionData.nome) }}</div>
             <div class="low-opacity w100" style="font-size: 12px;">{{ sessionData.role }}</div>
           </div>
-          <div class="low-opacity">@{{ sessionData.matricula }}</div>
+          <div class="low-opacity w100 text-center">@{{ sessionData.matricula }}</div>
         </div>
       </q-img>
     <!-- items do menu -->
@@ -85,13 +82,13 @@
           </q-item-section>
         </q-item>
 
-        <q-item clickable v-ripple class="absolute-bottom q-mb-xl q-pl-xl" @click="verProjeto()">
+        <q-item clickable v-ripple class="absolute-bottom q-mb-sm" @click="verProjeto()">
           <q-item-section avatar>
             <q-icon name="git" />
           </q-item-section>
 
-          <q-item-section class="q-pl-sm low-opacity">
-            UnB na Mão
+          <q-item-section class="low-opacity">
+            UnB na Mão [ Antares ]
           </q-item-section>
         </q-item>
       </q-list>

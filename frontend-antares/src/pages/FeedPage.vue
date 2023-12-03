@@ -31,15 +31,15 @@
         <div class="modal-wrap" v-if="modalNewsOpen">
             <ModalComponent @fecharModal="fecharModalNews" class="modal-component rounded-borders">
                 <template v-slot:modal-title>
-                    <h4 class="q-mb-lg q-pt-md">{{ selectedNews.titulo }}</h4>
+                    <h4 class="title-modal q-mb-lg q-pt-md">{{ selectedNews.titulo }}</h4>
                 </template>
                 <template v-slot:modal-text>
                     <q-btn label="Link da vaga" @click="openLink(selectedNews.link)" class="text-white bg-green-7 q-mb-md" icon="help"/>
                     <div class="row w100 q-pb-md">
-                        <div class="label-modal row w10"><strong>Descrição:</strong></div><q-scroll-area style="height:120px; width:100%; background-color: #f1f1f1;" class="q-pl-sm q-pt-sm">{{ selectedNews.descricao }}</q-scroll-area>
+                        <div class="label-modal row w100"><strong>Descrição:</strong></div><q-scroll-area style="height:120px; width:100%; background-color: #f1f1f1;" class="q-pl-sm q-pt-sm">{{ selectedNews.descricao }}</q-scroll-area>
                     </div>
                     <div class="contato row w100 q-pb-md">
-                        <div class="label-modal row w10"><strong>Contato:</strong></div><div class="q-pl-sm" style="background-color: #f1f1f1;">{{ selectedNews.contato }}</div>
+                        <div class="label-modal row w100" ><strong>Contato:</strong></div><div class="q-pl-sm" style="background-color: #f1f1f1;">{{ selectedNews.contato }}</div>
                     </div>
                         <div class="date-container">
                             <p class="low-opacity"><strong>Data de publicação: </strong>{{ selectedNews.dataPublicacao.toLocaleDateString('pt-br') }}</p>
@@ -155,6 +155,7 @@ onBeforeMount(async () => {
   }
 .finishing-date {
     color: #e32929;
+    text-align: right;
 }
 
 .link-button { 
@@ -217,15 +218,20 @@ onBeforeMount(async () => {
 p{
     margin: 0px 0px 0px 0px !important;
     padding: 0px 0px 0px 0px !important;
+    color: #4d4d4d;
     
 }
 
 .label-modal {
-    background-color: #f0f0f0b0
+    background-color: #4f4f4f3d
 }
 
 .img-news{
     margin-bottom: 24px!important;
+}
+
+.title-modal {
+    color: #626262
 }
 
 </style>
