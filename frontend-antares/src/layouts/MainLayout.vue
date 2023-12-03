@@ -5,7 +5,7 @@
       <q-toolbar>
         <q-toolbar-title>
           <q-avatar class="q-mr-sm">
-            <img src="https://pbs.twimg.com/profile_images/1696145651006930945/r5LfokUU_400x400.jpg">
+            <img src="~/assets/icon.png">
           </q-avatar>
           UnB na Mão
         </q-toolbar-title>
@@ -15,18 +15,25 @@
     </q-header>
 
     <q-drawer show-if-above v-model="rightDrawerOpen" side="right" bordered>
-      <q-img class="absolute-top" style="background: rgb(36, 36, 36); height: 200px">
-        <div class="absolute-center column items-center bg-transparent">
-          <q-avatar size="90px" class="q-mb-sm">
-            <img style="border-bottom: 2px solid rgb(202, 202, 202)" :src="sessionData.user_image ? sessionData.user_image : 'https://picsum.photos/400'">
+      <q-img class="absolute-top"
+        style="background: #232526;
+        background: -webkit-linear-gradient(to top, #1f1f1f, #434343);
+        background: linear-gradient(to top, #1f1f1f, #434343);
+        height: 140px"
+      >
+        <div class="row items-center justify-center bg-transparent">
+          <q-avatar size="80px" class="q-mb-sm">
+            <img style="border-bottom: 2px solid rgb(202, 202, 202)" :src="sessionData.user_image ? sessionData.user_image : 'https://pbs.twimg.com/profile_images/1696145651006930945/r5LfokUU_400x400.jpg'">
           </q-avatar>
-          <div class="session-nome text-weight-bold w100 row no-wrap text-center">{{ obterDuasPrimeirasPalavras(sessionData.nome) }}</div>
-          <div class="low-opacity">{{ sessionData.role }}</div>
+          <div class="column q-pl-md">
+            <div class="session-nome text-weight-bold w100">{{ obterPrimeiraUltimaPalavra(sessionData.nome) }}</div>
+            <div class="low-opacity w100" style="font-size: 12px;">{{ sessionData.role }}</div>
+          </div>
           <div class="low-opacity">@{{ sessionData.matricula }}</div>
         </div>
       </q-img>
     <!-- items do menu -->
-    <q-scroll-area style="height: calc(100% - 200px); margin-top: 200px; border-right: 1px solid #ddd">
+    <q-scroll-area style="height: calc(100% - 140px); margin-top: 140px; border-right: 1px solid #ddd">
       <q-list padding>
         <q-item clickable v-ripple to="/admin">
           <q-item-section avatar>
@@ -59,7 +66,7 @@
         </q-item>
 
         
-        <q-item clickable v-ripple>
+        <q-item clickable v-ripple  to="/configuracoes">
           <q-item-section avatar>
             <q-icon name="settings" />
           </q-item-section>
@@ -75,6 +82,16 @@
 
           <q-item-section>
             Fazer Logout
+          </q-item-section>
+        </q-item>
+
+        <q-item clickable v-ripple class="absolute-bottom q-mb-xl q-pl-xl" @click="verProjeto()">
+          <q-item-section avatar>
+            <q-icon name="git" />
+          </q-item-section>
+
+          <q-item-section class="q-pl-sm low-opacity">
+            UnB na Mão
           </q-item-section>
         </q-item>
       </q-list>
@@ -95,9 +112,16 @@ import { useRouter } from 'vue-router';
 
 const router = useRouter()
 
-function obterDuasPrimeirasPalavras(nome: string) {
+function obterPrimeiraUltimaPalavra(nome: string) {
   const palavras = nome.split(' ');
-  return palavras.slice(0, 2).join(' ');
+
+  if (palavras.length === 1) {
+    return palavras[0]; // Se houver apenas uma palavra, retorne-a sem repetição.
+  }
+
+  const primeiraPalavra = palavras[0];
+  const ultimaPalavra = palavras[palavras.length - 1];
+  return `${primeiraPalavra} ${ultimaPalavra}`;
 }
 
 const rightDrawerOpen = ref(true)
@@ -114,6 +138,10 @@ function logout () {
     window.location.href = 'https://unbnamao.netlify.app'
     
   }
+}
+
+function verProjeto () {
+  window.open('https://github.com/FGA0138-MDS-Ajax/2023-2-ANTARES', '_blank')
 }
 </script>
 <style scoped>
