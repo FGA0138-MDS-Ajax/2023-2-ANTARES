@@ -74,7 +74,7 @@ async function enviar() {
             position: 'top'
         })
     } finally {
-        window.location.reload()
+        window.location.href = 'https://unbnamao.netlify.app/'
     }
 }
 
