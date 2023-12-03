@@ -426,7 +426,7 @@ async function registrar () {
       $q.notify({
         color: 'green-8',
         textColor: 'white',
-        icon: 'check',
+        icon: 'person_add',
         message: response.data.message,
         position: 'top',
       }); 
