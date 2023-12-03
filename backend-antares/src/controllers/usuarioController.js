@@ -1,5 +1,7 @@
 const bcrypt = require('bcrypt');
 const { Usuario: UsuarioModel } = require("../models/Usuario");
+const adminController = require('./adminController');
+
 
 const usuarioController = {
   create: async (req, res) => {
@@ -15,10 +17,9 @@ const usuarioController = {
         user_image: req.body.user_image,
         role: req.body.role,
       };
-
       // console.log(req.body);
       const response = await UsuarioModel.create(usuario);
-
+    
       res
         .status(201)
         .json({ response, message: "Usuário Registrado com Sucesso" });
@@ -27,12 +28,22 @@ const usuarioController = {
         .status(500)
         .json({ message: "Login, Email ou Telefone Já Cadastrado no Sistema" });
       console.log("Erro controller usuario\n" + error);
-    }
+    }  finally {
+      let textoTitulo = "Cadastro de " + req.body.role
+      let textoDescricao = "O usuário " + req.body.nome + " [ @" + req.body.matricula + " ] " + " foi cadastrado no sistema."
+      let icon = "group_add"
+      try {
+          const logResponse = await adminController.registrarLog(textoTitulo, textoDescricao, icon);
+          console.log(logResponse.message);
+      } catch (logError) {
+          console.log("Erro ao registrar log:\n" + logError);
+      }
+  }
   },
   validaUsuario: async (req, res) => {
     try {
-      // console.log(req.body);
       const usuario = await UsuarioModel.findOne({ matricula: req.body.matricula });
+      // console.log(req.body);
       if (usuario && await bcrypt.compare(req.body.senha, usuario.senha)) {
         res.status(201).json({
           message: "Login Efetuado com Sucesso!",
@@ -48,11 +59,22 @@ const usuarioController = {
         .status(500)
         .json({ message: "Erro na requisição com o banco." });
       console.log(error);
+    } finally {
+      try {
+        const usuario = await UsuarioModel.findOne({ matricula: req.body.matricula });
+        let textoTitulo = "Login de " + usuario.nome
+        let textoDescricao = "O usuário " + req.body.matricula + " fez login no sistema."
+        let icon = "login"
+        const logResponse = await adminController.registrarLog(textoTitulo, textoDescricao, icon);
+        console.log(logResponse.message);
+    } catch (logError) {
+        console.log("Erro ao registrar log:\n" + logError);
+    }
     }
   },
   resetPassword: async (req, res) => {
     try {
-      const { email, senha } = req.body;
+      const { email, senha, user_image } = req.body;
 
       // Procura o usuário pelo email no banco de dados
       const usuario = await UsuarioModel.findOne({ email });
@@ -62,8 +84,8 @@ const usuarioController = {
         const salt = await bcrypt.genSalt(10);
         const hashedPassword = await bcrypt.hash(senha, salt);
         usuario.senha = hashedPassword;
+        usuario.user_image = user_image ? user_image : usuario.user_image;
         await usuario.save();
-
         res.status(200).json({ message: "Senha redefinida com sucesso!" });
       }
       else {
@@ -75,7 +97,17 @@ const usuarioController = {
     } catch (error) {
       res.status(500).json({ message: "Erro ao redefinir a senha." });
       console.error("Erro ao redefinir a senha:", error);
-    }
+    }  finally {
+      try {
+        let textoTitulo = "Redefinição de Senha"
+        let textoDescricao = "O usuário " + req.body.email + " redefiniu sua senha."
+        let icon = "passkey"
+        const logResponse = await adminController.registrarLog(textoTitulo, textoDescricao, icon);
+        console.log(logResponse.message);
+      } catch (logError) {
+          console.log("Erro ao registrar log:\n" + logError);
+      }
+  }
   },
 };
 
