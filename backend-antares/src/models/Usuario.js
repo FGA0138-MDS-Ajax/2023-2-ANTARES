@@ -31,14 +31,13 @@ const usuarioSchema = new Schema({
         required: false
     },
     role: {
-        type: Number,
+        type: String,
         required: true
     },
     },
     { timestamps: true }
 
 )
-usuarioSchema.index({ login: 1, email: 1, telefone: 1 }, { unique: true });
 const Usuario = mongoose.model('Usuario', usuarioSchema)
 
 

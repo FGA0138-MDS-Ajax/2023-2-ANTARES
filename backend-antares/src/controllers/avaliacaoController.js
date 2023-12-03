@@ -13,8 +13,8 @@ const avaliacaoController = {
                 return res.status(404).json({ message: 'Disciplina não encontrada.' });
             }
     
-            const usuario = await UsuarioModel.findOne({ login: req.body.login_avaliador });
-            if (!usuario || ![1, 2].includes(usuario.role)) {
+            const usuario = await UsuarioModel.findOne({ matricula: req.body.matricula });
+            if (!usuario) {
                 return res.status(403).json({ message: 'Acesso negado ou usuário não encontrado' });
             }
     
@@ -25,7 +25,7 @@ const avaliacaoController = {
                     professorAtualizado = true;
                 }
     
-                avaliacao.login_avaliador = req.body.login_avaliador;
+                avaliacao.matricula = req.body.matricula;
                 avaliacao.created_at = new Date();
                 avaliacao.updated_at = new Date();
                 await AvaliacaoModel.create(avaliacao);
@@ -45,9 +45,9 @@ const avaliacaoController = {
     update: async (req, res) => {
         try {
             const { avaliacaoId, avaliacao } = req.body;
-            const usuario = await UsuarioModel.findOne({ login: req.body.login_avaliador });
+            const usuario = await UsuarioModel.findOne({ matricula: req.body.matricula });
 
-            if (!usuario || ![1, 2].includes(usuario.role)) {
+            if (!usuario) {
                 return res.status(403).json({ message: 'Acesso negado ou usuário não encontrado' });
             }
 
@@ -56,7 +56,7 @@ const avaliacaoController = {
                 return res.status(404).json({ message: 'Avaliação não encontrada.' });
             }
 
-            if (avaliacaoExistente.login_avaliador !== req.body.login_avaliador) {
+            if (avaliacaoExistente.matricula !== req.body.matricula) {
                 return res.status(403).json({ message: 'Você não tem permissão para editar esta avaliação.' });
             }
 
@@ -73,9 +73,9 @@ const avaliacaoController = {
     delete: async (req, res) => {
         try {
             const { avaliacaoId } = req.body;
-            const usuario = await UsuarioModel.findOne({ login: req.body.login_avaliador });
+            const usuario = await UsuarioModel.findOne({ matricula: req.body.matricula });
 
-            if (!usuario || ![1, 2].includes(usuario.role)) {
+            if (!usuario) {
                 return res.status(403).json({ message: 'Acesso negado ou usuário não encontrado' });
             }
 
@@ -84,7 +84,7 @@ const avaliacaoController = {
                 return res.status(404).json({ message: 'Avaliação não encontrada.' });
             }
 
-            if (avaliacao.login_avaliador !== req.body.login_avaliador) {
+            if (avaliacao.matricula !== req.body.matricula) {
                 return res.status(403).json({ message: 'Você não tem permissão para excluir esta avaliação.' });
             }
 
@@ -130,8 +130,8 @@ const avaliacaoController = {
 
     getAvaliacoesPorUsuarioEDisciplina: async (req, res) => {
         try {
-            const { login_usuario, disciplina_codigo } = req.params;
-            const avaliacoes = await AvaliacaoModel.find({ login_avaliador: login_usuario, disciplina_codigo: disciplina_codigo });
+            const { matricula, disciplina_codigo } = req.params;
+            const avaliacoes = await AvaliacaoModel.find({ matricula: matricula, disciplina_codigo: disciplina_codigo });
             res.status(200).json(avaliacoes);
         } catch (error) {
             console.error('Erro ao buscar avaliações\n' + error);
@@ -158,7 +158,43 @@ const avaliacaoController = {
             console.error('Erro ao buscar disciplinas\n' + error);
             res.status(500).json({ message: 'Erro ao buscar disciplinas.', error: error.message });
         }
+    },
+
+    getAvaliacoesUsuarioCount: async (req, res) => {
+        try {
+        const { matricula, disciplina } = req.params;
+        const usuario = await AvaliacaoModel.find({ matricula: matricula, disciplina_codigo: disciplina });
+        res.status(200).json(usuario.length);
+        }
+        catch (error) {
+            console.error('Erro ao buscar avaliações\n' + error);
+            res.status(500).json({ message: 'Erro ao buscar avaliações.', error: error.message });
+        }
+    },
+
+    getAvaliacoesProfessores: async (req, res) => {
+        try {
+            const { disciplina } = req.params;
+            const avaliacoes = await AvaliacaoModel.find({ disciplina_codigo: disciplina });
+            const professores = {};
+                
+            avaliacoes.forEach(avaliacao => {
+                const professor = avaliacao.professor_nome;
+                if (professores[professor]) {
+                    professores[professor] += 1;
+                } else {
+                    professores[professor] = 1;
+                }
+            });
+    
+            res.status(200).json(professores);
+        }
+        catch (error) {
+            console.error('Erro ao buscar professores\n' + error);
+            res.status(500).json({ message: 'Erro ao buscar professores.', error: error.message });
+        }
     }
+    
 };
 
 

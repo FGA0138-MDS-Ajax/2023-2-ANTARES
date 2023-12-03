@@ -2,7 +2,7 @@ const mongoose = require('mongoose');
 const { Schema } = mongoose;
 
 const avaliacaoSchema = new Schema({
-    login_avaliador: { type: String, required: true },
+    matricula: { type: String, required: true },
     disciplina_codigo: {type: String, required: true, ref: 'Disciplina'},
     professor_nome: {type: String, required: true},
     dificuldade_disciplina: {type: Number, required: true},

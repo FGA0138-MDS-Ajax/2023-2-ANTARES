@@ -1,20 +1,22 @@
 const router = require('express').Router();
 const avaliacaoController = require('../controllers/avaliacaoController');
 
-router
-    .route('/avaliacao')
-    .post((req, res) => avaliacaoController.create(req, res))
-    .put((req, res) => avaliacaoController.update(req, res))
-    .delete((req, res) => avaliacaoController.delete(req, res));
+// Rotas para avaliações gerais
+router.route('/avaliacao')
+    .post(avaliacaoController.create)
+    .put(avaliacaoController.update)
+    .delete(avaliacaoController.delete);
 
-router
-    .get('/disciplinas', (req, res) => avaliacaoController.getAllDisciplinas(req, res))
-    .get('/disciplina/:codigo', (req, res) => avaliacaoController.getDisciplinaByCodigo(req, res));
+// Rotas para disciplinas
+router.get('/disciplinas', avaliacaoController.getAllDisciplinas);
+router.get('/disciplina/:codigo', avaliacaoController.getDisciplinaByCodigo);
+router.get('/disciplina/:codigo/avaliacoes-media', avaliacaoController.getAvaliacoesMedia);
 
-router
-    .get('/disciplina/:codigo/avaliacoes-media', (req, res) => avaliacaoController.getAvaliacoesMedia(req, res));
+// Rotas para avaliações de usuários
+router.get('/avaliacoes/usuario/:login_usuario/disciplina/:disciplina_codigo', avaliacaoController.getAvaliacoesPorUsuarioEDisciplina);
+router.get('/avaliacoes/count/:matricula/:disciplina', avaliacaoController.getAvaliacoesUsuarioCount);
 
-router
-    .get('/avaliacoes/usuario/:login_usuario/disciplina/:disciplina_codigo', (req, res) => avaliacaoController.getAvaliacoesPorUsuarioEDisciplina(req, res));
+// Rotas para avaliações dos professores
+router.get('/avaliacoes/professores/:disciplina', avaliacaoController.getAvaliacoesProfessores);
 
 module.exports = router;
