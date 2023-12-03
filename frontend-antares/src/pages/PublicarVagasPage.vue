@@ -9,8 +9,8 @@
         <q-card-section>
           <q-input filled v-model="titulo" label="Título *" maxlength="30"/>
           <q-input type="textarea" filled v-model="descricao" label="Descrição *" maxlength="200"/>
-          <q-input class="q-mt-md" filled v-model="contato" label="Contato *" maxlength="30"/>
-          <q-input filled v-model="link" label="Link *" />
+          <q-input class="q-mt-md" filled v-model="contato" label="Contato *" maxlength="40"/>
+          <q-input filled v-model="link" label="Link *" placeholder="ex: www.meusite.com" maxlength="200"/>
   
           <q-checkbox v-model="programarPublicacao" label="Programar Publicação" />
   
@@ -133,11 +133,21 @@ export default defineComponent({
         }
     };
 
+    function ajustaLink(link: string) {
+      if (link.includes('http://') || link.includes('https://')) {
+        return link;
+      } else {
+        return 'https://' + link;
+      }
+    }
+
     function verificarDisableCampos () {
       if (titulo.value && descricao.value && contato.value && link.value && dataEncerramento.value &&
           titulo.value.trim() != '' && descricao.value.trim() != '' && contato.value.trim() != '' && link.value.trim() != '' && dataEncerramento.value.trim() != '') {
+        ajustaLink(link.value)
         return false;
-      } else {
+      } 
+      else {
         return true;
       }
     }
