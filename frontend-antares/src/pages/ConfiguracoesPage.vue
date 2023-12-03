@@ -9,15 +9,10 @@
             <q-input filled readonly v-model="sessionData.matricula" label="Matrícula" style="font-size: 16px"  class="w20rem text-h6 low-opacity q-mb-md" />
             <q-input filled readonly v-model="sessionData.email" style="font-size: 16px" label="Email" class="w20rem text-h6 low-opacity q-mb-md" />
             <q-input filled readonly v-model="sessionData.telefone" style="font-size: 16px" label="Telefone" mask="(##) ##### - ####" class="w20rem text-h6 low-opacity q-mb-md" />
-            <q-input class="q-mb-md w20rem" outlined v-model="alterandoSenha" label="Alterar senha" type="password"/>
-            <q-input class="w20rem" outlined v-model="confirmaSenha" label="Confirmar nova senha" type="password" />
-        <div class="row no-wrap w100 justify-center">
-            <div class="q-mt-md row items-center q-gutter-x-md no-wrap"  v-if="imgUser"> 
-                <div class="low-opacity" style="font-size: 16px;">{{ fileName }}</div>
-                <q-icon name="close" @click="removerImagem()" class="cursor-pointer" size="md" color="red"/>
-            </div>
-        </div>
-        <q-btn class="q-mt-md" color="primary" :disable="!alterandoSenha || !confirmaSenha" @click="enviar()">Enviar</q-btn>
+            <q-input v-model="novaImg" outlined style="font-size: 16px" label="Link Imagem Perfil" class="w20rem text-h6 q-mb-md" />
+            <q-input class="q-mb-md w20rem" outlined v-model="alterandoSenha" label="Alterar senha *" type="password"/>
+            <q-input class="w20rem" outlined v-model="confirmaSenha" label="Confirmar nova senha *" type="password" />
+            <q-btn class="q-mt-md" color="primary" :disable="(!alterandoSenha && !confirmaSenha && !novaImg) || confirmaSenha != alterandoSenha" @click="enviar()">Enviar</q-btn>
         </div>
     </q-page>
 </template>
@@ -31,9 +26,7 @@ const sessionStore = useSessionStore();
 const sessionData = computed(() => sessionStore.getSessionData) as any
 const alterandoSenha = ref(null) as any
 const confirmaSenha = ref(null) as any
-
-const fileName = ref(null) as any
-const imgUser = ref(null) as any
+const novaImg = ref(null) as any
 
 const $q = useQuasar()
 
@@ -46,10 +39,23 @@ async function enviar() {
         })
         return
     }
+    if (novaImg.value && novaImg.value.trim() !== '') {
+    const updateSessionData = (newUserImage: any) => {
+        const currentSessionData = sessionStore.getSessionData; // Obtenha os dados atuais da sessão
+        const updatedSessionData = {
+        ...currentSessionData,
+        user_image: newUserImage,
+    };
+    sessionStore.setSessionData(updatedSessionData); // Atualize os dados da sessão
+    };
+    // Use a função para atualizar a imagem do usuário
+    updateSessionData(novaImg.value.trim());
+    }
     try{
     const configuracao = {
         email: sessionData.value.email, 
         senha: alterandoSenha.value,
+        imagem: novaImg.value
     }
     const { editar } = LoginService(configuracao)
     const response = await editar()
@@ -67,12 +73,9 @@ async function enviar() {
             message: e.message,
             position: 'top'
         })
+    } finally {
+        window.location.reload()
     }
-}
-
-function removerImagem() {
-    imgUser.value = null
-    fileName.value = null
 }
 
 </script>
@@ -81,7 +84,6 @@ function removerImagem() {
     background: #a5dbff31;  /* fallback for old browsers */
     background: -webkit-linear-gradient(to top, #74ff7426, #ffffff, #55bbff58);  /* Chrome 10-25, Safari 5.1-6 */
     background: linear-gradient(to top, #74ff7426, #ffffff, #55bbff58); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
-    
 }
 
 .config-wrapper{

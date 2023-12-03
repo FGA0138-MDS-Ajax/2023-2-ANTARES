@@ -8,13 +8,14 @@
             </div>
             <div class="cards row justify-center q-gutter-md q-mt-md">
                 <q-card class="cursor-pointer row items-center justify-between q-px-md no-wrap" v-for="(news, index) in vectorNews" :key="index" @click="openModalNews(news)">
-                    <q-card-section>
-                            <h4>{{ news.titulo }}</h4>
+                    <q-card-section class="column">
+                            <h4 class="q-mb-md">{{ news.titulo }}</h4>
                             <h8 class="low-opacity">Postado em: {{ news.dataPublicacao.toLocaleDateString('pt-br') }}</h8>
-                            <div class="q-pt-sm">{{ news.criador}}</div>
+                            <h8 class="w100 bg-green-4" style="opacity:0.8">{{ news.role }}</h8>
+                            <div class="">{{ news.criador}}</div>
                         </q-card-section>
                         <q-avatar size="90px" class="img-news">
-                            <img  style="border-radius: 8px; border:6px solid rgba(128, 128, 128, 0.52)" :src="news.user_image.trim() == '' ? 'https://pbs.twimg.com/profile_images/1696145651006930945/r5LfokUU_400x400.jpg' : news.user_image">
+                            <img  style="border-radius: 20%; border:6px solid rgba(48, 48, 48, 0.52)" :src="news.user_image.trim() == '' ? 'https://pbs.twimg.com/profile_images/1696145651006930945/r5LfokUU_400x400.jpg' : news.user_image">
                         </q-avatar>
                     </q-card>
             </div>
@@ -39,9 +40,13 @@
                         <div class="label-modal row w100"><strong>Descrição:</strong></div><q-scroll-area style="height:120px; width:100%; background-color: #f1f1f1;" class="q-pl-sm q-pt-sm">{{ selectedNews.descricao }}</q-scroll-area>
                     </div>
                     <div class="contato row w100 q-pb-md">
-                        <div class="label-modal row w100" ><strong>Contato:</strong></div><div class="q-pl-sm" style="background-color: #f1f1f1;">{{ selectedNews.contato }}</div>
+                        <div class="label-modal row w100" ><strong>Contato:</strong></div><div class="q-pl-sm w100" style="background-color: #f1f1f1;">{{ selectedNews.contato }}</div>
+                        <div class="row items-center q-mt-md no-wrap w100 text-bold low-opacity">
+                            Postado por:  
+                            <div class="q-pl-md text-blue-8">{{ selectedNews.criador }}</div>
+                        </div>
                     </div>
-                        <div class="date-container">
+                    <div class="date-container">
                             <p class="low-opacity"><strong>Data de publicação: </strong>{{ selectedNews.dataPublicacao.toLocaleDateString('pt-br') }}</p>
                             <p class="finishing-date  low-opacity"><strong>Data de encerramento: </strong>{{ selectedNews.dataEncerramento.toLocaleDateString('pt-br') }}</p>
                         </div>
@@ -207,7 +212,7 @@ onBeforeMount(async () => {
         display: flex;
         flex-direction: column;
         width: 95%!important;
-        height: 18rem;
+        height: 20rem;
     }
     .cards {
         display: flex;
@@ -231,7 +236,8 @@ p{
 }
 
 .title-modal {
-    color: #626262
+    color: #626262;
+    font-weight: bold;
 }
 
 </style>
