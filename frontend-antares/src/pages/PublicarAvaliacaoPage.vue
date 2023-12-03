@@ -1,20 +1,21 @@
 <template>
-    <q-page class="row justify-center items-center">
-      <q-card>    
-        <q-card-section class="card-header">
-          <q-btn flat round icon="arrow_back" @click="voltarParaHome" class="back-button" />
-          <div class="text-h4">{{ nomeDisciplina }}</div>
-        </q-card-section>
-        <q-card-section>
-          <div class="descricao-disciplina">Nossos critérios de avaliação da disciplina levam em conta a forma com que cada professor ministra as disciplinas. Abaixo aparecerão perguntas que podem ser avaliadas de 1 a 5 de acordo com a legenda de cada uma delas.</div>
-        </q-card-section>
-        <q-card-section>
-          <div v-for="(avaliacao, index) in avaliacoes" :key="index" class="avaliacao-section">
-            <q-select filled v-model="avaliacao.professorSelecionado" :options="professores" label="Selecione o Professor" />          
-            <div v-if="avaliacao.professorSelecionado">
-              <div v-for="(item, idx) in avaliacao.itensAvaliacao" :key="`avaliacao-${index}-item-${idx}`" class="item-avaliacao">
+  <q-page class="row justify-center items-center">
+    <q-card>
+      <q-card-section class="card-header">
+        <q-btn flat round icon="arrow_back" @click="voltarParaHome" class="back-button" />
+        <div class="text-h4">{{ nomeDisciplina }} - {{ codigoDisciplina }}</div>
+      </q-card-section>
+      <q-card-section>
+        <div class="descricao-disciplina">Nossos critérios de avaliação da disciplina levam em conta a forma com que cada professor ministra as disciplinas. Abaixo aparecerão perguntas que podem ser avaliadas de 1 a 5 de acordo com a legenda de cada uma delas.</div>
+      </q-card-section>
+      <q-card-section>
+        <div v-for="(avaliacao, index) in avaliacoes" :key="index" class="avaliacao-section">
+          <q-select filled v-model="avaliacao.professorSelecionado" :options="professores" label="Selecione o Professor" />
+          <div v-if="avaliacao.professorSelecionado">
+            <div v-for="item in avaliacao.itensAvaliacao" :key="item.id" class="item-avaliacao">
                 <div class="item-label">{{ item.label }}</div>
-                <q-slider v-model="item.value" :class="{'hide-label': !item.mostrarEtiquetas}" :min="1" :max="5" :step="1" color="blue" label-always @mousedown="iniciarTooltip(index)" @mouseup="finalizarTooltip(index)" @mouseleave="finalizarTooltip(index)" @touchend="finalizarTooltip(index)">
+      
+                <q-slider v-model="item.value" :class="{'hide-label': !item.mostrarEtiquetas}" :min="1" :max="5" :step="1" color="blue" snap label @mousedown="iniciarTooltip(index)" @mouseup="finalizarTooltip(index)" @mouseleave="finalizarTooltip(index)" @touchend="finalizarTooltip(index)">
                   <template v-slot:label="scope" v-if="avaliacao.mostrarEtiquetas">
                     <q-tooltip>{{ item.etiquetas[scope.value - 1] }}</q-tooltip>
                   </template>
@@ -35,133 +36,200 @@
         </q-card-actions>
       </q-card>
     </q-page>
-  </template>
+</template>
   
-  <script>
-  import { ref, reactive, defineComponent } from 'vue';
-  import { useRouter } from 'vue-router';
-  import { useQuasar } from 'quasar';
+<script>
+import { ref, reactive, onMounted, defineComponent } from 'vue';
+import { useRouter, useRoute } from 'vue-router';
+import { useQuasar } from 'quasar';
+import { api } from '../boot/axios';
+import { useSessionStore } from '../stores/session';
+
+
+export default defineComponent({
+  setup() {
+    const $q = useQuasar();
+    const router = useRouter();
+    const route = useRoute();
+    const codigoDisciplina = ref(route.params.codigo);
+    const nomeDisciplina = ref('');
+    const professores = ref([]);
+    const sessionStore = useSessionStore();
   
-  export default defineComponent({
-    // props: {
-    //   nomeDisciplina: String
-    // },
-  
-    setup(props) {
-      const mostrarTooltip = ref(false);
-      const $q = useQuasar();
-      const router = useRouter();
-      const professores = ref(['Matheus Bernardini', 'Tatiane Evangelista', 'Ricardo Frageli']);
-  
-      const criteriosPadrao = [
+    const criteriosPadrao = [
           {
             label: 'Dificuldade do Conteúdo',
-            value: 3,
+            value: 1,
             descricaoAtual: 'Médio',
             etiquetas: ['Muito Fácil', 'Fácil', 'Médio', 'Difícil', 'Muito Difícil']
           },
           {
             label: 'Taxa Média de Aprovação na sua Turma',
-            value: 3,
+            value: 1,
             mostrarEtiquetas: false,
             etiquetas: ['Menos de 20%', 'Menos de 40', 'Menos de 60%', 'Menos de 80%', 'Mais de 80%']
           },
           {
             label: 'Disponibilidade do Professor',
-            value: 3,
+            value: 1,
             mostrarEtiquetas: false,
             etiquetas: ['Não responde dúvidas', 'Pouco disponível', 'Disponível', 'Muito disponível', 'Sempre disponível']
           },
           {
             label: 'Quantidade de listas de exercícios',
-            value: 3,
+            value: 1,
             mostrarEtiquetas: false,
             etiquetas: ['Nenhuma', 'Semanalmente', '2 por semana', '3 por semana', '4 ou mais por semana']
           },
           {
             label: 'Quantidade de provas',
-            value: 3,
+            value: 1,
             mostrarEtiquetas: false,
             etiquetas: ['Sem provas', '1 prova', '2 provas', '3 provas', '4 ou mais provas']
           },
           {
             label: 'Dificuldade das provas',
-            value: 3,
+            value: 1,
             mostrarEtiquetas: false,
             etiquetas: ['Muito Fácil', 'Fácil', 'Médio', 'Difícil', 'Muito Difícil']
           },
-        ]
-      
-      const avaliacoes = reactive([{
-        professorSelecionado: null,
-        itensAvaliacao: [...criteriosPadrao]
-      }]);
-  
-      function adicionarAvaliacao() {
-        avaliacoes.push({
-          professorSelecionado: null,
-          outroProfessor: false,
-          novoProfessor: '',
-          itensAvaliacao: [...criteriosPadrao]
+          {
+            label: 'Quantidade de trabalhos',
+            value: 1,
+            mostrarEtiquetas: false,
+            etiquetas: ['Nenhum', '1 trabalho', '2 trabalhos', '3 trabalhos', '4 ou mais trabalhos']
+          }
+    ]
+
+    const avaliacoes = reactive([{
+      professorSelecionado: null,
+      itensAvaliacao: [...criteriosPadrao.map((item, idx) => ({ ...item, id: `item-${0}-${idx}` }))]
+    }]);
+
+    onMounted(async () => {
+      await carregarDadosDisciplina();
+    });
+
+    async function carregarDadosDisciplina() {
+      try {
+        const response = await api.get(`/disciplina/${codigoDisciplina.value}`);
+        const data = response.data; 
+        nomeDisciplina.value = data.nome;
+        professores.value = data.professores.map(professorNome => ({ label: professorNome, value: professorNome }));
+      } catch (error) {
+        console.error('Erro ao buscar dados da disciplina:', error);
+        $q.notify({
+          color: 'negative',
+          position: 'top',
+          message: 'Erro ao carregar dados da disciplina',
+          icon: 'report_problem'
         });
       }
-  
-      function excluirAvaliacao(index) {avaliacoes.splice(index, 1);}
-  
-      function publicarAvaliacoes() {
-        // Lógica para publicar todas as avaliações
-      }
-  
-      function voltar() {
-        router.back();
-      }
-  
-      function voltarParaHome() {
-        router.push('/app');
-      }
-  
-      function obterDescricaoAvaliacao(valor, etiquetas) {
-        return etiquetas[valor - 1];
-      }
-  
-      function iniciarTooltip(index) {
-        avaliacoes[index].itensAvaliacao.forEach(item => {
-          item.mostrarEtiquetas = true;
-        });
-      }
-  
-      function finalizarTooltip(index) {
-        avaliacoes[index].itensAvaliacao.forEach(item => {
-          item.mostrarEtiquetas = false;
-        });
-      }
-  
-      function handleProfessorChange(avaliacao, valorSelecionado) {
-        avaliacao.outroProfessor = valorSelecionado === 'Outro Professor';
-      }
-  
-      return {
-        professores,
-        avaliacoes,
-        adicionarAvaliacao,
-        excluirAvaliacao,
-        publicarAvaliacoes,
-        voltar,
-        obterDescricaoAvaliacao,
-        voltarParaHome, 
-        mostrarTooltip,
-        iniciarTooltip,
-        finalizarTooltip,
-        handleProfessorChange,
-        // nomeDisciplina: props.nomeDisciplina
-        nomeDisciplina: 'Cálculo 1'
-      };
     }
-  });
-  </script>
+
+    function adicionarAvaliacao() {
+      avaliacoes.push({
+        professorSelecionado: null,
+        itensAvaliacao: [...criteriosPadrao.map((item, idx) => ({ ...item, id: `item-${avaliacoes.length}-${idx}` }))]
+      });
+    }
+
+    function excluirAvaliacao(index) {
+      avaliacoes.splice(index, 1);
+    }
+
+    async function publicarAvaliacoes() {
+      const usuarioLogado = sessionStore.getSessionData; 
+      const matricula = usuarioLogado.matricula;
+      try {
+        const payload = {
+        matricula: matricula,
+        avaliacoes: avaliacoes.map(avaliacao => {
+          return {
+            disciplina_codigo: codigoDisciplina.value,
+            professor_nome: avaliacao.professorSelecionado.label,
+            dificuldade_disciplina: avaliacao.itensAvaliacao.find(item => item.label === 'Dificuldade do Conteúdo').value,
+            taxa_aprovacao: avaliacao.itensAvaliacao.find(item => item.label === 'Taxa Média de Aprovação na sua Turma').value,
+            dificuldade_avaliacoes: avaliacao.itensAvaliacao.find(item => item.label === 'Dificuldade das provas').value,
+            disponibilidade_professor: avaliacao.itensAvaliacao.find(item => item.label === 'Disponibilidade do Professor').value,
+            quantidade_listas_exercicio: avaliacao.itensAvaliacao.find(item => item.label === 'Quantidade de listas de exercícios').value,
+            quantidade_provas: avaliacao.itensAvaliacao.find(item => item.label === 'Quantidade de provas').value,
+            quantidade_trabalhos: avaliacao.itensAvaliacao.find(item => item.label === 'Quantidade de trabalhos').value
+          }
+      })
+    };
+    console.log("EEEEE")
+    console.log(payload)
+    const response = await api.post("/avaliacao", payload);
+    if (response.status == 201) {
+      console.log('Avaliações publicadas com sucesso');
+      router.replace('/disciplinas');
+      $q.notify({
+        color: 'positive',
+        position: 'top',
+        message: 'Avaliações publicadas com sucesso!',
+        icon: 'check'
+      });
+    } else {
+      console.log('Erro ao publicar avaliações:', response.data.message);
+      $q.notify({
+        color: 'negative',
+        position: 'top',
+        message: response.data.message,
+        icon: 'report_problem'
+      });
+    }
+  } catch (error) {
+    console.error('Erro ao publicar avaliações:', error);
+    $q.notify({
+      color: 'negative',
+      position: 'top',
+      message: 'Erro ao publicar avaliações',
+      icon: 'report_problem'
+    });
+  }
+}
+
+
+    function voltarParaHome() {
+      router.push('/disciplinas');
+    }
+
+    function iniciarTooltip(index) {
+      avaliacoes[index].itensAvaliacao.forEach(item => {
+        item.mostrarEtiquetas = true;
+      });
+    }
+
+    function finalizarTooltip(index) {
+      avaliacoes[index].itensAvaliacao.forEach(item => {
+        item.mostrarEtiquetas = false;
+      });
+    }
+
+    function handleProfessorChange(avaliacao, valorSelecionado) {
+      avaliacao.outroProfessor = valorSelecionado === 'Outro Professor';
+    }
+
+    return {
+      nomeDisciplina,
+      codigoDisciplina,
+      professores,
+      avaliacoes,
+      adicionarAvaliacao,
+      excluirAvaliacao,
+      publicarAvaliacoes,
+      voltarParaHome,
+      iniciarTooltip,
+      finalizarTooltip,
+      handleProfessorChange
+    };
+  }
+});
+</script>
   
   
-  <style scoped>
+<style scoped>
   .card-header {
     display: flex;
     align-items: center;
