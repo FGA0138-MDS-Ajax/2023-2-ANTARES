@@ -4,23 +4,24 @@
         <div class="column q-px-lg q-gutter-y-md">
             <div class="q-pt-xl" v-if="vectorNews.length == 0">
                 <h5 class="text-center">Não há publicações no momento</h5>
-                <p style="font-size:100px" class="text-center q-pt-md">&#128531;</p>
+                <p style="font-size:100px" class="text-center q-pt-md">&#128237;</p>
             </div>
             <div class="cards row justify-center q-gutter-md q-mt-md">
                 <q-card class="cursor-pointer row items-center justify-between q-px-md no-wrap" v-for="(news, index) in vectorNews" :key="index" @click="openModalNews(news)">
-                    <q-card-section>
-                            <h4>{{ news.titulo }}</h4>
+                    <q-card-section class="column">
+                            <h4 class="q-mb-md">{{ news.titulo }}</h4>
                             <h8 class="low-opacity">Postado em: {{ news.dataPublicacao.toLocaleDateString('pt-br') }}</h8>
-                            <div class="q-pt-sm">{{ news.criador}}</div>
+                            <h8 class="w100 bg-green-4" style="opacity:0.8">{{ news.role }}</h8>
+                            <div class="">{{ news.criador}}</div>
                         </q-card-section>
-                        <q-avatar size="70px" style="border-radius: 100%;">
-                            <img src="https://pbs.twimg.com/profile_images/1696145651006930945/r5LfokUU_400x400.jpg">
-                          </q-avatar>
+                        <q-avatar size="90px" class="img-news">
+                            <img  style="border-radius: 20%; border:6px solid rgba(48, 48, 48, 0.52)" :src="news.user_image.trim() == '' ? 'https://pbs.twimg.com/profile_images/1696145651006930945/r5LfokUU_400x400.jpg' : news.user_image">
+                        </q-avatar>
                     </q-card>
             </div>
             <div v-if="vectorNews.length != 0" class="row w100 justify-center items-center q-py-xl">
                 <q-btn style="border: none!important;" class="q-mr-md bg-grey-3" :disable="paginaAtual + 1 == totalPaginas"  @click="atualizarPaginacao(1)">
-                    <q-icon @click="atualizarPaginacao(-1)" class="cursor-pointer text-bold" size="md" :disable="paginaAtual" :color="paginaAtual == 0 ? 'grey-8' : 'blue-7'" name="skip_previous"/>
+                    <q-icon class="cursor-pointer text-bold" size="md" :disable="paginaAtual" :color="paginaAtual == 0 ? 'grey-8' : 'blue-7'" name="skip_previous"/>
                 </q-btn>
             <div class="">ver mais vagas</div>
                 <q-btn style="border: none!important;" class="q-ml-md bg-grey-3" :disable="paginaAtual + 1 == totalPaginas"  @click="atualizarPaginacao(1)">
@@ -31,17 +32,21 @@
         <div class="modal-wrap" v-if="modalNewsOpen">
             <ModalComponent @fecharModal="fecharModalNews" class="modal-component rounded-borders">
                 <template v-slot:modal-title>
-                    <h4 class="q-mb-lg q-pt-md">{{ selectedNews.titulo }}</h4>
+                    <h4 class="title-modal q-mb-lg q-pt-md">{{ selectedNews.titulo }}</h4>
                 </template>
                 <template v-slot:modal-text>
                     <q-btn label="Link da vaga" @click="openLink(selectedNews.link)" class="text-white bg-green-7 q-mb-md" icon="help"/>
                     <div class="row w100 q-pb-md">
-                        <div class="label-modal row w10"><strong>Descrição:</strong></div><q-scroll-area style="height:120px; width:100%; background-color: #f1f1f1;" class="q-pl-sm q-pt-sm">{{ selectedNews.descricao }}</q-scroll-area>
+                        <div class="label-modal row w100"><strong>Descrição:</strong></div><q-scroll-area style="height:120px; width:100%; background-color: #f1f1f1;" class="q-pl-sm q-pt-sm">{{ selectedNews.descricao }}</q-scroll-area>
                     </div>
                     <div class="contato row w100 q-pb-md">
-                        <div class="label-modal row w10"><strong>Contato:</strong></div><div class="q-pl-sm">{{ selectedNews.contato }}</div>
+                        <div class="label-modal row w100" ><strong>Contato:</strong></div><div class="q-pl-sm w100" style="background-color: #f1f1f1;">{{ selectedNews.contato }}</div>
+                        <div class="row items-center q-mt-md no-wrap w100 text-bold low-opacity">
+                            Postado por:  
+                            <div class="q-pl-md text-blue-8">{{ selectedNews.criador }}</div>
+                        </div>
                     </div>
-                        <div class="date-container">
+                    <div class="date-container">
                             <p class="low-opacity"><strong>Data de publicação: </strong>{{ selectedNews.dataPublicacao.toLocaleDateString('pt-br') }}</p>
                             <p class="finishing-date  low-opacity"><strong>Data de encerramento: </strong>{{ selectedNews.dataEncerramento.toLocaleDateString('pt-br') }}</p>
                         </div>
@@ -59,11 +64,15 @@
 
 <script lang="ts" setup>
 import { computed, ref, onBeforeMount} from 'vue'
-import { useSessionStore } from 'src/stores/session';
+import { useSessionStore } from '../stores/session';
+
 import { useRouter } from 'vue-router';
 import ModalComponent from '../components/ModalComponentFeed.vue'
 import FeedService from '../services/FeedService'
 import LoadingComponent from '../components/LoadingComponent.vue';
+
+const sessionStore = useSessionStore();
+const usuarioLogado = ref(sessionStore.getSessionData) as any
 
 const vectorNews = ref([]) as any
 const paginaAtual = ref(0)
@@ -87,9 +96,9 @@ function openLink(link: string) {
 }
 const loading = ref(false)
 async function atualizarPaginacao (num: number) {
-    loading.value = true
     paginaAtual.value += num
-    try {
+    try { 
+        loading.value = true
         const { listarFeed } = FeedService({numPagina: paginaAtual.value});
         const response = await listarFeed();
         console.log(JSON.stringify(response.data.totalPages))
@@ -151,6 +160,7 @@ onBeforeMount(async () => {
   }
 .finishing-date {
     color: #e32929;
+    text-align: right;
 }
 
 .link-button { 
@@ -199,8 +209,10 @@ onBeforeMount(async () => {
         height: 200px!important;
     }
     .q-card {
+        display: flex;
+        flex-direction: column;
         width: 95%!important;
-        height: 22rem;
+        height: 20rem;
     }
     .cards {
         display: flex;
@@ -211,12 +223,21 @@ onBeforeMount(async () => {
 p{
     margin: 0px 0px 0px 0px !important;
     padding: 0px 0px 0px 0px !important;
+    color: #4d4d4d;
     
 }
 
 .label-modal {
-    background-color: #f0f0f0b0
+    background-color: #4f4f4f3d
 }
 
+.img-news{
+    margin-bottom: 24px!important;
+}
+
+.title-modal {
+    color: #626262;
+    font-weight: bold;
+}
 
 </style>

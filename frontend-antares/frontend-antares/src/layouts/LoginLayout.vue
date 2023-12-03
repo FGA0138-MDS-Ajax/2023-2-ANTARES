@@ -109,6 +109,7 @@ import emailjs from '@emailjs/browser';
 import LoginService from '../services/LoginService'
 import { useQuasar } from 'quasar';
 import LoadingComponent from '../components/LoadingComponent.vue';
+import { get } from 'http';
 const confirmarSenha = ref(null);
 const registrando = ref(false);
 const isPwd = ref(true);
@@ -246,6 +247,7 @@ async function logar() {
       message: response.data.message,
       position: 'top',
     });
+    loading.value = false
     senha.value = null
     }
   } catch (e) {
@@ -311,14 +313,28 @@ const createRegistrarObject = () => {
     });
     return false
   }
+
+  const getImage = (role: string) => {
+    switch (role) {
+      case 'Estudante':
+        return 'https://e7.pngegg.com/pngimages/85/759/png-clipart-computer-icons-student-huawei-honor-8-university-student-people-logo.png'
+      case 'Atlética':
+        return 'https://i.pinimg.com/236x/07/b1/33/07b133e78156c97e369946d65b4bfef6.jpg'
+      case 'Empresa Júnior':
+        return 'https://toppng.com/uploads/preview/a-sistema-engenharia-e-uma-empresa-de-assessoria-consultoria-predios-logo-11563036120uq9ka7sfz9.png'
+      case 'Empresa Contratante':
+        return 'https://w7.pngwing.com/pngs/458/56/png-transparent-logo-building-business-house-buildings-angle-company-graphic-designer.png'
+      }
+  }
+
   const registroObject = {
     nome: nome.value,
     matricula: usuario.value,
     senha: senha.value,
     email: email.value,
     telefone: telefone.value,
-    user_image: '',
-    role: role.value.id
+    user_image: getImage(role.value.label),
+    role: role.value.label
   }
 
   if(validarRegistro(registroObject)) {
@@ -410,7 +426,7 @@ async function registrar () {
       $q.notify({
         color: 'green-8',
         textColor: 'white',
-        icon: 'check',
+        icon: 'person_add',
         message: response.data.message,
         position: 'top',
       }); 
