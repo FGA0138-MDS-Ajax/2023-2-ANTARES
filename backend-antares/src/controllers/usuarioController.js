@@ -52,7 +52,7 @@ const usuarioController = {
   },
   resetPassword: async (req, res) => {
     try {
-      const { email, senha, user_image } = req.body;
+      const { email, senha } = req.body;
 
       // Procura o usuário pelo email no banco de dados
       const usuario = await UsuarioModel.findOne({ email });
@@ -62,7 +62,6 @@ const usuarioController = {
         const salt = await bcrypt.genSalt(10);
         const hashedPassword = await bcrypt.hash(senha, salt);
         usuario.senha = hashedPassword;
-        usuario.user_image = user_image ? user_image : usuario.user_image;
         await usuario.save();
 
         res.status(200).json({ message: "Senha redefinida com sucesso!" });
