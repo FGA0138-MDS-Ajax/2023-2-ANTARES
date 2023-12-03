@@ -1,5 +1,4 @@
-const { Calendario: CalendarioModel, Calendario } = require('../models/Calendario');
-const { Usuario: UsuarioModel } = require('../models/Usuario');
+const { Calendario: CalendarioModel} = require('../models/Calendario');
 
 const calendarioController = {
     create: async (req, res) => {
@@ -36,13 +35,30 @@ const calendarioController = {
 
     getAll: async (req, res) => {
         try {
-            const eventos = await CalendarioModel.find(req.body.login);
-            res.status(200).json({ eventos });
+            console.log(req.body.login);
+            const calendario = await CalendarioModel.findOne({login: req.body.login});
+            res.status(200).json({ calendario });
         } catch (error) {
             console.error('Eventos não encontrados \n' + error);
             res.status(500).json({ error: 'Erro ao obter eventos' });
         }
     },
+
+    getDay: async (req, res) => {
+        try {
+            const calendario = await CalendarioModel.findOne({login: req.body.login});
+            console.log(calendario);
+            const eventosDia = calendario.eventos.filter(evento => evento.dataEvento == req.body.dataEvento);
+            console.log(eventosDia);
+            console.log(req.body.dataEvento);
+
+            res.status(200).json({ calendario });
+        } catch (error) {
+            console.error('Eventos não encontrados \n' + error);
+            res.status(500).json({ error: 'Erro ao obter eventos' });
+        }
+    },
+
 
     removerEvento: async (req, res) => {
         try {
