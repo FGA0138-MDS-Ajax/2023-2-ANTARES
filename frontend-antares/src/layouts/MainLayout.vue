@@ -20,7 +20,7 @@
       >
         <div class="row items-center justify-center bg-transparent">
           <q-avatar size="80px" class="q-mb-sm">
-            <img style="border-bottom: 2px solid rgb(202, 202, 202)" :src="sessionData.user_image ? sessionData.user_image : 'https://pbs.twimg.com/profile_images/1696145651006930945/r5LfokUU_400x400.jpg'">
+            <img style="border-bottom: 2px solid rgb(202, 202, 202)" :src="sessionData.user_image">
           </q-avatar>
           <div class="column q-pl-md">
             <div class="session-nome text-weight-bold w100">{{ obterPrimeiraUltimaPalavra(sessionData.nome) }}</div>
@@ -32,7 +32,7 @@
     <!-- items do menu -->
     <q-scroll-area style="height: calc(100% - 140px); margin-top: 140px; border-right: 1px solid #ddd">
       <q-list padding>
-        <q-item clickable v-ripple to="/admin">
+        <q-item clickable v-ripple v-if="sessionData.role && sessionData.role == 'Admin'" to="/admin">
           <q-item-section avatar>
             <q-icon name="admin_panel_settings" color="orange-10" />
           </q-item-section>
@@ -52,7 +52,17 @@
           </q-item-section>
         </q-item>
 
-        <q-item clickable v-ripple to="/publicar-vagas">
+        <q-item clickable v-ripple to="/cardapio"  v-if="sessionData.role && sessionData.role == 'Estudante'  || sessionData.role && sessionData.role == 'Admin'">
+          <q-item-section avatar>
+            <q-icon name="dynamic_feed" />
+          </q-item-section>
+
+          <q-item-section>
+            Cardapio
+          </q-item-section>
+        </q-item>
+
+        <q-item clickable v-ripple v-if="sessionData.role && sessionData.role != 'Estudante'" to="/publicar-vagas">
           <q-item-section avatar>
             <q-icon name="send" />
           </q-item-section>
@@ -61,8 +71,24 @@
             Publicar
           </q-item-section>
         </q-item>
+          <q-item clickable v-ripple v-if="sessionData.role && sessionData.role != 'Empresa Contratante'" to="/calendario">
+          <q-item-section avatar>
+            <q-icon name="event" />
+          </q-item-section>
 
-        
+          <q-item-section>
+            Calendário
+          </q-item-section>
+        </q-item>
+        <q-item clickable v-ripple v-if="sessionData.role && sessionData.role == 'Estudante' || sessionData.role && sessionData.role == 'Admin'" to="/disciplinas">
+          <q-item-section avatar>
+            <q-icon name="school" />
+          </q-item-section>
+
+          <q-item-section>
+            Disciplinas
+          </q-item-section>
+        </q-item>
         <q-item clickable v-ripple  to="/configuracoes">
           <q-item-section avatar>
             <q-icon name="settings" />
@@ -72,6 +98,7 @@
             Configurações
           </q-item-section>
         </q-item>
+
         <q-item clickable v-ripple @click="logout()">
           <q-item-section avatar>
             <q-icon name="logout" />

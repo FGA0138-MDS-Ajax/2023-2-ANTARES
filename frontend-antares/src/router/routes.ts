@@ -43,6 +43,7 @@ const routes: RouteRecordRaw[] = [
       { name:'publicar-vagas', path: '/publicar-vagas', component: () => import('pages/PublicarVagasPage.vue') },
       { name:'feed-2', path: '/feed', component: () => import('pages/FeedPage.vue') },
       { name:'admin', path: '/admin', component: () => import('pages/IndexPage.vue') },
+      { name:'cardapio', path: '/cardapio', component: () => import('pages/CardapioRuPage.vue') },
       { name:'configurações', path: '/configuracoes', component: () => import('pages/ConfiguracoesPage.vue') },
       { name: 'controle-faltas', path: '/faltas', component: () => import('pages/ControleFaltasPage.vue') },
     ],
