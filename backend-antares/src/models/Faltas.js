@@ -15,7 +15,7 @@ const faltasSchema = new Schema({
     type: Number,
     required: true,
   },
-  maximoFaltas: {
+  faltas: {
     type: Number,
     required: true,
   },

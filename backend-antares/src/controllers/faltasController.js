@@ -20,7 +20,7 @@ const faltasController = {
         matricula: req.body.matricula,
         materia: req.body.materia,
         horas: req.body.horas,
-        maximoFaltas: Math.floor((req.body.horas * 0.25) / 2),
+        faltas: 0,
       };
 
       const response = await FaltasModel.create(faltas);
@@ -80,6 +80,44 @@ const faltasController = {
       res
         .status(500)
         .json({ message: "Erro ao buscar as matérias.", error: error.message });
+    }
+  },
+
+  update: async (req, res) => {
+    try {
+      if (
+        !req.body.matricula ||
+        !req.body.materia ||
+        !req.body.faltas 
+      ) {
+        res.status(400).json({
+          message:
+            "Campos inválidos. Certifique-se de que todos os campos estão preenchidos corretamente.",
+        });
+        return;
+      }
+
+      const response = await FaltasModel.updateOne(
+        {
+          matricula: req.body.matricula,
+          materia: req.body.materia,
+        },
+        {
+          faltas: req.body.faltas,
+        }
+      );
+      if (response.nModified === 0) {
+        res.status(404).json({ message: "Matéria não encontrada." });
+        return;
+      }
+      res.status(200).json({ response, message: "Faltas atualizadas." });
+    } catch (error) {
+      res
+        .status(500)
+        .json({
+          message: "Erro ao atualizar as faltas.",
+          error: error.message,
+        });
     }
   },
 };
