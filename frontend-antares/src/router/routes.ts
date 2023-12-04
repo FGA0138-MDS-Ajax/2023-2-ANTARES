@@ -44,6 +44,7 @@ const routes: RouteRecordRaw[] = [
       { name:'feed-2', path: '/feed', component: () => import('pages/FeedPage.vue') },
       { name:'admin', path: '/admin', component: () => import('pages/IndexPage.vue') },
       { name:'configurações', path: '/configuracoes', component: () => import('pages/ConfiguracoesPage.vue') },
+      { name:'calendario', path: '/calendario', component: () => import('src/pages/CalendarioPage.vue') },
     ],
   },
   {

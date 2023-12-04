@@ -3,7 +3,7 @@
         <div>
             <h2 class="text-center q-py-lg">Configurações</h2>
         </div>
-        <div class="q-mt-md config-wrapper w100 column justify-center items-center">
+        <div class="q-mt-md q-pb-md config-wrapper w100 column justify-center items-center">
             <q-input filled readonly v-model="sessionData.nome" label="Nome Completo" style="font-size: 16px" class="w20rem text-h6 low-opacity q-mb-md" />
             <q-input filled readonly v-model="sessionData.role" label="Tipo de Conta" style="font-size: 16px"  class="w20rem text-h6 low-opacity q-mb-md" />
             <q-input filled readonly v-model="sessionData.matricula" label="Matrícula" style="font-size: 16px"  class="w20rem text-h6 low-opacity q-mb-md" />
