@@ -52,6 +52,16 @@
           </q-item-section>
         </q-item>
 
+        <q-item clickable v-ripple to="/cardapio"  v-if="sessionData.role && sessionData.role == 'Estudante'  || sessionData.role && sessionData.role == 'Admin'">
+          <q-item-section avatar>
+            <q-icon name="dynamic_feed" />
+          </q-item-section>
+
+          <q-item-section>
+            Cardapio
+          </q-item-section>
+        </q-item>
+
         <q-item clickable v-ripple v-if="sessionData.role && sessionData.role != 'Estudante'" to="/publicar-vagas">
           <q-item-section avatar>
             <q-icon name="send" />
