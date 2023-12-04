@@ -37,14 +37,15 @@
         </div>
         <div v-if="modalVisible" class="modal-background">
             <div class="modal-content q-pa-md">
-                <h4 class="text-h6">Adicionar Matéria</h4>
+                <h4 class="text-h6 text-center">Adicionar Matéria</h4>
                 <q-form @submit="addSubject">
                     <q-input v-model="newSubject.materia" label="Nome" required />
                     <q-input v-model="newSubject.horas" type="number" label="Carga Horária" required />
-                    <q-btn type="submit" label="Adicionar" class="text-white bg-blue-7 q-mb-md items-center" />
+                    <div class="row w100 justify-center no-wrap q-gutter-x-md">
+                      <q-btn label="Fechar" color="primary" class="text-white bg-blue-7 items-center"  @click="closeModal" />
+                      <q-btn type="submit" label="Adicionar" icon-right="playlist_add_check" class="text-white bg-green-8 items-center" />
+                    </div>
                 </q-form>
-                <q-btn label="Fechar" color="primary" class="text-white bg-blue-7 q-mb-md items-center"
-                    @click="closeModal" />
             </div>
         </div>
     </q-page>
@@ -203,6 +204,12 @@ export default {
 </script>
 
 <style scoped>
+.q-page {
+  background: #a5dbff31;  /* fallback for old browsers */
+  background: -webkit-linear-gradient(to top, #74ff7426, #ffffff, #55bbff58);  /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(to top, #74ff7426, #ffffff, #55bbff58); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  
+}
 .center-btn {
     margin-top: 20px;
     margin-bottom: 0px;
@@ -258,7 +265,7 @@ export default {
 
 .modal-content {
     background-color: #fff;
-    max-width: 400px;
+    width: 400px;
     padding: 20px;
     border-radius: 8px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
@@ -275,4 +282,12 @@ export default {
 
 .q-btn.q-mb-md {
     margin-left: 20px;
-}</style>
+}
+
+@media (max-width: 720px) {
+.modal-content {
+
+    width: 90vw;
+  }
+}
+</style>
