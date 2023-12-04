@@ -89,6 +89,15 @@
             Disciplinas
           </q-item-section>
         </q-item>
+        <q-item clickable v-ripple v-if="sessionData.role && sessionData.role == 'Estudante' || sessionData.role && sessionData.role == 'Admin'" to="/faltas">
+          <q-item-section avatar>
+            <q-icon name="unpublished" />
+          </q-item-section>
+
+          <q-item-section>
+            Faltas
+          </q-item-section>
+        </q-item>
         <q-item clickable v-ripple  to="/configuracoes">
           <q-item-section avatar>
             <q-icon name="settings" />
