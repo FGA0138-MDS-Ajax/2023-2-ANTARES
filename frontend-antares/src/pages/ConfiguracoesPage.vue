@@ -41,21 +41,20 @@ async function enviar() {
     }
     if (novaImg.value && novaImg.value.trim() !== '') {
     const updateSessionData = (newUserImage: any) => {
-        const currentSessionData = sessionStore.getSessionData; // Obtenha os dados atuais da sessão
+        const currentSessionData = sessionStore.getSessionData;
         const updatedSessionData = {
         ...currentSessionData,
         user_image: newUserImage,
     };
-    sessionStore.setSessionData(updatedSessionData); // Atualize os dados da sessão
+    sessionStore.setSessionData(updatedSessionData);
     };
-    // Use a função para atualizar a imagem do usuário
     updateSessionData(novaImg.value.trim());
     }
     try{
     const configuracao = {
         email: sessionData.value.email, 
         senha: alterandoSenha.value,
-        imagem: novaImg.value
+        user_image: novaImg.value
     }
     const { editar } = LoginService(configuracao)
     const response = await editar()
@@ -65,16 +64,15 @@ async function enviar() {
             message: response.data.message,
             position: 'top'
         })
+        window.location.href = 'https://unbnamao.netlify.app/'
     }
     console.log(JSON.stringify(response))
     } catch(e: any) {
         $q.notify({
-            type: 'positive',
+            type: 'negative',
             message: e.message,
             position: 'top'
         })
-    } finally {
-        window.location.href = 'https://unbnamao.netlify.app/'
     }
 }
 

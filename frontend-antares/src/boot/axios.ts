@@ -8,9 +8,9 @@ declare module '@vue/runtime-core' {
   }
 }
 
-// const api = axios.create({ baseURL: 'http://localhost:9999/api/' });
+const api = axios.create({ baseURL: 'http://localhost:9999/api/' });
 
-const api = axios.create({ baseURL: 'https://backend-antares-deploy.onrender.com/api/' });
+// const api = axios.create({ baseURL: 'https://backend-antares-deploy.onrender.com/api/' });
 
 export default boot(({ app }) => {
   app.config.globalProperties.$axios = axios;
