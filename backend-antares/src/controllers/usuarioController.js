@@ -26,7 +26,7 @@ const usuarioController = {
     } catch (error) {
       res
         .status(500)
-        .json({ message: "Login, Email ou Telefone Já Cadastrado no Sistema" });
+        .json({ error, message: "Login, Email ou Telefone Já Cadastrado no Sistema" });
       console.log("Erro controller usuario\n" + error);
     }  finally {
       let textoTitulo = "Cadastro de " + req.body.role
