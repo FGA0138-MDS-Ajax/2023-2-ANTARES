@@ -54,11 +54,11 @@
 
         <q-item clickable v-ripple to="/cardapio"  v-if="sessionData.role && sessionData.role == 'Estudante'  || sessionData.role && sessionData.role == 'Admin'">
           <q-item-section avatar>
-            <q-icon name="dynamic_feed" />
+            <q-icon name="restaurant_menu" />
           </q-item-section>
 
           <q-item-section>
-            Cardapio
+            Cardápio
           </q-item-section>
         </q-item>
 
