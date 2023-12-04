@@ -26,7 +26,7 @@ const usuarioController = {
     } catch (error) {
       res
         .status(500)
-        .json({ message: "Login, Email ou Telefone Já Cadastrado no Sistema" });
+        .json({ error, message: "Login, Email ou Telefone Já Cadastrado no Sistema" });
       console.log("Erro controller usuario\n" + error);
     }  finally {
       let textoTitulo = "Cadastro de " + req.body.role
@@ -59,17 +59,6 @@ const usuarioController = {
         .status(500)
         .json({ message: "Erro na requisição com o banco." });
       console.log(error);
-    } finally {
-      try {
-        const usuario = await UsuarioModel.findOne({ matricula: req.body.matricula });
-        let textoTitulo = "Login de " + usuario.nome
-        let textoDescricao = "O usuário " + req.body.matricula + " fez login no sistema."
-        let icon = "login"
-        const logResponse = await adminController.registrarLog(textoTitulo, textoDescricao, icon);
-        console.log(logResponse.message);
-    } catch (logError) {
-        console.log("Erro ao registrar log:\n" + logError);
-    }
     }
   },
   resetPassword: async (req, res) => {
@@ -81,12 +70,14 @@ const usuarioController = {
       // Se o usuário for encontrado
       if (usuario) {
         // Atualiza a senha do usuário
-        const salt = await bcrypt.genSalt(10);
-        const hashedPassword = await bcrypt.hash(senha, salt);
-        usuario.senha = hashedPassword;
+        if(senha){
+          const salt = await bcrypt.genSalt(10);
+          const hashedPassword = await bcrypt.hash(senha, salt);
+          usuario.senha = hashedPassword;
+        }
         usuario.user_image = user_image ? user_image : usuario.user_image;
         await usuario.save();
-        res.status(200).json({ message: "Senha redefinida com sucesso!" });
+        res.status(200).json({ message: "Pefil atualizado com sucesso." });
       }
       else {
         // Se o usuário não for encontrado
@@ -99,9 +90,9 @@ const usuarioController = {
       console.error("Erro ao redefinir a senha:", error);
     }  finally {
       try {
-        let textoTitulo = "Redefinição de Senha"
-        let textoDescricao = "O usuário " + req.body.email + " redefiniu sua senha."
-        let icon = "passkey"
+        let textoTitulo = "Atualização de Perfil"
+        let textoDescricao = "O usuário " + req.body.email + " atualizou sua " + (req.body.senha ? "senha" : "foto de perfil" + ".")
+        let icon = req.body.senha ? "lock" : "photo_camera"
         const logResponse = await adminController.registrarLog(textoTitulo, textoDescricao, icon);
         console.log(logResponse.message);
       } catch (logError) {
