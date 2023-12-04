@@ -32,7 +32,7 @@
     <!-- items do menu -->
     <q-scroll-area style="height: calc(100% - 140px); margin-top: 140px; border-right: 1px solid #ddd">
       <q-list padding>
-        <q-item clickable v-ripple to="/admin">
+        <q-item clickable v-ripple v-if="sessionData.role && sessionData.role == 'Admin'" to="/admin">
           <q-item-section avatar>
             <q-icon name="admin_panel_settings" color="orange-10" />
           </q-item-section>
@@ -52,7 +52,7 @@
           </q-item-section>
         </q-item>
 
-        <q-item clickable v-ripple to="/publicar-vagas">
+        <q-item clickable v-ripple v-if="sessionData.role && sessionData.role != 'Estudante'" to="/publicar-vagas">
           <q-item-section avatar>
             <q-icon name="send" />
           </q-item-section>
@@ -61,17 +61,7 @@
             Publicar
           </q-item-section>
         </q-item>
-
-        <q-item clickable v-ripple to="/disciplinas">
-          <q-item-section avatar>
-            <q-icon name="school" />
-          </q-item-section>
-
-          <q-item-section>
-            Disciplinas
-          </q-item-section>
-        </q-item>
-        <q-item clickable v-ripple  to="/calendario">
+          <q-item clickable v-ripple v-if="sessionData.role && sessionData.role != 'Empresa Contratante'" to="/calendario">
           <q-item-section avatar>
             <q-icon name="event" />
           </q-item-section>
@@ -80,7 +70,15 @@
             Calendário
           </q-item-section>
         </q-item>
-        
+        <q-item clickable v-ripple v-if="sessionData.role && sessionData.role == 'Estudante' || sessionData.role && sessionData.role == 'Admin'" to="/disciplinas">
+          <q-item-section avatar>
+            <q-icon name="school" />
+          </q-item-section>
+
+          <q-item-section>
+            Disciplinas
+          </q-item-section>
+        </q-item>
         <q-item clickable v-ripple  to="/configuracoes">
           <q-item-section avatar>
             <q-icon name="settings" />

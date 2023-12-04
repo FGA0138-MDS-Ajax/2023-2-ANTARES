@@ -64,7 +64,9 @@ async function enviar() {
             message: response.data.message,
             position: 'top'
         })
-        window.location.href = 'https://unbnamao.netlify.app/'
+        setTimeout(() => {
+            window.location.href = 'https://unbnamao.netlify.app/'
+        }, 2000)
     }
     console.log(JSON.stringify(response))
     } catch(e: any) {
