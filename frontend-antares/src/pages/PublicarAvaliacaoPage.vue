@@ -61,25 +61,25 @@
               label: 'Dificuldade do Conteúdo',
               value: 1,
               descricaoAtual: 'Médio',
-              etiquetas: ['Muito Fácil', 'Fácil', 'Médio', 'Difícil', 'Muito Difícil']
+              etiquetas: ['Simples', 'Fácil', 'Médio', 'Difícil', 'Árduo']
             },
             {
               label: 'Taxa Média de Aprovação na sua Turma',
               value: 1,
               mostrarEtiquetas: false,
-              etiquetas: ['Menos de 20%', 'Menos de 40', 'Menos de 60%', 'Menos de 80%', 'Mais de 80%']
+              etiquetas: ['até 20%', 'até 40%', 'até 60%', 'até 80%', '+80%']
             },
             {
               label: 'Disponibilidade do Professor',
               value: 1,
               mostrarEtiquetas: false,
-              etiquetas: ['Não responde dúvidas', 'Pouco disponível', 'Disponível', 'Muito disponível', 'Sempre disponível']
+              etiquetas: ['Inacessível', 'Muito Acessível']
             },
             {
-              label: 'Quantidade de listas de exercícios',
+              label: 'Listas por semana',
               value: 1,
               mostrarEtiquetas: false,
-              etiquetas: ['Nenhuma', 'Semanalmente', '2 por semana', '3 por semana', '4 ou mais por semana']
+              etiquetas: ['0', '1', '2', '3', '4 ou +']
             },
             {
               label: 'Quantidade de provas',
@@ -91,13 +91,13 @@
               label: 'Dificuldade das provas',
               value: 1,
               mostrarEtiquetas: false,
-              etiquetas: ['Muito Fácil', 'Fácil', 'Médio', 'Difícil', 'Muito Difícil']
+              etiquetas: ['Simples', 'Fácil', 'Médio', 'Difícil', 'Árduo']
             },
             {
               label: 'Quantidade de trabalhos',
               value: 1,
               mostrarEtiquetas: false,
-              etiquetas: ['Nenhum', '1 trabalho', '2 trabalhos', '3 trabalhos', '4 ou mais trabalhos']
+              etiquetas: ['0', '1', '2', '3', '4 ou +']
             }
       ]
   
@@ -152,7 +152,7 @@
               taxa_aprovacao: avaliacao.itensAvaliacao.find(item => item.label === 'Taxa Média de Aprovação na sua Turma').value,
               dificuldade_avaliacoes: avaliacao.itensAvaliacao.find(item => item.label === 'Dificuldade das provas').value,
               disponibilidade_professor: avaliacao.itensAvaliacao.find(item => item.label === 'Disponibilidade do Professor').value,
-              quantidade_listas_exercicio: avaliacao.itensAvaliacao.find(item => item.label === 'Quantidade de listas de exercícios').value,
+              quantidade_listas_exercicio: avaliacao.itensAvaliacao.find(item => item.label === 'Listas por semana').value,
               quantidade_provas: avaliacao.itensAvaliacao.find(item => item.label === 'Quantidade de provas').value,
               quantidade_trabalhos: avaliacao.itensAvaliacao.find(item => item.label === 'Quantidade de trabalhos').value
             }

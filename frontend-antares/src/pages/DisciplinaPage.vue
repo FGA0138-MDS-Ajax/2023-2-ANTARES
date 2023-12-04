@@ -46,25 +46,25 @@
                       <div>{{ media.titulo }}</div>
                       <q-linear-progress rounded size="20px" :value="Number(media.valor)/5" color="green" class="q-mt-sm" :max="5" />
                       <div v-if="media.titulo === 'Dificuldade das Provas'" class="legenda">
-                        <span>Muito fácil</span><span>Fácil</span><span>Médio</span><span>Difícil</span><span>Muito difícil</span>
+                        <span>Simples</span><span>Fácil</span><span>Médio</span><span>Difícil</span><span>Árduo</span>
                       </div>
                       <div v-else-if="media.titulo === 'Dificuldade da Disciplina'" class="legenda">
-                        <span>Muito fácil</span><span>Fácil</span><span>Médio</span><span>Difícil</span><span>Muito difícil</span>
+                        <span>Simples</span><span>Fácil</span><span>Médio</span><span>Difícil</span><span>Árduo</span>
                       </div>
                       <div v-else-if="media.titulo === 'Disponibilidade do Professor'" class="legenda">
-                        <span>Muito disponível</span><span>Disponível</span><span>Médio</span><span>Indisponível</span><span>Muito indisponível</span>
+                        <span>Inacessível</span><span>Muito Acessível</span>
                       </div>
-                      <div v-else-if="media.titulo === 'Frequencia das Listas de Exercício'" class="legenda">
-                        <span>Nenhuma</span><span>Poucas</span><span>Média</span><span>Muitas</span><span>Muitíssimas</span>
+                      <div v-else-if="media.titulo === 'Listas por semana'" class="legenda">
+                        <span>0</span><span>1</span><span>2</span><span>3</span><span>4 ou +</span>
                       </div>
                       <div v-else-if="media.titulo === 'Quantidade de Provas'" class="legenda">
-                        <span>Nenhuma</span><span>Poucas</span><span>Média</span><span>Muitas</span><span>Muitíssimas</span>
+                        <span>0</span><span>1</span><span>2</span><span>3</span><span>4 ou +</span>
                       </div>
                       <div v-else-if="media.titulo === 'Quantidade de Trabalhos'" class="legenda">
-                        <span>Nenhum</span><span>Poucos</span><span>Médio</span><span>Muitos</span><span>Muitíssimos</span>
+                        <span>0</span><span>1</span><span>2</span><span>3</span><span>4 ou +</span>
                       </div>
                       <div v-else-if="media.titulo === 'Média de Aprovação'" class="legenda">
-                        <span>menos de 20%</span><span>menos 40%</span><span>menos de 60%</span><span>menos de 80%</span><span>mais de 80%</span>
+                        <span>Até 20%</span><span>Até 40%</span><span>Até 60%</span><span>Até 80%</span><span>+80%</span>
                       </div>
                     </div>
                   </div>
@@ -136,7 +136,7 @@
         medias: [
           { titulo: 'Dificuldade da Disciplina', valor: av.mediaDificuldadeDisciplina },
           { titulo: 'Disponibilidade do Professor', valor: av.mediaDisponibilidadeProfessor },
-          { titulo: 'Frequencia das Listas de Exercício', valor: av.mediaQuantidadeListasExercicio },
+          { titulo: 'Listas por semana', valor: av.mediaQuantidadeListasExercicio },
           { titulo: 'Quantidade de Trabalhos', valor: av.mediaQuantidadeTrabalhos },
           { titulo: 'Quantidade de Provas', valor: av.mediaQuantidadeProvas },
           { titulo: 'Dificuldade das Provas', valor: av.mediaDificuldadeAvaliacoes },
