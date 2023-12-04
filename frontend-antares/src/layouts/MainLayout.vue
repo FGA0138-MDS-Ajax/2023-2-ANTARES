@@ -52,6 +52,16 @@
           </q-item-section>
         </q-item>
 
+        <q-item clickable v-ripple to="/cardapio">
+          <q-item-section avatar>
+            <q-icon name="dynamic_feed" />
+          </q-item-section>
+
+          <q-item-section>
+            Cardapio
+          </q-item-section>
+        </q-item>
+
         <q-item clickable v-ripple to="/publicar-vagas">
           <q-item-section avatar>
             <q-icon name="send" />

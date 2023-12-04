@@ -4,6 +4,7 @@
     <div class="q-pt-xl" v-if="cardapios.length == 0">
                 <h5 class="text-center">Não há publicações no momento</h5>
     </div>
+
     <div class="q-gutter-sm">
       <q-card
         class="cursor-pointer q-sm"
@@ -28,7 +29,9 @@
 import { ref, onBeforeMount } from 'vue';
 import CardapioService from '../services/CardapioService';
 
+
 const cardapios = ref([]) as any;
+
 
 function openLink(link: string) {
   console.log('Abrindo link:', link);
@@ -48,6 +51,7 @@ async function obterCardapio() {
     console.error('Erro ao obter dados do cardápio:', error);
   }
 }
+
 
 onBeforeMount(obterCardapio);
 </script>

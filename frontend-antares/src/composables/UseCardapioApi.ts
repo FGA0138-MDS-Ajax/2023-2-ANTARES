@@ -4,7 +4,6 @@ export default function useCardapioApi(params: any) {
 
   const getAll = async () => {
     try {
-      // Substitua a linha abaixo pela lógica real de chamada da API para obter todos os cardápios
       const response = await api.post('/getCardapio', params);
       return response;
     } catch (error) {
@@ -12,10 +11,20 @@ export default function useCardapioApi(params: any) {
     }
   };
 
-  // Adicione outras funções conforme necessário para interagir com a API do cardápio
+  const create = async () => {
+    try {
+      const response = await api.post('/Cardapio', params);
+      return response;
+    } catch (error) {
+      throw error;
+    }
+  };
+
+  
 
   return {
-    getAll
-    // Adicione outras funções ao retorno conforme necessário
+    getAll,
+    create
+
   };
 }
