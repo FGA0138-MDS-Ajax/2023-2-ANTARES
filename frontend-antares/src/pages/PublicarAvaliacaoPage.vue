@@ -1,6 +1,6 @@
 <template>
     <q-page class="row justify-center items-center">
-      <q-card>
+      <q-card class="q-mb-xl">
         <q-card-section class="card-header">
           <q-btn flat round icon="arrow_back" @click="voltarParaHome" class="back-button" />
           <div class="text-h4">{{ nomeDisciplina }} - {{ codigoDisciplina }}</div>
@@ -31,7 +31,7 @@
             <q-btn color="positive" class="q-mt-md" label="Adicionar Avaliação de Outro Professor" @click="adicionarAvaliacao" />
           </q-card-section>
     
-          <q-card-actions align="right" class="q-px-md">
+          <q-card-actions align="right" class="q-px-md q-pb-md">
             <q-btn color="positive" label="Publicar Avaliações" @click="publicarAvaliacoes" />
           </q-card-actions>
         </q-card>

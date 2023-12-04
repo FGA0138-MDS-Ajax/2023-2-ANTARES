@@ -49,6 +49,7 @@ const routes: RouteRecordRaw[] = [
       { name:'disciplinas', path: '/disciplinas', component: () => import('pages/DisciplinasPage.vue') },
       { name:'disciplina-codigo', path: '/disciplina/:codigo', component: () => import('pages/DisciplinaPage.vue') },
       { name:'calendario', path: '/calendario', component: () => import('src/pages/CalendarioPage.vue') },
+      { name: 'controle-faltas', path: '/faltas', component: () => import('pages/ControleFaltasPage.vue') },
     ],
   },
   {
