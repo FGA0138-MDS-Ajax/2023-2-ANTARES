@@ -52,7 +52,42 @@ const vagaController = {
         } catch (error) {
             console.error('Erro ao excluir vagas expiradas\n' + error);
         }
-    }
+    },
+
+    deleteOne: async (req, res) => {
+        try {
+            const vaga = await VagaModel.findById(req.body.id);
+            console.log(req.body)
+            console.log(vaga);
+            if (!vaga) {
+                res.status(404).json({ message: 'Vaga não encontrada.' });
+                return;
+            }
+    
+            const response = await VagaModel.findByIdAndDelete(req.body.id);
+
+            if (!response) {
+                res.status(404).json({ message: 'Vaga não encontrada.' });
+                return;
+            }
+    
+            res.status(200).json({ message: 'Vaga excluída com sucesso.' });
+        } catch (error) {
+            res.status(500).json({ message: 'Erro ao excluir a vaga.', error: error.message });
+            console.error('Erro controller vaga\n', error);
+        }
+    },
+
+    getAll: async (req, res) => {
+        try {
+            const response = await VagaModel.find();
+            res.status(200).json(response);
+        } catch (error) {
+            res.status(500).json({ message: 'Erro ao buscar vagas.', error: error.message });
+            console.error('Erro controller vaga\n', error);
+        }
+    },
+
 };
 
 module.exports = vagaController;
