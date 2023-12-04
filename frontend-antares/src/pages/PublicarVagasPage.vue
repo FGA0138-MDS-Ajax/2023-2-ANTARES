@@ -93,7 +93,7 @@ export default defineComponent({
             titulo: titulo.value,
             descricao: descricao.value,
             contato: contato.value,
-            link: link.value,
+            link: ajustaLink(link.value),
             dataPublicacao: dataPublicacao.value,
             dataEncerramento: dataEncerramento.value
           };

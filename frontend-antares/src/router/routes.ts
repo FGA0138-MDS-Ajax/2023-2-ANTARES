@@ -45,7 +45,10 @@ const routes: RouteRecordRaw[] = [
       { name:'admin', path: '/admin', component: () => import('pages/IndexPage.vue') },
       { name:'cardapio', path: '/cardapio', component: () => import('pages/CardapioRuPage.vue') },
       { name:'configurações', path: '/configuracoes', component: () => import('pages/ConfiguracoesPage.vue') },
-
+      { name:'publicar-avaliacao', path: '/publicar-avaliacao/:codigo', component: () => import('pages/PublicarAvaliacaoPage.vue') },
+      { name:'disciplinas', path: '/disciplinas', component: () => import('pages/DisciplinasPage.vue') },
+      { name:'disciplina-codigo', path: '/disciplina/:codigo', component: () => import('pages/DisciplinaPage.vue') },
+      { name:'calendario', path: '/calendario', component: () => import('src/pages/CalendarioPage.vue') },
     ],
   },
   {

@@ -1,23 +1,24 @@
 <template>
   <q-page class="q-pa-sm">
-    <h3 class="text-center q-py-sm">Cardápio do RU</h3>
+    <h3 class="text-center q-py-md">Cardápio do RU</h3>
+    <div class="w100 trace q-mb-xl"></div>
     <div class="q-pt-xl" v-if="cardapios.length == 0">
                 <h5 class="text-center">Não há publicações no momento</h5>
     </div>
 
-    <div class="q-gutter-sm">
+    <div class="q-gutter-md">
       <q-card
-        class="cursor-pointer q-sm"
+        class="cursor-pointer"
         v-for="index in cardapios"
         :key="index"
         @click="obterCardapio"
       >
-        <q-card-section class="text-h6 text-center q-sm">
-          <h5>{{ index.campus }}</h5>
+        <q-card-section class="text-h6 text-center">
+          <h5 class="q-pb-sm">{{ index.campus }}</h5>
           <q-btn
             label="Link"
             @click="openLink(index.link)"
-            class="text-white bg-green-7 q-mb-sm"
+            class="text-white bg-green-7"
           />
         </q-card-section>
       </q-card>
@@ -57,5 +58,10 @@ onBeforeMount(obterCardapio);
 </script>
 
 <style scoped>
+.trace {
+  height: 1px;
+  opacity: .3;
+  background-color:black;
+}
 /* Estilos específicos aqui */
 </style>

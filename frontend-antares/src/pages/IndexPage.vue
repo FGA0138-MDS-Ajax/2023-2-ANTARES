@@ -1,17 +1,19 @@
 <template>
   <q-page>
-    <div id="home-page" class="column items-center">
-      <div class="q-mt-lg text-h2">Admin Page</div>
-    </div>
+    <div class="w100 q-mt-lg text-h2 text-center">Admin Page</div>
     <div class="row justify-center items-center">
-      <q-btn flat label="Adicionar Link Cardapio" class="button-prev" @click="openRegisterModal"/>
+      <q-btn flat label="Atualizar link cardápio" class="bg-orange-8 text-white button-prev shadow-1" icon="refresh" @click="openRegisterModal"/>
     </div>
     <div v-if="isModalOpen" class="modal">
+      <div class="w100 row justify-between no-wrap">
+        <div class="text-h5">Atualizar link do cardápio</div>
+        <q-icon class="cursor-pointer transition" size="lg" @click="fecharModal" name="close" color="red"/>
+      </div>
       <div class="q-gutter-lg q-mt-md">
-      <q-select filled v-model="role" dense class="bg-white" :options="roleOptions" label="Campus *"></q-select>
-      <q-input v-model="linkCardapio" label="Link do Cardápio"></q-input>
-        <div class="w100 row justify-center q-pb-sm">
-          <q-btn @click="cadastrarLink" label="Cadastrar" class="cadastrar-button"></q-btn>
+      <q-select filled v-model="role"  class="bg-white" :options="roleOptions" label="Campus *"></q-select>
+      <q-input v-model="linkCardapio" filled label="Link do Cardápio *"></q-input>
+        <div class="w100 row justify-center">
+          <q-btn @click="cadastrarLink" label="Cadastrar" :disable="!role || !linkCardapio" class="bg-blue-9 text-white cadastrar-button"></q-btn>
         </div>
       </div>
     </div>
@@ -37,11 +39,18 @@ import { useQuasar } from 'quasar';
 
 const logs = ref([]) as any;
 
-const linkCardapio = ref() as any;
+const linkCardapio = ref(null) as any;
 
 const $q = useQuasar();
 
+const role = ref(null) as any;
 const isModalOpen = ref(false);
+
+const fecharModal = () => {
+  linkCardapio.value = null
+  role.value = null
+  isModalOpen.value = false;
+}
 
 onMounted(async () => {
   try {
@@ -54,7 +63,6 @@ onMounted(async () => {
     console.log(error);
   }
 });
-const role = ref(null) as any;
 const roleOptions = ref([
   { id: 2, label: 'Campus Gama' },
   { id: 3, label: 'Campus Darcy Ribeiro' },
@@ -81,7 +89,7 @@ async function cadastrarLink() {
         position: 'top',
         timeout: 2000
       });
-
+      fecharModal();
     } else {
       console.log('Erro ao publicar evento:', response.data.message);
       $q.notify({
@@ -132,12 +140,6 @@ function closeRegisterModal() {
 
 }
 
-@media (max-width: 720px) {
-  .text-h1 {
-    font-size: 80px!important;
-    padding-left: 16px;
-  }
-}
 
 .trace {
   width: 40vw;
@@ -162,7 +164,6 @@ function closeRegisterModal() {
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  height: 250px;
   width: 500px;
   background-color: #fff;
   z-index: 1000;
@@ -172,5 +173,15 @@ function closeRegisterModal() {
 
 .cadastrar-button{
   justify-content: center;
+}
+
+@media (max-width: 720px) {
+  .text-h1 {
+    font-size: 80px!important;
+    padding-left: 16px;
+  }
+  .modal {
+    width: 90vw;
+  }
 }
 </style>
