@@ -1,20 +1,36 @@
 <template>
     <q-page>
         <h2 class="text-center q-py-lg">Controle de faltas</h2>
-        <q-btn label="Adicionar matéria" @click="openRegisterModal()" class="text-white bg-blue-7 q-mb-md q-ml-md" />
-        <div class="cards q-gutter-md q-mt-md">
+        <div class="center-btn">
+            <q-btn label="Adicionar matéria" @click="openRegisterModal()" class="text-white bg-blue-7 q-mb-md q-ml-md items-center" />
+        </div>
+            <div class="cards q-gutter-md q-mt-md">
             <q-card class="cursor-pointer justify-between q-px-md no-wrap" v-for="(subject, index) in vectorSubject"
                 :key="index">
                 <q-card-section class="column">
                     <div class="row items-center justify-between">
-                        <h4 class="q-mb-md">{{ subject.nome }}</h4>
-                        <h8 class="low-opacity">{{ subject.cargaHoraria }} horas</h8>
-                    </div>
-                    <div class="row items-center justify-between">
-                        <h8 class="w100" style="opacity:0.8">Faltas: {{ subject.faltas }}</h8>
-                        <q-btn label="-" class="text-white bg-blue-7 q-mb-md" @click="subtractFalta(index)" />
-                        <q-btn label="+" class="text-white bg-blue-7 q-mb-md" @click="addFalta(index)" />
-                    </div>
+            <div class="info">
+              <h5 class="q-mb-md">{{ subject.nome }}</h5>
+              
+            </div>
+            <div class="faltas">
+                <div>
+                    {{ subject.cargaHoraria }} horas
+                </div>
+              <div>
+                Limite de faltas: {{ calculateLimiteFaltas(subject.cargaHoraria) }}
+              </div>
+            </div>
+          </div>
+          <div class="row items-center justify-between">
+            <q-btn class="text-white bg-blue-7 q-mb-md" @click="subtractFalta(index)">
+                <q-icon name="remove" />
+            </q-btn> 
+            <h8 style="opacity:0.8">Faltas: {{ subject.faltas }}</h8>
+            <q-btn class="text-white bg-blue-7 q-mb-md" @click="addFalta(index)">
+                <q-icon name="add" />
+            </q-btn>
+          </div>
                 </q-card-section>
             </q-card>
         </div>
@@ -22,11 +38,11 @@
             <div class="modal-content q-pa-md">
                 <h4 class="text-h6">Adicionar Matéria</h4>
                 <q-form @submit="addSubject">
-                    <q-input v-model="newSubject.nome" label="Nome" />
-                    <q-input v-model="newSubject.cargaHoraria" label="Carga Horária" />
-                    <q-btn type="submit" label="Adicionar" class="text-white bg-blue-7 q-mb-md" />
+                    <q-input v-model="newSubject.nome" label="Nome" required/>
+                    <q-input v-model="newSubject.cargaHoraria" type="number" label="Carga Horária" required/>
+                    <q-btn type="submit" label="Adicionar" class="text-white bg-blue-7 q-mb-md items-center" />
                 </q-form>
-                <q-btn label="Fechar" color="primary" @click="closeModal" />
+                <q-btn label="Fechar" color="primary" class="text-white bg-blue-7 q-mb-md items-center" @click="closeModal" />
             </div>
         </div>
     </q-page>
@@ -49,6 +65,13 @@ export default {
             },
         };
     },
+    computed: {
+        calculateLimiteFaltas() {
+            return (cargaHoraria) => {
+                return Math.floor((cargaHoraria * 0.25)/2);
+            }
+        }
+    },
     methods: {
         openRegisterModal() {
             this.modalVisible = true;
@@ -58,6 +81,7 @@ export default {
             this.newSubject.nome = '';
             this.newSubject.cargaHoraria = '';
         },
+
         subtractFalta(index) {
             if (this.vectorSubject[index].faltas > 0) {
                 this.vectorSubject[index].faltas -= 1
@@ -66,6 +90,7 @@ export default {
         addFalta(index) {
             this.vectorSubject[index].faltas += 1
         },
+        // requisição será feita aqui
         addSubject() {
             this.vectorSubject.push({
                 nome: this.newSubject.nome,
@@ -82,11 +107,17 @@ export default {
 </script>
 
 <style scoped>
+.center-btn {
+    margin-top: 20px;
+    margin-bottom: 0px;
+    display: flex;
+    justify-content: center;
+}
 .cards {
     display: flex;
-    flex-direction: column;
-    align-items: center;
+    flex-wrap: wrap; 
     justify-content: center;
+    gap: 10px;
 }
 
 .q-card {
@@ -131,6 +162,7 @@ export default {
   padding: 20px;
   border-radius: 8px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  box-align: center;
 }
 .modal-content .q-input {
   margin-bottom: 10px;
