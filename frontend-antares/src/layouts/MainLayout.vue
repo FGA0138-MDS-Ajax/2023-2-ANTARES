@@ -62,6 +62,15 @@
           </q-item-section>
         </q-item>
 
+        <q-item clickable v-ripple  to="/calendario">
+          <q-item-section avatar>
+            <q-icon name="event" />
+          </q-item-section>
+
+          <q-item-section>
+            Calendário
+          </q-item-section>
+        </q-item>
         
         <q-item clickable v-ripple  to="/configuracoes">
           <q-item-section avatar>
@@ -72,6 +81,7 @@
             Configurações
           </q-item-section>
         </q-item>
+
         <q-item clickable v-ripple @click="logout()">
           <q-item-section avatar>
             <q-icon name="logout" />
