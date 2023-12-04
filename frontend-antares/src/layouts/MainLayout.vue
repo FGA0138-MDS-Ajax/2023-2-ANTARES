@@ -62,6 +62,15 @@
           </q-item-section>
         </q-item>
 
+        <q-item clickable v-ripple to="/disciplinas">
+          <q-item-section avatar>
+            <q-icon name="school" />
+          </q-item-section>
+
+          <q-item-section>
+            Disciplinas
+          </q-item-section>
+        </q-item>
         <q-item clickable v-ripple  to="/calendario">
           <q-item-section avatar>
             <q-icon name="event" />
