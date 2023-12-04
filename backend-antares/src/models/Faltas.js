@@ -3,6 +3,10 @@ const mongoose = require("mongoose");
 const { Schema } = mongoose;
 
 const faltasSchema = new Schema({
+  matricula: {
+    type: String,
+    required: true,
+  },
   materia: {
     type: String,
     required: true,
@@ -11,7 +15,7 @@ const faltasSchema = new Schema({
     type: Number,
     required: true,
   },
-  faltasTotais: {
+  maximoFaltas: {
     type: Number,
     required: true,
   },
