@@ -3,7 +3,7 @@ const cardapioController = require('../controllers/cardapioController');
 
 router
     .route('/cardapio')
-    .post((req, res) => cardapioController.atualizaCardapio(req, res))
+    .post((req, res) => cardapioController.create(req, res))
 router
     .route('/getCardapio')
     .post((req, res) => cardapioController.getAll(req, res))

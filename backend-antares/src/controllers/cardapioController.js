@@ -1,6 +1,23 @@
 const { Cardapio: CardapioModel } = require('../models/Cardapio');
 
 const cardapioController = {
+
+    create: async (req, res) =>{
+        try {
+            console.log (req.body)
+            const response = await CardapioModel.create(req.body);
+            res
+              .status(201)
+              .json({ response, message: "Cardapio criado com sucesso" });
+          } catch (error) {
+            res
+              .status(500)
+              .json({ message: "Erro ao criar o cardapio" });
+            console.log("Erro controller usuario\n" + error);
+          }
+    },
+
+
     atualizaCardapio: async (req, res) => {
         try {
             const cardapio = {
@@ -20,6 +37,8 @@ const cardapioController = {
             console.log("Erro controller usuario\n" + error);
           }
     },
+
+
 
     getAll: async (req, res) => {
         try {
