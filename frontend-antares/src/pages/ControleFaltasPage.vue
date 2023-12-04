@@ -6,7 +6,7 @@
                 class="text-white bg-blue-7 q-mb-md q-ml-md items-center" />
         </div>
         <div class="cards q-gutter-md q-mt-md">
-            <q-card class="cursor-pointer justify-between q-px-md no-wrap" v-for="(subject, index) in vectorSubject.value"
+            <q-card class="cursor-pointer justify-between q-px-md no-wrap" v-for="(subject, index) in vectorSubject"
                 :key="index">
                 <q-card-section class="column">
                     <div class="row items-center justify-between">
@@ -129,8 +129,9 @@ export default {
         });
         
       }
-      console.log("vectorSubject", vectorSubject);
       console.log("vectorSubject.value", vectorSubject.value.data.response);
+      vectorSubject.value=vectorSubject.value.data.response;
+      console.log("vectorSubject", vectorSubject.value);
     };
 
     const addSubject = async () => {
@@ -146,6 +147,7 @@ export default {
         console.log(params);
         const response = await FaltasService(params).publicar();
         closeModal();
+        fetchData();
         if (response.status == 201) {
           console.log('Matéria publicada com sucesso');
           $q.notify({
