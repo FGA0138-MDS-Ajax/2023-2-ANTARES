@@ -48,3 +48,10 @@ h2 {
     color: transparent; /* Torna o texto transparente para revelar o gradiente de fundo */
     filter: drop-shadow(2px 2px 2px #00000058);
 }
+
+.transition {
+    transition: all 0.2s ease-in-out;
+  }
+  .transition:hover {
+    opacity: .6
+  }

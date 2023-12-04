@@ -1,10 +1,10 @@
 <template>
     <q-page class="q-pa-md">
-      <h2 class="text-h4 text-center q-my-md">Lista de Disciplinas</h2>
+      <h2 class="text-h4 text-center q-mb-md q-py-md">Lista de Disciplinas</h2>
   
-      <div class="q-mb-md">
-        <q-input v-model="search" placeholder="Pesquisar disciplina, professor ou código" @input="filterAndSortDisciplinas" />
-        <q-select v-model="sortOrder" :options="sortOptions" label="Ordenar por" class="q-ml-md" @input="filterAndSortDisciplinas" />
+      <div class="row q-mb-xl q-px-xs">
+        <q-input class="w50rem" v-model="search" placeholder="Pesquisar disciplina, professor ou código" @input="filterAndSortDisciplinas" />
+        <q-select v-model="sortOrder" :options="sortOptions" label="Ordenar por"  @input="filterAndSortDisciplinas" />
       </div>
   
       <div v-if="disciplinasFiltradas.length === 0" class="text-center q-my-md">
@@ -12,7 +12,7 @@
         <p v-else>Nenhuma disciplina encontrada</p>
       </div>
   
-      <div class="row q-col-gutter-md">
+      <div class="row q-col-gutter-md q-px-md">
         <q-card class="my-card" v-for="(disciplina, index) in disciplinasFiltradas" :key="index" @click="goToDisciplina(disciplina.codigo)">
           <q-card-section>
             <div class="text-h6">{{ disciplina.nome }}</div>
@@ -32,7 +32,7 @@
   const disciplinas = ref([]);
   const disciplinasFiltradas = ref([]);
   const search = ref('');
-  const sortOrder = ref('recent');
+  const sortOrder = ref('recentes');
   const sortOptions = [
     { label: 'Atualizada Mais Recente', value: 'recent' },
     { label: 'Nome de A-Z', value: 'name' },
@@ -78,14 +78,16 @@
   
   <style scoped>
     .q-page {
-        background-color: #f5f5f9;
+      background: #a5dbff31;  /* fallback for old browsers */
+      background: -webkit-linear-gradient(to top, #74ff7426, #ffffff, #55bbff58);  /* Chrome 10-25, Safari 5.1-6 */
+      background: linear-gradient(to top, #74ff7426, #ffffff, #55bbff58); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+      
         padding: 20px;
     }
   
     h2.text-h4 {
-        color: #5c6bc0;
+        font-size: 40px;
         text-align: center;
-        margin-bottom: 20px;
     }
   
     .q-input,
@@ -130,6 +132,10 @@
         gap: 20px;
     }
   
+    .w50rem {
+        width: 50rem;
+    }
+
     @media (max-width: 600px) {
         .row {
             flex-direction: column;

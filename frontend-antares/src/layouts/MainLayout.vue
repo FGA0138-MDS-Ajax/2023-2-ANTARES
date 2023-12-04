@@ -20,7 +20,7 @@
       >
         <div class="row items-center justify-center bg-transparent">
           <q-avatar size="80px" class="q-mb-sm">
-            <img style="border-bottom: 2px solid rgb(202, 202, 202)" :src="sessionData.user_image ? sessionData.user_image : 'https://pbs.twimg.com/profile_images/1696145651006930945/r5LfokUU_400x400.jpg'">
+            <img style="border-bottom: 2px solid rgb(202, 202, 202)" :src="sessionData.user_image">
           </q-avatar>
           <div class="column q-pl-md">
             <div class="session-nome text-weight-bold w100">{{ obterPrimeiraUltimaPalavra(sessionData.nome) }}</div>
@@ -71,6 +71,15 @@
             Disciplinas
           </q-item-section>
         </q-item>
+        <q-item clickable v-ripple  to="/calendario">
+          <q-item-section avatar>
+            <q-icon name="event" />
+          </q-item-section>
+
+          <q-item-section>
+            Calendário
+          </q-item-section>
+        </q-item>
         
         <q-item clickable v-ripple  to="/configuracoes">
           <q-item-section avatar>
@@ -81,6 +90,7 @@
             Configurações
           </q-item-section>
         </q-item>
+
         <q-item clickable v-ripple @click="logout()">
           <q-item-section avatar>
             <q-icon name="logout" />

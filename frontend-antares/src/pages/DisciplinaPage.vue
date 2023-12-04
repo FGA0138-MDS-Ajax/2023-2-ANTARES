@@ -1,7 +1,7 @@
 <template>
     <q-page class="q-pa-md page-container">
-      <div class="content-container">
-        <h2 class="text-h6 text-center">{{ disciplina.nome }}</h2>
+      <div class=" content-container bg-white q-pa-md rounded-borders shadow-1">
+        <h6 class="text-h6 text-center w100 bg-grey-2 q-mb-sm">{{ disciplina.nome }}</h6>
         <div class="disciplina-info">
           <p class="info-item"><strong>Código:</strong> {{ disciplina.codigo }}</p>
           <p class="info-item"><strong>Carga Horária:</strong> {{ disciplina.carga_horaria }} horas</p>
@@ -37,7 +37,7 @@
                 :label="`${avaliacao._id.professor_nome} (${QtdAvalProf[avaliacao._id.professor_nome] || 0} avaliações)`"
                 @show="() => toggle(index)" 
                 @hide="() => toggle(index)"
-                class="q-mb-md"
+                class="bg-white"
               >
               <q-card>
                 <q-card-section>
@@ -165,9 +165,14 @@
   </script>
   
   
-  <style>
+  <style scoped>
+  .q-page {
+    background: #a5dbff31;  /* fallback for old browsers */
+    background: -webkit-linear-gradient(to top, #74ff7426, #ffffff, #55bbff58);  /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to top, #74ff7426, #ffffff, #55bbff58); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    
+  }
   .page-container {
-    margin-top: 40px;
     display: flex;
     justify-content: center;
   }

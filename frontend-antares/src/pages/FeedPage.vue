@@ -212,7 +212,7 @@ onBeforeMount(async () => {
         display: flex;
         flex-direction: column;
         width: 95%!important;
-        height: 20rem;
+        height: 22rem;
     }
     .cards {
         display: flex;

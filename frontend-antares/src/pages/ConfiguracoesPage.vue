@@ -3,7 +3,7 @@
         <div>
             <h2 class="text-center q-py-lg">Configurações</h2>
         </div>
-        <div class="q-mt-md config-wrapper w100 column justify-center items-center">
+        <div class="q-mt-md q-pb-md config-wrapper w100 column justify-center items-center">
             <q-input filled readonly v-model="sessionData.nome" label="Nome Completo" style="font-size: 16px" class="w20rem text-h6 low-opacity q-mb-md" />
             <q-input filled readonly v-model="sessionData.role" label="Tipo de Conta" style="font-size: 16px"  class="w20rem text-h6 low-opacity q-mb-md" />
             <q-input filled readonly v-model="sessionData.matricula" label="Matrícula" style="font-size: 16px"  class="w20rem text-h6 low-opacity q-mb-md" />
@@ -41,21 +41,20 @@ async function enviar() {
     }
     if (novaImg.value && novaImg.value.trim() !== '') {
     const updateSessionData = (newUserImage: any) => {
-        const currentSessionData = sessionStore.getSessionData; // Obtenha os dados atuais da sessão
+        const currentSessionData = sessionStore.getSessionData;
         const updatedSessionData = {
         ...currentSessionData,
         user_image: newUserImage,
     };
-    sessionStore.setSessionData(updatedSessionData); // Atualize os dados da sessão
+    sessionStore.setSessionData(updatedSessionData);
     };
-    // Use a função para atualizar a imagem do usuário
     updateSessionData(novaImg.value.trim());
     }
     try{
     const configuracao = {
         email: sessionData.value.email, 
         senha: alterandoSenha.value,
-        imagem: novaImg.value
+        user_image: novaImg.value
     }
     const { editar } = LoginService(configuracao)
     const response = await editar()
@@ -65,16 +64,15 @@ async function enviar() {
             message: response.data.message,
             position: 'top'
         })
+        window.location.href = 'https://unbnamao.netlify.app/'
     }
     console.log(JSON.stringify(response))
     } catch(e: any) {
         $q.notify({
-            type: 'positive',
+            type: 'negative',
             message: e.message,
             position: 'top'
         })
-    } finally {
-        window.location.href = 'https://unbnamao.netlify.app/'
     }
 }
 
