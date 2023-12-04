@@ -6,7 +6,7 @@ const calendarioController = {
             const [datePart, timePart] = dataString.split(' ');
             const [day, month, year] = datePart.split('-');
             const [hours, minutes, seconds] = timePart.split(':');
-            const data = new Date(year, month - 1, day, hours, minutes, seconds);
+            const data = new Date(year, month - 1, day, hours + 3, minutes, seconds);
             return data;
         }
 
