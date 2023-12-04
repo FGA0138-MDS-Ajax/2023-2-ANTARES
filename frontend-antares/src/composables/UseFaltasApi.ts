@@ -18,9 +18,18 @@ export default function useFaltasApi(params: any) {
       throw error;
     }
   }
+  const atualizarFaltas = async () => {
+    try {
+      const response = await api.patch('/faltas', params);
+      return response;
+    } catch (error) {
+      throw error;
+    }
+  }
 
   return {
     postarMateria,
-    listarFaltas
+    listarFaltas,
+    atualizarFaltas
   }
 }

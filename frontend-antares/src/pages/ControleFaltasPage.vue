@@ -81,14 +81,68 @@ export default {
       newSubject.value.horas = '';
     };
 
-    const subtractFalta = (index) => {
-      if (vectorSubject.value[index].faltas > 0) {
-        vectorSubject.value[index].faltas -= 1;
-      }
+    const subtractFalta = async (index) => {
+        if (vectorSubject.value[index].faltas > 0) {
+            vectorSubject.value[index].faltas -= 1;
+        }
+        const sessionStore = useSessionStore();
+        const usuarioLogado = sessionStore.getSessionData;
+        const matricula = usuarioLogado.matricula;
+        const params = {
+          matricula,
+          materia: vectorSubject.value[index].materia,
+          faltas: vectorSubject.value[index].faltas,
+        };
+        console.log(params);
+        const response = await FaltasService(params).atualizar();
+        if (response.status == 200) {
+          console.log('Matéria atualizada com sucesso');
+        } else {
+          console.log('Erro ao atualizar matéria:', response.data.message);
+          $q.notify({
+            color: 'red-10',
+            textColor: 'white',
+            icon: 'warning',
+            message: response.data.message,
+            position: 'top',
+            timeout: 3000
+          });
+        }
     };
 
-    const addFalta = (index) => {
+    const addFalta = async (index) => {
       vectorSubject.value[index].faltas += 1;
+        const sessionStore = useSessionStore();
+        const usuarioLogado = sessionStore.getSessionData;
+        const matricula = usuarioLogado.matricula;
+        const params = {
+          matricula,
+          materia: vectorSubject.value[index].materia,
+          faltas: vectorSubject.value[index].faltas,
+        };
+        console.log(params);
+        const response = await FaltasService(params).atualizar();
+        if (response.status == 200) {
+          console.log('Matéria atualizada com sucesso');
+          $q.notify({
+            color: 'green-10',
+            textColor: 'white',
+            icon: 'cloud_done',
+            message: 'Matéria atualizada com sucesso',
+            position: 'top',
+            timeout: 2000
+          });
+        } else {
+          console.log('Erro ao atualizar matéria:', response.data.message);
+          $q.notify({
+            color: 'red-10',
+            textColor: 'white',
+            icon: 'warning',
+            message: response.data.message,
+            position: 'top',
+            timeout: 3000
+          });
+        }
     };
 
     const fetchData = async () => {
