@@ -1,5 +1,6 @@
 <template>
   <div class="fullscreen bg-blue text-white text-center q-pa-md flex flex-center">
+    <meta name="google-adsense-account" content="ca-pub-9172295644756939">
     <div>
       <div style="font-size: 30vh">
         404

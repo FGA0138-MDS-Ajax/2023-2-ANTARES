@@ -89,15 +89,6 @@
             Disciplinas
           </q-item-section>
         </q-item>
-        <q-item clickable v-ripple v-if="sessionData.role && sessionData.role == 'Estudante' || sessionData.role && sessionData.role == 'Admin'" to="/faltas">
-          <q-item-section avatar>
-            <q-icon name="unpublished" />
-          </q-item-section>
-
-          <q-item-section>
-            Faltas
-          </q-item-section>
-        </q-item>
         <q-item clickable v-ripple  to="/configuracoes">
           <q-item-section avatar>
             <q-icon name="settings" />
@@ -117,7 +108,7 @@
             Fazer Logout
           </q-item-section>
         </q-item>
-
+        <meta name="google-adsense-account" content="ca-pub-9172295644756939">
         <q-item clickable v-ripple class="absolute-bottom q-mb-sm" @click="verProjeto()">
           <q-item-section avatar>
             <q-icon name="git" />

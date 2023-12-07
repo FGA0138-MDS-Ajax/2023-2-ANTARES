@@ -1,5 +1,6 @@
 <template>
     <q-page>
+      <meta name="google-adsense-account" content="ca-pub-9172295644756939">
         <h2 class="text-center q-py-lg">Controle de faltas</h2>
         <div class="center-btn">
             <q-btn label="Adicionar matéria" @click="openRegisterModal()"

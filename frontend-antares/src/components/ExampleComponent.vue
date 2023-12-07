@@ -1,5 +1,6 @@
 <template>
   <div>
+    <meta name="google-adsense-account" content="ca-pub-9172295644756939">
     <p>{{ title }}</p>
     <ul>
       <li v-for="todo in todos" :key="todo.id" @click="increment">

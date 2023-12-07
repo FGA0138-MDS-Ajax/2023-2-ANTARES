@@ -1,4 +1,5 @@
 <template>
+    <meta name="google-adsense-account" content="ca-pub-9172295644756939">
     <div class="modal">
         <div class="modal-content">
             <div class="modal-header">

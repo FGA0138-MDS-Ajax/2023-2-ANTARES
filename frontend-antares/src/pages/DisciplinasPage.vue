@@ -1,5 +1,6 @@
 <template>
     <q-page class="q-pa-md">
+      <meta name="google-adsense-account" content="ca-pub-9172295644756939">
       <h2 class="text-h4 text-center q-mb-md q-py-md">Lista de Disciplinas</h2>
   
       <div class="row q-mb-xl q-px-xs">

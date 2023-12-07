@@ -1,5 +1,6 @@
 <template>
     <q-page class="q-pa-md page-container">
+      <meta name="google-adsense-account" content="ca-pub-9172295644756939">
       <div class=" content-container bg-white q-pa-md rounded-borders shadow-1">
         <h6 class="text-h6 text-center w100 bg-grey-2 q-mb-sm">{{ disciplina.nome }}</h6>
         <div class="disciplina-info">

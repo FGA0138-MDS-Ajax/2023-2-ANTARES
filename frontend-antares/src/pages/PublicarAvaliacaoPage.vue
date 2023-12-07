@@ -1,5 +1,6 @@
 <template>
     <q-page class="row justify-center items-center">
+      <meta name="google-adsense-account" content="ca-pub-9172295644756939">
       <q-card class="q-mb-xl">
         <q-card-section class="card-header">
           <q-btn flat round icon="arrow_back" @click="voltarParaHome" class="back-button" />

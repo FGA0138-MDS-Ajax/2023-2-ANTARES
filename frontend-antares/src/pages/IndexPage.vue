@@ -1,5 +1,6 @@
 <template>
   <q-page>
+    <meta name="google-adsense-account" content="ca-pub-9172295644756939">
     <div class="w100 q-mt-lg text-h2 text-center">Admin Page</div>
     <div class="row justify-center items-center">
       <q-btn flat label="Atualizar link cardápio" class="bg-orange-8 text-white button-prev shadow-1" icon="refresh" @click="openRegisterModal"/>

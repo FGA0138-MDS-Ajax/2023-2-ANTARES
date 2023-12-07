@@ -1,5 +1,6 @@
 <template>
   <div id="login" class="column items-center justify-center">
+    <meta name="google-adsense-account" content="ca-pub-9172295644756939">
     <div class="background-image"></div>
     <q-card class="my-card">
       <q-card-section class="bg-blue text-white">

@@ -1,5 +1,6 @@
 <template>
     <q-page>
+        <meta name="google-adsense-account" content="ca-pub-9172295644756939">
         <div>
             <h2 class="text-center q-py-lg">Configurações</h2>
         </div>

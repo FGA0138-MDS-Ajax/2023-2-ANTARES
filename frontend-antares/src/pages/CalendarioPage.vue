@@ -1,5 +1,6 @@
 <template>
   <q-page>
+    <meta name="google-adsense-account" content="ca-pub-9172295644756939">
     <h2 class="w100 text-center q-py-lg">Calendário</h2>
     <div class="column q-px-lg q-gutter-y-md">
       <CalendarComponent>

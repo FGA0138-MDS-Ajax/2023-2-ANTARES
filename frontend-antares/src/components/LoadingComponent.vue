@@ -1,5 +1,6 @@
 <template>
-    <div id="loading-wrapper">
+  <div id="loading-wrapper">
+      <meta name="google-adsense-account" content="ca-pub-9172295644756939">
         <div class="lds-grid"><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div></div>
     </div>
 </template>
